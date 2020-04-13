@@ -68,6 +68,8 @@ const styles = theme => ({
   title: {
     willChange: "transform, left, top",
     fontSize: `${theme.info.fonts.boxTitleSize}em`,
+    fontWeight: "100",
+    color: "#555555",
     margin: 0,
     float: "left",
     transitionTimingFunction: "ease",
@@ -88,9 +90,9 @@ const styles = theme => ({
       transform: "translate(-50%)",
       transition: "all .5s",
       ".is-aside.open &": {
-        left: "60%",
+        left: "260%",
         top: `${1.9 - theme.info.fonts.boxTitleSizeL}em`,
-        textAlign: "left"
+        textAlign: "left",
       }
     }
   },
@@ -111,15 +113,15 @@ const InfoHeader = props => {
 
   return (
     <header className={classes.header}>
-      <Link className={classes.avatarLink} onClick={avatarOnClick} to="/" title="back to Home page">
+      <Link className={classes.avatarLink} to="/" title="トップページへ戻る">
         <div className={classes.avatar}>
           <img src={avatar} alt="" />
         </div>
-      </Link>
-      <h1 className={classes.title}>
+      <p className={classes.title}>
         {config.infoTitle.replace(/ /g, "\u00a0")}
         <small>{config.infoTitleNote}</small>
-      </h1>
+      </p>
+      </Link>
       <IconButton
         aria-label="Expand the box"
         className={classes.expand}

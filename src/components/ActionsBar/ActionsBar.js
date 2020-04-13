@@ -128,9 +128,10 @@ class ActionsBar extends React.Component {
       <div className={classes.actionsBar}>
         <div className={classes.group}>
           <IconButton
-            aria-label="Back to list"
-            onClick={this.homeOnClick}
-            title="Back to the list"
+            aria-label="トップページへ戻る"
+            title="トップページへ戻る"
+            component={Link}
+            to="/"
             className={classes.button}
           >
             <HomeIcon />
