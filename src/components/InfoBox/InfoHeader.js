@@ -68,7 +68,7 @@ const styles = theme => ({
   title: {
     willChange: "transform, left, top",
     fontSize: `${theme.info.fonts.boxTitleSize}em`,
-    fontWeight: "100",
+    fontWeight: "300",
     color: "#555555",
     margin: 0,
     float: "left",
@@ -117,10 +117,10 @@ const InfoHeader = props => {
         <div className={classes.avatar}>
           <img src={avatar} alt="" />
         </div>
-      <p className={classes.title}>
+      <div className={classes.title}>
         {config.infoTitle.replace(/ /g, "\u00a0")}
         <small>{config.infoTitleNote}</small>
-      </p>
+      </div>
       </Link>
       <IconButton
         aria-label="Expand the box"

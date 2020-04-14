@@ -36,6 +36,8 @@ const styles = theme => ({
   title: {
     float: "left",
     margin: "10px 0 0 15px",
+    fontSize: "1.17em",
+    fontWeight: "300",
     color: theme.bars.colors.text,
     "& small": {
       display: "block",
@@ -65,13 +67,15 @@ class InfoBar extends React.Component {
 
     return (
       <aside className={classes.infoBar}>
-        <Link to="/" className={classes.avatarLink} onClick={this.homeLinkOnClick}>
+        <Link to="/" className={classes.avatarLink}>
           <Avatar alt={config.infoTitle} src={avatar} className={classes.avatar} />
         </Link>
-        <h3 className={classes.title}>
-          {config.infoTitle}
-          <small>{config.infoTitleNote}</small>
-        </h3>
+        <Link to="/">
+          <div className={classes.title}>
+            {config.infoTitle}
+            <small>{config.infoTitleNote}</small>
+          </div>
+        </Link>
         <TopMenu
           pages={pages}
           homeLinkOnClick={this.homeLinkOnClick}
