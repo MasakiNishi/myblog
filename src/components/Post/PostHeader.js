@@ -26,6 +26,7 @@ const styles = theme => ({
     fontSize: `${theme.main.fonts.subTitle.size}em`,
     lineHeight: theme.main.fonts.subTitle.lineHeight,
     fontWeight: theme.main.fonts.subTitle.weight,
+    margin: "0.83em 0",
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       fontSize: `${theme.main.fonts.subTitle.sizeM}em`
     },
@@ -53,7 +54,7 @@ const PostHeader = props => {
   return (
     <header className={classes.header}>
       <h1 className={classes.title}>{title}</h1>
-      <h2 className={classes.subTitle}>{subTitle}</h2>
+      <div className={classes.subTitle}>{subTitle}</div>
       <div className={classes.meta}>{myDate(date)}</div>
     </header>
   );

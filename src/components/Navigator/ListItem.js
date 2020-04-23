@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "gatsby-link";
+import { withPrefix } from "gatsby-link";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import LazyLoad from "react-lazyload";
@@ -70,7 +71,7 @@ const styles = theme => ({
     display: "flex",
     flexDirection: "column",
     width: "100%",
-    "& h1": {
+    "& h2": {
       lineHeight: 1.15,
       fontWeight: 600,
       letterSpacing: "-0.03em",
@@ -89,10 +90,15 @@ const styles = theme => ({
         }
       }
     },
-    "& h2": {
+    "& span": {
+      fontSize: "1em",
+      fontWeight: "400",
+    },
+    "& h3": {
       lineHeight: 1.2,
       display: "block",
       fontSize: `${theme.navigator.sizes.postsListItemH2Font}em`,
+      fontWeight: "300",
       margin: ".3em 0 0 0",
       [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
         fontSize: `${theme.navigator.sizes.postsListItemH2Font *
@@ -135,7 +141,8 @@ class ListItem extends React.Component {
   }
 
   render() {
-    const { classes, post, linkOnClick } = this.props;
+    const { classes, post, linkOnClick} = this.props;
+    const isHome = location.pathname === withPrefix("/");
 
     return (
       <li
@@ -163,8 +170,9 @@ class ListItem extends React.Component {
             {/*<Img sizes={post.node.frontmatter.cover.children[0].sizes} />*/}
           </div>
           <div className={classes.listItemText}>
-            <h1>{post.node.frontmatter.title}</h1>
-            {post.node.frontmatter.subTitle && <h2>{post.node.frontmatter.subTitle}</h2>}
+            {isHome && <h2>{post.node.frontmatter.title}</h2>}
+            {isHome && <h3>{post.node.frontmatter.subTitle}</h3>}
+            {isHome || <span>{post.node.frontmatter.title}</span>}
           </div>
         </Link>
       </li>

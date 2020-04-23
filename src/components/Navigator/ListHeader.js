@@ -22,7 +22,7 @@ const styles = theme => ({
       height: `${theme.navigator.sizes.closedHeight}px`,
       padding: "0 30px 0 40px"
     },
-    "& h3": {
+    "& span": {
       fontSize: "1.1em",
       color: theme.navigator.colors.postsHeader,
       fontWeight: 600,
@@ -84,7 +84,7 @@ const ListHeader = props => {
     <header>
       {navigatorShape === "closed" && (
         <div className={classes.closed}>
-          <h3>List of posts</h3>
+          <span>List of posts</span>
           <IconButton
             aria-label="Expand the list"
             className={classes.expand}
