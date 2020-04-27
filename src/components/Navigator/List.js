@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import { forceCheck } from "react-lazyload";
+import { withPrefix } from "gatsby-link";
 
 import ListHeader from "./ListHeader";
 import SpringScrollbars from "../SpringScrollbars";
@@ -19,6 +20,9 @@ const styles = theme => ({
     padding: `calc(${theme.bars.sizes.infoBar}px + 1.3rem) 1.3rem calc(${
       theme.bars.sizes.actionsBar
     }px + 1.3rem) 1.3rem`,
+  "& h1": {
+    margin: "0.67em 0px 0.67em 15px",
+  },
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       padding: `calc(${theme.bars.sizes.infoBar}px + 2rem) 2rem calc(${
         theme.bars.sizes.actionsBar
@@ -59,6 +63,7 @@ class List extends React.Component {
       navigatorShape,
       removeFilter
     } = this.props;
+    const isHome = location.pathname === withPrefix("/");
 
     return (
       <div className={classes.posts}>
@@ -70,6 +75,7 @@ class List extends React.Component {
               navigatorShape={navigatorShape}
               removeFilter={removeFilter}
             />
+            {isHome && <h1>Articles</h1>}
             <ul className={classes.list}>
               {posts &&
                 posts.map((post, i) => (
