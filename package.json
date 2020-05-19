@@ -64,7 +64,6 @@
     "material-ui": "1.0.0-beta.36",
     "material-ui-icons": "^1.0.0-beta.17",
     "react-custom-scrollbars": "^4.2.1",
-    "react-disqus-thread": "^0.4.0",
     "react-facebook": "^5.0.3",
     "react-headroom": "^2.2.2",
     "react-helmet": "^5.1.3",
