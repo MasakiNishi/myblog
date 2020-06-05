@@ -94,6 +94,11 @@ const styles = theme => ({
       fontSize: "1em",
       fontWeight: "400",
     },
+    "& .listItemDate": {
+      lineHeight: 1.1,
+      fontSize: "0.9em",
+      margin: "0 0 .3em 0",
+    },
     "& h3": {
       lineHeight: 1.2,
       display: "block",
@@ -171,6 +176,7 @@ class ListItem extends React.Component {
             {/*<Img sizes={post.node.frontmatter.cover.children[0].sizes} />*/}
           </div>
           <div className={classes.listItemText}>
+            {isHome && <span className={'listItemDate'}>{post.node.fields.prefix}</span>}
             {isHome && <h2>{post.node.frontmatter.title}</h2>}
             {isHome && <h3>{post.node.frontmatter.subTitle}</h3>}
             {isHome || <span>{post.node.frontmatter.title}</span>}
