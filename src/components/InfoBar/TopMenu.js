@@ -78,7 +78,6 @@ class TopMenu extends React.Component {
                     <a href="/" style={{ display: "block" }}>
                       <MenuItem
                         onClick={e => {
-                          this.props.pageLinkOnClick(e);
                           this.handleClose();
                         }}
                       >
