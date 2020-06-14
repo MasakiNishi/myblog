@@ -4,13 +4,14 @@ module.exports = {
   siteTitle: "Masaki Nishi PersonalBlog", // <title>
   shortSiteTitle: "Masaki Nishi PersonalBlog", // <title> ending for posts and pages
   siteDescription: "Masaki Nishi is Awesome.",
-  siteUrl: "https://gatsby-starter-personal-blog.greglobinski.com",
+  siteUrl: "http://localhost:8000",
   pathPrefix: "",
   siteImage: "preview.jpg",
+  siteImageOgp: "/ogp/profile.png",
   siteLanguage: "en",
   // author
   authorName: "Masaki Nishi",
-  authorTwitterAccount: "greglobinski",
+  authorTwitterAccount: "@masakinishi_com",
   // info
   infoTitle: "Masaki Nishi",
   infoTitleNote: "personal blog",
@@ -25,8 +26,8 @@ module.exports = {
   contactEmail: "john@doe.com",
   // social
   authorSocialLinks: [
-    { name: "github", url: "https://github.com/greglobinski" },
-    { name: "twitter", url: "https://twitter.com/greglobinski" },
-    { name: "facebook", url: "http://facebook.com/greglobinski" }
+    { name: "github", url: "https://github.com/MasakiNishi" },
+    { name: "twitter", url: "https://twitter.com/masakinishi_com" },
+    { name: "facebook", url: "http://facebook.com/masakinishi" }
   ]
 };

@@ -1,7 +1,8 @@
 ---
 title: Two things are infinite the universe and human stupidity
 subTitle: And I'm not sure about the universe.
-category: "sayings"
+description: TestTestTest
+category: "sayyes"
 cover: photo-1490474418585-ba9bad8fd0ea-cover.jpg
 ---
 
