@@ -1,6 +1,8 @@
 ---
 title: I have not failed. I've just found 10,000 ways that won't work
 cover: photo-1463852247062-1bbca38f7805-cover.jpg
+date: "2018-07-03"
+category: "sayings"
 ---
 
 Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.

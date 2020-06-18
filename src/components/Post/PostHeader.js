@@ -34,28 +34,34 @@ const styles = theme => ({
       fontSize: `${theme.main.fonts.subTitle.sizeL}em`
     }
   },
-  meta: {
+  date: {
     fontSize: `${theme.main.fonts.meta.size}em`,
     fontWeight: theme.main.fonts.meta.weight,
-    color: theme.main.colors.meta
+    color: theme.main.colors.meta,
+    "& span": {
+      fontWeight: "normal"
+    }
   }
 });
 
 const PostHeader = props => {
-  const { classes, title, subTitle, date } = props;
+  const { classes, title, subTitle, publishDate, modifiedDate } = props;
 
-  function myDate(dateString) {
-    const dateObj = new Date(dateString);
-    const dateToShow = dateObj.toDateString();
-
-    return dateToShow;
-  }
+  const isEmptyDate = modifiedDate === null;
 
   return (
     <header className={classes.header}>
       <h1 className={classes.title}>{title}</h1>
       <div className={classes.subTitle}>{subTitle}</div>
-      <div className={classes.meta}>{myDate(date)}</div>
+      <time className={classes.date} dateTime={publishDate}>
+        <span>投稿日:</span> {publishDate}
+      </time>
+      &emsp;
+      { isEmptyDate ||
+      <time className={classes.date} dateTime={modifiedDate}>
+        <span>更新日:</span> {modifiedDate}
+      </time>
+      }
     </header>
   );
 };
@@ -64,7 +70,8 @@ PostHeader.propTypes = {
   classes: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   subTitle: PropTypes.string,
-  date: PropTypes.string.isRequired
+  publishDate: PropTypes.string.isRequired,
+  modifiedDate: PropTypes.string
 };
 
 export default injectSheet(styles)(PostHeader);

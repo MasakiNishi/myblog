@@ -1,6 +1,8 @@
 ---
 title: Good friends, good books, and a sleepy conscience
 subTitle: This is the ideal life 
+date: "2018-07-03"
+category: "sayings"
 path: "/good-friends/"
 cover: photo-1500531279542-fc8490c8ea4d-cover.jpg
 ---

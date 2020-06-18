@@ -2,6 +2,8 @@
 title: How to customize the PersonalBlog starter's appearance
 subTitle: GatsbyJS starter instruction
 description: test
+date: "2018-07-03"
+category: "sayings"
 cover: photo-1463852247062-1bbca38f7805-cover.jpg
 ---
 

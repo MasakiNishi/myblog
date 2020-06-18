@@ -67,6 +67,7 @@ export const postQuery = graphql`
         prefix
       }
       frontmatter {
+        date
         title
         subTitle
         description

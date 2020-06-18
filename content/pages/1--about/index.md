@@ -1,5 +1,6 @@
 ---
 title: About
+menuTitle: 私について
 ---
 
 This is a demo site of the [PersonalBlog](https://github.com/greglobinski/gatsby-starter-personal-blog) GatsbyJS starter.

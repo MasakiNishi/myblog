@@ -16,6 +16,8 @@ const Seo = props => {
   const url = config.siteUrl + config.pathPrefix + postSlug;
 
   const isHome = location.pathname === withPrefix("/");
+  const isAbout = location.pathname === withPrefix("/about/");
+  const isSearch = location.pathname === withPrefix("/search/");
 
   if (isHome) {
     return (
@@ -43,6 +45,58 @@ const Seo = props => {
         />
       </Helmet>
     );
+  } else if (isAbout) {
+    return (
+        <Helmet
+          htmlAttributes={{
+            lang: config.siteLanguage,
+            prefix: "og: http://ogp.me/ns#"
+          }}
+        >
+          {/* General tags */}
+          <title>About</title>
+          <meta name="description" content="test" />
+          {/* OpenGraph tags */}
+          <meta property="og:url" content={config.siteUrl + "/about/"} />
+          <meta property="og:title" content="About" />
+          <meta property="og:description" content="testestest" />
+          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+          <meta property="og:type" content="article" />
+          <meta property="fb:app_id" content={facebook.appId} />
+          {/* Twitter Card tags */}
+          <meta name="twitter:card" content="summarylargeimage" />
+          <meta
+            name="twitter:site"
+            content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
+          />
+        </Helmet>
+      );
+  } else if (isSearch) {
+    return (
+        <Helmet
+          htmlAttributes={{
+            lang: config.siteLanguage,
+            prefix: "og: http://ogp.me/ns#"
+          }}
+        >
+          {/* General tags */}
+          <title>Search</title>
+          <meta name="description" content="test" />
+          {/* OpenGraph tags */}
+          <meta property="og:url" content={config.siteUrl + "/search/"} />
+          <meta property="og:title" content="Search" />
+          <meta property="og:description" content="testestest" />
+          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+          <meta property="og:type" content="article" />
+          <meta property="fb:app_id" content={facebook.appId} />
+          {/* Twitter Card tags */}
+          <meta name="twitter:card" content="summarylargeimage" />
+          <meta
+            name="twitter:site"
+            content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
+          />
+        </Helmet>
+      );
   } else {
     return (
         <Helmet

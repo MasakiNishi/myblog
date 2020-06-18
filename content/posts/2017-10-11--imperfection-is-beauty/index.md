@@ -1,6 +1,8 @@
 ---
 title: Imperfection is beauty, madness is genius
-subTitle: And it's better to be absolutely ridiculous than absolutely boring 
+subTitle: And it's better to be absolutely ridiculous than absolutely boring
+date: "2018-07-03"
+category: "sayings"
 path: "/imperfection-is-beauty/"
 cover: photo-1469461084727-4bfb496cf55a-cover.jpg
 ---
