@@ -1,8 +1,8 @@
 import React from "react";
+import { withPrefix } from "gatsby-link";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import { forceCheck } from "react-lazyload";
-import { withPrefix } from "gatsby-link";
 
 import ListHeader from "./ListHeader";
 import SpringScrollbars from "../SpringScrollbars";
@@ -29,7 +29,7 @@ const styles = theme => ({
       }px + 2rem) 2rem`
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
-      padding: `2rem  calc(1rem + 17px) calc(2rem + 17px) 2rem`,
+      padding: 0,
       left: `${theme.info.sizes.width}px`,
       ".moving-featured &, .is-aside &": {
         padding: "1rem .5rem 1rem .5rem"
@@ -42,6 +42,31 @@ const styles = theme => ({
     padding: 0,
     ".is-aside.closed &, .moving-featured.closed &": {
       display: "none"
+    }
+  },
+  HomelistAll: {
+    listStyle: "none",
+    margin: 0,
+    padding: 0,
+    ".is-aside.closed &, .moving-featured.closed &": {
+      display: "none"
+    },
+    [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+      padding: "2rem calc(1rem + 17px) calc(2rem + 17px) 2rem"
+    }
+  },
+  HomeList: {
+    listStyle: "none",
+    margin: 0,
+    padding: 0,
+    ".is-aside.closed &, .moving-featured.closed &": {
+      display: "none"
+    },
+    [`@media (max-width: 1023px)`]: {
+      paddingTop: "80px"
+    },
+    [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+      padding: "130px calc(1rem + 17px) calc(2rem + 17px) 2rem"
     }
   }
 });
@@ -63,34 +88,94 @@ class List extends React.Component {
       navigatorShape,
       removeFilter
     } = this.props;
+
     const isHome = location.pathname === withPrefix("/");
 
-    return (
-      <div className={classes.posts}>
-        <SpringScrollbars forceCheckOnScroll={true} isNavigator={true}>
-          <div className={classes.inner}>
-            <ListHeader
-              expandOnClick={expandOnClick}
-              categoryFilter={categoryFilter}
-              navigatorShape={navigatorShape}
-              removeFilter={removeFilter}
-            />
-            {isHome && <h1>Articles</h1>}
-            <ul className={classes.list}>
-              {posts &&
-                posts.map((post, i) => (
-                  <ListItem
-                    key={i}
-                    post={post}
-                    linkOnClick={linkOnClick}
-                    categoryFilter={categoryFilter}
-                  />
-                ))}
-            </ul>
-          </div>
-        </SpringScrollbars>
-      </div>
-    );
+    if (isHome) {
+      return (
+        <div className={classes.posts}>
+          <SpringScrollbars forceCheckOnScroll={true} isNavigator={true}>
+            <div className={classes.inner}>
+              <ListHeader
+                expandOnClick={expandOnClick}
+                categoryFilter={categoryFilter}
+                navigatorShape={navigatorShape}
+                removeFilter={removeFilter}
+              />
+              {categoryFilter === "all posts" && (
+                <ul className={classes.HomelistAll}>
+                  {posts &&
+                    posts.map((post, i) => (
+                      <ListItem
+                        key={i}
+                        post={post}
+                        linkOnClick={linkOnClick}
+                        categoryFilter={categoryFilter}
+                      />
+                    ))}
+                </ul>
+              )}
+              {navigatorShape === "open" &&
+                categoryFilter !== "all posts" && (
+                <ul className={classes.HomeList}>
+                  {posts &&
+                    posts.map((post, i) => (
+                      <ListItem
+                        key={i}
+                        post={post}
+                        linkOnClick={linkOnClick}
+                        categoryFilter={categoryFilter}
+                      />
+                    ))}
+                </ul>
+              )}
+            </div>
+          </SpringScrollbars>
+        </div>
+      );
+    } else {
+      return (
+        <div className={classes.posts}>
+          <SpringScrollbars forceCheckOnScroll={true} isNavigator={true}>
+            <div className={classes.inner}>
+              <ListHeader
+                expandOnClick={expandOnClick}
+                categoryFilter={categoryFilter}
+                navigatorShape={navigatorShape}
+                removeFilter={removeFilter}
+              />
+              {categoryFilter === "all posts" && (
+                <ul className={classes.list}>
+                  {posts &&
+                    posts.map((post, i) => (
+                      <ListItem
+                        key={i}
+                        post={post}
+                        linkOnClick={linkOnClick}
+                        categoryFilter={categoryFilter}
+                      />
+                    ))}
+                </ul>
+              )}
+              {navigatorShape === "open" &&
+                categoryFilter !== "all posts" && (
+                <ul className={classes.list} style={{marginTop: "80px"}}>
+                  {posts &&
+                    posts.map((post, i) => (
+                      <ListItem
+                        key={i}
+                        post={post}
+                        linkOnClick={linkOnClick}
+                        categoryFilter={categoryFilter}
+                      />
+                    ))}
+                </ul>
+              )}
+            </div>
+          </SpringScrollbars>
+        </div>
+      );
+    };
   }
 }
 

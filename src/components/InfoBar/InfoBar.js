@@ -3,6 +3,7 @@ import injectSheet from "react-jss";
 import PropTypes from "prop-types";
 import Avatar from "material-ui/Avatar";
 import Link from "gatsby-link";
+import { withPrefix } from "gatsby-link";
 import { connect } from "react-redux";
 
 import { setNavigatorPosition } from "../../state/store";
@@ -64,6 +65,7 @@ class InfoBar extends React.Component {
 
   render() {
     const { classes, pages } = this.props;
+    const isHome = location.pathname === withPrefix("/");
 
     return (
       <aside className={classes.infoBar}>
@@ -71,10 +73,18 @@ class InfoBar extends React.Component {
           <Avatar alt={config.infoTitle} src={avatar} className={classes.avatar} />
         </Link>
         <Link to="/">
+          { isHome &&
+          <h1 className={classes.title}>
+            {config.infoTitle}
+            <small>{config.infoTitleNote}</small>
+          </h1>
+          }
+          { isHome ||
           <div className={classes.title}>
             {config.infoTitle}
             <small>{config.infoTitleNote}</small>
           </div>
+          }
         </Link>
         <TopMenu
           pages={pages}

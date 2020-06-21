@@ -1,4 +1,5 @@
 import React from "react";
+import { withPrefix } from "gatsby-link";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import IconButton from "material-ui/IconButton";
@@ -41,13 +42,15 @@ const styles = theme => ({
     color: theme.navigator.colors.postsHeader
   },
   filter: {
-    margin: `0 calc(-.5rem + ${theme.base.sizes.linesMargin}) 1em calc(-.5rem + ${
-      theme.base.sizes.linesMargin
-    })`,
-    position: "relative",
+    position: "fixed",
+    top: 0,
+    zIndex: "1",
+    width: "87.5%",
     fontSize: "1.2em",
     lineHeight: 1,
     color: theme.base.colors.accent,
+    background: "#fff",
+    borderTop: `1px solid ${theme.base.colors.lines}`,
     borderBottom: `1px solid ${theme.base.colors.lines}`,
     padding: "0 1em 1em",
     fontWeight: 300,
@@ -63,8 +66,8 @@ const styles = theme => ({
       margin: "0 0 1em 0",
       padding: "0 1em 1.5em",
       ".is-aside &": {
-        padding: "0 0 1em .5em",
-        margin: `0 calc(-.5rem + ${theme.base.sizes.linesMargin}) 1em calc(-.5rem + ${
+        padding: "1em 0 1em .5em",
+        margin: `0 calc(-.5rem + ${theme.base.sizes.linesMargin}) 0 calc(-.5rem + ${
           theme.base.sizes.linesMargin
         })`
       }
@@ -72,45 +75,158 @@ const styles = theme => ({
   },
   clear: {
     position: "absolute",
-    top: 0,
+    top: "20%",
     right: 0
+  },
+  filterHome: {
+    margin: `0 calc(-.5rem + ${theme.base.sizes.linesMargin}) 1em calc(-.5rem + ${
+      theme.base.sizes.linesMargin
+    })`,
+    position: "fixed",
+    zIndex: "1",
+    width: "100%",
+    background: "#fff",
+    color: theme.base.colors.accent,
+    margin: 0,
+    padding: "0 1em 1em",
+    borderBottom: "none",
+    fontSize: "1.2em",
+    lineHeight: 1,
+    fontWeight: 300,
+    "&::before": {
+      content: `""`,
+      position: "absolute",
+      left: "32px",
+      right: "32px",
+      height: 0,
+      bottom: 0,
+      borderTop: `1px solid ${theme.base.colors.lines}`,
+    },
+    "& strong": {
+      fontWeight: 600,
+      display: "block"
+    },
+    "& small": {
+      display: "block",
+      margin: "0 0 .3em 0"
+    },
+    [`@media (max-width: 1023px)`]: {
+      top: "60px",
+      left: 0,
+      padding: "1em 0",
+      "& strong": {
+        marginLeft: "52px"
+      },
+      "& small": {
+        margin: "0 0 .3em 52px"
+      },
+      [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        padding: "40px 0 1em",
+        "&::before": {
+          left: "44px",
+          right: "44px",
+        },
+        "& strong": {
+          marginLeft: "63px"
+        },
+        "& small": {
+          margin: "0 0 .3em 63px"
+        },
+      },
+    },
+    [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+      margin: "0 0 1em 0",
+      padding: "32px 51px 1.5em"
+    }
+  },
+  clearHome: {
+    position: "absolute",
+    top: 0,
+    right: 0,
+    [`@media (max-width: 1023px)`]: {
+      top: "20%",
+      right: "32px",
+      [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        top: "40%",
+        right: "44px"
+      }
+    },
+    [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+      top: "33%",
+      right: "5%"
+    }
   }
 });
 
 const ListHeader = props => {
   const { classes, expandOnClick, categoryFilter, navigatorShape, removeFilter } = props;
+  const isHome = location.pathname === withPrefix("/");
 
-  return (
-    <header>
-      {navigatorShape === "closed" && (
-        <div className={classes.closed}>
-          <span>List of posts</span>
-          <IconButton
-            aria-label="Expand the list"
-            className={classes.expand}
-            onClick={expandOnClick}
-            title="Expand the list"
-          >
-            <ExpandLessIcon />
-          </IconButton>
-        </div>
-      )}
-      {navigatorShape === "open" &&
-        categoryFilter !== "all posts" && (
-          <div className={classes.filter}>
-            <small>Active category filter:</small> <strong>{categoryFilter}</strong>
+  if (isHome) {
+    return (
+      <header>
+        {navigatorShape === "closed" && (
+          <div className={classes.closed}>
+            <span>List of posts</span>
             <IconButton
-              aria-label="Remove filtering"
-              className={classes.clear}
-              onClick={removeFilter}
-              title="Clear filtering"
+              aria-label="Expand the list"
+              className={classes.expand}
+              onClick={expandOnClick}
+              title="Expand the list"
             >
-              <CloseIcon />
+              <ExpandLessIcon />
             </IconButton>
           </div>
         )}
-    </header>
-  );
+        {navigatorShape === "open" &&
+          categoryFilter !== "all posts" && (
+            <div className={classes.filterHome}>
+              <small>Active category filter:</small> <strong>{categoryFilter}</strong>
+              <IconButton
+                aria-label="Remove filtering"
+                className={classes.clearHome}
+                onClick={removeFilter}
+                title="Clear filtering"
+              >
+                <CloseIcon />
+              </IconButton>
+            </div>
+          )}
+      </header>
+    );
+  } else {
+    return (
+      <header>
+        {navigatorShape === "closed" && (
+          <div className={classes.closed}>
+            <span>List of posts</span>
+            <IconButton
+              aria-label="Expand the list"
+              className={classes.expand}
+              onClick={expandOnClick}
+              title="Expand the list"
+            >
+              <ExpandLessIcon />
+            </IconButton>
+          </div>
+        )}
+        {navigatorShape === "open" &&
+          categoryFilter !== "all posts" && (
+            <div className={classes.filter}>
+              <small>Active category filter:</small> <strong>{categoryFilter}</strong>
+              <IconButton
+                aria-label="Remove filtering"
+                className={classes.clear}
+                onClick={removeFilter}
+                title="Clear filtering"
+              >
+                <CloseIcon />
+              </IconButton>
+            </div>
+          )}
+      </header>
+    );
+  };
 };
 
 ListHeader.propTypes = {

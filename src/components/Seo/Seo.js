@@ -17,7 +17,10 @@ const Seo = props => {
 
   const isHome = location.pathname === withPrefix("/");
   const isAbout = location.pathname === withPrefix("/about/");
-  const isSearch = location.pathname === withPrefix("/search/");
+  const isSuccess = location.pathname === withPrefix("/success/");
+
+  const isAbout2 = location.pathname === withPrefix("/about");
+  const isSuccess2 = location.pathname === withPrefix("/success");
 
   if (isHome) {
     return (
@@ -71,7 +74,7 @@ const Seo = props => {
           />
         </Helmet>
       );
-  } else if (isSearch) {
+  } else if (isAbout2) {
     return (
         <Helmet
           htmlAttributes={{
@@ -80,12 +83,64 @@ const Seo = props => {
           }}
         >
           {/* General tags */}
-          <title>Search</title>
+          <title>About</title>
           <meta name="description" content="test" />
           {/* OpenGraph tags */}
-          <meta property="og:url" content={config.siteUrl + "/search/"} />
-          <meta property="og:title" content="Search" />
+          <meta property="og:url" content={config.siteUrl + "/about/"} />
+          <meta property="og:title" content="About" />
           <meta property="og:description" content="testestest" />
+          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+          <meta property="og:type" content="article" />
+          <meta property="fb:app_id" content={facebook.appId} />
+          {/* Twitter Card tags */}
+          <meta name="twitter:card" content="summarylargeimage" />
+          <meta
+            name="twitter:site"
+            content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
+          />
+        </Helmet>
+      );
+  } else if (isSuccess) {
+    return (
+        <Helmet
+          htmlAttributes={{
+            lang: config.siteLanguage,
+            prefix: "og: http://ogp.me/ns#"
+          }}
+        >
+          {/* General tags */}
+          <title>Success</title>
+          <meta name="description" content="tes" />
+          {/* OpenGraph tags */}
+          <meta property="og:url" content={config.siteUrl + "/success/"} />
+          <meta property="og:title" content="Success" />
+          <meta property="og:description" content="testestes" />
+          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+          <meta property="og:type" content="article" />
+          <meta property="fb:app_id" content={facebook.appId} />
+          {/* Twitter Card tags */}
+          <meta name="twitter:card" content="summarylargeimage" />
+          <meta
+            name="twitter:site"
+            content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
+          />
+        </Helmet>
+      );
+  } else if (isSuccess2) {
+    return (
+        <Helmet
+          htmlAttributes={{
+            lang: config.siteLanguage,
+            prefix: "og: http://ogp.me/ns#"
+          }}
+        >
+          {/* General tags */}
+          <title>Success</title>
+          <meta name="description" content="tes" />
+          {/* OpenGraph tags */}
+          <meta property="og:url" content={config.siteUrl + "/success/"} />
+          <meta property="og:title" content="Success" />
+          <meta property="og:description" content="testestes" />
           <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
           <meta property="og:type" content="article" />
           <meta property="fb:app_id" content={facebook.appId} />

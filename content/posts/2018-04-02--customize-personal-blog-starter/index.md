@@ -1,6 +1,6 @@
 ---
-title: How to customize the PersonalBlog starter's appearance
-subTitle: GatsbyJS starter instruction
+title: そろそろ日本語の記事テストを始めなくてはならない件
+subTitle: サブタイトルも日本語でテストをすることでよく見せることができる。
 description: test
 date: "2018-07-03"
 category: "sayings"

@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import Link from "gatsby-link";
+import { withPrefix } from "gatsby-link";
 import IconButton from "material-ui/IconButton";
 
 import ExpandMoreIcon from "material-ui-icons/ExpandMore";
@@ -110,6 +111,7 @@ const styles = theme => ({
 
 const InfoHeader = props => {
   const { classes, avatarOnClick, expandOnClick } = props;
+  const isHome = location.pathname === withPrefix("/");
 
   return (
     <header className={classes.header}>
@@ -117,10 +119,18 @@ const InfoHeader = props => {
         <div className={classes.avatar}>
           <img src={avatar} alt="" />
         </div>
-      <div className={classes.title}>
+      { isHome &&
+      <h1 className={classes.title}>
         {config.infoTitle.replace(/ /g, "\u00a0")}
         <small>{config.infoTitleNote}</small>
-      </div>
+      </h1>
+      }
+      { isHome ||
+        <div className={classes.title}>
+        {config.infoTitle.replace(/ /g, "\u00a0")}
+        <small>{config.infoTitleNote}</small>
+        </div>
+      }
       </Link>
       <IconButton
         aria-label="Expand the box"
