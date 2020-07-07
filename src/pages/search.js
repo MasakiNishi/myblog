@@ -13,6 +13,78 @@ import config from "../../content/meta/config";
 const SearchPage = props => {
   const { data, facebook } = props;
 
+  const schemaOrgJSONLD = [
+      {
+        "@context": "http://schema.org",
+        "@type": "Blog",
+        "name": config.siteTitle,
+        "url": config.siteUrl,
+        "description": config.siteDescription,
+        "publisher": {
+          "@type": "Organization",
+          "name": config.siteTitle
+        },
+        "sameAs": [
+          "http://facebook.com/masakinishi",
+          "https://twitter.com/masakinishi_com"
+        ],
+      }
+    ];
+
+    schemaOrgJSONLD.push(
+      {
+        "@context": "http://schema.org",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": config.siteUrl + "/search/",
+          "headline": "Search"
+        },
+        "description": "Search",
+        "image": {
+          "@type": "ImageObject",
+          "url": config.siteUrl + config.siteImageOgp,
+          "width": 1200,
+          "height": 630
+        },
+        "author": {
+          "@type": "Person",
+          "name": config.authorName
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": config.siteTitle,
+          "logo": {
+            "@type": "ImageObject",
+            "url": config.siteUrl + "/icons/apple-icon-60x60.png",
+            "width": 60,
+            "height": 60
+          }
+        }
+      },
+      {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            item: {
+              "@id": config.siteUrl,
+              name: "ホーム",
+            }
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            item: {
+              "@id": config.siteUrl + "/search/",
+              name: "Search",
+            }
+          }
+        ]
+      }
+    );
+
   return (
     <Main>
       <Helmet
@@ -24,6 +96,10 @@ const SearchPage = props => {
         {/* General tags */}
         <title>Search</title>
         <meta name="description" content="test" />
+        {/* Schema.org tags */}
+        <script type="application/ld+json">
+          {JSON.stringify(schemaOrgJSONLD)}
+        </script>
         {/* OpenGraph tags */}
         <meta property="og:url" content={config.siteUrl + "/search/"} />
         <meta property="og:title" content="Seacrh" />
