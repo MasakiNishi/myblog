@@ -223,7 +223,11 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-sitemap`
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: '/sitemap.xml',
+        exclude: ["/success/", "/search/", "contact"]
+      }
     },
     {
       resolve: "gatsby-plugin-svgr"
