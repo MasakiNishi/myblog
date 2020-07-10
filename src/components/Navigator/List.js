@@ -21,7 +21,7 @@ const styles = theme => ({
       theme.bars.sizes.actionsBar
     }px + 1.3rem) 1.3rem`,
   "& h1": {
-    margin: "0.67em 0px 0.67em 15px",
+    margin: "0.67em 0px 0.67em 15px"
   },
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       padding: `calc(${theme.bars.sizes.infoBar}px + 2rem) 2rem calc(${
@@ -44,7 +44,7 @@ const styles = theme => ({
       display: "none"
     }
   },
-  HomelistAll: {
+  Homelist: {
     listStyle: "none",
     margin: 0,
     padding: 0,
@@ -53,28 +53,35 @@ const styles = theme => ({
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       padding: "2rem calc(1rem + 17px) calc(2rem + 17px) 2rem"
-    }
-  },
-  HomeList: {
-    listStyle: "none",
-    margin: 0,
-    padding: 0,
-    ".is-aside.closed &, .moving-featured.closed &": {
-      display: "none"
     },
-    [`@media (max-width: 1023px)`]: {
-      paddingTop: "80px"
-    },
-    [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
-      padding: "130px calc(1rem + 17px) calc(2rem + 17px) 2rem"
+    "&.true": {
+      [`@media (max-width: 1023px)`]: {
+        paddingTop: "80px"
+      },
+      [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+        padding: "130px calc(1rem + 17px) calc(2rem + 17px) 2rem"
+      }
     }
   }
 });
 
 class List extends React.Component {
+  state = {
+      hidden: false
+    };
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.categoryFilter !== this.props.categoryFilter) {
       setTimeout(forceCheck, 300);
+
+      const categoryFilter = this.props.categoryFilter;
+
+      if (categoryFilter === "all posts") {
+        this.setState({ hidden: false });
+      } else if (categoryFilter !== "all post") {
+        this.setState({ hidden: true });
+      } else if (categoryFilter === "all post") {
+        this.setState({ hidden: false });
+      }
     }
   }
 
@@ -102,8 +109,7 @@ class List extends React.Component {
                 navigatorShape={navigatorShape}
                 removeFilter={removeFilter}
               />
-              {categoryFilter === "all posts" && (
-                <ul className={classes.HomelistAll}>
+                <ul className={`${classes.Homelist} ${this.state.hidden ? this.state.hidden : ""}`}>
                   {posts &&
                     posts.map((post, i) => (
                       <ListItem
@@ -114,21 +120,6 @@ class List extends React.Component {
                       />
                     ))}
                 </ul>
-              )}
-              {navigatorShape === "open" &&
-                categoryFilter !== "all posts" && (
-                <ul className={classes.HomeList}>
-                  {posts &&
-                    posts.map((post, i) => (
-                      <ListItem
-                        key={i}
-                        post={post}
-                        linkOnClick={linkOnClick}
-                        categoryFilter={categoryFilter}
-                      />
-                    ))}
-                </ul>
-              )}
             </div>
           </SpringScrollbars>
         </div>
@@ -144,8 +135,7 @@ class List extends React.Component {
                 navigatorShape={navigatorShape}
                 removeFilter={removeFilter}
               />
-              {categoryFilter === "all posts" && (
-                <ul className={classes.list}>
+                <ul className={classes.list} style={{ marginTop: `${this.state.hidden ? "80px" : 0}` }}>
                   {posts &&
                     posts.map((post, i) => (
                       <ListItem
@@ -156,21 +146,6 @@ class List extends React.Component {
                       />
                     ))}
                 </ul>
-              )}
-              {navigatorShape === "open" &&
-                categoryFilter !== "all posts" && (
-                <ul className={classes.list} style={{marginTop: "80px"}}>
-                  {posts &&
-                    posts.map((post, i) => (
-                      <ListItem
-                        key={i}
-                        post={post}
-                        linkOnClick={linkOnClick}
-                        categoryFilter={categoryFilter}
-                      />
-                    ))}
-                </ul>
-              )}
             </div>
           </SpringScrollbars>
         </div>

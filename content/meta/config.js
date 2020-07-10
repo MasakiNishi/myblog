@@ -8,7 +8,7 @@ module.exports = {
   pathPrefix: "",
   siteImage: "preview.jpg",
   siteImageOgp: "/ogp/profile.png",
-  siteLanguage: "en",
+  siteLanguage: "ja",
   // author
   authorName: "Masaki Nishi",
   authorTwitterAccount: "@masakinishi_com",

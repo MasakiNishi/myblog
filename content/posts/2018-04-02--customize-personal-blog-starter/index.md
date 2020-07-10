@@ -1,14 +1,13 @@
 ---
-title: そろそろ日本語の記事テストを始めなくてはならない件
-subTitle: サブタイトルも日本語でテストをすることでよく見せることができる。
-description: test
+title: そろそろ日本語の記事テストを始めなくてはならない件あと7文字くらい
+subTitle: サブタイトルも日本語でテストをすることでよく見せることができる。全角７半角7そしてAlphabetを入れてみる
+description: これは主にメタディスクリプションのだから特に問題なし。
 date: "2018-07-03"
-category: "sayings"
+category: "technology"
 cover: photo-1463852247062-1bbca38f7805-cover.jpg
 ---
 
-The [starter](/gatsby-starter-personal-blog/) uses a theme object so base customization is really easy.
-
+The [スターター](/gatsby-starter-personal-blog/)は日本語だとどうだろうか
 Find the `theme.js` file.
 
 ```text
@@ -18,15 +17,22 @@ root
   │   │   ├── colors.js
   │   │   ├── globals.js
   │   │   └── theme.js
+
+日本語はどう？
 ```
 
 ...
 
-#### Front-end web development
+## 見出し２
 
 To read the whole instruction article - [How to customize the personalBlog starter's appearance](https://dev.greglobinski.com/customize-personal-blog-starter/) - you have to move to [Front-end web development with Greg](https://dev.greglobinski.com) website.
+ここの周りのてんてんなんだろう
 
 ...
+
+###見出し３
+
+####見出し４も一応
 
 Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.
 

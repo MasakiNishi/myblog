@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import LazyLoad from "react-lazyload";
 
+import { setCategoryFilter } from "../../state/store";
+
 const styles = theme => ({
   listItem: {
     margin: "0 0 .7em 0",
