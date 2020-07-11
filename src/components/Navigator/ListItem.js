@@ -86,22 +86,45 @@ const styles = theme => ({
       [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
         fontSize: `${theme.navigator.sizes.postsListItemH1Font *
           theme.navigator.sizes.fontIncraseForL}em`,
+      }
+    },
+    "& span": {
+      ".moving-featured &, .is-aside &": {
+        fontSize: "1em",
+        fontWeight: 400
+      }
+    },
+    "& .listItemDate": {
+      lineHeight: 1.1,
+      fontSize: "0.9em",
+      fontWeight: "400",
+      margin: "0 0 .3em 0",
+      [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+        ".moving-featured &, .is-aside &": {
+          display: "none"
+        }
+      }
+    },
+    "& .listItemTitle": {
+      lineHeight: 1.15,
+      fontWeight: 600,
+      letterSpacing: "-0.03em",
+      margin: 0,
+      fontSize: `${theme.navigator.sizes.postsListItemH1Font}em`,
+      [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        fontSize: `${theme.navigator.sizes.postsListItemH1Font *
+          theme.navigator.sizes.fontIncraseForM}em`
+      },
+      [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+        fontSize: `${theme.navigator.sizes.postsListItemH1Font *
+          theme.navigator.sizes.fontIncraseForL}em`,
         ".moving-featured &, .is-aside &": {
           fontSize: "1em",
           fontWeight: 400
         }
       }
     },
-    "& span": {
-      fontSize: "1em",
-      fontWeight: "400",
-    },
-    "& .listItemDate": {
-      lineHeight: 1.1,
-      fontSize: "0.9em",
-      margin: "0 0 .3em 0",
-    },
-    "& h3": {
+    "& .listItemSubTitle": {
       lineHeight: 1.2,
       display: "block",
       fontSize: `${theme.navigator.sizes.postsListItemH2Font}em`,
@@ -117,6 +140,21 @@ const styles = theme => ({
         ".moving-featured &, .is-aside &": {
           display: "none"
         }
+      }
+    },
+    "& h3": {
+      lineHeight: 1.2,
+      display: "block",
+      fontSize: `${theme.navigator.sizes.postsListItemH2Font}em`,
+      fontWeight: "300",
+      margin: ".3em 0 0 0",
+      [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        fontSize: `${theme.navigator.sizes.postsListItemH2Font *
+          theme.navigator.sizes.fontIncraseForM}em`
+      },
+      [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+        fontSize: `${theme.navigator.sizes.postsListItemH2Font *
+          theme.navigator.sizes.fontIncraseForL}em`,
       }
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
@@ -177,12 +215,20 @@ class ListItem extends React.Component {
             </LazyLoad>
             {/*<Img sizes={post.node.frontmatter.cover.children[0].sizes} />*/}
           </div>
-          <div className={classes.listItemText}>
-            {isHome && <span className={'listItemDate'}>{post.node.fields.prefix}</span>}
-            {isHome && <h2>{post.node.frontmatter.title}</h2>}
-            {isHome && <h3>{post.node.frontmatter.subTitle}</h3>}
-            {isHome || <span>{post.node.frontmatter.title}</span>}
-          </div>
+          {isHome &&
+            <div className={classes.listItemText}>
+              <span className={'listItemDate'}>{post.node.fields.prefix}</span>
+              <h2>{post.node.frontmatter.title}</h2>
+              <h3>{post.node.frontmatter.subTitle}</h3>
+            </div>
+          }
+          {isHome ||
+            <div className={classes.listItemText}>
+              <span className={'listItemDate'}>{post.node.fields.prefix}</span>
+              <span className={'listItemTitle'}>{post.node.frontmatter.title}</span>
+              <span className={'listItemSubTitle'}>{post.node.frontmatter.subTitle}</span>
+            </div>
+          }
         </Link>
       </li>
     );

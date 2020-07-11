@@ -77,7 +77,17 @@ const styles = theme => ({
     }
   },
   button: {
-    color: theme.bars.colors.icon
+    color: theme.bars.colors.icon,
+    "&.smartPhone": {
+      [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+        display: "none",
+      }
+    },
+    "&.deskTop": {
+      [`@media (max-width: 1023px)`]: {
+        display: "none"
+      }
+    }
   }
 });
 
@@ -132,7 +142,17 @@ class ActionsBar extends React.Component {
             title="トップページへ戻る"
             component={Link}
             to="/"
-            className={classes.button}
+            className={`${classes.button} smartPhone`}
+          >
+            <HomeIcon />
+          </IconButton>
+          <IconButton
+            aria-label="トップページへ戻る"
+            onClick={this.homeOnClick}
+            title="トップページへ戻る"
+            component={Link}
+            to="/"
+            className={`${classes.button} deskTop`}
           >
             <HomeIcon />
           </IconButton>

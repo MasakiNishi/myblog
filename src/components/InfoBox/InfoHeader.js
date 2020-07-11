@@ -110,28 +110,30 @@ const styles = theme => ({
 });
 
 const InfoHeader = props => {
-  const { classes, avatarOnClick, expandOnClick } = props;
+  const { classes, avatarOnClick, expandOnClick, linkOnClick } = props;
   const isHome = location.pathname === withPrefix("/");
 
   return (
     <header className={classes.header}>
-      <Link className={classes.avatarLink} to="/" title="トップページへ戻る">
+      <div onClick={linkOnClick}>
+      <Link className={classes.avatarLink} to="/" onClick={avatarOnClick} title="トップページへ戻る">
         <div className={classes.avatar}>
           <img src={avatar} alt="" />
         </div>
-      { isHome &&
-      <h1 className={classes.title}>
-        {config.infoTitle.replace(/ /g, "\u00a0")}
-        <small>{config.infoTitleNote}</small>
-      </h1>
-      }
-      { isHome ||
-        <div className={classes.title}>
-        {config.infoTitle.replace(/ /g, "\u00a0")}
-        <small>{config.infoTitleNote}</small>
-        </div>
-      }
+          { isHome &&
+          <h1 className={classes.title}>
+            {config.infoTitle.replace(/ /g, "\u00a0")}
+            <small>{config.infoTitleNote}</small>
+          </h1>
+          }
+          { isHome ||
+            <div className={classes.title}>
+            {config.infoTitle.replace(/ /g, "\u00a0")}
+            <small>{config.infoTitleNote}</small>
+            </div>
+          }
       </Link>
+      </div>
       <IconButton
         aria-label="Expand the box"
         className={classes.expand}
@@ -147,7 +149,8 @@ const InfoHeader = props => {
 InfoHeader.propTypes = {
   classes: PropTypes.object.isRequired,
   avatarOnClick: PropTypes.func.isRequired,
-  expandOnClick: PropTypes.func.isRequired
+  expandOnClick: PropTypes.func.isRequired,
+  linkOnClick: PropTypes.func.isRequired,
 };
 
 export default injectSheet(styles)(InfoHeader);

@@ -40,8 +40,14 @@ const styles = theme => ({
     listStyle: "none",
     margin: 0,
     padding: 0,
+    [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+      padding: "2rem calc(1rem + 17px) calc(2rem + 17px) 2rem"
+    },
     ".is-aside.closed &, .moving-featured.closed &": {
       display: "none"
+    },
+    ".is-aside.open &, .moving-featured.open &": {
+      padding: 0
     }
   },
   Homelist: {

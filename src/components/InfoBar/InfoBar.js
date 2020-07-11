@@ -46,13 +46,11 @@ const styles = theme => ({
       margin: "2px 0 0 0"
     }
   },
-  avatarLink: {
-    display: "block",
-    float: "left",
-    margin: "13px 0 0 30px"
-  },
   avatar: {
     width: "36px",
+    display: "block",
+    float: "left",
+    margin: "13px 0 0 30px",
     borderRadius: "65% 75%",
     border: "1px solid #ddd",
     height: "36px"
@@ -69,10 +67,8 @@ class InfoBar extends React.Component {
 
     return (
       <aside className={classes.infoBar}>
-        <Link to="/" className={classes.avatarLink}>
-          <Avatar alt={config.infoTitle} src={avatar} className={classes.avatar} />
-        </Link>
         <Link to="/">
+          <Avatar alt={config.infoTitle} src={avatar} className={classes.avatar} />
           { isHome &&
           <h1 className={classes.title}>
             {config.infoTitle}
