@@ -20,9 +20,6 @@ const styles = theme => ({
     padding: `calc(${theme.bars.sizes.infoBar}px + 1.3rem) 1.3rem calc(${
       theme.bars.sizes.actionsBar
     }px + 1.3rem) 1.3rem`,
-  "& h1": {
-    margin: "0.67em 0px 0.67em 15px"
-  },
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       padding: `calc(${theme.bars.sizes.infoBar}px + 2rem) 2rem calc(${
         theme.bars.sizes.actionsBar
@@ -41,7 +38,7 @@ const styles = theme => ({
     margin: 0,
     padding: 0,
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
-      padding: "2rem calc(1rem + 17px) calc(2rem + 17px) 2rem"
+      padding: "3.5rem calc(1rem + 17px) calc(2rem + 17px) 2rem"
     },
     ".is-aside.closed &, .moving-featured.closed &": {
       display: "none"
@@ -62,10 +59,13 @@ const styles = theme => ({
     },
     "&.true": {
       [`@media (max-width: 1023px)`]: {
-        paddingTop: "80px"
+        paddingTop: "6rem"
+      },
+      [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        paddingTop: "5rem"
       },
       [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
-        padding: "130px calc(1rem + 17px) calc(2rem + 17px) 2rem"
+        padding: "8.5rem calc(1rem + 17px) calc(2rem + 17px) 2rem"
       }
     }
   }
@@ -141,7 +141,7 @@ class List extends React.Component {
                 navigatorShape={navigatorShape}
                 removeFilter={removeFilter}
               />
-                <ul className={classes.list} style={{ marginTop: `${this.state.hidden ? "80px" : 0}` }}>
+                <ul className={classes.list} style={{ marginTop: `${this.state.hidden ? "5rem" : 0}` }}>
                   {posts &&
                     posts.map((post, i) => (
                       <ListItem

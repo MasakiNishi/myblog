@@ -45,27 +45,64 @@ const styles = theme => ({
     position: "fixed",
     top: 0,
     zIndex: "1",
-    width: "87.5%",
+    width: "100%",
     fontSize: "1.2em",
     lineHeight: 1,
     color: theme.base.colors.accent,
     background: "#fff",
-    borderTop: `1px solid ${theme.base.colors.lines}`,
-    borderBottom: `1px solid ${theme.base.colors.lines}`,
     padding: "0 1em 1em",
     fontWeight: 300,
     "& strong": {
       fontWeight: 600,
       display: "block"
     },
+    "&::before": {
+      content: `""`,
+      position: "absolute",
+      left: "32px",
+      right: "32px",
+      height: 0,
+      bottom: 0,
+      borderTop: `1px solid ${theme.base.colors.lines}`,
+      ".is-aside &": {
+        display: "none"
+      }
+    },
     "& small": {
       display: "block",
       margin: "0 0 .3em 0"
     },
+    [`@media (max-width: 1023px)`]: {
+      top: "60px",
+      left: 0,
+      padding: "1em 0",
+      "& strong": {
+        marginLeft: "52px"
+      },
+      "& small": {
+        margin: "0 0 .3em 52px"
+      },
+      [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        padding: "2.1em 0 1em",
+        "&::before": {
+          left: "44px",
+          right: "44px",
+        },
+        "& strong": {
+          marginLeft: "63px"
+        },
+        "& small": {
+          margin: "0 0 .3em 63px"
+        },
+      },
+    },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       margin: "0 0 1em 0",
-      padding: "0 1em 1.5em",
+      padding: "2rem 3.2rem 1.5em",
       ".is-aside &": {
+        width: "87.5%",
+        borderTop: `1px solid ${theme.base.colors.lines}`,
+        borderBottom: `1px solid ${theme.base.colors.lines}`,
         padding: "1em 0 1em .5em",
         margin: `0 calc(-.5rem + ${theme.base.sizes.linesMargin}) 0 calc(-.5rem + ${
           theme.base.sizes.linesMargin
@@ -75,8 +112,24 @@ const styles = theme => ({
   },
   clear: {
     position: "absolute",
-    top: "20%",
-    right: 0
+    top: 0,
+    right: 0,
+    ".is-aside &": {
+      top: "20%",
+      right: 0,
+    },
+    [`@media (max-width: 1023px)`]: {
+      top: "20%",
+      right: "32px",
+      [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        top: "40%",
+        right: "44px"
+      }
+    },
+    [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+      top: "33%",
+      right: "5%"
+    }
   },
   filterHome: {
     margin: `0 calc(-.5rem + ${theme.base.sizes.linesMargin}) 1em calc(-.5rem + ${
@@ -121,7 +174,7 @@ const styles = theme => ({
         margin: "0 0 .3em 52px"
       },
       [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
-        padding: "40px 0 1em",
+        padding: "2.1em 0 1em",
         "&::before": {
           left: "44px",
           right: "44px",
@@ -136,7 +189,7 @@ const styles = theme => ({
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       margin: "0 0 1em 0",
-      padding: "32px 51px 1.5em"
+      padding: "2rem 3.2rem 1.5em"
     }
   },
   clearHome: {
