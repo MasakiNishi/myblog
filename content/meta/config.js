@@ -6,7 +6,7 @@ module.exports = {
   siteDescription: "Masaki Nishi is Awesome.",
   siteUrl: "http://localhost:8000",
   pathPrefix: "",
-  siteImage: "preview.jpg",
+  siteImage: "/ogp/profile.png",
   siteImageOgp: "/ogp/profile.png",
   siteLanguage: "ja",
   // author
@@ -17,17 +17,17 @@ module.exports = {
   infoTitleNote: "personal blog",
   // manifest.json
   manifestName: "Masaki Nishi PersonalBlog",
-  manifestShortName: "PersonalBlog", // max 12 characters
+  manifestShortName: "Masa's Blog", // max 12 characters
   manifestStartUrl: "/",
   manifestBackgroundColor: colors.background,
   manifestThemeColor: colors.background,
   manifestDisplay: "standalone",
   // contact
-  contactEmail: "john@doe.com",
+  contactEmail: "n24mfs@gmail.com",
   // social
   authorSocialLinks: [
     { name: "github", url: "https://github.com/MasakiNishi" },
     { name: "twitter", url: "https://twitter.com/masakinishi_com" },
-    { name: "facebook", url: "http://facebook.com/masakinishi" }
+    { name: "facebook", url: "https://www.facebook.com/profile.php?id=100011427868153" }
   ]
 };
