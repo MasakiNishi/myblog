@@ -68,7 +68,7 @@ class CategoryFilter extends React.Component {
               aria-owns={anchorEl ? "long-menu" : null}
               aria-haspopup="true"
               onClick={this.handleClick}
-              title="Filter the list by category"
+              title="記事カテゴリー"
               className={classes.open}
             >
               <FilterListIcon />
@@ -84,7 +84,7 @@ class CategoryFilter extends React.Component {
                 <Paper>
                   <MenuList role="menu">
                     <MenuItem key="all" onClick={this.handleFiltering}>
-                      all posts
+                      すべての記事
                     </MenuItem>
                     {categories.map(category => (
                       <MenuItem key={category} onClick={this.handleFiltering}>

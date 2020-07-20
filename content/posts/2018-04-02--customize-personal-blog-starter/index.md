@@ -3,7 +3,7 @@ title: そろそろ日本語の記事テストを始めなくてはならない�
 subTitle: サブタイトルも日本語でテストをすることでよく見せることができる。全角７半角7そしてAlphabetを入れてみる
 description: これは主にメタディスクリプションのだから特に問題なし。
 date: "2018-07-03"
-category: "technology"
+category: "テクノロジー"
 cover: photo-1463852247062-1bbca38f7805-cover.jpg
 ---
 
@@ -23,14 +23,14 @@ root
 
 ...
 
-## 見出し２
+## 見出しの長さってどのくらいだろう普段
 
 To read the whole instruction article - [How to customize the personalBlog starter's appearance](https://dev.greglobinski.com/customize-personal-blog-starter/) - you have to move to [Front-end web development with Greg](https://dev.greglobinski.com) website.
 ここの周りのてんてんなんだろう
 
 ...
 
-###見出し３
+###見出し３も結構長いと問題ありそうな気が
 
 ####見出し４も一応
 

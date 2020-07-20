@@ -4,7 +4,10 @@ import injectSheet from "react-jss";
 
 const styles = theme => ({
   header: {
-    margin: "0 0 3em"
+    margin: "0 0 3em",
+    [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
+      margin: "0 0 1.5em"
+    }
   },
   title: {
     color: theme.main.colors.title,
@@ -26,7 +29,7 @@ const styles = theme => ({
     fontSize: `${theme.main.fonts.subTitle.size}em`,
     lineHeight: theme.main.fonts.subTitle.lineHeight,
     fontWeight: theme.main.fonts.subTitle.weight,
-    margin: "0.83em 0",
+    margin: "1.25em 0",
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       fontSize: `${theme.main.fonts.subTitle.sizeM}em`
     },

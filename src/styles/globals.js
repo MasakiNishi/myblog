@@ -353,7 +353,8 @@ export default {
       margin: 0,
       background: theme.base.colors.background,
       //overflow: "hidden",
-      "-webkit-tap-highlight-color": "rgba(0,0,0,.05)"
+      "-webkit-tap-highlight-color": "rgba(0,0,0,.05)",
+      fontFamily: "Open Sans,Arial,Helvetica,游ゴシック,YuGothic,Hiragino Kaku Gothic ProN,Meiryo,sans-serif"
     },
     wrapper: {},
     main: {

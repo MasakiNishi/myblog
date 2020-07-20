@@ -51,8 +51,8 @@ const theme = createMuiTheme({
     },
     sizes: {
       closedHeight: 80,
-      postsListItemH1Font: 1.3,
-      postsListItemH2Font: 1.1,
+      postsListItemH1Font: 1.1,
+      postsListItemH2Font: .9,
       fontIncraseForM: 1.15,
       fontIncraseForL: 1.3
     }
@@ -76,16 +76,16 @@ const theme = createMuiTheme({
     },
     fonts: {
       title: {
-        size: 1.9,
-        sizeM: 2.5,
-        sizeL: 2.7,
+        size: 1.44,
+        sizeM: 2.369,
+        sizeL: 2.369,
         weight: 600,
         lineHeight: 1.1
       },
       subTitle: {
-        size: 1.5,
-        sizeM: 1.8,
-        sizeL: 1.95,
+        size: 1.2,
+        sizeM: 1.333,
+        sizeL: 1.333,
         weight: 300,
         lineHeight: 1.1
       },
@@ -100,10 +100,14 @@ const theme = createMuiTheme({
         lineHeight: 1.6
       },
       contentHeading: {
-        h2Size: 1.5,
-        h3Size: 1.3,
+        h2Size: 1.2,
+        h2SizeM: 1.777,
+        h2SizeL: 1.777,
+        h3Size: 1.0,
+        h3SizeM: 1.333,
+        h3SizeL: 1.333,
         weight: 600,
-        lineHeight: 1.3
+        lineHeight: 1.333
       },
       footer: {
         size: 1,

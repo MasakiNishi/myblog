@@ -81,7 +81,7 @@ class TopMenu extends React.Component {
                           this.handleClose();
                         }}
                       >
-                        Home
+                        ホーム
                       </MenuItem>
                     </a>
                     {pages.map((page, i) => {
@@ -107,7 +107,7 @@ class TopMenu extends React.Component {
                           this.handleClose();
                         }}
                       >
-                        Contact
+                        お問い合わせ
                       </MenuItem>
                     </a>
                   </MenuList>

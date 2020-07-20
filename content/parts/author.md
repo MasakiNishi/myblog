@@ -2,4 +2,7 @@
 title: author
 ---
 
-**Mr. Gatsby** Proin ornare ligula eu tellus tempus elementum. Aenean [bibendum](/) iaculis mi, nec blandit lacus interdum vitae. Vestibulum non nibh risus, a scelerisque purus. :hearts:
+**Masaki Nishi**
+
+
+大学3年次後期に、東南アジアを半年間放浪しつつフリーランスを経験。その後、1年間休学し、2年目の現在もサンフランシスコ・シリコンバレーを拠点にbtraxという会社でソフトウェアエンジニアインターンをしてます。

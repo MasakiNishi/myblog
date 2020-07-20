@@ -74,6 +74,7 @@ const styles = theme => ({
     margin: 0,
     float: "left",
     transitionTimingFunction: "ease",
+    fontFamily: "Open Sans",
     "& small": {
       display: "block",
       fontSize: ".6em",
@@ -85,7 +86,7 @@ const styles = theme => ({
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       fontSize: `${theme.info.fonts.boxTitleSizeL}em`,
       position: "absolute",
-      top: "85px",
+      top: "5rem",
       textAlign: "center",
       left: "50%",
       transform: "translate(-50%)",
@@ -122,13 +123,13 @@ const InfoHeader = props => {
           { isHome &&
           <h1 className={classes.title}>
             {config.infoTitle.replace(/ /g, "\u00a0")}
-            <small>{config.infoTitleNote}</small>
+            <small> {config.infoTitleNote}</small>
           </h1>
           }
           { isHome ||
             <div className={classes.title}>
             {config.infoTitle.replace(/ /g, "\u00a0")}
-            <small>{config.infoTitleNote}</small>
+            <small> {config.infoTitleNote}</small>
             </div>
           }
       </Link>
@@ -136,7 +137,7 @@ const InfoHeader = props => {
         aria-label="Expand the box"
         className={classes.expand}
         onClick={expandOnClick}
-        title="Expand the box"
+        title="記事リストを閉じる"
       >
         <ExpandMoreIcon />
       </IconButton>

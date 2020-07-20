@@ -34,10 +34,13 @@ const styles = theme => ({
     }
   },
   box: {
-    display: "flex",
-    flexDirction: "column",
     minHeight: "50px",
-    alignItems: "center"
+    "& p": {
+      marginBottom: ".5em !important"
+    },
+    [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
+      textAlign: "center"
+    }
   }
 });
 

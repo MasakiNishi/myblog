@@ -39,6 +39,7 @@ const styles = theme => ({
     margin: "10px 0 0 15px",
     fontSize: "1.17em",
     fontWeight: "300",
+    fontFamily: "Open Sans",
     color: theme.bars.colors.text,
     "& small": {
       display: "block",
@@ -67,18 +68,18 @@ class InfoBar extends React.Component {
 
     return (
       <aside className={classes.infoBar}>
-        <Link to="/">
+        <Link to="/"　title="トップページへ戻る">
           <Avatar alt={config.infoTitle} src={avatar} className={classes.avatar} />
           { isHome &&
           <h1 className={classes.title}>
             {config.infoTitle}
-            <small>{config.infoTitleNote}</small>
+            <small> {config.infoTitleNote}</small>
           </h1>
           }
           { isHome ||
           <div className={classes.title}>
             {config.infoTitle}
-            <small>{config.infoTitleNote}</small>
+            <small> {config.infoTitleNote}</small>
           </div>
           }
         </Link>
@@ -86,6 +87,7 @@ class InfoBar extends React.Component {
           pages={pages}
           homeLinkOnClick={this.homeLinkOnClick}
           pageLinkOnClick={this.pageLinkOnClick}
+          title="メニュー"
         />
       </aside>
     );

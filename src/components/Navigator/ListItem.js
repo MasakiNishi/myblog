@@ -98,7 +98,7 @@ const styles = theme => ({
       lineHeight: 1.1,
       fontSize: "0.9em",
       fontWeight: "400",
-      margin: "0 0 .3em 0",
+      margin: "0 0 .5em 0",
       [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
         ".moving-featured &, .is-aside &": {
           display: "none"
@@ -176,7 +176,7 @@ class ListItem extends React.Component {
       const category = this.props.post.node.frontmatter.category;
       const categoryFilter = this.props.categoryFilter;
 
-      if (categoryFilter === "all posts") {
+      if (categoryFilter === "すべての記事") {
         this.setState({ hidden: false });
       } else if (category !== categoryFilter) {
         this.setState({ hidden: true });

@@ -33,14 +33,28 @@ const styles = theme => ({
     },
     "& h2, & h3": {
       color: theme.main.colors.contentHeading,
-      fontSize: `${theme.main.fonts.contentHeading.h2Size}em`,
       fontWeight: theme.main.fonts.contentHeading.weight,
       lineHeight: theme.main.fonts.contentHeading.lineHeight,
       margin: "2em 0 1em",
       letterSpacing: "-0.02em"
     },
+    "& h2": {
+      fontSize: `${theme.main.fonts.contentHeading.h2Size}em`,
+      [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        fontSize: `${theme.main.fonts.contentHeading.h2SizeM}em`
+      },
+      [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+        fontSize: `${theme.main.fonts.contentHeading.h2SizeL}em`
+      }
+    },
     "& h3": {
-      fontSize: `${theme.main.fonts.contentHeading.h3Size}em`
+      fontSize: `${theme.main.fonts.contentHeading.h3Size}em`,
+      [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        fontSize: `${theme.main.fonts.contentHeading.h3SizeM}em`
+      },
+      [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+        fontSize: `${theme.main.fonts.contentHeading.h3SizeL}em`
+      }
     },
     "& p": {
       margin: "0 0 1.5em 0",

@@ -1,38 +1,21 @@
 ---
-title: About
-menuTitle: 私について
+title: プロフィール
+menuTitle: プロフィール
 ---
 
-This is a demo site of the [PersonalBlog](https://github.com/greglobinski/gatsby-starter-personal-blog) GatsbyJS starter.
+![profile](./about.png)
 
-The starter is a ready to use, easy to customize 'like theme' starter. It has everything what blog should have and some more.
+北海道出身の22歳大学4年生。スノーボードと犬が好き。
 
-### Standard features:
+大学3年次の後期に東南アジア、インド、中国を放浪しつつソフトウェアエンジニアとしてフリーランスを経験し、ソーシャルシェアリングサービス系の開発やウェブメディアの運営、バイアウトを経験しました。並行して大学の講義をリモートで受講していたので、3年次を修了しました。
 
-* Easy editable content in **Markdown** files (posts, pages and parts)
-* **SEO** (sitemap generation, robot.txt, meta and OpenGraph Tags)
-* **Social** sharing (Twitter, Facebook, Google, LinkedIn)
-* **Comments** (Facebook)
-* **Images** lazy loading and `webp` support (gatsby-image)
-* Post **categories** (post list filtering)
-* Full text **searching** (Algolia)
-* **Contact** form (Netlify form handling)
-* **RSS** feed
-* **PWA** (manifes.json, offline support, favicons)
-* Google **Analytics**
-* **Favicons** generator (node script)
-* **Material UI** (@next)
 
-### Advanced features:
+その後、1年間休学しサンフランシスコ・シリコンバレーを拠点に[btrax](http://btrax.com/jp/)でソフトウェアエンジニアインターンとして働き始めました。現在は休学2年目になり、インターンではなく正式にお給料をいただいてお仕事をしています。
 
-* Easy customizable base **styles** via `theme` object (fonts, colors, sizes)
-* **Components** lazy loading (social sharing, comments)
-* **ESLint** (google config)
-* **Prettier** code styling
-* Custom webpack `CommonsChunkPlugin` settings
-* Webpack `BundleAnalyzerPlugin`
-* Contact **form validation** (react-material-ui-form-validator)
+もともとビジネス・テクノロジーに興味がありサンフランシスコ・シリコンバレー地域でインターンをしています。すでにサンフランシスコに1年近く住んでいるので、スタートアップ情報や、投資情報、最新テクノロジーに詳しいです。
 
-## Instructions
+このブログやSNSでは、上記の情報だけでなく、海外で働きたい人、英語やプログラミングの初学者に向けて有益な情報を発信しています。SNSではブログで書かないこともつぶやいてるので興味あるかたはフォローしてください！今後の活動の励みになります。
 
-For detailed instructions go to [Front-end web development with Greg](https://dev.greglobinski.com/gatsby-starter-personal-blog/).
+僕自身は、大学生からプログラミングと英語の独学を始め、英語に至ってはサンフランシスコでインターンをする半年前に中学レベルの参考書から勉強をし始めたという急激なキャリアチェンジを経験しているので、「今からじゃ遅いかな？」と考えている人に有益な情報を提供できれば良いと思います。
+
+これからの予定ですが、日本の大学を卒業後はドイツで新卒フリーランスとして移住し、ドイツのミュンヘンにある大学で修士号ではなく、第2学士号を取得する予定です。

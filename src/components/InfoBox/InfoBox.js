@@ -53,8 +53,15 @@ const styles = theme => ({
     },
     ".moving-featured &": {
       bottom: 0
+    },
+    "& .wrapperInside": {
+      background: theme.info.colors.background,
+      padding: "1em 0"
+    },
+    "& .infoBoxText": {
+      fontSize: ".9em"
     }
-  }
+  },
 });
 
 class InfoBox extends React.Component {
@@ -82,10 +89,14 @@ class InfoBox extends React.Component {
           />
         )}
         <div className={classes.wrapper}>
-          {info && <InfoText info={info} />}
-          <SocialIcons />
-          {pages && <InfoMenu pages={pages} linkOnClick={this.menulinkOnClick} />}
-          <StackIcons />
+          <div className='wrapperInside'>
+            <div className='infoBoxText'>
+              {info && <InfoText info={info} />}
+            </div>
+            <SocialIcons />
+            {pages && <InfoMenu pages={pages} linkOnClick={this.menulinkOnClick} />}
+          </div>
+            <StackIcons />
         </div>
       </aside>
     );

@@ -2,4 +2,6 @@
 title: info
 ---
 
-I am working as a software engineer in San Francisco. Fucking tired now.
+大学3年次後期に、東南アジアを半年間放浪しつつフリーランスを経験。
+
+その後、1年間休学し、2年目の現在もサンフランシスコ・シリコンバレーを拠点に[btrax](http://blog.btrax.com/jp/author/masaki/)という会社でソフトウェアエンジニアインターンをしてます。

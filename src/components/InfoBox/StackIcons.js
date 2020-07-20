@@ -35,7 +35,8 @@ const styles = theme => ({
       left: 0,
       bottom: 0,
       width: "100%",
-      padding: "1em 2em"
+      padding: "1em 2em",
+      zIndex: "-1"
     }
   },
   box: {
@@ -68,12 +69,12 @@ const StackIcons = props => {
     { name: "html5", url: "https://www.w3.org/html/", comp: Html5Icon },
     { name: "css3", url: "https://www.w3.org/Style/CSS/Overview.en.html", comp: Css3Icon },
     { name: "javascript", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript", comp: JavascriptIcon },
-    { name: "sass", url: "https://sass-lang.com/", comp: SassIcon },
-    { name: "gatsby", url: "https://www.gatsbyjs.org/", comp: GatsbyIcon },
+    // { name: "sass", url: "https://sass-lang.com/", comp: SassIcon },
+    // { name: "gatsby", url: "https://www.gatsbyjs.org/", comp: GatsbyIcon },
     { name: "react", url: "https://reactjs.org/", comp: ReactIcon },
     { name: "nodejs", url: "http://cssinjs.org/", comp: NodejsIcon },
     { name: "graphql", url: "http://graphql.org/", comp: GraphqlIcon },
-    { name: "material-ui", url: "https://material-ui-next.com/", comp: MaterialUiIcon },
+    // { name: "material-ui", url: "https://material-ui-next.com/", comp: MaterialUiIcon },
     { name: "redux", url: "https://redux.js.org/", comp: ReduxIcon },
     { name: "webpack", url: "https://webpack.js.org/", comp: WebpackIcon },
     { name: "babel", url: "https://babeljs.io/", comp: BabelIcon },
@@ -86,7 +87,7 @@ const StackIcons = props => {
     { name: "swift", url: "https://swift.org/", comp: SwiftIcon },
     { name: "aws", url: "https://aws.amazon.com/", comp: AwsIcon },
     { name: "heroku", url: "https://www.heroku.com/home", comp: HerokuIcon },
-    { name: "netlify", url: "https://www.netlify.com/", comp: NetlifyIcon },
+    // { name: "netlify", url: "https://www.netlify.com/", comp: NetlifyIcon },
   ];
 
   return (

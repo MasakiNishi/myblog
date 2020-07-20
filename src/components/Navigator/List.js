@@ -81,11 +81,11 @@ class List extends React.Component {
 
       const categoryFilter = this.props.categoryFilter;
 
-      if (categoryFilter === "all posts") {
+      if (categoryFilter === "すべての記事") {
         this.setState({ hidden: false });
-      } else if (categoryFilter !== "all post") {
+      } else if (categoryFilter !== "すべての記事") {
         this.setState({ hidden: true });
-      } else if (categoryFilter === "all post") {
+      } else if (categoryFilter === "すべての記事") {
         this.setState({ hidden: false });
       }
     }

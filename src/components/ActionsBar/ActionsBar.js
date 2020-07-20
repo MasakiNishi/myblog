@@ -165,7 +165,7 @@ class ActionsBar extends React.Component {
             component={Link}
             data-shape="closed"
             to="/search/"
-            title="Search"
+            title="サイト内検索"
             className={classes.button}
           >
             <SearchIcon className={classes.button} />
@@ -173,7 +173,7 @@ class ActionsBar extends React.Component {
         </div>
         <div className={classes.group}>
           {navigatorPosition === "is-aside" && <FontSetter increaseFont={this.fontSetterOnClick} />}
-          <IconButton aria-label="Back to top" onClick={this.arrowUpOnClick} title="Scroll to top">
+          <IconButton aria-label="Back to top" onClick={this.arrowUpOnClick} title="スクロールトップ">
             <ArrowUpwardIcon className={classes.button} />
           </IconButton>
         </div>

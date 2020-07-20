@@ -2,9 +2,9 @@ const colors = require("../../src/styles/colors");
 
 module.exports = {
   siteTitle: "Masaki Nishi PersonalBlog", // <title>
-  shortSiteTitle: "Masaki Nishi PersonalBlog", // <title> ending for posts and pages
-  siteDescription: "Masaki Nishi is Awesome.",
-  siteUrl: "http://localhost:8000",
+  shortSiteTitle: "Masaki Nishi PersonalBlog", // <title> ending for posts and pages, not using now
+  siteDescription: "サンフランシスコ・シリコンバレー在住の筆者がプログラミング技術を中心に、テクノロジー情報やウェブマーケティング分野、海外情報など幅広く発信しています。",
+  siteUrl: "https://masakinishi.com",
   pathPrefix: "",
   siteImage: "/ogp/profile.png",
   siteImageOgp: "/ogp/profile.png",
@@ -26,8 +26,8 @@ module.exports = {
   contactEmail: "n24mfs@gmail.com",
   // social
   authorSocialLinks: [
-    { name: "github", url: "https://github.com/MasakiNishi" },
-    { name: "twitter", url: "https://twitter.com/masakinishi_com" },
-    { name: "facebook", url: "https://www.facebook.com/profile.php?id=100011427868153" }
+    { name: "GitHub", url: "https://github.com/MasakiNishi" },
+    { name: "Twitter", url: "https://twitter.com/masakinishi_com" },
+    { name: "Facebook", url: "https://www.facebook.com/profile.php?id=100011427868153" }
   ]
 };

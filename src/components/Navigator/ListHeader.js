@@ -220,26 +220,26 @@ const ListHeader = props => {
       <header>
         {navigatorShape === "closed" && (
           <div className={classes.closed}>
-            <span>List of posts</span>
+            <span>記事リスト</span>
             <IconButton
               aria-label="Expand the list"
               className={classes.expand}
               onClick={expandOnClick}
-              title="Expand the list"
+              title="記事リストをひらく"
             >
               <ExpandLessIcon />
             </IconButton>
           </div>
         )}
         {navigatorShape === "open" &&
-          categoryFilter !== "all posts" && (
+          categoryFilter !== "すべての記事" && (
             <div className={classes.filterHome}>
-              <small>Active category filter:</small> <strong>{categoryFilter}</strong>
+              <small>カテゴリー：</small> <strong>{categoryFilter} の記事</strong>
               <IconButton
                 aria-label="Remove filtering"
                 className={classes.clearHome}
                 onClick={removeFilter}
-                title="Clear filtering"
+                title="記事カテゴリーを閉じる"
               >
                 <CloseIcon />
               </IconButton>
@@ -252,26 +252,26 @@ const ListHeader = props => {
       <header>
         {navigatorShape === "closed" && (
           <div className={classes.closed}>
-            <span>List of posts</span>
+            <span>記事リスト</span>
             <IconButton
               aria-label="Expand the list"
               className={classes.expand}
               onClick={expandOnClick}
-              title="Expand the list"
+              title="記事リストをひらく"
             >
               <ExpandLessIcon />
             </IconButton>
           </div>
         )}
         {navigatorShape === "open" &&
-          categoryFilter !== "all posts" && (
+          categoryFilter !== "すべての記事" && (
             <div className={classes.filter}>
-              <small>Active category filter:</small> <strong>{categoryFilter}</strong>
+              <small>カテゴリー：</small> <strong>{categoryFilter} の記事</strong>
               <IconButton
                 aria-label="Remove filtering"
                 className={classes.clear}
                 onClick={removeFilter}
-                title="Clear filtering"
+                title="記事カテゴリーを閉じる"
               >
                 <CloseIcon />
               </IconButton>
