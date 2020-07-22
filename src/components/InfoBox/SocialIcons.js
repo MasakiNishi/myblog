@@ -4,24 +4,40 @@ import injectSheet from "react-jss";
 
 import config from "../../../content/meta/config";
 
-import { ReactComponent as GithubIcon } from "../../images/svg-icons/github.svg";
 import { ReactComponent as FacebookIcon } from "../../images/svg-icons/facebook.svg";
 import { ReactComponent as TwitterIcon } from "../../images/svg-icons/twitter.svg";
+import { ReactComponent as InstaIcon } from "../../images/svg-icons/instagram.svg";
 
 const styles = theme => ({
   social: {
     display: "flex",
     justifyContent: "center",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    "& .Twitter": {
+      "&:hover": {
+        "& svg": {
+          fill: theme.info.colors.twitterIconsHover
+        }
+      }
+    },
+    "& .Facebook": {
+      "&:hover": {
+        "& svg": {
+          fill: theme.info.colors.facebookIconsHover
+        }
+      }
+    },
+    "& .Instagram": {
+      "&:hover": {
+        "& svg": {
+          fill: theme.info.colors.instaIconsHover
+        }
+      }
+    }
   },
   link: {
     display: "inline-block",
     padding: "5px",
-    "&:hover": {
-      "& svg": {
-        fill: theme.info.colors.socialIconsHover
-      }
-    }
   },
   svg: {
     width: "40px",
@@ -37,7 +53,7 @@ const Socialcons = props => {
   const icons = {
     Twitter: TwitterIcon,
     Facebook: FacebookIcon,
-    GitHub: GithubIcon
+    Instagram: InstaIcon
   };
 
   return (
@@ -48,7 +64,7 @@ const Socialcons = props => {
           <a
             href={item.url}
             key={item.name}
-            className={classes.link}
+            className={`${classes.link} ${item.name}`}
             target="_blank"
             rel="noopener noreferrer"
             title={item.name}
@@ -57,6 +73,15 @@ const Socialcons = props => {
           </a>
         );
       })}
+      <svg width="0" height="0">
+        <radialGradient id="rg" r="150%" cx="30%" cy="107%">
+          <stop stopColor="#fdf497" offset="0" />
+          <stop stopColor="#fdf497" offset="0.05" />
+          <stop stopColor="#fd5949" offset="0.45" />
+          <stop stopColor="#d6249f" offset="0.6" />
+          <stop stopColor="#285AEB" offset="0.9" />
+        </radialGradient>
+      </svg>
     </div>
   );
 };

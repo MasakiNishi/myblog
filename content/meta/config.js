@@ -11,7 +11,7 @@ module.exports = {
   siteLanguage: "ja",
   // author
   authorName: "Masaki Nishi",
-  authorTwitterAccount: "@masakinishi_com",
+  authorTwitterAccount: "masakinishi_com",
   // info
   infoTitle: "Masaki Nishi",
   infoTitleNote: "personal blog",
@@ -26,8 +26,8 @@ module.exports = {
   contactEmail: "n24mfs@gmail.com",
   // social
   authorSocialLinks: [
-    { name: "GitHub", url: "https://github.com/MasakiNishi" },
     { name: "Twitter", url: "https://twitter.com/masakinishi_com" },
-    { name: "Facebook", url: "https://www.facebook.com/profile.php?id=100011427868153" }
+    { name: "Facebook", url: "https://www.facebook.com/profile.php?id=100011427868153" },
+    { name: "Instagram", url: "https://www.instagram.com/masakinishi_com/" }
   ]
 };

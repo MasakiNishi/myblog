@@ -29,6 +29,9 @@ const theme = createMuiTheme({
       background: colors.background,
       socialIcons: colors.lightGray,
       socialIconsHover: colors.accent,
+      twitterIconsHover: colors.twitter,
+      facebookIconsHover: colors.facebook,
+      instaIconsHover: colors.instagram,
       menuLink: colors.gray,
       menuLinkHover: colors.accent
     },

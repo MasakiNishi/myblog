@@ -2,17 +2,22 @@ import React from "react";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import {
-  FacebookShareButton,
-  GooglePlusShareButton,
-  LinkedinShareButton,
+  LineShareButton,
+  LineIcon,
+  PocketShareButton,
+  PocketIcon,
+  HatebuShareButton,
+  HatebuShareCount,
+  HatebuIcon,
   TwitterShareButton,
-  FacebookShareCount,
-  GooglePlusShareCount,
-  LinkedinShareCount,
-  FacebookIcon,
+  TwitterShareCount,
   TwitterIcon,
+  FacebookShareButton,
+  FacebookShareCount,
+  FacebookIcon,
+  GooglePlusShareButton,
+  GooglePlusShareCount,
   GooglePlusIcon,
-  LinkedinIcon
 } from "react-share";
 
 import config from "../../../content/meta/config";
@@ -33,7 +38,10 @@ const styles = theme => ({
     flexDirection: "row",
     "& .SocialMediaShareButton": {
       margin: "0 .8em",
-      cursor: "pointer"
+      cursor: "pointer",
+      [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        margin: "0 .4em"
+      },
     }
   },
   label: {
@@ -61,13 +69,10 @@ class PostShare extends React.Component {
         <div className={classes.links}>
           <TwitterShareButton url={url} title={title}>
             <TwitterIcon round size={iconSize} />
-          </TwitterShareButton>
-          <GooglePlusShareButton url={url}>
-            <GooglePlusIcon round size={iconSize} />
-            <GooglePlusShareCount url={url}>
+            <TwitterShareCount url={url}>
               {count => <div className="share-count">{filter(count)}</div>}
-            </GooglePlusShareCount>
-          </GooglePlusShareButton>
+            </TwitterShareCount>
+          </TwitterShareButton>
           <FacebookShareButton
             url={url}
             quote={`${title} - ${excerpt}`}
@@ -78,12 +83,24 @@ class PostShare extends React.Component {
               {count => <div className="share-count">{filter(count)}</div>}
             </FacebookShareCount>
           </FacebookShareButton>
-          <LinkedinShareButton url={url} title={title} description={excerpt}>
-            <LinkedinIcon round size={iconSize} />
-            <LinkedinShareCount url={url}>
+          <HatebuShareButton url={url}>
+            <HatebuIcon round size={iconSize} />
+            <HatebuShareCount url={url}>
               {count => <div className="share-count">{filter(count)}</div>}
-            </LinkedinShareCount>
-          </LinkedinShareButton>
+            </HatebuShareCount>
+          </HatebuShareButton>
+          <GooglePlusShareButton url={url}>
+            <GooglePlusIcon round size={iconSize} />
+            <GooglePlusShareCount url={url}>
+              {count => <div className="share-count">{filter(count)}</div>}
+            </GooglePlusShareCount>
+          </GooglePlusShareButton>
+          <LineShareButton url={url} title={title}>
+            <LineIcon round size={iconSize} />
+          </LineShareButton>
+          <PocketShareButton url={url} title={title}>
+            <PocketIcon round size={iconSize} />
+          </PocketShareButton>
         </div>
       </div>
     );

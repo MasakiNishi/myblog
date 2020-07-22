@@ -25,10 +25,19 @@ const PostShare = asyncComponent(() =>
     .catch(error => {})
 );
 
-const PostFooter = ({ classes, author, post, slug }) => {
+const PostFollow = asyncComponent(() =>
+  import("./PostFollow")
+    .then(module => {
+      return module;
+    })
+    .catch(error => {})
+);
+
+const PostFooter = ({ classes, author, post, slug, facebook }) => {
   return (
     <footer className={classes.footer}>
       <PostShare post={post} slug={slug} />
+      <PostFollow post={post} slug={slug} facebook={facebook} />
       <PostAuthor author={author} />
     </footer>
   );

@@ -14,12 +14,13 @@ const Post = props => {
   const publishDate = ((post || {}).fields || {}).prefix;
   const modifiedDate = ((post || {}).frontmatter || {}).date;
   const html = (post || {}).html;
+  const htmlAst = (post || {}).htmlAst;
 
   return (
     <Article>
       <PostHeader title={title} subTitle={subTitle} publishDate={publishDate} modifiedDate={modifiedDate} />
       <Content html={html} />
-      <PostFooter author={author} post={post} slug={slug}/>
+      <PostFooter author={author} post={post} slug={slug} facebook={facebook} />
     </Article>
   );
 };

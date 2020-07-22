@@ -52,6 +52,8 @@ Proin ornare ligula eu tellus tempus elementum. . Vestibulum non nibh risus, a s
 
 Nullam eros mi, mollis in sollicitudin non, tincidunt sed enim. Sed et felis metus, rhoncus ornare nibh. Ut at magna leo. Suspendisse egestas est ac dolor imperdiet pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">以下記事のほとんどの人が有名なブートキャンプを出てる。<br><br>シリコンバレー付近の学校は単純なカリキュラムに沿っていくのではなくて、ペアコーディング推奨してたり、<br>学費は卒業後の転職先の年収の10%を後払いする所もあって質が高い。<a href="https://t.co/z0W9D0wWqF">https://t.co/z0W9D0wWqF</a></p>&mdash; MasakiNishi🇺🇸エンジニア (@masakinishi_com) <a href="https://twitter.com/masakinishi_com/status/1024448121609191424?ref_src=twsrc%5Etfw">2018年8月1日</a></blockquote>
+
 ### Donec hendrerit laoreet risus eget adipiscing.
 
 Proin suscipit luctus orci placerat fringilla. Suspendisse in urna ligula, a volutpat mauris. Sed enim mi, bibendum eu pulvinar vel, sodales vitae dui. Pellentesque sed sapien lorem, at lacinia urna. In hac habitasse platea dictumst. Vivamus vel justo in leo laoreet ullamcorper non vitae lorem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin bibendum ullamcorper rutrum.
