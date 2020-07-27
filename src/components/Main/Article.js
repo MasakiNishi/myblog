@@ -12,7 +12,7 @@ const styles = theme => ({
       letterSpacing: "-.02em"
     },
     "& a": {
-      fontWeight: "bold",
+      fontWeight: "normal",
       letterSpacing: "-.02em",
       textDecoration: "underline",
       transition: "0.3s",

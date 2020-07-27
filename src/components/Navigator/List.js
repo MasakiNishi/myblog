@@ -54,6 +54,16 @@ const styles = theme => ({
     ".is-aside.closed &, .moving-featured.closed &": {
       display: "none"
     },
+    "& .articleHeader": {
+      margin: "0 0 0.5em 0.5em",
+      [`@media (max-width: ${theme.mediaQueryTresholds.L}px)`]: {
+        fontSize: "1.6em",
+        [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
+          fontSize: "1.4em",
+          margin: "0 0 0 0.5em"
+        }
+      }
+    },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       padding: "2rem calc(1rem + 17px) calc(2rem + 17px) 2rem"
     },
@@ -68,7 +78,7 @@ const styles = theme => ({
         padding: "8.5rem calc(1rem + 17px) calc(2rem + 17px) 2rem"
       }
     }
-  }
+  },
 });
 
 class List extends React.Component {
@@ -103,6 +113,7 @@ class List extends React.Component {
     } = this.props;
 
     const isHome = location.pathname === withPrefix("/");
+    const isAll = categoryFilter === "すべての記事";
 
     if (isHome) {
       return (
@@ -116,6 +127,7 @@ class List extends React.Component {
                 removeFilter={removeFilter}
               />
                 <ul className={`${classes.Homelist} ${this.state.hidden ? this.state.hidden : ""}`}>
+                  { isAll && <h1 className='articleHeader'>Articles</h1> }
                   {posts &&
                     posts.map((post, i) => (
                       <ListItem

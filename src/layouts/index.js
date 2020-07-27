@@ -14,21 +14,9 @@ import Loading from "../components/common/Loading/";
 import Navigator from "../components/Navigator/";
 import ActionsBar from "../components/ActionsBar/";
 import InfoBar from "../components/InfoBar/";
+import InfoBox from "../components/InfoBox/";
 
 import { isWideScreen, timeoutThrottlerHandler } from "../utils/helpers";
-
-const InfoBox = asyncComponent(
-  () =>
-    import("../components/InfoBox/")
-      .then(module => {
-        return module;
-      })
-      .catch(error => {}),
-  <Loading
-    overrides={{ width: `${theme.info.sizes.width}px`, height: "100vh", right: "auto" }}
-    afterRight={true}
-  />
-);
 
 class Layout extends React.Component {
   timeouts = {};
@@ -95,7 +83,7 @@ class Layout extends React.Component {
           <Navigator posts={data.posts.edges} />
           <ActionsBar categories={this.categories} />
           <InfoBar pages={data.pages.edges} parts={data.parts.edges} />
-          {this.props.isWideScreen && <InfoBox pages={data.pages.edges} parts={data.parts.edges} />}
+          <InfoBox pages={data.pages.edges} parts={data.parts.edges} />
         </div>
       </MuiThemeProvider>
     );

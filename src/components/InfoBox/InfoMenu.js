@@ -24,7 +24,7 @@ const styles = theme => ({
 });
 
 const InfoMenu = props => {
-  const { classes, pages, linkOnClick } = props;
+  const { classes, pages, linkOnClick, hideOnClick } = props;
 
   return (
     <nav className={classes.infoMenu}>
@@ -34,7 +34,10 @@ const InfoMenu = props => {
           <Link
             key={fields.slug}
             to={fields.slug}
-            onClick={linkOnClick}
+            onClick={e => {
+              hideOnClick();
+              linkOnClick();
+            }}
             className={classes.link}
             data-shape="closed"
           >
@@ -42,7 +45,15 @@ const InfoMenu = props => {
           </Link>
         );
       })}
-      <Link to="/contact/" onClick={linkOnClick} className={classes.link} data-shape="closed">
+      <Link
+        to="/contact/"
+        onClick={e => {
+          hideOnClick();
+          linkOnClick();
+        }}
+        className={classes.link}
+        data-shape="closed"
+      >
         お問い合わせ
       </Link>
     </nav>
@@ -52,7 +63,8 @@ const InfoMenu = props => {
 InfoMenu.propTypes = {
   pages: PropTypes.array.isRequired,
   classes: PropTypes.object.isRequired,
-  linkOnClick: PropTypes.func.isRequired
+  linkOnClick: PropTypes.func.isRequired,
+  hideOnClick: PropTypes.func.isRequired
 };
 
 export default injectSheet(styles)(InfoMenu);

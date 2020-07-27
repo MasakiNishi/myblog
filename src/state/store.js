@@ -12,6 +12,7 @@ const SET_IS_WIDE_SCREEN = "SET_IS_WIDE_SCREEN";
 const SET_SCROLL_TO_TOP = "SET_SCROLL_TO_TOP";
 const SET_FONT_SIZE_INCREASE = "SET_FONT_SIZE_INCREASE";
 const SET_CATEGORY_FILTER = "SET_CATEGORY_FILTER";
+const SET_SHOW_SIDEBAR = "SET_SHOW_SIDEBAR";
 
 /*
  * action creators
@@ -43,6 +44,10 @@ export function setFontSizeIncrease(val) {
 
 export function setCategoryFilter(val) {
   return { type: SET_CATEGORY_FILTER, val };
+}
+
+export function setShowSidebar(val) {
+  return { type: SET_SHOW_SIDEBAR, val };
 }
 
 /*
@@ -92,6 +97,12 @@ const reducer = (state, action) => {
         categoryFilter: action.val
       };
 
+    case SET_SHOW_SIDEBAR:
+      return {
+        ...state,
+        showSidebar: action.val
+      };
+
     default:
       return state;
   }
@@ -104,7 +115,8 @@ const initialState = {
   isWideScreen: false,
   scrollToTop: false,
   fontSizeIncrease: 1,
-  categoryFilter: "すべての記事"
+  categoryFilter: "すべての記事",
+  showSidebar: "hide"
 };
 
 const createStore = () =>

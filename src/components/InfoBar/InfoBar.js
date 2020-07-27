@@ -3,15 +3,14 @@ import injectSheet from "react-jss";
 import PropTypes from "prop-types";
 import Avatar from "material-ui/Avatar";
 import Link from "gatsby-link";
-import { withPrefix } from "gatsby-link";
 import { connect } from "react-redux";
 
-import { setNavigatorPosition } from "../../state/store";
+import { setNavigatorPosition, setShowSidebar } from "../../state/store";
 import { featureNavigator, moveNavigatorAside } from "./../../utils/shared";
 
 import config from "../../../content/meta/config";
 import avatar from "../../images/jpg/avatar.jpg";
-import TopMenu from "./TopMenu";
+import TopSideMenu from "./TopSideMenu";
 
 const styles = theme => ({
   infoBar: {
@@ -62,31 +61,28 @@ class InfoBar extends React.Component {
   homeLinkOnClick = featureNavigator.bind(this);
   pageLinkOnClick = moveNavigatorAside.bind(this);
 
+  showOnClick = e => {
+    if (this.props.showSidebar || "show") {
+      this.props.setShowSidebar("show");
+    };
+  };
+
   render() {
-    const { classes, pages } = this.props;
-    const isHome = location.pathname === withPrefix("/");
+    const { classes, pages, showOnClick } = this.props;
+
+    const isShow = this.props.showSidebar === "show";
 
     return (
       <aside className={classes.infoBar}>
         <Link to="/"　title="トップページへ戻る">
           <Avatar alt={config.infoTitle} src={avatar} className={classes.avatar} />
-          { isHome &&
-          <h1 className={classes.title}>
-            {config.infoTitle}
-            <small> {config.infoTitleNote}</small>
-          </h1>
-          }
-          { isHome ||
           <div className={classes.title}>
             {config.infoTitle}
             <small> {config.infoTitleNote}</small>
           </div>
-          }
         </Link>
-        <TopMenu
-          pages={pages}
-          homeLinkOnClick={this.homeLinkOnClick}
-          pageLinkOnClick={this.pageLinkOnClick}
+        <TopSideMenu
+          showOnClick={this.showOnClick}
           title="メニュー"
         />
       </aside>
@@ -102,12 +98,14 @@ InfoBar.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   return {
     navigatorPosition: state.navigatorPosition,
-    navigatorShape: state.navigatorShape
+    navigatorShape: state.navigatorShape,
+    showSidebar: state.showSidebar
   };
 };
 
 const mapDispatchToProps = {
-  setNavigatorPosition
+  setNavigatorPosition,
+  setShowSidebar
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(injectSheet(styles)(InfoBar));
