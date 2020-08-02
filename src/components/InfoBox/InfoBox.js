@@ -20,27 +20,32 @@ import CloseIcon from "material-ui-icons/Close";
 
 const styles = theme => ({
   infoBox: {
-    display: "none",
+    display: "block",
     color: theme.info.colors.text,
     position: "absolute",
     left: 0,
     top: 0,
     width: `${theme.info.sizes.width}px`,
     height: "100%",
-    [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
-      display: "block"
-    },
     [`@media (max-width: ${theme.mediaQueryTresholds.L - 1}px)`]: {
+      left: "-100%",
+      "& .asideInner": {
+        left: "-100%"
+      },
       "&.show": {
-        width: "100%",
         backgroundColor: "rgba(0,0,0,0.5)",
-        display: "block",
+        width: "100%",
+        left: 0,
+        "& .asideInner": {
+          transition: "left 0.9s",
+          left: 0
+        },
         "& .closeMenu": {
           display: "block",
           position: "absolute",
           top: "5px",
           right: "5px"
-        }
+        },
       }
     },
     "&::after": {
@@ -56,16 +61,15 @@ const styles = theme => ({
       }
     },
     "& .asideInner": {
-      width: "100%",
+      width: `${theme.info.sizes.width}px`,
       height: "100%",
       background: theme.info.colors.background,
       padding: "20px 40px",
       position: "absolute",
-      overflow: "scroll",
-      [`@media (max-width: ${theme.mediaQueryTresholds.L - 1}px)`]: {
-        width: "300px",
-        maxWidth: "85%"
-      }
+      overflow: "scroll"
+    },
+    "& .closeMenu": {
+      display: "none"
     }
   },
   wrapper: {
@@ -79,9 +83,6 @@ const styles = theme => ({
     transition: "bottom .5s 0s",
     opacity: 1,
     transitionTimingFunction: "ease",
-    [`@media (max-width: ${theme.mediaQueryTresholds.L - 1}px)`]: {
-      padding: "0 30px"
-    },
     ".is-aside.closed &": {
       bottom: `${theme.navigator.sizes.closedHeight}px`
     },
@@ -94,9 +95,6 @@ const styles = theme => ({
     },
     "& .infoBoxText": {
       fontSize: ".9em"
-    },
-    "& .closeMenu": {
-      display: "none"
     }
   },
 });

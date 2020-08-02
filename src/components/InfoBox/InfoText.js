@@ -15,6 +15,12 @@ const styles = theme => ({
     },
     "& p:last-child": {
       marginBottom: 0
+    },
+    "& a": {
+      color: "#709425",
+      "&:hover": {
+        color: "hsl(79.5, 60%, 39.9%)"
+      }
     }
   }
 });
