@@ -35,7 +35,7 @@ const styles = theme => ({
   },
   title: {
     float: "left",
-    margin: "10px 0 0 15px",
+    margin: "13px 0 0 15px",
     fontSize: "1.17em",
     fontWeight: "300",
     fontFamily: "Open Sans",
