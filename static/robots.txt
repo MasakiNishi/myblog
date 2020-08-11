@@ -1,5 +1,3 @@
 User-agent: *
 Noindex: /success/
-Noindex: /search/
-Noindex: /contact/
 sitemap: https://masakinishi.com/sitemap.xml

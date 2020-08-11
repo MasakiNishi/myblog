@@ -20,11 +20,8 @@ const Seo = props => {
 
   const isHome = location.pathname === withPrefix("/");
   const isPost = location.pathname === withPrefix(config.pathPrefix + postSlug);
-  const isAbout = location.pathname === withPrefix("/about/");
-  const isSuccess = location.pathname === withPrefix("/success/");
-
-  const isAbout2 = location.pathname === withPrefix("/about");
-  const isSuccess2 = location.pathname === withPrefix("/success");
+  const isAbout = location.pathname === withPrefix("/about/") || location.pathname === withPrefix("/about");
+  const isSuccess = location.pathname === withPrefix("/success/") || location.pathname === withPrefix("/success");
 
   const schemaOrgJSONLD = [
       {
@@ -156,117 +153,7 @@ const Seo = props => {
         }
       );
     }
-    if (isAbout2) {
-      schemaOrgJSONLD.push(
-        {
-          "@context": "http://schema.org",
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": config.siteUrl + "/about/",
-            "headline": "About"
-          },
-          "description": "About",
-          "image": {
-            "@type": "ImageObject",
-            "url": config.siteUrl + config.siteImageOgp,
-            "width": 1200,
-            "height": 630
-          },
-          "author": {
-            "@type": "Person",
-            "name": config.authorName
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": config.siteTitle,
-            "logo": {
-              "@type": "ImageObject",
-              "url": config.siteUrl + "/icons/apple-icon-60x60.png",
-              "width": 60,
-              "height": 60
-            }
-          }
-        },
-        {
-          "@context": "http://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              item: {
-                "@id": config.siteUrl,
-                name: "ホーム",
-              }
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              item: {
-                "@id": config.siteUrl + "/about/",
-                name: "About",
-              }
-            }
-          ]
-        }
-      );
-    }
     if (isSuccess) {
-      schemaOrgJSONLD.push(
-        {
-          "@context": "http://schema.org",
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": config.siteUrl + "/success/",
-            "headline": "Success"
-          },
-          "description": "Success",
-          "image": {
-            "@type": "ImageObject",
-            "url": config.siteUrl + config.siteImageOgp,
-            "width": 1200,
-            "height": 630
-          },
-          "author": {
-            "@type": "Person",
-            "name": config.authorName
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": config.siteTitle,
-            "logo": {
-              "@type": "ImageObject",
-              "url": config.siteUrl + "/icons/apple-icon-60x60.png",
-              "width": 60,
-              "height": 60
-            }
-          }
-        },
-        {
-          "@context": "http://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              item: {
-                "@id": config.siteUrl,
-                name: "ホーム",
-              }
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              item: {
-                "@id": config.siteUrl + "/success/",
-                name: "Success",
-              }
-            }
-          ]
-        }
-      );
-    }
-    if (isSuccess2) {
       schemaOrgJSONLD.push(
         {
           "@context": "http://schema.org",
@@ -382,67 +269,7 @@ const Seo = props => {
           />
         </Helmet>
       );
-  } else if (isAbout2) {
-    return (
-        <Helmet
-          htmlAttributes={{
-            lang: config.siteLanguage,
-            prefix: "og: http://ogp.me/ns#"
-          }}
-        >
-          {/* General tags */}
-          <title>About</title>
-          <meta name="description" content="test" />
-          {/* Schema.org tags */}
-          <script type="application/ld+json">
-            {JSON.stringify(schemaOrgJSONLD)}
-          </script>
-          {/* OpenGraph tags */}
-          <meta property="og:url" content={config.siteUrl + "/about/"} />
-          <meta property="og:title" content="About" />
-          <meta property="og:description" content="testestest" />
-          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
-          <meta property="og:type" content="article" />
-          <meta property="fb:app_id" content={facebook.appId} />
-          {/* Twitter Card tags */}
-          <meta name="twitter:card" content="summarylargeimage" />
-          <meta
-            name="twitter:site"
-            content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
-          />
-        </Helmet>
-      );
   } else if (isSuccess) {
-    return (
-        <Helmet
-          htmlAttributes={{
-            lang: config.siteLanguage,
-            prefix: "og: http://ogp.me/ns#"
-          }}
-        >
-          {/* General tags */}
-          <title>Success</title>
-          <meta name="description" content="tes" />
-          {/* Schema.org tags */}
-          <script type="application/ld+json">
-            {JSON.stringify(schemaOrgJSONLD)}
-          </script>
-          {/* OpenGraph tags */}
-          <meta property="og:url" content={config.siteUrl + "/success/"} />
-          <meta property="og:title" content="Success" />
-          <meta property="og:description" content="testestes" />
-          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
-          <meta property="og:type" content="article" />
-          <meta property="fb:app_id" content={facebook.appId} />
-          {/* Twitter Card tags */}
-          <meta name="twitter:card" content="summarylargeimage" />
-          <meta
-            name="twitter:site"
-            content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
-          />
-        </Helmet>
-      );
-  } else if (isSuccess2) {
     return (
         <Helmet
           htmlAttributes={{

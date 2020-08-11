@@ -4,13 +4,18 @@ import injectSheet from "react-jss";
 
 import { ReactComponent as AlgoliaIcon } from "../../images/svg-icons/algolia-full.svg";
 
+import { withPrefix } from "gatsby-link";
+
 const styles = theme => ({
   header: {
     margin: "0 0 3em",
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-start",
-    alignContent: "center"
+    alignContent: "center",
+    "&.about": {
+      margin: ".7em 0 0"
+    }
   },
   title: {
     color: theme.main.colors.title,
@@ -43,21 +48,31 @@ const styles = theme => ({
 const Header = props => {
   const { classes, title, algolia } = props;
 
-  return (
-    <header className={classes.header}>
-      <h1 className={classes.title}>{title}</h1>
-      {algolia && (
-        <a
-          className={classes.mark}
-          href="https://www.algolia.com"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <AlgoliaIcon />
-        </a>
-      )}
-    </header>
-  );
+  const isAbout = location.pathname === withPrefix("/about/") || location.pathname === withPrefix("/about");
+
+  if (isAbout) {
+    return (
+      <header className={`${classes.header} about`}>
+        <h1 className={classes.title}>{title}</h1>
+      </header>
+    );
+  } else {
+    return (
+      <header className={classes.header}>
+        <h1 className={classes.title}>{title}</h1>
+        {algolia && (
+          <a
+            className={classes.mark}
+            href="https://www.algolia.com"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <AlgoliaIcon />
+          </a>
+        )}
+      </header>
+    );
+  };
 };
 
 Header.propTypes = {

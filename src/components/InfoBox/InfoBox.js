@@ -20,7 +20,6 @@ import CloseIcon from "material-ui-icons/Close";
 
 const styles = theme => ({
   infoBox: {
-    display: "block",
     color: theme.info.colors.text,
     position: "absolute",
     left: 0,

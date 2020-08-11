@@ -23,11 +23,11 @@ module.exports = {
   manifestThemeColor: colors.background,
   manifestDisplay: "standalone",
   // contact
-  contactEmail: "n24mfs@gmail.com",
+  contactEmail: "info@masakinishi.com",
   // social
   authorSocialLinks: [
     { name: "Twitter", url: "https://twitter.com/masakinishi_com" },
-    { name: "Facebook", url: "https://www.facebook.com/profile.php?id=100011427868153" },
+    { name: "Facebook", url: "https://www.facebook.com/masakinishicom/" },
     { name: "Instagram", url: "https://www.instagram.com/masakinishi_com/" }
   ]
 };

@@ -1,5 +1,5 @@
 ---
-title: Success
+title: お問い合わせ完了しました。
 ---
 
-Thank you. I will answer to the message as soon as possible.
+ありがとうございます。可能な限り早く返信させていただきます。
