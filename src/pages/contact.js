@@ -28,8 +28,9 @@ const Contact = () => {
           "name": config.siteTitle
         },
         "sameAs": [
-          "http://facebook.com/masakinishi",
-          "https://twitter.com/masakinishi_com"
+          "https://twitter.com/masakinishi_com",
+          "https://www.facebook.com/masakinishicom/",
+          "https://www.instagram.com/masakinishi_com/"
         ],
       }
     ];
@@ -40,9 +41,9 @@ const Contact = () => {
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": config.siteUrl + "/contact/",
-          "headline": "Contact"
+          "headline": "お問い合わせ"
         },
-        "description": "Contact",
+        "description": "Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。",
         "image": {
           "@type": "ImageObject",
           "url": config.siteUrl + config.siteImageOgp,
@@ -81,7 +82,7 @@ const Contact = () => {
             position: 2,
             item: {
               "@id": config.siteUrl + "/contact/",
-              name: "Contact",
+              name: "お問い合わせ",
             }
           }
         ]
@@ -97,16 +98,16 @@ const Contact = () => {
         }}
       >
         {/* General tags */}
-        <title>Contact</title>
-        <meta name="description" content="test" />
+        <title>お問い合わせ</title>
+        <meta name="description" content="Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。" />
         {/* Schema.org tags */}
         <script type="application/ld+json">
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
         {/* OpenGraph tags */}
         <meta property="og:url" content={config.siteUrl + "/contact/"} />
-        <meta property="og:title" content="Contact" />
-        <meta property="og:description" content="testestest" />
+        <meta property="og:title" content="お問い合わせ" />
+        <meta property="og:description" content="Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。" />
         <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
         <meta property="og:type" content="article" />
         <meta property="fb:app_id" content="0" />
@@ -118,10 +119,9 @@ const Contact = () => {
         />
       </Helmet>
       <Article>
-        <PageHeader title="Contact" />
+        <PageHeader title="お問い合わせ" />
         <Content>
-          Feel free to contact me by email: <Obfuscate email={config.contactEmail} /> or use the
-          form below.
+          下記フォームか、Eメール: <Obfuscate email={config.contactEmail} /> にお気軽にお問い合わせください。
         </Content>
         <Form />
       </Article>

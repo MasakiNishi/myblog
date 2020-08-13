@@ -113,6 +113,7 @@ class PostFollow extends React.Component {
               className="instaButton"
               target="_blank"
               rel="noopener noreferrer"
+              title="インスタをフォローする"
             >
               <InstaIcon/ > <span>Follow</span>
             </a>
@@ -122,6 +123,7 @@ class PostFollow extends React.Component {
               href={feedlyfollowurl}
               target="_blank"
               rel="noopener noreferrer"
+              title="Feedlyで購読する"
             >
               <img
                 id='feedlyFollow'

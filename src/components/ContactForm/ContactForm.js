@@ -93,11 +93,11 @@ class ContactForm extends React.Component {
         <TextValidator
           id="name"
           name="name"
-          label="Name"
+          label="名前"
           value={name}
           onChange={this.handleChange}
           validators={["required"]}
-          errorMessages={["this field is required"]}
+          errorMessages={["入力が必要です"]}
           fullWidth
           margin="normal"
           className={classes.singleLineInput}
@@ -105,11 +105,11 @@ class ContactForm extends React.Component {
         <TextValidator
           id="email"
           name="email"
-          label="E-mail"
+          label="メールアドレス"
           value={email}
           onChange={this.handleChange}
           validators={["required", "isEmail"]}
-          errorMessages={["this field is required", "email is not valid"]}
+          errorMessages={["入力が必要です", "正しいメールアドレスを入力してください"]}
           fullWidth
           margin="normal"
           className={classes.singleLineInput}
@@ -117,11 +117,11 @@ class ContactForm extends React.Component {
         <TextValidator
           id="message"
           name="message"
-          label="Message"
+          label="内容"
           value={message}
           onChange={this.handleChange}
           validators={["required"]}
-          errorMessages={["this field is required"]}
+          errorMessages={["入力が必要です"]}
           multiline
           fullWidth
           margin="normal"
@@ -135,7 +135,7 @@ class ContactForm extends React.Component {
           type="submit"
           className={classes.submit}
         >
-          Send
+          送信
         </Button>
       </ValidatorForm>
     );

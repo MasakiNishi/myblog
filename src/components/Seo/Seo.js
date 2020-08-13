@@ -35,8 +35,9 @@ const Seo = props => {
           "name": config.siteTitle
         },
         "sameAs": [
-          "http://facebook.com/masakinishi",
-          "https://twitter.com/masakinishi_com"
+          "https://twitter.com/masakinishi_com",
+          "https://www.facebook.com/masakinishicom/",
+          "https://www.instagram.com/masakinishi_com/"
         ],
       }
     ];
@@ -105,9 +106,9 @@ const Seo = props => {
           "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": config.siteUrl + "/about/",
-            "headline": "About"
+            "headline": "プロフィール"
           },
-          "description": "About",
+          "description": "Masaki Nishiのプロフィールページです。現在はサンフランシスコ・シリコンバレー地域のベイエリア周辺でソフトウェアエンジニアをしています。",
           "image": {
             "@type": "ImageObject",
             "url": config.siteUrl + config.siteImageOgp,
@@ -146,62 +147,7 @@ const Seo = props => {
               position: 2,
               item: {
                 "@id": config.siteUrl + "/about/",
-                name: "About",
-              }
-            }
-          ]
-        }
-      );
-    }
-    if (isSuccess) {
-      schemaOrgJSONLD.push(
-        {
-          "@context": "http://schema.org",
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": config.siteUrl + "/success/",
-            "headline": "Success"
-          },
-          "description": "Success",
-          "image": {
-            "@type": "ImageObject",
-            "url": config.siteUrl + config.siteImageOgp,
-            "width": 1200,
-            "height": 630
-          },
-          "author": {
-            "@type": "Person",
-            "name": config.authorName
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": config.siteTitle,
-            "logo": {
-              "@type": "ImageObject",
-              "url": config.siteUrl + "/icons/apple-icon-60x60.png",
-              "width": 60,
-              "height": 60
-            }
-          }
-        },
-        {
-          "@context": "http://schema.org",
-          "@type": "BreadcrumbList",
-          itemListElement: [
-            {
-              "@type": "ListItem",
-              position: 1,
-              item: {
-                "@id": config.siteUrl,
-                name: "ホーム",
-              }
-            },
-            {
-              "@type": "ListItem",
-              position: 2,
-              item: {
-                "@id": config.siteUrl + "/success/",
-                name: "Success",
+                name: "プロフィール"
               }
             }
           ]
@@ -248,16 +194,16 @@ const Seo = props => {
           }}
         >
           {/* General tags */}
-          <title>About</title>
-          <meta name="description" content="test" />
+          <title>プロフィール</title>
+          <meta name="description" content="Masaki Nishiのプロフィールページです。現在はサンフランシスコ・シリコンバレー地域のベイエリア周辺でソフトウェアエンジニアをしています。" />
           {/* Schema.org tags */}
           <script type="application/ld+json">
             {JSON.stringify(schemaOrgJSONLD)}
           </script>
           {/* OpenGraph tags */}
           <meta property="og:url" content={config.siteUrl + "/about/"} />
-          <meta property="og:title" content="About" />
-          <meta property="og:description" content="testestest" />
+          <meta property="og:title" content="プロフィール" />
+          <meta property="og:description" content="Masaki Nishiのプロフィールページです。現在はサンフランシスコ・シリコンバレー地域のベイエリア周辺でソフトウェアエンジニアをしています。" />
           <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
           <meta property="og:type" content="article" />
           <meta property="fb:app_id" content={facebook.appId} />
@@ -273,30 +219,12 @@ const Seo = props => {
     return (
         <Helmet
           htmlAttributes={{
-            lang: config.siteLanguage,
-            prefix: "og: http://ogp.me/ns#"
+            lang: config.siteLanguage
           }}
         >
+          <meta name="robots" content="noindex" />
           {/* General tags */}
-          <title>Success</title>
-          <meta name="description" content="tes" />
-          {/* Schema.org tags */}
-          <script type="application/ld+json">
-            {JSON.stringify(schemaOrgJSONLD)}
-          </script>
-          {/* OpenGraph tags */}
-          <meta property="og:url" content={config.siteUrl + "/success/"} />
-          <meta property="og:title" content="Success" />
-          <meta property="og:description" content="testestes" />
-          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
-          <meta property="og:type" content="article" />
-          <meta property="fb:app_id" content={facebook.appId} />
-          {/* Twitter Card tags */}
-          <meta name="twitter:card" content="summarylargeimage" />
-          <meta
-            name="twitter:site"
-            content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
-          />
+          <title>お問い合わせ完了しました。</title>
         </Helmet>
       );
   } else if (isPost) {

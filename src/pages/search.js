@@ -25,8 +25,9 @@ const SearchPage = props => {
           "name": config.siteTitle
         },
         "sameAs": [
-          "http://facebook.com/masakinishi",
-          "https://twitter.com/masakinishi_com"
+          "https://twitter.com/masakinishi_com",
+          "https://www.facebook.com/masakinishicom/",
+          "https://www.instagram.com/masakinishi_com/"
         ],
       }
     ];
@@ -37,9 +38,9 @@ const SearchPage = props => {
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": config.siteUrl + "/search/",
-          "headline": "Search"
+          "headline": "サイト内検索"
         },
-        "description": "Search",
+        "description": "Masaki Nishi Personal Blogのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。",
         "image": {
           "@type": "ImageObject",
           "url": config.siteUrl + config.siteImageOgp,
@@ -78,7 +79,7 @@ const SearchPage = props => {
             position: 2,
             item: {
               "@id": config.siteUrl + "/search/",
-              name: "Search",
+              name: "サイト内検索",
             }
           }
         ]
@@ -94,16 +95,16 @@ const SearchPage = props => {
         }}
       >
         {/* General tags */}
-        <title>Search</title>
-        <meta name="description" content="test" />
+        <title>サイト内検索</title>
+        <meta name="description" content="Masaki Nishi Personal Blogのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
         {/* Schema.org tags */}
         <script type="application/ld+json">
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
         {/* OpenGraph tags */}
         <meta property="og:url" content={config.siteUrl + "/search/"} />
-        <meta property="og:title" content="Seacrh" />
-        <meta property="og:description" content="testestest" />
+        <meta property="og:title" content="サイト内検索" />
+        <meta property="og:description" content="Masaki Nishi Personal Blogのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
         <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
         <meta property="og:type" content="article" />
         <meta property="fb:app_id" content="0" />
@@ -115,7 +116,7 @@ const SearchPage = props => {
         />
       </Helmet>
       <Article>
-        <PageHeader title="Search by" algolia={true} />
+        <PageHeader title="サイト内検索 by" algolia={true} />
         <Search algolia={data.site.siteMetadata.algolia} />
       </Article>
     </Main>

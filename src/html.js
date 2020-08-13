@@ -45,7 +45,7 @@ module.exports = class HTML extends React.Component {
           />
         </head>
         <body {...this.props.bodyAttributes}>
-          <noscript>enable JavaScript</noscript>
+          <noscript>草</noscript>
           {this.props.preBodyComponents}
           <div key={`body`} id="___gatsby" dangerouslySetInnerHTML={{ __html: this.props.body }} />
           {this.props.postBodyComponents}
