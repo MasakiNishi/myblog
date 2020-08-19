@@ -22,23 +22,31 @@ menuTitle: プロフィール
 
 このブログやSNSでは、上記の情報だけでなく、海外で働きたい人、英語やプログラミングの初学者に向けて有益な情報を発信しています。SNSではブログで書かないこともつぶやいてるので興味あるかたはフォローしてください！今後の活動の励みになります。
 
-[>> Masaki Nishi＠エンジニア (@masakinishi_com) | Twitter](https://twitter.com/masakinishi_com/)
+<div class="box">
 
-[>> Facebook](https://www.facebook.com/masakinishicom/)
+* [Masaki Nishi＠エンジニア (@masakinishi_com) | Twitter](https://twitter.com/masakinishi_com/)
 
-[>> Instagram](https://www.instagram.com/masakinishi_com/)
+* [Facebook](https://www.facebook.com/masakinishicom/)
+
+* [Instagram](https://www.instagram.com/masakinishi_com/)
+
+</div>
 
 ###過去のbtraxブログでの代表執筆記事
 
-[小売業界の敵はAmazonではない? これからの小売が知っておくべき課題](http://blog.btrax.com/jp/2018/06/01/retail-store-startup/) | 370 shares | [792 picks](https://newspicks.com/news/3072396)
+<div class="box">
 
-[シェアサイクル事業問題から見るサンフランシスコ市の意思決定の早さ](http://blog.btrax.com/jp/2018/05/09/bikeshare-in-sanfrancisco/) | 195 shares
+* [小売業界の敵はAmazonではない? これからの小売が知っておくべき課題](http://blog.btrax.com/jp/2018/06/01/retail-store-startup/) | 370 shares | [792 picks](https://newspicks.com/news/3072396)
 
-[95年生まれが思う日本とアメリカのミレニアル世代の特徴と消費行動](http://blog.btrax.com/jp/2017/10/16/millennials-characteristics/) | 97 shares
+* [シェアサイクル事業問題から見るサンフランシスコ市の意思決定の早さ](http://blog.btrax.com/jp/2018/05/09/bikeshare-in-sanfrancisco/) | 195 shares
 
-[ミレニアル世代のマインドセットを捉えて成功したスタートアップ事例](http://blog.btrax.com/jp/2018/06/28/millennials-mindset-startup/) | 82 shares
+* [95年生まれが思う日本とアメリカのミレニアル世代の特徴と消費行動](http://blog.btrax.com/jp/2017/10/16/millennials-characteristics/) | 97 shares
 
-[人工知能(AI)のできることとは？歴史から学ぶ現状と未来予測](http://blog.btrax.com/jp/2017/08/29/ai-history/) | 121 shares
+* [ミレニアル世代のマインドセットを捉えて成功したスタートアップ事例](http://blog.btrax.com/jp/2018/06/28/millennials-mindset-startup/) | 82 shares
+
+* [人工知能(AI)のできることとは？歴史から学ぶ現状と未来予測](http://blog.btrax.com/jp/2017/08/29/ai-history/) | 121 shares
+
+</div>
 
 ##近い将来の予定
 

@@ -24,11 +24,26 @@ const styles = theme => ({
       padding: ".1em .3em .2em",
       borderRadius: ".1em"
     },
+    "& .language-text": {
+      background: "#eee",
+      color: "#333"
+    },
     "& .gatsby-resp-image-link": {
       margin: "2em -1.5rem",
       border: "none",
       [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
         margin: "2.5em -3.5rem"
+      }
+    },
+    "& .box": {
+      padding: "2em",
+      border: "1px dashed #ddd",
+      marginBottom: "1.5em",
+      "& p": {
+          margin: "0 0 0 0"
+      },
+      "& ul": {
+        margin: "0 0 0 0"
       }
     },
     "& h2, & h3": {
@@ -61,14 +76,19 @@ const styles = theme => ({
       fontWeight: 400
     },
     "& ul": {
-      listStyle: "circle",
       padding: "0 0 0 1.3em",
       [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
         padding: "0 0 0 2em"
       }
     },
     "& li": {
-      margin: "0 0 .5em 0"
+      margin: "0 0 .5em 0",
+      "& p": {
+        margin: "0 0 0 0"
+      },
+      "&:last-child": {
+        margin: "0 0 0 0"
+      }
     },
     "& blockquote": {
       border: `5px solid ${theme.main.colors.blockquoteFrame}`,
