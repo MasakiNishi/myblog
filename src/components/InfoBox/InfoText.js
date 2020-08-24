@@ -18,6 +18,7 @@ const styles = theme => ({
     },
     "& a": {
       color: "#709425",
+      fontWeight: "normal",
       "&:hover": {
         color: "hsl(79.5, 60%, 39.9%)"
       }

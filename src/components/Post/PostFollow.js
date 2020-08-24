@@ -94,6 +94,7 @@ class PostFollow extends React.Component {
     const url = config.siteUrl + config.pathPrefix + slug;
     const twitterAccount = config.authorTwitterAccount;
     const instaUrl = 'https://www.instagram.com/masakinishi_com/';
+    const facebookUrl = 'https://www.facebook.com/masakinishicom/';
     const feedlyfollowurl = 'https://feedly.com/i/subscription/feed%2F' + url;
     const iconSize = 36;
     const filter = count => (count > 0 ? count : "");
@@ -104,7 +105,7 @@ class PostFollow extends React.Component {
         <div className={classes.links}>
           <div className={classes.followbutton}>
             <FacebookProvider appId={facebook}>
-              <Like href={url} colorScheme="dark" layout="button_count" size="large"/>
+              <Like href={facebookUrl} colorScheme="dark" layout="button_count" size="large"/>
             </FacebookProvider>
           </div>
           <div className={classes.followbutton}>

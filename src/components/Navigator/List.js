@@ -56,6 +56,7 @@ const styles = theme => ({
     },
     "& .articleHeader": {
       margin: "0 0 0.5em 0.5em",
+      fontFamily: 'Open Sans',
       [`@media (max-width: ${theme.mediaQueryTresholds.L}px)`]: {
         fontSize: "1.6em",
         [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {

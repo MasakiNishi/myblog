@@ -74,7 +74,7 @@ const styles = theme => ({
     flexDirection: "column",
     width: "100%",
     "& h2": {
-      lineHeight: 1.15,
+      lineHeight: 1.3,
       fontWeight: 600,
       letterSpacing: "-0.03em",
       margin: 0,
@@ -99,6 +99,9 @@ const styles = theme => ({
       fontSize: "0.9em",
       fontWeight: "400",
       margin: "0 0 .5em 0",
+      [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        fontSize: "0.8em"
+      },
       [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
         ".moving-featured &, .is-aside &": {
           display: "none"
@@ -210,7 +213,7 @@ class ListItem extends React.Component {
                   srcSet={post.node.frontmatter.cover.children[0].resolutions.srcSetWebp}
                 />
                 <source srcSet={post.node.frontmatter.cover.children[0].resolutions.srcSet} />
-                <img src={post.node.frontmatter.cover.children[0].resolutions.src} alt="" />
+                <img src={post.node.frontmatter.cover.children[0].resolutions.src} alt={post.node.frontmatter.category} />
               </picture>
             </LazyLoad>
             {/*<Img sizes={post.node.frontmatter.cover.children[0].sizes} />*/}

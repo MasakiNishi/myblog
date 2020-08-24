@@ -39,11 +39,20 @@ const styles = theme => ({
       padding: "2em",
       border: "1px dashed #ddd",
       marginBottom: "1.5em",
+      [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        padding: "1.5em 1em"
+      },
       "& p": {
           margin: "0 0 0 0"
       },
       "& ul": {
-        margin: "0 0 0 0"
+        margin: "0 0 0 0",
+        "& li": {
+          margin: "0 0 1em 0",
+          "&:last-child": {
+            margin: "0 0 0 0"
+          }
+        }
       }
     },
     "& h2, & h3": {

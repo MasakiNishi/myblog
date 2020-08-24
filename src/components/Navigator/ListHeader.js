@@ -72,30 +72,6 @@ const styles = theme => ({
       display: "block",
       margin: "0 0 .3em 0"
     },
-    [`@media (max-width: 1023px)`]: {
-      top: "60px",
-      left: 0,
-      padding: "1em 0",
-      "& strong": {
-        marginLeft: "52px"
-      },
-      "& small": {
-        margin: "0 0 .3em 52px"
-      },
-      [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
-        padding: "2.1em 0 1em",
-        "&::before": {
-          left: "44px",
-          right: "44px",
-        },
-        "& strong": {
-          marginLeft: "63px"
-        },
-        "& small": {
-          margin: "0 0 .3em 63px"
-        },
-      },
-    },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       margin: "0 0 1em 0",
       padding: "2rem 3.2rem 1.5em",
@@ -168,22 +144,24 @@ const styles = theme => ({
       left: 0,
       padding: "1em 0",
       "& strong": {
-        marginLeft: "52px"
+        marginLeft: "2.35em",
+        fontSize: "16px"
       },
       "& small": {
-        margin: "0 0 .3em 52px"
+        margin: "0 0 .3em 2.5em"
       },
       [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
         padding: "2.1em 0 1em",
         "&::before": {
           left: "44px",
-          right: "44px",
+          right: "44px"
         },
         "& strong": {
-          marginLeft: "63px"
+          marginLeft: "3.3em",
+          fontSize: "1em"
         },
         "& small": {
-          margin: "0 0 .3em 63px"
+          margin: "0 0 .3em 4.2em"
         },
       },
     },

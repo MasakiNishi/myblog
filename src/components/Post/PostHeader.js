@@ -7,14 +7,25 @@ const styles = theme => ({
     margin: "0 0 3em",
     [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
       margin: "0 0 1.5em"
-    }
+    },
+    "& .dateList": {
+      listStyle: "none",
+      margin: 0,
+      padding: 0,
+      "& li": {
+        display: "inline-block",
+        "&:first-child": {
+          margin: "0 0 .2em 0"
+        }
+      }
+    },
   },
   title: {
     color: theme.main.colors.title,
     fontSize: `${theme.main.fonts.title.size}em`,
     letterSpacing: "-0.04em",
     fontWeight: theme.main.fonts.title.weight,
-    lineHeight: theme.main.fonts.title.lineHeight,
+    lineHeight: "1.2",
     margin: "0 0 0.4em",
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       fontSize: `${theme.main.fonts.title.sizeM}em`
@@ -27,7 +38,7 @@ const styles = theme => ({
   subTitle: {
     color: theme.main.colors.subTitle,
     fontSize: `${theme.main.fonts.subTitle.size}em`,
-    lineHeight: theme.main.fonts.subTitle.lineHeight,
+    lineHeight: "1.2",
     fontWeight: theme.main.fonts.subTitle.weight,
     margin: "1.25em 0",
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
@@ -39,7 +50,7 @@ const styles = theme => ({
   },
   date: {
     fontSize: `${theme.main.fonts.meta.size}em`,
-    fontWeight: theme.main.fonts.meta.weight,
+    fontWeight: "400",
     color: theme.main.colors.meta,
     "& span": {
       fontWeight: "normal"
@@ -56,15 +67,21 @@ const PostHeader = props => {
     <header className={classes.header}>
       <h1 className={classes.title}>{title}</h1>
       <div className={classes.subTitle}>{subTitle}</div>
-      <time className={classes.date} dateTime={publishDate}>
-        <span>投稿日:</span> {publishDate}
-      </time>
+      <ul className='dateList'>
+        <li>
+          <time className={classes.date} dateTime={publishDate}>
+            <span>投稿日:</span> {publishDate}
+          </time>
+        </li>
       &emsp;
-      { isEmptyDate ||
-      <time className={classes.date} dateTime={modifiedDate}>
-        <span>更新日:</span> {modifiedDate}
-      </time>
-      }
+        { isEmptyDate ||
+        <li>
+          <time className={classes.date} dateTime={modifiedDate}>
+            <span>更新日:</span> {modifiedDate}
+          </time>
+        </li>
+        }
+      </ul>
     </header>
   );
 };

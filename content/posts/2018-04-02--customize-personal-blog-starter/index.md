@@ -64,5 +64,11 @@ Fusce a metus eu diam varius congue nec nec sapien. Nunc convallis accumsan just
 2. lsit
 </div>
 
+<div class="box">
+
+これは普通のテキストこれは普通のテキストこれは普通のテキストこれは普通のテキストこれは普通のテキストこれは普通のテキストこれは普通のテキストこれは普通のテキストこれは普通のテキストこれは普通のテキストこれは普通のテキストこれは普通のテキストこれは普通のテキストこれは普通のテキストこれは普通のテキスト
+
+</div>
+
 `プログラミングスクール`
 
