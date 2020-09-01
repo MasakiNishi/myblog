@@ -116,7 +116,6 @@ class List extends React.Component {
     const isHome = location.pathname === withPrefix("/");
     const isAll = categoryFilter === "すべての記事";
 
-    if (isHome) {
       return (
         <div className={classes.posts}>
           <SpringScrollbars forceCheckOnScroll={true} isNavigator={true}>
@@ -127,49 +126,25 @@ class List extends React.Component {
                 navigatorShape={navigatorShape}
                 removeFilter={removeFilter}
               />
-                <ul className={`${classes.Homelist} ${this.state.hidden ? this.state.hidden : ""}`}>
-                  { isAll && <h1 className='articleHeader'>Articles</h1> }
-                  {posts &&
-                    posts.map((post, i) => (
-                      <ListItem
-                        key={i}
-                        post={post}
-                        linkOnClick={linkOnClick}
-                        categoryFilter={categoryFilter}
-                      />
-                    ))}
-                </ul>
+                  <ul
+                    className={ isHome && `${classes.Homelist} ${this.state.hidden ? this.state.hidden : ""}` || `${classes.list}` }
+                    style={ isHome && { marginTop:0 } || { marginTop:`${this.state.hidden ? "5rem" : 0 }` } }
+                  >
+                    { isHome && isAll && <h1 className='articleHeader'>Articles</h1> }
+                    {posts &&
+                      posts.map((post, i) => (
+                        <ListItem
+                          key={i}
+                          post={post}
+                          linkOnClick={linkOnClick}
+                          categoryFilter={categoryFilter}
+                        />
+                      ))}
+                  </ul>
             </div>
           </SpringScrollbars>
         </div>
       );
-    } else {
-      return (
-        <div className={classes.posts}>
-          <SpringScrollbars forceCheckOnScroll={true} isNavigator={true}>
-            <div className={classes.inner}>
-              <ListHeader
-                expandOnClick={expandOnClick}
-                categoryFilter={categoryFilter}
-                navigatorShape={navigatorShape}
-                removeFilter={removeFilter}
-              />
-                <ul className={classes.list} style={{ marginTop: `${this.state.hidden ? "5rem" : 0}` }}>
-                  {posts &&
-                    posts.map((post, i) => (
-                      <ListItem
-                        key={i}
-                        post={post}
-                        linkOnClick={linkOnClick}
-                        categoryFilter={categoryFilter}
-                      />
-                    ))}
-                </ul>
-            </div>
-          </SpringScrollbars>
-        </div>
-      );
-    };
   }
 }
 
