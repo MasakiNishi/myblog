@@ -7,6 +7,8 @@ import IconButton from "material-ui/IconButton";
 import CloseIcon from "material-ui-icons/Close";
 import ExpandLessIcon from "material-ui-icons/ExpandLess";
 
+import config from "../../../content/meta/config";
+
 const styles = theme => ({
   closed: {
     display: "none",
@@ -191,7 +193,7 @@ const styles = theme => ({
 
 const ListHeader = props => {
   const { classes, expandOnClick, categoryFilter, navigatorShape, removeFilter } = props;
-  const isHome = location.pathname === withPrefix("/");
+  const isHome = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/") || location.pathname === withPrefix("/");
 
   if (isHome) {
     return (

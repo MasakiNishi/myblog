@@ -18,16 +18,16 @@ const SearchPage = props => {
         "@context": "http://schema.org",
         "@type": "Blog",
         "name": config.siteTitle,
-        "url": config.siteUrl,
+        "url": config.siteUrl + config.pathPrefix,
         "description": config.siteDescription,
         "publisher": {
           "@type": "Organization",
           "name": config.siteTitle
         },
         "sameAs": [
-          "https://twitter.com/masakinishi_com",
-          "https://www.facebook.com/masakinishicom/",
-          "https://www.instagram.com/masakinishi_com/"
+          config.twitterLink,
+          config.FacebookLink,
+          config.InstagramLink
         ],
       }
     ];
@@ -37,13 +37,13 @@ const SearchPage = props => {
         "@context": "http://schema.org",
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": config.siteUrl + "/search/",
+          "@id": config.siteUrl + config.pathPrefix + "/search/",
           "headline": "サイト内検索"
         },
-        "description": "Masaki Nishi Personal Blogのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。",
+        "description": "Masaki Nishi - 海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。",
         "image": {
           "@type": "ImageObject",
-          "url": config.siteUrl + config.siteImageOgp,
+          "url": config.siteUrl + config.pathPrefix + config.siteImageOgp,
           "width": 1200,
           "height": 630
         },
@@ -56,7 +56,7 @@ const SearchPage = props => {
           "name": config.siteTitle,
           "logo": {
             "@type": "ImageObject",
-            "url": config.siteUrl + "/icons/apple-icon-60x60.png",
+            "url": config.siteUrl + config.pathPrefix + "/icons/apple-icon-60x60.png",
             "width": 60,
             "height": 60
           }
@@ -70,7 +70,7 @@ const SearchPage = props => {
             "@type": "ListItem",
             position: 1,
             item: {
-              "@id": config.siteUrl,
+              "@id": config.siteUrl + config.pathPrefix,
               name: "ホーム",
             }
           },
@@ -78,7 +78,7 @@ const SearchPage = props => {
             "@type": "ListItem",
             position: 2,
             item: {
-              "@id": config.siteUrl + "/search/",
+              "@id": config.siteUrl + config.pathPrefix + "/search/",
               name: "サイト内検索",
             }
           }
@@ -96,16 +96,16 @@ const SearchPage = props => {
       >
         {/* General tags */}
         <title>サイト内検索</title>
-        <meta name="description" content="Masaki Nishi Personal Blogのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
+        <meta name="description" content="Masaki Nishi - 海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
         {/* Schema.org tags */}
         <script type="application/ld+json">
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
         {/* OpenGraph tags */}
-        <meta property="og:url" content={config.siteUrl + "/search/"} />
+        <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/search/"} />
         <meta property="og:title" content="サイト内検索" />
-        <meta property="og:description" content="Masaki Nishi Personal Blogのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
-        <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+        <meta property="og:description" content="Masaki Nishi - 海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
+        <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
         <meta property="og:type" content="article" />
         <meta property="fb:app_id" content="0" />
         {/* Twitter Card tags */}

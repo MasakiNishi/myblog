@@ -7,6 +7,8 @@ import LazyLoad from "react-lazyload";
 
 import { setCategoryFilter } from "../../state/store";
 
+import config from "../../../content/meta/config";
+
 const styles = theme => ({
   listItem: {
     margin: "0 0 .7em 0",
@@ -191,7 +193,7 @@ class ListItem extends React.Component {
 
   render() {
     const { classes, post, linkOnClick} = this.props;
-    const isHome = location.pathname === withPrefix("/");
+    const isHome = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/") || location.pathname === withPrefix("/");
 
     return (
       <li

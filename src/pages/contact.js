@@ -21,16 +21,16 @@ const Contact = () => {
         "@context": "http://schema.org",
         "@type": "Blog",
         "name": config.siteTitle,
-        "url": config.siteUrl,
+        "url": config.siteUrl + config.pathPrefix,
         "description": config.siteDescription,
         "publisher": {
           "@type": "Organization",
           "name": config.siteTitle
         },
         "sameAs": [
-          "https://twitter.com/masakinishi_com",
-          "https://www.facebook.com/masakinishicom/",
-          "https://www.instagram.com/masakinishi_com/"
+          config.twitterLink,
+          config.FacebookLink,
+          config.InstagramLink
         ],
       }
     ];
@@ -40,13 +40,13 @@ const Contact = () => {
         "@context": "http://schema.org",
         "mainEntityOfPage": {
           "@type": "WebPage",
-          "@id": config.siteUrl + "/contact/",
+          "@id": config.siteUrl + config.pathPrefix + "/contact/",
           "headline": "お問い合わせ"
         },
         "description": "Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。",
         "image": {
           "@type": "ImageObject",
-          "url": config.siteUrl + config.siteImageOgp,
+          "url": config.siteUrl  + config.pathPrefix + config.siteImageOgp,
           "width": 1200,
           "height": 630
         },
@@ -59,7 +59,7 @@ const Contact = () => {
           "name": config.siteTitle,
           "logo": {
             "@type": "ImageObject",
-            "url": config.siteUrl + "/icons/apple-icon-60x60.png",
+            "url": config.siteUrl  + config.pathPrefix + "/icons/apple-icon-60x60.png",
             "width": 60,
             "height": 60
           }
@@ -73,7 +73,7 @@ const Contact = () => {
             "@type": "ListItem",
             position: 1,
             item: {
-              "@id": config.siteUrl,
+              "@id": config.siteUrl + config.pathPrefix,
               name: "ホーム",
             }
           },
@@ -81,7 +81,7 @@ const Contact = () => {
             "@type": "ListItem",
             position: 2,
             item: {
-              "@id": config.siteUrl + "/contact/",
+              "@id": config.siteUrl  + config.pathPrefix + "/contact/",
               name: "お問い合わせ",
             }
           }
@@ -105,10 +105,10 @@ const Contact = () => {
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
         {/* OpenGraph tags */}
-        <meta property="og:url" content={config.siteUrl + "/contact/"} />
+        <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/contact/"} />
         <meta property="og:title" content="お問い合わせ" />
         <meta property="og:description" content="Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。" />
-        <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+        <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
         <meta property="og:type" content="article" />
         <meta property="fb:app_id" content="0" />
         {/* Twitter Card tags */}

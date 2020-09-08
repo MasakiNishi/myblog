@@ -8,6 +8,8 @@ import ListHeader from "./ListHeader";
 import SpringScrollbars from "../SpringScrollbars";
 import ListItem from "./ListItem";
 
+import config from "../../../content/meta/config";
+
 const styles = theme => ({
   posts: {
     position: "absolute",
@@ -113,7 +115,7 @@ class List extends React.Component {
       removeFilter
     } = this.props;
 
-    const isHome = location.pathname === withPrefix("/");
+    const isHome = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/") || location.pathname === withPrefix("/");
     const isAll = categoryFilter === "すべての記事";
 
       return (

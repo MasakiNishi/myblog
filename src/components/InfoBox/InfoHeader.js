@@ -86,7 +86,7 @@ const styles = theme => ({
     transition: "all .5s",
     "& small": {
       display: "block",
-      fontSize: ".6em",
+      fontSize: ".5em",
       marginTop: ".3em"
     },
     ".is-aside.open &": {

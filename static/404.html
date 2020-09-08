@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <title>ページが見つかりませんでした</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <style>
@@ -26,13 +27,15 @@
       p {
         margin: 20px 0;
       }
+      .main {
+        width: 100%;
+      }
       .panel {
         background: #eee;
         padding: 40px 60px;
         border-radius: 6px;
         width: 40em;
         margin: 50px auto;
-        max-width: 100%;
       }
       a, a:link, a:active, a:visited {
         color: #709425;
@@ -40,6 +43,24 @@
       }
       a:hover {
         text-decoration: underline;
+      }
+      @media screen and (max-width: 768px){
+        .panel {
+          width: 90%;
+          padding: 20px 40px;
+        }
+        h1 {
+          font-size: 1.5em;
+        }
+      }
+      @media screen and (max-width: 480px){
+        .panel {
+          width: 100%;
+          padding: 10px 15px;
+        }
+        h1 {
+          font-size: 1.2em;
+        }
       }
     </style>
   </head>
@@ -52,7 +73,7 @@
         <div class="body">
           <p>リンクが壊れているか、存在していないURLを入力したようです。草</p>
           <p>
-            <a id="back-link" href="/">← サイトトップへ戻る</a>
+            <a id="back-link" href="/">← MasakiNishi.comのトップページへ戻る</a>
           </p>
         </div>
       </div>

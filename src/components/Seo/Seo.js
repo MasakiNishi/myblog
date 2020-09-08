@@ -16,28 +16,28 @@ const Seo = props => {
 
   const title = postTitle ? postTitle : config.siteTitle;
   const description = postDescription ? postDescription : config.siteDescription;
-  const url = config.siteUrl + config.pathPrefix + postSlug;
+  const url = config.siteUrl + postSlug;
 
-  const isHome = location.pathname === withPrefix("/");
-  const isPost = location.pathname === withPrefix(config.pathPrefix + postSlug);
-  const isAbout = location.pathname === withPrefix("/about/") || location.pathname === withPrefix("/about");
-  const isSuccess = location.pathname === withPrefix("/success/") || location.pathname === withPrefix("/success");
+  const isHome = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/") || location.pathname === withPrefix("/");
+  const isPost = location.pathname === withPrefix(postSlug);
+  const isAbout = location.pathname === withPrefix(config.pathPrefix + "/about/") || location.pathname === withPrefix(config.pathPrefix + "/about");
+  const isSuccess = location.pathname === withPrefix(config.pathPrefix + "/success/") || location.pathname === withPrefix(config.pathPrefix + "/success");
 
   const schemaOrgJSONLD = [
       {
         "@context": "http://schema.org",
         "@type": "Blog",
         "name": config.siteTitle,
-        "url": config.siteUrl,
+        "url": config.siteUrl + config.pathPrefix,
         "description": config.siteDescription,
         "publisher": {
           "@type": "Organization",
           "name": config.siteTitle
         },
         "sameAs": [
-          "https://twitter.com/masakinishi_com",
-          "https://www.facebook.com/masakinishicom/",
-          "https://www.instagram.com/masakinishi_com/"
+          config.twitterLink,
+          config.FacebookLink,
+          config.InstagramLink
         ],
       }
     ];
@@ -56,7 +56,7 @@ const Seo = props => {
           "description": postDescription,
           "image": {
             "@type": "ImageObject",
-            "url": config.siteUrl + postCover.childImageSharp.resize.src,
+            "url": config.siteUrl + config.pathPrefix + postCover.childImageSharp.resize.src,
             "width": 1200,
             "height": 630
           },
@@ -69,7 +69,7 @@ const Seo = props => {
             "name": config.siteTitle,
             "logo": {
               "@type": "ImageObject",
-              "url": config.siteUrl + "/icons/apple-icon-60x60.png",
+              "url": config.siteUrl + config.pathPrefix + "/icons/apple-icon-60x60.png",
               "width": 60,
               "height": 60
             }
@@ -83,7 +83,7 @@ const Seo = props => {
               "@type": "ListItem",
               position: 1,
               item: {
-                "@id": config.siteUrl,
+                "@id": config.siteUrl + config.pathPrefix,
                 name: "ホーム",
               }
             },
@@ -105,13 +105,13 @@ const Seo = props => {
           "@context": "http://schema.org",
           "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": config.siteUrl + "/about/",
+            "@id": config.siteUrl + config.pathPrefix + "/about/",
             "headline": "プロフィール"
           },
           "description": "Masaki Nishiのプロフィールページです。現在はサンフランシスコ・シリコンバレー地域のベイエリア周辺でソフトウェアエンジニアをしています。",
           "image": {
             "@type": "ImageObject",
-            "url": config.siteUrl + config.siteImageOgp,
+            "url": config.siteUrl + config.pathPrefix + config.siteImageOgp,
             "width": 1200,
             "height": 630
           },
@@ -124,7 +124,7 @@ const Seo = props => {
             "name": config.siteTitle,
             "logo": {
               "@type": "ImageObject",
-              "url": config.siteUrl + "/icons/apple-icon-60x60.png",
+              "url": config.siteUrl + config.pathPrefix + "/icons/apple-icon-60x60.png",
               "width": 60,
               "height": 60
             }
@@ -138,7 +138,7 @@ const Seo = props => {
               "@type": "ListItem",
               position: 1,
               item: {
-                "@id": config.siteUrl,
+                "@id": config.siteUrl + config.pathPrefix,
                 name: "ホーム",
               }
             },
@@ -146,7 +146,7 @@ const Seo = props => {
               "@type": "ListItem",
               position: 2,
               item: {
-                "@id": config.siteUrl + "/about/",
+                "@id": config.siteUrl + config.pathPrefix + "/about/",
                 name: "プロフィール"
               }
             }
@@ -171,10 +171,10 @@ const Seo = props => {
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
         {/* OpenGraph tags */}
-        <meta property="og:url" content={config.siteUrl} />
+        <meta property="og:url" content={config.siteUrl + config.pathPrefix} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+        <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content={facebook.appId} />
         {/* Twitter Card tags */}
@@ -201,10 +201,10 @@ const Seo = props => {
             {JSON.stringify(schemaOrgJSONLD)}
           </script>
           {/* OpenGraph tags */}
-          <meta property="og:url" content={config.siteUrl + "/about/"} />
+          <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/about/"} />
           <meta property="og:title" content="プロフィール" />
           <meta property="og:description" content="Masaki Nishiのプロフィールページです。現在はサンフランシスコ・シリコンバレー地域のベイエリア周辺でソフトウェアエンジニアをしています。" />
-          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+          <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
           <meta property="og:type" content="article" />
           <meta property="fb:app_id" content={facebook.appId} />
           {/* Twitter Card tags */}
@@ -246,7 +246,7 @@ const Seo = props => {
           <meta property="og:url" content={url} />
           <meta property="og:title" content={title} />
           <meta property="og:description" content={description} />
-          <meta property="og:image" content={config.siteUrl + postCover.childImageSharp.resize.src} />
+          <meta property="og:image" content={config.siteUrl + config.pathPrefix + postCover.childImageSharp.resize.src} />
           <meta property="og:type" content="article" />
           <meta property="fb:app_id" content={facebook.appId} />
           {/* Twitter Card tags */}
@@ -273,10 +273,10 @@ const Seo = props => {
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
         {/* OpenGraph tags */}
-        <meta property="og:url" content={config.siteUrl} />
+        <meta property="og:url" content={config.siteUrl + config.pathPrefix} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+        <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content={facebook.appId} />
         {/* Twitter Card tags */}

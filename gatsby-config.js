@@ -29,6 +29,7 @@ const queries = [
 ];
 
 module.exports = {
+  // pathPrefix: config.pathPrefix,
   siteMetadata: {
     title: config.siteTitle,
     description: config.siteDescription,
@@ -227,7 +228,7 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         output: '/sitemap.xml',
-        exclude: ["/success/", "/search/", "contact"]
+        exclude: ["/success/"]
       }
     },
     {

@@ -42,7 +42,7 @@ const styles = theme => ({
     color: theme.bars.colors.text,
     "& small": {
       display: "block",
-      fontSize: ".65em",
+      fontSize: ".55em",
       margin: "2px 0 0 0"
     }
   },
