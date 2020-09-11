@@ -14,6 +14,8 @@ menuTitle: プロフィール
 
 その後、1年間休学しサンフランシスコ・シリコンバレーを拠点に[btrax](http://btrax.com/jp/)でソフトウェアエンジニアインターンとして働き始めました。現在は休学2年目になり、継続してお仕事をしています。
 
+btraxでは、マーケティング50%（主にSEO）、デベロップメント50%くらいのタスクです。SEOに関してはバチクソ詳しいです。
+
 ##僕が提供できるコンテンツの価値
 
 僕自身は、大学生からプログラミングの独学を始め、英語に至ってはサンフランシスコでインターンをする半年前に中学レベルの参考書から勉強をし直したという急激なキャリアチェンジを経験しているので、「今からじゃ遅いかな？」と考えている人に有益な情報を提供できます。
@@ -36,7 +38,7 @@ menuTitle: プロフィール
 
 <div class="box">
 
-* [小売業界の敵はAmazonではない? これからの小売が知っておくべき課題](http://blog.btrax.com/jp/2018/06/01/retail-store-startup/) | 370 shares | [792 picks](https://newspicks.com/news/3072396)
+* [小売業界の敵はAmazonではない? これからの小売が知っておくべき課題](http://blog.btrax.com/jp/2018/06/01/retail-store-startup/) | 370 shares | [809 picks](https://newspicks.com/news/3072396)
 
 * [シェアサイクル事業問題から見るサンフランシスコ市の意思決定の早さ](http://blog.btrax.com/jp/2018/05/09/bikeshare-in-sanfrancisco/) | 195 shares
 
