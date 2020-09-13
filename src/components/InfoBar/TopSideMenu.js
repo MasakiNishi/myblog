@@ -12,10 +12,10 @@ const styles = theme => ({
   topSideMenu: {
     float: "right",
     margin: "5px 10px 0 0",
-    [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {}
-  },
-  sideMenu: {
-    color: theme.bars.colors.icon
+    [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {},
+    "& .sideMenu": {
+      color: theme.bars.colors.icon
+    }
   }
 });
 
@@ -30,7 +30,7 @@ class TopSideMenu extends React.Component {
           aria-label="More"
           aria-haspopup="true"
           onClick={showOnClick}
-          className={classes.sideMenu}
+          className="sideMenu"
         >
           <MoreVertIcon />
         </IconButton>

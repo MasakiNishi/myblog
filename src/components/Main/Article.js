@@ -20,6 +20,9 @@ const styles = theme => ({
         color: theme.base.colors.linkHover
       }
     },
+    [`@media (max-width: 425px)`]: {
+      padding: `calc(${theme.bars.sizes.infoBar}px + 1.5rem) 1rem  1.5rem 1rem`
+    },
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       padding: `calc(2.5rem + ${theme.bars.sizes.infoBar}px) 3.5rem 2.5rem`
     },

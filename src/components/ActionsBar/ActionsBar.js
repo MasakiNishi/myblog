@@ -44,7 +44,14 @@ const styles = theme => ({
       right: theme.base.sizes.linesMargin,
       height: 0,
       top: 0,
-      borderTop: `1px solid ${theme.base.colors.lines}`
+      borderTop: `1px solid ${theme.base.colors.lines}`,
+      [`@media (max-width: 425px)`]: {
+        left: ".8rem",
+        right: ".8rem"
+      }
+    },
+    [`@media (max-width: 425px)`]: {
+      padding: "0 .8rem"
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       padding: `0 calc(${theme.base.sizes.linesMargin} * 1.5)`
@@ -164,7 +171,7 @@ class ActionsBar extends React.Component {
             onClick={this.searchOnClick}
             component={Link}
             data-shape="closed"
-            to="/search/"
+            to="/blog/search/"
             title="サイト内検索"
             className={classes.button}
           >

@@ -27,10 +27,19 @@ const styles = theme => ({
       right: theme.base.sizes.linesMargin,
       height: 0,
       bottom: 0,
-      borderTop: `1px solid ${theme.base.colors.lines}`
+      borderTop: `1px solid ${theme.base.colors.lines}`,
+      [`@media (max-width: 425px)`]: {
+        left: ".8rem",
+        right: ".8rem"
+      }
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       display: "none"
+    },
+    "&.show": {
+      "& .sideMenu": {
+        display: "none"
+      }
     }
   },
   title: {
@@ -53,7 +62,10 @@ const styles = theme => ({
     margin: "13px 0 0 30px",
     borderRadius: "65% 75%",
     border: "1px solid #ddd",
-    height: "36px"
+    height: "36px",
+    [`@media (max-width: 425px)`]: {
+      margin: "13px 0 0 20px"
+    }
   }
 });
 
@@ -68,12 +80,10 @@ class InfoBar extends React.Component {
   };
 
   render() {
-    const { classes, pages, showOnClick } = this.props;
-
-    const isShow = this.props.showSidebar === "show";
+    const { classes, pages, showOnClick, showSidebar } = this.props;
 
     return (
-      <aside className={classes.infoBar}>
+      <aside className={`${classes.infoBar} ${showSidebar ? showSidebar : ""}`}>
         <Link to="/"　title="トップページへ戻る">
           <Avatar alt={config.infoTitle} src={avatar} className={classes.avatar} />
           <div className={classes.title}>
@@ -92,7 +102,8 @@ class InfoBar extends React.Component {
 
 InfoBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  pages: PropTypes.array.isRequired
+  pages: PropTypes.array.isRequired,
+  showSidebar: PropTypes.string.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {

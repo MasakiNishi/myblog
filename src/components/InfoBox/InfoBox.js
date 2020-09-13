@@ -37,13 +37,17 @@ const styles = theme => ({
         left: 0,
         "& .asideInner": {
           transition: "left 0.9s",
-          left: 0
+          left: 0,
+          [`@media (max-width: 475px)`]: {
+            width: "80%",
+          },
         },
         "& .closeMenu": {
           display: "block",
+          color: "#fff",
           position: "absolute",
           top: "5px",
-          right: "5px"
+          right: "10px"
         },
       }
     },
@@ -82,6 +86,9 @@ const styles = theme => ({
     transition: "bottom .5s 0s",
     opacity: 1,
     transitionTimingFunction: "ease",
+    [`@media (max-width: 375px)`]: {
+      padding: "0 10% 0"
+    },
     ".is-aside.closed &": {
       bottom: `${theme.navigator.sizes.closedHeight}px`
     },
@@ -118,38 +125,36 @@ class InfoBox extends React.Component {
 
     return (
         <aside
-          className={`${classes.infoBox} ${navigatorPosition ? navigatorPosition : ""} 
+          className={`${classes.infoBox} ${navigatorPosition ? navigatorPosition : ""}
           ${navigatorShape ? navigatorShape : ""} ${showSidebar ? showSidebar : ""}`}
         >
-          <ClickAwayListener onClickAway={this.hideOnClick}>
-            <div className='asideInner'>
-              {info && (
-                <InfoHeader
-                  info={info}
-                  avatarOnClick={this.avatarOnClick}
-                  expandOnClick={this.expandOnClick}
-                  hideOnClick={this.hideOnClick}
-                />
-              )}
-              <div className={classes.wrapper}>
-                <div className='wrapperInside'>
-                  <div className='infoBoxText'>
-                    {info && <InfoText info={info} />}
-                  </div>
-                  <SocialIcons />
-                  {pages && <InfoMenu pages={pages} linkOnClick={this.menulinkOnClick} hideOnClick={this.hideOnClick} />}
+          <IconButton
+            className='closeMenu'
+            onClick={this.hideOnClick}
+            title="メニューを閉じる"
+          >
+            <CloseIcon />
+          </IconButton>
+          <div className='asideInner'>
+            {info && (
+              <InfoHeader
+                info={info}
+                avatarOnClick={this.avatarOnClick}
+                expandOnClick={this.expandOnClick}
+                hideOnClick={this.hideOnClick}
+              />
+            )}
+            <div className={classes.wrapper}>
+              <div className='wrapperInside'>
+                <div className='infoBoxText'>
+                  {info && <InfoText info={info} />}
                 </div>
-                  <StackIcons />
+                <SocialIcons />
+                {pages && <InfoMenu pages={pages} linkOnClick={this.menulinkOnClick} hideOnClick={this.hideOnClick} avatarOnClick={this.avatarOnClick} />}
               </div>
-              <IconButton
-                className='closeMenu'
-                onClick={this.hideOnClick}
-                title="メニューを閉じる"
-              >
-                <CloseIcon />
-              </IconButton>
+                <StackIcons />
             </div>
-          </ClickAwayListener>
+          </div>
         </aside>
     );
   }

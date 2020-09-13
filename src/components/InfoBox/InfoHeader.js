@@ -116,7 +116,13 @@ const InfoHeader = props => {
 
   return (
     <header className={classes.header}>
-      <Link className={classes.avatarLink} to="/" onClick={avatarOnClick} title="トップページへ戻る">
+      <Link className={classes.avatarLink}
+        to="/blog/"
+        onClick={e => {
+          hideOnClick();
+          avatarOnClick();
+        }}
+        title="トップページへ戻る">
         <div className={classes.avatar}>
           <img src={avatar} alt="" />
         </div>
@@ -148,8 +154,8 @@ const InfoHeader = props => {
 
 InfoHeader.propTypes = {
   classes: PropTypes.object.isRequired,
-  avatarOnClick: PropTypes.func.isRequired,
   expandOnClick: PropTypes.func.isRequired,
+  avatarOnClick: PropTypes.func.isRequired,
   hideOnClick: PropTypes.func.isRequired
 };
 

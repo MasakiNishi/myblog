@@ -6,10 +6,10 @@ export function featureNavigator(e) {
 
   if (this.props.navigatorPosition === "is-aside") {
     if (this.props.isWideScreen) {
-      this.props.setNavigatorPosition("moving-featured");
+      //this.props.setNavigatorPosition("moving-featured");
 
       setTimeout(() => {
-        this.props.setNavigatorPosition("resizing-featured");
+        //this.props.setNavigatorPosition("resizing-featured");
         setTimeout(() => {
           this.props.setNavigatorPosition("is-featured");
           this.props.setNavigatorShape("open");
@@ -17,12 +17,12 @@ export function featureNavigator(e) {
           // uncomment following lines if you want to count featuring Navigator as a visit
           // to index page ('/'), you have to also uncomment import { navigateTo }...
 
-          setTimeout(() => {
-            navigateTo("/");
-          }, 1000);
+          //setTimeout(() => {
+            //navigateTo("/blog/");
+          //}, 1000);
 
         });
-      }, 300);
+      }, 0);
     } else {
       setTimeout(() => {
         this.props.setNavigatorPosition("is-featured");
@@ -42,7 +42,7 @@ export function moveNavigatorAside(e) {
 
       setTimeout(() => {
         if (typeof window !== `undefined`) {
-          if (window.location.pathname !== "/") {
+          if (window.location.pathname !== "/blog/"){
             this.props.setNavigatorPosition("resizing-aside");
             this.props.setNavigatorShape(navigatorShape);
             setTimeout(() => {

@@ -13,12 +13,12 @@ import asyncComponent from "../components/common/AsyncComponent/";
 import Loading from "../components/common/Loading/";
 import Navigator from "../components/Navigator/";
 import ActionsBar from "../components/ActionsBar/";
-import InfoTopHeader from "../components/InfoTopHeader/";
+import InfoBar from "../components/InfoBar/";
 import InfoBox from "../components/InfoBox/";
 
 import { isWideScreen, timeoutThrottlerHandler } from "../utils/helpers";
 
-class Layout extends React.Component {
+class blogLayout extends React.Component {
   timeouts = {};
   categories = [];
 
@@ -81,14 +81,16 @@ class Layout extends React.Component {
         >
           {children()}
           <Navigator posts={data.posts.edges} />
-          <InfoTopHeader pages={data.pages.edges} parts={data.parts.edges} />
+          <ActionsBar categories={this.categories} />
+          <InfoBar pages={data.pages.edges} parts={data.parts.edges} />
+          <InfoBox pages={data.pages.edges} parts={data.parts.edges} />
         </div>
       </MuiThemeProvider>
     );
   }
 }
 
-Layout.propTypes = {
+blogLayout.propTypes = {
   data: PropTypes.object.isRequired,
   children: PropTypes.func.isRequired,
   setIsWideScreen: PropTypes.func.isRequired,
@@ -110,11 +112,11 @@ const mapDispatchToProps = {
   setFontSizeIncrease
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(injectSheet(globals)(Layout));
+export default connect(mapStateToProps, mapDispatchToProps)(injectSheet(globals)(blogLayout));
 
 //eslint-disable-next-line no-undef
 export const guery = graphql`
-  query LayoutQuery {
+  query blogLayoutQuery {
     posts: allMarkdownRemark(
       filter: { id: { regex: "//posts//" } }
       sort: { fields: [fields___prefix], order: DESC }

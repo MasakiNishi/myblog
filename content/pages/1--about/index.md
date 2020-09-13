@@ -38,15 +38,17 @@ btraxでは、マーケティング50%（主にSEO）、デベロップメント
 
 <div class="box">
 
-* [小売業界の敵はAmazonではない? これからの小売が知っておくべき課題](http://blog.btrax.com/jp/2018/06/01/retail-store-startup/) | 370 shares | [809 picks](https://newspicks.com/news/3072396)
+* [小売業界の敵はAmazonではない? これからの小売が知っておくべき課題](http://blog.btrax.com/jp/2018/06/01/retail-store-startup/) | 524 shares | [811 picks](https://newspicks.com/news/3072396)
 
-* [シェアサイクル事業問題から見るサンフランシスコ市の意思決定の早さ](http://blog.btrax.com/jp/2018/05/09/bikeshare-in-sanfrancisco/) | 195 shares
+* [シェアサイクル事業問題から見るサンフランシスコ市の意思決定の早さ](http://blog.btrax.com/jp/2018/05/09/bikeshare-in-sanfrancisco/) | 238 shares
 
-* [95年生まれが思う日本とアメリカのミレニアル世代の特徴と消費行動](http://blog.btrax.com/jp/2017/10/16/millennials-characteristics/) | 97 shares
+* [95年生まれが思う日本とアメリカのミレニアル世代の特徴と消費行動](http://blog.btrax.com/jp/2017/10/16/millennials-characteristics/) | 171 shares
 
-* [ミレニアル世代のマインドセットを捉えて成功したスタートアップ事例](http://blog.btrax.com/jp/2018/06/28/millennials-mindset-startup/) | 82 shares
+* [ミレニアル世代のマインドセットを捉えて成功したスタートアップ事例](http://blog.btrax.com/jp/2018/06/28/millennials-mindset-startup/) | 138 shares
 
-* [人工知能(AI)のできることとは？歴史から学ぶ現状と未来予測](http://blog.btrax.com/jp/2017/08/29/ai-history/) | 121 shares
+* [人工知能(AI)のできることとは？歴史から学ぶ現状と未来予測](http://blog.btrax.com/jp/2017/08/29/ai-history/) | 169 shares
+
+* [ブロックチェーン技術の仕組みが大きな影響を与える15の業界](http://blog.btrax.com/jp/2017/09/15/affected-by-blockchain/) | 401 shares
 
 </div>
 

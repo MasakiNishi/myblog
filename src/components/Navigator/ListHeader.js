@@ -193,7 +193,7 @@ const styles = theme => ({
 
 const ListHeader = props => {
   const { classes, expandOnClick, categoryFilter, navigatorShape, removeFilter } = props;
-  const isHome = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/") || location.pathname === withPrefix("/");
+  const isHome = location.pathname === withPrefix("/blog") || location.pathname === withPrefix("/blog/");
 
   if (isHome) {
     return (

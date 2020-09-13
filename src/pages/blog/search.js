@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 require("core-js/fn/array/find");
 
-import Main from "../components/Main";
-import Article from "../components/Main/Article";
-import PageHeader from "../components/Page/PageHeader";
-import Search from "../components/Search";
+import Main from "../../components/Main";
+import Article from "../../components/Main/Article";
+import PageHeader from "../../components/Page/PageHeader";
+import Search from "../../components/Search";
 
 import Helmet from "react-helmet";
-import config from "../../content/meta/config";
+import config from "../../../content/meta/config";
 
 const SearchPage = props => {
   const { data, facebook } = props;
@@ -116,7 +116,7 @@ const SearchPage = props => {
         />
       </Helmet>
       <Article>
-        <PageHeader title="サイト内検索 by" algolia={true} />
+        <PageHeader title="サイト内検索" algolia={true} />
         <Search algolia={data.site.siteMetadata.algolia} />
       </Article>
     </Main>

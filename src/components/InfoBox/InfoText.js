@@ -17,7 +17,7 @@ const styles = theme => ({
       marginBottom: 0
     },
     "& a": {
-      color: "#709425",
+      color: theme.base.colors.accent,
       fontWeight: "normal",
       "&:hover": {
         color: "hsl(79.5, 60%, 39.9%)"

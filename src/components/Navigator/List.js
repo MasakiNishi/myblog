@@ -22,6 +22,11 @@ const styles = theme => ({
     padding: `calc(${theme.bars.sizes.infoBar}px + 1.3rem) 1.3rem calc(${
       theme.bars.sizes.actionsBar
     }px + 1.3rem) 1.3rem`,
+    [`@media (max-width: 425px)`]: {
+      padding: `calc(${theme.bars.sizes.infoBar}px + 1.3rem) .8rem calc(${
+      theme.bars.sizes.actionsBar
+    }px + 1.3rem) .8rem`
+    },
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       padding: `calc(${theme.bars.sizes.infoBar}px + 2rem) 2rem calc(${
         theme.bars.sizes.actionsBar
@@ -59,6 +64,7 @@ const styles = theme => ({
     "& .articleHeader": {
       margin: "0 0 0.5em 0.5em",
       fontFamily: 'Open Sans',
+      color: theme.main.colors.title,
       [`@media (max-width: ${theme.mediaQueryTresholds.L}px)`]: {
         fontSize: "1.6em",
         [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
@@ -115,7 +121,7 @@ class List extends React.Component {
       removeFilter
     } = this.props;
 
-    const isHome = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/") || location.pathname === withPrefix("/");
+    const isHome = location.pathname === withPrefix("/blog") || location.pathname === withPrefix("/blog/");
     const isAll = categoryFilter === "すべての記事";
 
       return (

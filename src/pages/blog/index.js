@@ -2,11 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
-import { setNavigatorPosition, setNavigatorShape } from "../state/store";
-import { featureNavigator } from "../utils/shared";
-import Seo from "../components/Seo";
+import { setNavigatorPosition, setNavigatorShape } from "../../state/store";
+import { featureNavigator } from "../../utils/shared";
+import Seo from "../../components/Seo";
 
-class Index extends React.Component {
+class Blog extends React.Component {
   featureNavigator = featureNavigator.bind(this);
 
   componentWillMount() {
@@ -22,13 +22,12 @@ class Index extends React.Component {
     return (
       <div>
         <Seo facebook={facebook} />
-        なんでもありやなぁああ
       </div>
     );
   }
 }
 
-Index.propTypes = {
+Blog.propTypes = {
   data: PropTypes.object.isRequired,
   navigatorPosition: PropTypes.string.isRequired,
   setNavigatorPosition: PropTypes.func.isRequired,
@@ -47,11 +46,11 @@ const mapDispatchToProps = {
   setNavigatorShape
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index);
+export default connect(mapStateToProps, mapDispatchToProps)(Blog);
 
 //eslint-disable-next-line no-undef
 export const pageQuery = graphql`
-  query IndexQuery {
+  query BlogQuery {
     site {
       siteMetadata {
         facebook {

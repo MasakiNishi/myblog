@@ -24,10 +24,34 @@ const styles = theme => ({
 });
 
 const InfoMenu = props => {
-  const { classes, pages, linkOnClick, hideOnClick } = props;
+  const { classes, pages, avatarOnClick, linkOnClick, hideOnClick } = props;
 
   return (
     <nav className={classes.infoMenu}>
+      <Link
+        to="/"
+        onClick={e => {
+          hideOnClick();
+          avatarOnClick();
+        }}
+        className={classes.link}
+        title="トップページへ戻る"
+        data-shape="closed"
+      >
+        ホーム
+      </Link>
+      <Link
+        to="/blog/"
+        onClick={e => {
+          hideOnClick();
+          avatarOnClick();
+        }}
+        className={classes.link}
+        title="ブログトップへ戻る"
+        data-shape="closed"
+      >
+        ブログ
+      </Link>
       {pages.map((page, i) => {
         const { fields, frontmatter } = page.node;
         return (
@@ -63,6 +87,7 @@ const InfoMenu = props => {
 InfoMenu.propTypes = {
   pages: PropTypes.array.isRequired,
   classes: PropTypes.object.isRequired,
+  avatarOnClick: PropTypes.func.isRequired,
   linkOnClick: PropTypes.func.isRequired,
   hideOnClick: PropTypes.func.isRequired
 };

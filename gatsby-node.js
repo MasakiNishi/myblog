@@ -8,6 +8,24 @@ const { store } = require(`./node_modules/gatsby/dist/redux`);
 
 const config = require("./content/meta/config");
 
+// Implement the Gatsby API “onCreatePage”. This is
+// called after every page is created.
+exports.onCreatePage = async ({ page, boundActionCreators }) => {
+  const { createPage } = boundActionCreators;
+
+  return new Promise((resolve, reject) => {
+    if (page.path.match(/^\/blog/)) {
+      // It's assumed that `landingPage.js` exists in the `/layouts/` directory
+      page.layout = "blog";
+
+      // Update the page.
+      createPage(page);
+    }
+
+    resolve();
+  });
+};
+
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   const { createNodeField } = boundActionCreators;
   if (node.internal.type === `MarkdownRemark`) {
@@ -63,6 +81,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
           createPage({
             path: slug,
+            layout: "blog",
             component: isPost ? postTemplate : pageTemplate,
             context: {
               slug: slug
