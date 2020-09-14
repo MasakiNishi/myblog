@@ -79,6 +79,41 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        baseUrl: `wp.masakinishi.com`,
+        protocol: `https`,
+        hostingWPCOM: false,
+        useACF: true,
+        acfOptionPageIds: [],
+        auth: {
+          htaccess_user: `n24mfs`,
+          htaccess_pass: `24masaki`,
+          htaccess_sendImmediately: false
+        },
+        verboseOutput: false,
+        perPage: 100,
+        searchAndReplaceContentUrls: {
+          sourceUrl: `https://wp.masakinishi.com`,
+          replacementUrl: `http://localhost:8000`
+        },
+        concurrentRequests: 10,
+        includedRoutes: [
+          `/*/*/categories`,
+          `/*/*/posts`,
+          `/*/*/pages`,
+          `/*/*/media`,
+          `/*/*/tags`,
+          `/*/*/taxonomies`,
+          `/*/*/users`
+        ],
+        excludedRoutes: [],
+        normalizer: function({ entities }) {
+          return entities;
+        },
+      }
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [

@@ -114,6 +114,7 @@ class List extends React.Component {
     const {
       classes,
       posts,
+      wpposts,
       linkOnClick,
       expandOnClick,
       categoryFilter,
@@ -139,15 +140,8 @@ class List extends React.Component {
                     style={ isHome && { marginTop:0 } || { marginTop:`${this.state.hidden ? "5rem" : 0 }` } }
                   >
                     { isHome && isAll && <h1 className='articleHeader'>Articles</h1> }
-                    {posts &&
-                      posts.map((post, i) => (
-                        <ListItem
-                          key={i}
-                          post={post}
-                          linkOnClick={linkOnClick}
-                          categoryFilter={categoryFilter}
-                        />
-                      ))}
+                    {posts && posts.map((post, i) => ( <ListItem key={i} post={post} linkOnClick={linkOnClick} categoryFilter={categoryFilter} />))}
+                    {wpposts && wpposts.map((wppost, i) => ( <ListItem key={i} post={wppost} linkOnClick={linkOnClick} categoryFilter={categoryFilter} />))}
                   </ul>
             </div>
           </SpringScrollbars>

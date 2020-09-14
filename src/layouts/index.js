@@ -44,7 +44,9 @@ class Layout extends React.Component {
   }
 
   getCategories = () => {
-    this.categories = this.props.data.posts.edges.reduce((list, edge, i) => {
+    const { data } = this.props;
+    const { posts, wpposts } = data;
+    const categories = posts.edges.reduce((list, edge, i) => {
       const category = edge.node.frontmatter.category;
       if (category && !~list.indexOf(category)) {
         return list.concat(edge.node.frontmatter.category);
@@ -52,6 +54,15 @@ class Layout extends React.Component {
         return list;
       }
     }, []);
+    const wpcategories = wpposts.edges.reduce((list, edge, i) => {
+      const category = edge.node.categories[0].name;
+      if (category && !~list.indexOf(category)) {
+        return list.concat(edge.node.categories[0].name);
+      } else {
+        return list;
+      }
+    }, []);
+    this.categories = categories.concat(wpcategories);
   };
 
   resizeThrottler = () => {
@@ -80,8 +91,8 @@ class Layout extends React.Component {
           }}
         >
           {children()}
-          <Navigator posts={data.posts.edges} />
-          <InfoTopHeader pages={data.pages.edges} parts={data.parts.edges} />
+          <Navigator posts={data.posts.edges} wpposts={data.wpposts.edges} />
+          <InfoTopHeader pages={data.pages.edges} wppages={data.wppages.edges} parts={data.parts.edges} />
         </div>
       </MuiThemeProvider>
     );
@@ -115,6 +126,28 @@ export default connect(mapStateToProps, mapDispatchToProps)(injectSheet(globals)
 //eslint-disable-next-line no-undef
 export const guery = graphql`
   query LayoutQuery {
+    wpposts: allWordpressPost(
+      sort: { fields: [date], order: DESC }
+    ) {
+      edges {
+        node {
+          excerpt
+          slug
+          date(formatString: "YYYY-MM-DD")
+          modified(formatString: "YYYY-MM-DD")
+          title
+          acf {
+            subtitle
+            description
+          }
+          tags { name }
+          categories { name }
+          featured_media {
+            source_url
+          }
+        }
+      }
+    }
     posts: allMarkdownRemark(
       filter: { id: { regex: "//posts//" } }
       sort: { fields: [fields___prefix], order: DESC }
@@ -140,6 +173,17 @@ export const guery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    wppages: allWordpressPage(
+      sort: { fields: [date], order: ASC }
+    ) {
+      edges {
+        node {
+          slug
+          date
+          title
         }
       }
     }

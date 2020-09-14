@@ -7,11 +7,14 @@ import Content from "../Main/Content";
 
 const Page = props => {
   const { page } = props;
-  const html = (page || {}).html;
+  const isFrontmatter = page && page.frontmatter;
+  const isHtml        = page && page.html;
+  const frontmatter   = isFrontmatter ? page.frontmatter  : page;
+  const html          = isHtml        ? page.html         : page.content;//(page || {}).html;
 
   return (
     <Article>
-      <PageHeader {...page.frontmatter} />
+      <PageHeader {...frontmatter} />
       <Content html={html} />
     </Article>
   );

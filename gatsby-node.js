@@ -89,9 +89,37 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           });
         });
       })
-    );
-  });
-};
+      .then(() => graphql(`{ allWordpressPost { edges { node { slug } } } }`))
+       .then(result => {
+         if (result.errors) {
+           console.log(result.errors);
+           reject(result.errors);
+         }
+         //console.log(JSON.stringify(result, null, 4));
+         result.data.allWordpressPost.edges.forEach(({ node }) => createPage({
+           path: config.pathPrefix + "/" + node.slug + "/",
+           layout: "blog",
+           component: path.resolve(`./src/templates/WPPostTemplate.js`),
+           context: { slug: node.slug }
+         }));
+       })
+       .then(() => graphql(`{ allWordpressPage { edges { node { slug } } } }`))
+       .then(result => {
+         if (result.errors) {
+           console.log(result.errors);
+           reject(result.errors);
+         }
+         //console.log(JSON.stringify(result, null, 4));
+         result.data.allWordpressPage.edges.forEach(({ node }) => createPage({
+           path: config.pathPrefix + "/" + node.slug + "/",
+           layout: "blog",
+           component: path.resolve(`./src/templates/WPPageTemplate.js`),
+           context: { slug: node.slug }
+         }));
+       }))
+     ;
+    });
+  };
 
 exports.modifyWebpackConfig = ({ config, stage }) => {
   switch (stage) {

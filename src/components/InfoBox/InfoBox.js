@@ -120,7 +120,7 @@ class InfoBox extends React.Component {
   }
 
   render() {
-    const { classes, parts, pages, navigatorPosition, navigatorShape, showSidebar } = this.props;
+    const { classes, parts, pages, wppages, navigatorPosition, navigatorShape, showSidebar } = this.props;
     const info = parts.find(el => el.node.frontmatter.title === "info");
 
     return (
@@ -150,7 +150,7 @@ class InfoBox extends React.Component {
                   {info && <InfoText info={info} />}
                 </div>
                 <SocialIcons />
-                {pages && <InfoMenu pages={pages} linkOnClick={this.menulinkOnClick} hideOnClick={this.hideOnClick} avatarOnClick={this.avatarOnClick} />}
+                {pages && <InfoMenu pages={pages} wppages={wppages} linkOnClick={this.menulinkOnClick} hideOnClick={this.hideOnClick} avatarOnClick={this.avatarOnClick} />}
               </div>
                 <StackIcons />
             </div>

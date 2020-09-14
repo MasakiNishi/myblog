@@ -8,17 +8,26 @@ import PostFooter from "./PostFooter";
 
 const Post = props => {
   const { post, author, slug, facebook } = props;
-  const frontmatter = (post || {}).frontmatter;
-  const title = ((post || {}).frontmatter || {}).title;
-  const subTitle = ((post || {}).frontmatter || {}).subTitle;
-  const publishDate = ((post || {}).fields || {}).prefix;
-  const modifiedDate = ((post || {}).frontmatter || {}).date;
-  const html = (post || {}).html;
-  const htmlAst = (post || {}).htmlAst;
+  const isFrontmatter = post && post.frontmatter;
+  const isFields = post && post.fields;
+  const isHtml = post && post.html;
+  const isHtmlAst = post && post.htmlAst;
+  const frontmatter =   isFrontmatter ? post.frontmatter : post;//(post || {}).frontmatter;
+  const title =         isFrontmatter ? post.frontmatter.title : post.title;//((post || {}).frontmatter || {}).title;
+  const subTitle =      isFrontmatter ? post.frontmatter.subTitle : post.acf.subtitle;//((post || {}).frontmatter || {}).subTitle;
+  const date =          isFields      ? post.fields.prefix : post.date;//((post || {}).fields || {}).prefix;
+  const html =          isHtml        ? post.html : post.content;//(post || {}).html;
+  const htmlAst =       isHtmlAst     ? post.htmlAst : post.content;//(post || {}).htmlAst;
+
+  const isPost = post;
+  const wpCover = isFrontmatter ? '' : isPost ? post.featured_media.source_url : '';
+
+  const publishDate = isFields       ? post.fields.prefix : post.date;
+  const modifiedDate = isFrontmatter ? post.frontmatter.date : post.modified;
 
   return (
     <Article>
-      <PostHeader title={title} subTitle={subTitle} publishDate={publishDate} modifiedDate={modifiedDate} />
+      <PostHeader title={title} subTitle={subTitle} publishDate={publishDate} modifiedDate={modifiedDate} wpCover={wpCover} />
       <Content html={html} />
       <PostFooter author={author} post={post} slug={slug} facebook={facebook} />
     </Article>

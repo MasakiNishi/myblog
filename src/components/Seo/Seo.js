@@ -6,17 +6,23 @@ import config from "../../../content/meta/config";
 
 const Seo = props => {
   const { data, facebook } = props;
-  const postTitle = ((data || {}).frontmatter || {}).title;
-  const postDescription = ((data || {}).frontmatter || {}).description;
-  const postCover = ((data || {}).frontmatter || {}).cover;
-  const postSlug = ((data || {}).fields || {}).slug;
 
-  const publishDate = ((data || {}).fields || {}).prefix;
-  const modifiedDate = ((data || {}).frontmatter || {}).date;
+  const isFrontmatter = data && data.frontmatter;
+  const isFields = data && data.fields;
+  const isData = data;
+  const postTitle       = isFrontmatter ? data.frontmatter.title        : isData ? data.title : '';                     //((data || {}).frontmatter || {}).title;
+  const postDescription = isFrontmatter ? data.frontmatter.description  : isData ? data.acf.description : '';           //((data || {}).frontmatter || {}).description;
+  const postCover       = isFrontmatter ? data.cover                    : isData ? data.featured_media.source_url : ''; //((data || {}).frontmatter || {}).cover;
+  const postSlug        = isFields      ? data.fields.slug              : isData ? config.pathPrefix + '/' + data.slug + '/' : '/';    //((data || {}).fields || {}).slug;
 
-  const title = postTitle ? postTitle : config.siteTitle;
-  const description = postDescription ? postDescription : config.siteDescription;
-  const url = config.siteUrl + postSlug;
+  const publishDate = isFields       ? data.fields.prefix : isData ? data.date : '';
+  const modifiedDate = isFrontmatter ? data.frontmatter.date : isData ? data.modified : '';
+
+  const isCover = postCover && postCover.childImageSharp;
+  const title         = postTitle       ? `${postTitle} - ${config.shortSiteTitle}` : config.siteTitle;
+  const description   = postDescription ? postDescription                           : config.siteDescription;
+  const image         = isCover         ? postCover.childImageSharp.resize.src      : postCover === '' ? config.siteImage : postCover;
+  const url           = config.siteUrl + postSlug;
 
   const isHome = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/") || location.pathname === withPrefix("/");
   const isPost = location.pathname === withPrefix(postSlug);
@@ -28,7 +34,7 @@ const Seo = props => {
         "@context": "http://schema.org",
         "@type": "Blog",
         "name": config.siteTitle,
-        "url": config.siteUrl + config.pathPrefix,
+        "url": config.siteUrl + config.pathPrefix + "/",
         "description": config.siteDescription,
         "publisher": {
           "@type": "Organization",
@@ -48,15 +54,15 @@ const Seo = props => {
           "@type": "BlogPosting",
           "datePublished": publishDate,
           "dateModified": modifiedDate,
-          "headline": postTitle,
+          "headline": title,
           "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": url
           },
-          "description": postDescription,
+          "description": description,
           "image": {
             "@type": "ImageObject",
-            "url": config.siteUrl + config.pathPrefix + postCover.childImageSharp.resize.src,
+            "url": image,
             "width": 1200,
             "height": 630
           },
@@ -83,7 +89,7 @@ const Seo = props => {
               "@type": "ListItem",
               position: 1,
               item: {
-                "@id": config.siteUrl + config.pathPrefix,
+                "@id": config.siteUrl + config.pathPrefix + "/",
                 name: "ホーム",
               }
             },
@@ -92,7 +98,7 @@ const Seo = props => {
               position: 2,
               item: {
                 "@id": url,
-                name: postTitle,
+                name: title,
               }
             }
           ]
@@ -138,7 +144,7 @@ const Seo = props => {
               "@type": "ListItem",
               position: 1,
               item: {
-                "@id": config.siteUrl + config.pathPrefix,
+                "@id": config.siteUrl + config.pathPrefix + "/",
                 name: "ホーム",
               }
             },
@@ -171,7 +177,7 @@ const Seo = props => {
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
         {/* OpenGraph tags */}
-        <meta property="og:url" content={config.siteUrl + config.pathPrefix} />
+        <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/"} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
@@ -246,7 +252,7 @@ const Seo = props => {
           <meta property="og:url" content={url} />
           <meta property="og:title" content={title} />
           <meta property="og:description" content={description} />
-          <meta property="og:image" content={config.siteUrl + config.pathPrefix + postCover.childImageSharp.resize.src} />
+          <meta property="og:image" content={image} />
           <meta property="og:type" content="article" />
           <meta property="fb:app_id" content={facebook.appId} />
           {/* Twitter Card tags */}
@@ -273,7 +279,7 @@ const Seo = props => {
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
         {/* OpenGraph tags */}
-        <meta property="og:url" content={config.siteUrl + config.pathPrefix} />
+        <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/"} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />

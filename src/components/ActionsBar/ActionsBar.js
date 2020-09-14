@@ -145,20 +145,20 @@ class ActionsBar extends React.Component {
       <div className={classes.actionsBar}>
         <div className={classes.group}>
           <IconButton
-            aria-label="トップページへ戻る"
-            title="トップページへ戻る"
+            aria-label="ブログトップへ戻る"
+            title="ブログトップへ戻る"
             component={Link}
-            to="/"
+            to="/blog/"
             className={`${classes.button} smartPhone`}
           >
             <HomeIcon />
           </IconButton>
           <IconButton
-            aria-label="トップページへ戻る"
+            aria-label="ブログトップへ戻る"
             onClick={this.homeOnClick}
-            title="トップページへ戻る"
+            title="ブログトップへ戻る"
             component={Link}
-            to="/"
+            to="/blog/"
             className={`${classes.button} deskTop`}
           >
             <HomeIcon />

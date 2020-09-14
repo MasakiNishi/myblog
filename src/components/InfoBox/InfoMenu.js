@@ -9,11 +9,12 @@ const styles = theme => ({
     flexDirection: "column",
     alignItems: "center",
     listStyle: "none",
-    margin: "10px 0 0",
+    margin: "5px 0 0",
     width: "100%"
   },
   link: {
     padding: ".5em",
+    fontSize: ".95em",
     fontWeight: 300,
     fontTransform: "lowercase",
     color: theme.info.colors.menuLink,
@@ -24,7 +25,7 @@ const styles = theme => ({
 });
 
 const InfoMenu = props => {
-  const { classes, pages, avatarOnClick, linkOnClick, hideOnClick } = props;
+  const { classes, pages, wppages, avatarOnClick, linkOnClick, hideOnClick } = props;
 
   return (
     <nav className={classes.infoMenu}>
@@ -52,8 +53,8 @@ const InfoMenu = props => {
       >
         ブログ
       </Link>
-      {pages.map((page, i) => {
-        const { fields, frontmatter } = page.node;
+      {pages.map(({ node }) => {
+        const { fields, frontmatter } = node;
         return (
           <Link
             key={fields.slug}
@@ -66,6 +67,23 @@ const InfoMenu = props => {
             data-shape="closed"
           >
             {frontmatter.menuTitle ? frontmatter.menuTitle : frontmatter.title}
+          </Link>
+        );
+      })}
+      {wppages.map(({ node }) => {
+        const { title, slug } = node;
+        return (
+          <Link 
+            key={slug}
+            to={'/blog/' + slug + '/'}
+            onClick={e => {
+              hideOnClick();
+              linkOnClick();
+            }}
+            className={classes.link}
+            data-shape="closed"
+          >
+            {title}
           </Link>
         );
       })}

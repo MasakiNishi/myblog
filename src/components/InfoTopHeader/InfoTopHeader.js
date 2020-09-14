@@ -41,7 +41,7 @@ class infoTopHeader extends React.Component {
   pageLinkOnClick = moveNavigatorAside.bind(this);
 
   render() {
-    const { classes, pages } = this.props;
+    const { classes, pages, wppages } = this.props;
 
     return (
       <aside className={classes.infoTopHeader}>
@@ -49,7 +49,7 @@ class infoTopHeader extends React.Component {
           <img alt={config.siteTitle} src={logo} className={classes.avatar} />
         </Link>
         <TopMenu
-          pages={pages}
+          pages={pages} wppages={wppages}
           homeLinkOnClick={this.homeLinkOnClick}
           pageLinkOnClick={this.pageLinkOnClick}
         />

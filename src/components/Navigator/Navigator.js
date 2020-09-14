@@ -112,7 +112,7 @@ class Navigator extends React.Component {
   };
 
   render() {
-    const { classes, posts, navigatorPosition, navigatorShape, categoryFilter } = this.props;
+    const { classes, posts, wpposts, navigatorPosition, navigatorShape, categoryFilter } = this.props;
 
     return (
       <nav
@@ -122,7 +122,7 @@ class Navigator extends React.Component {
       >
         {this.props.posts.length && (
           <List
-            posts={posts}
+            posts={posts} wpposts={wpposts}
             navigatorPosition={navigatorPosition}
             navigatorShape={navigatorShape}
             linkOnClick={this.linkOnClick}

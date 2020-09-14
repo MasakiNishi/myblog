@@ -49,7 +49,7 @@ class TopMenu extends React.Component {
   };
 
   render() {
-    const { classes, pages } = this.props;
+    const { classes, pages, wppages } = this.props;
     const { anchorEl, open } = this.state;
 
     return (
@@ -84,8 +84,8 @@ class TopMenu extends React.Component {
                         ホーム
                       </MenuItem>
                     </a>
-                    {pages.map((page, i) => {
-                      const { fields, frontmatter } = page.node;
+                    {pages.map(({ node }) => {
+                      const { fields, frontmatter } = node;
 
                       return (
                         <a key={fields.slug} href={fields.slug} style={{ display: "block" }}>
@@ -96,6 +96,16 @@ class TopMenu extends React.Component {
                             }}
                           >
                             {frontmatter.menuTitle ? frontmatter.menuTitle : frontmatter.title}
+                          </MenuItem>
+                        </a>
+                      );
+                    })}
+                    {wppages.map(({ node }) => {
+                      const { title, slug } = node;
+                      return (
+                        <a key={slug} href={"/blog/" + slug + "/"} style={{ display: "block" }}>
+                          <MenuItem onClick={e => { this.props.pageLinkOnClick(e); this.handleClose(); }}>
+                            {title}
                           </MenuItem>
                         </a>
                       );

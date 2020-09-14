@@ -19,6 +19,18 @@ const styles = theme => ({
         }
       }
     },
+    "& .gatsby-resp-image-link": {
+      margin: "2em -1.5rem",
+      border: "none",
+      display: "block",
+      [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        margin: "2.5em -3.5rem"
+      }
+    },
+    "& .size-large, & .size-full": {
+      width: '100%',
+      height: '100%'
+    }
   },
   title: {
     color: theme.main.colors.title,
@@ -59,9 +71,11 @@ const styles = theme => ({
 });
 
 const PostHeader = props => {
-  const { classes, title, subTitle, publishDate, modifiedDate } = props;
+  const { classes, title, subTitle, publishDate, modifiedDate, wpCover } = props;
 
   const isEmptyDate = modifiedDate === null;
+
+  const isEmptyWpCover = wpCover === '';
 
   return (
     <header className={classes.header}>
@@ -82,6 +96,23 @@ const PostHeader = props => {
         </li>
         }
       </ul>
+      { isEmptyWpCover ||
+        <a className="gatsby-resp-image-link" href={wpCover} target="_blank">
+          <img
+            className="alignnone size-full wp-image"
+            src={wpCover}
+            width="1200"
+            height="630"
+            alt={title}
+            srcSet={`
+            ${wpCover + "&w=300"} 300w,
+            ${wpCover + "&w=768"} 768w,
+            ${wpCover + "&w=1024"} 1024w
+            `}
+            sizes="(max-width: 1200px) 100vw, 1200px"
+          />
+        </a>
+      }
     </header>
   );
 };

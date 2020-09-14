@@ -178,7 +178,8 @@ class ListItem extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.categoryFilter !== this.props.categoryFilter) {
-      const category = this.props.post.node.frontmatter.category;
+      const isFrontmatter = this.props.post.node.frontmatter;
+      const category = isFrontmatter ? this.props.post.node.frontmatter.category : this.props.post.node.categories[0].name;
       const categoryFilter = this.props.categoryFilter;
 
       if (categoryFilter === "すべての記事") {
@@ -192,46 +193,53 @@ class ListItem extends React.Component {
   }
 
   render() {
-    const { classes, post, linkOnClick} = this.props;
+    const { classes, post, linkOnClick } = this.props;
     const isHome = location.pathname === withPrefix("/blog") || location.pathname === withPrefix("/blog/");
 
+    const isFrontmatter = post.node.frontmatter;
+    const isFields      = post.node.fields;
+    const isCover       = isFrontmatter && post.node.frontmatter.cover && post.node.frontmatter.cover.children;
+    const isWPCover     = post.node.featured_media;
+    const date          = isFields ? post.node.fields.prefix : post.node.date;
+    const category      = isFrontmatter ? post.node.frontmatter.category  : post.node.categories[0].name;
+    const slug          = isFields      ? post.node.fields.slug           : config.pathPrefix + '/' + post.node.slug + "/";
+    const cover         = isCover       ? post.node.frontmatter.cover.children[0]     : null;
+    const wpcover       = isWPCover     ? post.node.featured_media.source_url         : null;
+    const title         = isFrontmatter ? post.node.frontmatter.title     : post.node.title;
+    const subTitle      = isFrontmatter ? post.node.frontmatter.subTitle  : post.node.acf.subtitle;
+
     return (
-      <li
-        className={`${classes.listItem} ${post.node.frontmatter.category}`}
-        style={{ display: `${this.state.hidden ? "none" : "block"}` }}
-        key={post.node.fields.slug}
-      >
-        <Link
-          activeClassName="active"
-          className={classes.listLink}
-          to={post.node.fields.slug}
-          onClick={linkOnClick}
-        >
+      <li className={`${classes.listItem} ${category}`} style={{ display: `${this.state.hidden ? "none" : "block"}` }} key={slug}>
+        <Link activeClassName="active" className={classes.listLink} to={slug} onClick={linkOnClick}>
           <div className={`${classes.listItemPointer} pointer`}>
-            <LazyLoad height={60} overflow={true} throttle={300} once={true} offset={100}>
+            {cover && (<LazyLoad height={60} overflow={true} throttle={300} once={true} offset={100}>
               <picture>
-                <source
-                  type="image/webp"
-                  srcSet={post.node.frontmatter.cover.children[0].resolutions.srcSetWebp}
-                />
-                <source srcSet={post.node.frontmatter.cover.children[0].resolutions.srcSet} />
-                <img src={post.node.frontmatter.cover.children[0].resolutions.src} alt={post.node.frontmatter.category} />
+                <source type="image/webp" srcSet={cover.resolutions.srcSetWebp} />
+                <source srcSet={cover.resolutions.srcSet} />
+                <img src={cover.resolutions.src} alt={title} />
               </picture>
-            </LazyLoad>
+            </LazyLoad>)}
+            {wpcover && (<LazyLoad height={60} overflow={true} throttle={300} once={true} offset={100}>
+              <picture>
+                <source type="image/webp" srcSet={wpcover + "&fit=crop&w=90&h=90"} />
+                <source srcSet={wpcover + "&fit=crop&w=90&h=90"} />
+                <img src={wpcover + "&fit=crop&w=90&h=90"} alt={title} />
+              </picture>
+            </LazyLoad>)}
             {/*<Img sizes={post.node.frontmatter.cover.children[0].sizes} />*/}
           </div>
           {isHome &&
             <div className={classes.listItemText}>
-              <span className={'listItemDate'}>{post.node.fields.prefix}</span>
-              <h2>{post.node.frontmatter.title}</h2>
-              <h3>{post.node.frontmatter.subTitle}</h3>
+              <span className={'listItemDate'}>{date}</span>
+              <h2>{title}</h2>
+              {subTitle && (<h3>{subTitle}</h3>)}
             </div>
           }
           {isHome ||
             <div className={classes.listItemText}>
-              <span className={'listItemDate'}>{post.node.fields.prefix}</span>
-              <span className={'listItemTitle'}>{post.node.frontmatter.title}</span>
-              <span className={'listItemSubTitle'}>{post.node.frontmatter.subTitle}</span>
+              <span className={'listItemDate'}>{date}</span>
+              <span className={'listItemTitle'}>{title}</span>
+              {subTitle && (<span className={'listItemSubTitle'}>{subTitle}</span>)}
             </div>
           }
         </Link>

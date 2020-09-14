@@ -57,17 +57,23 @@ class PostShare extends React.Component {
   render() {
     const { post, classes, slug } = this.props;
     const { excerpt, frontmatter } = post;
-    const { title } = frontmatter;
-    const url = config.siteUrl + config.pathPrefix + slug;
+    const { title } = frontmatter ? frontmatter : post;
+
+    const isFields = post && post.fields;
+    const isPost = post;
+    const postSlug = isFields ? post.fields.slug : isPost ? config.pathPrefix + '/' + post.slug + '/' : '/';
+    const url = config.siteUrl + postSlug;
 
     const iconSize = 36;
     const filter = count => (count > 0 ? count : "");
+
+    const twitterAccount = "masakinishi_com";
 
     return (
       <div className={classes.share}>
         <span className={classes.label}>シェア</span>
         <div className={classes.links}>
-          <TwitterShareButton url={url} title={title}>
+          <TwitterShareButton url={url} title={title} via={twitterAccount} related={twitterAccount} >
             <TwitterIcon round size={iconSize} />
             <TwitterShareCount url={url}>
               {count => <div className="share-count">{filter(count)}</div>}

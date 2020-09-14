@@ -31,6 +31,7 @@ const styles = theme => ({
     "& .gatsby-resp-image-link": {
       margin: "2em -1.5rem",
       border: "none",
+      display: "block",
       [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
         margin: "2.5em -3.5rem"
       }
@@ -128,6 +129,10 @@ const styles = theme => ({
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       fontSize: `${theme.main.fonts.content.sizeL}em`
+    },
+    "& .size-large, & .size-full": {
+      width: '100%',
+      height: '100%'
     }
   }
 });
