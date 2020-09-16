@@ -7,12 +7,12 @@ import Main from "../components/TopMain";
 import Article from "../components/TopMain/Article";
 import PageHeader from "../components/TopPage/PageHeader";
 import Content from "../components/Main/Content";
-import Form from "../components/ContactForm";
 import config from "../../content/meta/config";
 
 import Helmet from "react-helmet";
 
-const styles = theme => ({});
+const styles = theme => ({
+});
 
 const Contact = ({classes}) => {
 
@@ -119,11 +119,10 @@ const Contact = ({classes}) => {
         />
       </Helmet>
       <Article>
-        <PageHeader title="お問い合わせ" />
+        <PageHeader title="お問い合わせ完了しました。" />
         <Content>
-          下記フォームか、Eメール: <Obfuscate email={config.contactEmail} /> にお気軽にお問い合わせください。
+          ありがとうございます。可能な限り早く返信させていただきます。
         </Content>
-        <Form />
       </Article>
     </Main>
   );

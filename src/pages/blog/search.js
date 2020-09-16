@@ -16,13 +16,13 @@ const SearchPage = props => {
   const schemaOrgJSONLD = [
       {
         "@context": "http://schema.org",
-        "@type": "Blog",
-        "name": config.siteTitle,
-        "url": config.siteUrl + config.pathPrefix,
-        "description": config.siteDescription,
+        "@type": "WebSite",
+        "name": config.siteHomeTitle,
+        "url": config.siteUrl,
+        "description": config.siteHomeDescription,
         "publisher": {
           "@type": "Organization",
-          "name": config.siteTitle
+          "name": config.siteHomeTitle
         },
         "sameAs": [
           config.twitterLink,
@@ -33,6 +33,17 @@ const SearchPage = props => {
     ];
 
     schemaOrgJSONLD.push(
+      {
+        "@context": "http://schema.org",
+        "@type": "Blog",
+        "name": config.siteTitle,
+        "url": config.siteUrl + config.pathPrefix,
+        "description": config.siteDescription,
+        "publisher": {
+          "@type": "Organization",
+          "name": config.siteTitle
+        }
+      },
       {
         "@context": "http://schema.org",
         "mainEntityOfPage": {

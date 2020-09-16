@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "color": "^3.0.0",
+    "disqus-react": "^1.0.5",
     "gatsby": "^1.9.269",
     "gatsby-image": "^1.0.51",
     "gatsby-link": "^1.6.44",

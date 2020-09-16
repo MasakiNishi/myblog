@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import { setNavigatorPosition, setNavigatorShape } from "../state/store";
 import { featureNavigator } from "../utils/shared";
 import Seo from "../components/Seo";
+import TopTwoImage from "../components/TopTwoImage";
+import WorksList from "../components/WorksList";
 
 class Index extends React.Component {
   featureNavigator = featureNavigator.bind(this);
@@ -22,7 +24,8 @@ class Index extends React.Component {
     return (
       <div>
         <Seo facebook={facebook} />
-        なんでもありやなぁああ
+        <TopTwoImage />
+        <WorksList />
       </div>
     );
   }

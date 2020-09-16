@@ -5,6 +5,7 @@ import Article from "../Main/Article";
 import PostHeader from "./PostHeader";
 import Content from "../Main/Content";
 import PostFooter from "./PostFooter";
+import PostComments from "./PostComments";
 
 const Post = props => {
   const { post, author, slug, facebook } = props;
@@ -30,6 +31,7 @@ const Post = props => {
       <PostHeader title={title} subTitle={subTitle} publishDate={publishDate} modifiedDate={modifiedDate} wpCover={wpCover} />
       <Content html={html} />
       <PostFooter author={author} post={post} slug={slug} facebook={facebook} />
+      <PostComments />
     </Article>
   );
 };

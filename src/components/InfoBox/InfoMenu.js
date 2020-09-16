@@ -88,6 +88,17 @@ const InfoMenu = props => {
         );
       })}
       <Link
+        to="/about/"
+        onClick={e => {
+          hideOnClick();
+          linkOnClick();
+        }}
+        className={classes.link}
+        data-shape="closed"
+      >
+        プロフィール
+      </Link>
+      <Link
         to="/contact/"
         onClick={e => {
           hideOnClick();

@@ -1,21 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
-import SpringScrollbars from "../SpringScrollbars";
 
 const styles = theme => ({
   main: {
     position: "absolute",
-    top: 0,
+    top: 60,
     left: 0,
-    bottom: 0,
+    right: 0,
+    margin: "0 auto 60px",
     width: "100%",
+    maxWidth: "1024px",
     animationName: "main-entry",
     animationDuration: ".5s",
-    [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
-      width: `calc(100vw - ${theme.info.sizes.width}px - ${theme.bars.sizes.actionsBar}px)`,
-      left: `${theme.info.sizes.width}px`
-    }
+    zIndex: "1"
   },
   "@keyframes main-entry": {
     "0%": {
@@ -34,7 +32,7 @@ const Main = props => {
 
   return (
     <main className={classes.main}>
-      <SpringScrollbars>{children}</SpringScrollbars>
+      {children}
     </main>
   );
 };

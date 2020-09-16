@@ -10,15 +10,23 @@ import { ReactComponent as InstaIcon } from "../../images/svg-icons/instagram.sv
 
 const styles = theme => ({
   social: {
+    float: "right",
     display: "flex",
     justifyContent: "center",
     flexWrap: "wrap",
-    "& .Twitter": {
-      [`@media (max-width: ${theme.mediaQueryTresholds.L - 1}px)`]: {
-        "& svg": {
-          fill: theme.info.colors.twitterIconsHover
-        }
+    marginRight: "30px",
+    zIndex: 3,
+    [`@media (max-width: ${theme.mediaQueryTresholds.M - 1}px)`]: {
+      marginRight: "15px",
+      link: {
+        margin: "14px 0 0 0"
       },
+      svg: {
+        width: "25px",
+        height: "25px"
+      }
+    },
+    "& .Twitter": {
       "&:hover": {
         "& svg": {
           fill: theme.info.colors.twitterIconsHover
@@ -26,11 +34,6 @@ const styles = theme => ({
       }
     },
     "& .Facebook": {
-      [`@media (max-width: ${theme.mediaQueryTresholds.L - 1}px)`]: {
-        "& svg": {
-          fill: theme.info.colors.facebookIconsHover
-        }
-      },
       "&:hover": {
         "& svg": {
           fill: theme.info.colors.facebookIconsHover
@@ -38,11 +41,6 @@ const styles = theme => ({
       }
     },
     "& .Instagram": {
-      [`@media (max-width: ${theme.mediaQueryTresholds.L - 1}px)`]: {
-        "& svg": {
-          fill: theme.info.colors.instaIconsHover
-        }
-      },
       "&:hover": {
         "& svg": {
           fill: theme.info.colors.instaIconsHover
@@ -53,12 +51,20 @@ const styles = theme => ({
   link: {
     display: "inline-block",
     padding: "5px",
+    margin: "12px 0 0 15px",
+    [`@media (max-width: ${theme.mediaQueryTresholds.M - 1}px)`]: {
+      margin: "15px 0 0 0"
+    }
   },
   svg: {
-    width: "35px",
-    height: "35px",
-    fill: theme.info.colors.socialIcons,
-    transition: "all .5s"
+    width: "30px",
+    height: "30px",
+    fill: "#555555",
+    transition: "all .5s",
+    [`@media (max-width: ${theme.mediaQueryTresholds.M - 1}px)`]: {
+      width: "25px",
+      height: "25px"
+    }
   }
 });
 
@@ -83,6 +89,7 @@ const Socialcons = props => {
             target="_blank"
             rel="noopener noreferrer"
             title={item.name}
+            onTouchStart=""
           >
             <Icon className={classes.svg} />
           </a>

@@ -8,13 +8,13 @@ import config from "../../../content/meta/config";
 
 const styles = theme => ({
   header: {
-    margin: "1em 0 1em",
+    margin: "0 0 1.5em",
     display: "flex",
     flexDirection: "row",
     justifyContent: "flex-start",
     alignContent: "center",
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
-      margin: "0 0 2em",
+      margin: "0 0 3em",
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
     }

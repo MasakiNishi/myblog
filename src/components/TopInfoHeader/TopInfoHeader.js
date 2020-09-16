@@ -9,34 +9,50 @@ import { setNavigatorPosition } from "../../state/store";
 import { featureNavigator, moveNavigatorAside } from "./../../utils/shared";
 
 import config from "../../../content/meta/config";
-import avatar from "../../images/jpg/avatar.jpg";
-import logo from "../../../static/icons/apple-icon-60x60.png"
 import TopMenu from "./TopMenu";
 
 const styles = theme => ({
-  infoTopHeader: {
-    position: "absolute",
+  TopInfoHeader: {
+    position: "fixed",
     background: theme.bars.colors.background,
     top: 0,
     left: 0,
     width: "100%",
     height: `${theme.bars.sizes.infoBar}px`,
-    [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
-      height: "70px"
+    zIndex: 2,
+    "&::before": {
+      content: `""`,
+      position: "absolute",
+      left: theme.base.sizes.linesMargin,
+      right: theme.base.sizes.linesMargin,
+      height: 0,
+      bottom: 0,
+      borderTop: `1px solid ${theme.base.colors.lines}`,
+      [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        left: ".8rem",
+        right: ".8rem"
+      }
     }
   },
-  avatarLink: {
-    display: "block",
+  title: {
     float: "left",
-    margin: "13px 0 0 30px"
-  },
-  avatar: {
-    width: "43px",
-    height: "43px"
+    margin: "13px 0 0 30px",
+    fontSize: "1.17em",
+    fontWeight: "300",
+    fontFamily: "Open Sans",
+    color: theme.bars.colors.text,
+    [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
+      margin: "13px 0 0 20px"
+    },
+    "& small": {
+      display: "block",
+      fontSize: ".65em",
+      margin: "2px 0 0 2px"
+    }
   }
 });
 
-class infoTopHeader extends React.Component {
+class TopInfoHeader extends React.Component {
   homeLinkOnClick = featureNavigator.bind(this);
   pageLinkOnClick = moveNavigatorAside.bind(this);
 
@@ -44,21 +60,24 @@ class infoTopHeader extends React.Component {
     const { classes, pages, wppages } = this.props;
 
     return (
-      <aside className={classes.infoTopHeader}>
-        <Link to="/" className={classes.avatarLink} onClick={this.homeLinkOnClick}>
-          <img alt={config.siteTitle} src={logo} className={classes.avatar} />
+      <header className={classes.TopInfoHeader}>
+         <Link to="/"　title="ブログトップへ戻る">
+          <h1 className={classes.title}>
+            {config.infoTitle}
+            <small>Software Engineer</small>
+          </h1>
         </Link>
         <TopMenu
           pages={pages} wppages={wppages}
           homeLinkOnClick={this.homeLinkOnClick}
           pageLinkOnClick={this.pageLinkOnClick}
         />
-      </aside>
+      </header>
     );
   }
 }
 
-infoTopHeader.propTypes = {
+TopInfoHeader.propTypes = {
   classes: PropTypes.object.isRequired,
   pages: PropTypes.array.isRequired
 };
@@ -77,4 +96,4 @@ const mapDispatchToProps = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(injectSheet(styles)(infoTopHeader));
+)(injectSheet(styles)(TopInfoHeader));

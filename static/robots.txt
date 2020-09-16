@@ -1,4 +1,4 @@
 User-agent: *
-Noindex: /success/
-Noindex: /404.html
-sitemap: https://masakinishi.com/sitemap.xml
+Disallow: /success
+Disallow: /404.html
+Sitemap: https://masakinishi.com/sitemap.xml

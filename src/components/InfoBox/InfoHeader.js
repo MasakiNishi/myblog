@@ -77,7 +77,6 @@ const styles = theme => ({
     color: "#555555",
     margin: 0,
     transitionTimingFunction: "ease",
-    fontFamily: "Open Sans",
     position: "absolute",
     top: "5rem",
     textAlign: "center",

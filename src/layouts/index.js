@@ -13,7 +13,8 @@ import asyncComponent from "../components/common/AsyncComponent/";
 import Loading from "../components/common/Loading/";
 import Navigator from "../components/Navigator/";
 import ActionsBar from "../components/ActionsBar/";
-import InfoTopHeader from "../components/InfoTopHeader/";
+import TopInfoHeader from "../components/TopInfoHeader/";
+import TopFooter from "../components/TopFooter";
 import InfoBox from "../components/InfoBox/";
 
 import { isWideScreen, timeoutThrottlerHandler } from "../utils/helpers";
@@ -81,18 +82,12 @@ class Layout extends React.Component {
       <MuiThemeProvider theme={theme}>
         <div
           style={{
-            padding: "1px",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            bottom: 0,
-            right: 0,
-            overflow: "hidden"
+            margin: "60px auto"
           }}
         >
           {children()}
-          <Navigator posts={data.posts.edges} wpposts={data.wpposts.edges} />
-          <InfoTopHeader pages={data.pages.edges} wppages={data.wppages.edges} parts={data.parts.edges} />
+          <TopInfoHeader pages={data.pages.edges} wppages={data.wppages.edges} parts={data.parts.edges} />
+          <TopFooter />
         </div>
       </MuiThemeProvider>
     );

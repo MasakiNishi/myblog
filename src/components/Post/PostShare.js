@@ -95,12 +95,6 @@ class PostShare extends React.Component {
               {count => <div className="share-count">{filter(count)}</div>}
             </HatebuShareCount>
           </HatebuShareButton>
-          <GooglePlusShareButton url={url}>
-            <GooglePlusIcon round size={iconSize} />
-            <GooglePlusShareCount url={url}>
-              {count => <div className="share-count">{filter(count)}</div>}
-            </GooglePlusShareCount>
-          </GooglePlusShareButton>
           <LineShareButton url={url} title={title}>
             <LineIcon round size={iconSize} />
           </LineShareButton>

@@ -13,7 +13,7 @@ const Seo = props => {
   const postTitle       = isFrontmatter ? data.frontmatter.title        : isData ? data.title : '';                     //((data || {}).frontmatter || {}).title;
   const postDescription = isFrontmatter ? data.frontmatter.description  : isData ? data.acf.description : '';           //((data || {}).frontmatter || {}).description;
   const postCover       = isFrontmatter ? data.cover                    : isData ? data.featured_media.source_url : ''; //((data || {}).frontmatter || {}).cover;
-  const postSlug        = isFields      ? data.fields.slug              : isData ? config.pathPrefix + '/' + data.slug + '/' : '/';    //((data || {}).fields || {}).slug;
+  const postSlug        = isFields      ? data.fields.slug              : isData ? config.pathPrefix + '/' + data.slug + '/' : null;    //((data || {}).fields || {}).slug;
 
   const publishDate = isFields       ? data.fields.prefix : isData ? data.date : '';
   const modifiedDate = isFrontmatter ? data.frontmatter.date : isData ? data.modified : '';
@@ -24,21 +24,24 @@ const Seo = props => {
   const image         = isCover         ? postCover.childImageSharp.resize.src      : postCover === '' ? config.siteImage : postCover;
   const url           = config.siteUrl + postSlug;
 
-  const isHome = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/") || location.pathname === withPrefix("/");
+  const isHome = location.pathname === config.siteUrl;
+  const isBlog = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/");
   const isPost = location.pathname === withPrefix(postSlug);
   const isAbout = location.pathname === withPrefix(config.pathPrefix + "/about/") || location.pathname === withPrefix(config.pathPrefix + "/about");
+  const isUserTerms = location.pathname === withPrefix("/user-terms/") || location.pathname === withPrefix("/user-terms");
+  const isPrivacy = location.pathname === withPrefix("/privacy-policy/") || location.pathname === withPrefix("/privacy-policy");
   const isSuccess = location.pathname === withPrefix(config.pathPrefix + "/success/") || location.pathname === withPrefix(config.pathPrefix + "/success");
 
   const schemaOrgJSONLD = [
       {
         "@context": "http://schema.org",
-        "@type": "Blog",
-        "name": config.siteTitle,
-        "url": config.siteUrl + config.pathPrefix + "/",
-        "description": config.siteDescription,
+        "@type": "WebSite",
+        "name": config.siteHomeTitle,
+        "url": config.siteUrl,
+        "description": config.siteHomeDescription,
         "publisher": {
           "@type": "Organization",
-          "name": config.siteTitle
+          "name": config.siteHomeTitle
         },
         "sameAs": [
           config.twitterLink,
@@ -47,8 +50,56 @@ const Seo = props => {
         ],
       }
     ];
+    if (isBlog) {
+      schemaOrgJSONLD.push(
+        {
+          "@context": "http://schema.org",
+          "@type": "Blog",
+          "name": config.siteTitle,
+          "url": config.siteUrl + config.pathPrefix + "/",
+          "description": config.siteDescription,
+          "publisher": {
+            "@type": "Organization",
+            "name": config.siteTitle
+          }
+        },
+        {
+          "@context": "http://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              item: {
+                "@id": config.siteUrl,
+                name: "ホーム",
+              }
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              item: {
+                "@id": config.siteUrl + config.pathPrefix + "/",
+                name: "ブログ",
+              }
+            }
+          ]
+        }
+      );
+    }
     if (isPost) {
       schemaOrgJSONLD.push(
+        {
+          "@context": "http://schema.org",
+          "@type": "Blog",
+          "name": config.siteTitle,
+          "url": config.siteUrl + config.pathPrefix + "/",
+          "description": config.siteDescription,
+          "publisher": {
+            "@type": "Organization",
+            "name": config.siteTitle
+          }
+        },
         {
           "@context": "http://schema.org",
           "@type": "BlogPosting",
@@ -89,13 +140,21 @@ const Seo = props => {
               "@type": "ListItem",
               position: 1,
               item: {
-                "@id": config.siteUrl + config.pathPrefix + "/",
+                "@id": config.siteUrl,
                 name: "ホーム",
               }
             },
             {
               "@type": "ListItem",
               position: 2,
+              item: {
+                "@id": config.siteUrl + config.pathPrefix + "/",
+                name: "ブログ",
+              }
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
               item: {
                 "@id": url,
                 name: title,
@@ -109,10 +168,21 @@ const Seo = props => {
       schemaOrgJSONLD.push(
         {
           "@context": "http://schema.org",
+          "@type": "Blog",
+          "name": config.siteTitle,
+          "url": config.siteUrl + config.pathPrefix + "/",
+          "description": config.siteDescription,
+          "publisher": {
+            "@type": "Organization",
+            "name": config.siteTitle
+          }
+        },
+        {
+          "@context": "http://schema.org",
           "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": config.siteUrl + config.pathPrefix + "/about/",
-            "headline": "プロフィール"
+            "headline": "プロフィール" + " - " + config.shortHomeTitle
           },
           "description": "Masaki Nishiのプロフィールページです。現在はサンフランシスコ・シリコンバレー地域のベイエリア周辺でソフトウェアエンジニアをしています。",
           "image": {
@@ -144,13 +214,21 @@ const Seo = props => {
               "@type": "ListItem",
               position: 1,
               item: {
-                "@id": config.siteUrl + config.pathPrefix + "/",
+                "@id": config.siteUrl,
                 name: "ホーム",
               }
             },
             {
               "@type": "ListItem",
               position: 2,
+              item: {
+                "@id": config.siteUrl + config.pathPrefix + "/",
+                name: "ブログ",
+              }
+            },
+            {
+              "@type": "ListItem",
+              position: 3,
               item: {
                 "@id": config.siteUrl + config.pathPrefix + "/about/",
                 name: "プロフィール"
@@ -160,8 +238,118 @@ const Seo = props => {
         }
       );
     }
+    if (isUserTerms) {
+      schemaOrgJSONLD.push(
+        {
+          "@context": "http://schema.org",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": config.siteUrl + config.pathPrefix + "/user-terms/",
+            "headline": "利用規約" + " - " + config.shortHomeTitle
+          },
+          "description": "Masaki Nishiのポートフォリオ・ブログの利用に関する規約・注意事項です。",
+          "image": {
+            "@type": "ImageObject",
+            "url": config.siteUrl + config.pathPrefix + config.siteImageOgp,
+            "width": 1200,
+            "height": 630
+          },
+          "author": {
+            "@type": "Person",
+            "name": config.authorName
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": config.siteTitle,
+            "logo": {
+              "@type": "ImageObject",
+              "url": config.siteUrl + config.pathPrefix + "/icons/apple-icon-60x60.png",
+              "width": 60,
+              "height": 60
+            }
+          }
+        },
+        {
+          "@context": "http://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              item: {
+                "@id": config.siteUrl,
+                name: "ホーム",
+              }
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              item: {
+                "@id": config.siteUrl + config.pathPrefix + "/user-terms/",
+                name: "利用規約"
+              }
+            }
+          ]
+        }
+      );
+    }
+    if (isPrivacy) {
+      schemaOrgJSONLD.push(
+        {
+          "@context": "http://schema.org",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": config.siteUrl + config.pathPrefix + "/privacy-policy/",
+            "headline": "プライバシーポリシー" + " - " + config.shortHomeTitle
+          },
+          "description": "Masaki Nishiのポートフォリオ・ブログのプライバシーポリシーです。",
+          "image": {
+            "@type": "ImageObject",
+            "url": config.siteUrl + config.pathPrefix + config.siteImageOgp,
+            "width": 1200,
+            "height": 630
+          },
+          "author": {
+            "@type": "Person",
+            "name": config.authorName
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": config.siteTitle,
+            "logo": {
+              "@type": "ImageObject",
+              "url": config.siteUrl + config.pathPrefix + "/icons/apple-icon-60x60.png",
+              "width": 60,
+              "height": 60
+            }
+          }
+        },
+        {
+          "@context": "http://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              item: {
+                "@id": config.siteUrl,
+                name: "ホーム",
+              }
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              item: {
+                "@id": config.siteUrl + config.pathPrefix + "/privacy-policy/",
+                name: "プライバシーポリシー"
+              }
+            }
+          ]
+        }
+      );
+    }
 
-  if (isHome) {
+  if (isBlog) {
     return (
       <Helmet
         htmlAttributes={{
@@ -200,7 +388,7 @@ const Seo = props => {
           }}
         >
           {/* General tags */}
-          <title>プロフィール</title>
+          <title>{"プロフィール" + " - " + config.shortHomeTitle}</title>
           <meta name="description" content="Masaki Nishiのプロフィールページです。現在はサンフランシスコ・シリコンバレー地域のベイエリア周辺でソフトウェアエンジニアをしています。" />
           {/* Schema.org tags */}
           <script type="application/ld+json">
@@ -208,10 +396,70 @@ const Seo = props => {
           </script>
           {/* OpenGraph tags */}
           <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/about/"} />
-          <meta property="og:title" content="プロフィール" />
+          <meta property="og:title" content={"プロフィール" + " - " + config.shortHomeTitle} />
           <meta property="og:description" content="Masaki Nishiのプロフィールページです。現在はサンフランシスコ・シリコンバレー地域のベイエリア周辺でソフトウェアエンジニアをしています。" />
           <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
-          <meta property="og:type" content="article" />
+          <meta property="og:type" content="website" />
+          <meta property="fb:app_id" content={facebook.appId} />
+          {/* Twitter Card tags */}
+          <meta name="twitter:card" content="summarylargeimage" />
+          <meta
+            name="twitter:site"
+            content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
+          />
+        </Helmet>
+      );
+  } else if (isUserTerms) {
+    return (
+        <Helmet
+          htmlAttributes={{
+            lang: config.siteLanguage,
+            prefix: "og: http://ogp.me/ns#"
+          }}
+        >
+          {/* General tags */}
+          <title>{"利用規約" + " - " + config.shortHomeTitle}</title>
+          <meta name="description" content="Masaki Nishiのポートフォリオ・ブログの利用に関する規約・注意事項です。" />
+          {/* Schema.org tags */}
+          <script type="application/ld+json">
+            {JSON.stringify(schemaOrgJSONLD)}
+          </script>
+          {/* OpenGraph tags */}
+          <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/user-terms/"} />
+          <meta property="og:title" content={"利用規約" + " - " + config.shortHomeTitle} />
+          <meta property="og:description" content="Masaki Nishiのポートフォリオ・ブログの利用に関する規約・注意事項です。" />
+          <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
+          <meta property="og:type" content="website" />
+          <meta property="fb:app_id" content={facebook.appId} />
+          {/* Twitter Card tags */}
+          <meta name="twitter:card" content="summarylargeimage" />
+          <meta
+            name="twitter:site"
+            content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
+          />
+        </Helmet>
+      );
+  } else if (isPrivacy) {
+    return (
+        <Helmet
+          htmlAttributes={{
+            lang: config.siteLanguage,
+            prefix: "og: http://ogp.me/ns#"
+          }}
+        >
+          {/* General tags */}
+          <title>{"プライバシーポリシー" + " - " + config.shortHomeTitle}</title>
+          <meta name="description" content="Masaki Nishiのポートフォリオ・ブログのプライバシーポリシーです。" />
+          {/* Schema.org tags */}
+          <script type="application/ld+json">
+            {JSON.stringify(schemaOrgJSONLD)}
+          </script>
+          {/* OpenGraph tags */}
+          <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/privacy-policy/"} />
+          <meta property="og:title" content={"プライバシーポリシー" + " - " + config.shortHomeTitle} />
+          <meta property="og:description" content="Masaki Nishiのポートフォリオ・ブログのプライバシーポリシーです。" />
+          <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
+          <meta property="og:type" content="website" />
           <meta property="fb:app_id" content={facebook.appId} />
           {/* Twitter Card tags */}
           <meta name="twitter:card" content="summarylargeimage" />
@@ -272,16 +520,16 @@ const Seo = props => {
         }}
       >
         {/* General tags */}
-        <title>{title}</title>
+        <title>{config.siteHomeTitle}</title>
         <meta name="description" content={description} />
         {/* Schema.org tags */}
         <script type="application/ld+json">
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
         {/* OpenGraph tags */}
-        <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/"} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
+        <meta property="og:url" content={config.siteUrl} />
+        <meta property="og:title" content={config.siteHomeTitle} />
+        <meta property="og:description" content={config.siteHomeDescription} />
         <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content={facebook.appId} />

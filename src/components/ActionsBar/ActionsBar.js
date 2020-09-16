@@ -155,7 +155,6 @@ class ActionsBar extends React.Component {
           </IconButton>
           <IconButton
             aria-label="ブログトップへ戻る"
-            onClick={this.homeOnClick}
             title="ブログトップへ戻る"
             component={Link}
             to="/blog/"

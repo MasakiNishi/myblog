@@ -13,7 +13,7 @@ function encode(data) {
 
 const styles = theme => ({
   submit: {
-    margin: "3em 0 4em"
+    margin: "3em 0"
     //width: "100%"
   },
   multilineInput: {

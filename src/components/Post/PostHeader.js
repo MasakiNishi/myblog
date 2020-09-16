@@ -20,9 +20,12 @@ const styles = theme => ({
       }
     },
     "& .gatsby-resp-image-link": {
-      margin: "2em -1.5rem",
+      margin: "2em -1rem",
       border: "none",
       display: "block",
+      [`@media (min-width: 426px)`]: {
+        margin: "2em -1.5rem",
+      },
       [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
         margin: "2.5em -3.5rem"
       }
@@ -50,7 +53,7 @@ const styles = theme => ({
   subTitle: {
     color: theme.main.colors.subTitle,
     fontSize: `${theme.main.fonts.subTitle.size}em`,
-    lineHeight: "1.2",
+    lineHeight: "1",
     fontWeight: theme.main.fonts.subTitle.weight,
     margin: "1.25em 0",
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {

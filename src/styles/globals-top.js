@@ -354,7 +354,7 @@ export default {
       background: theme.base.colors.background,
       //overflow: "hidden",
       "-webkit-tap-highlight-color": "rgba(0,0,0,.05)",
-      fontFamily: "Open Sans"
+      fontFamily: "'Playfair Display', sans-serif"
     },
     wrapper: {},
     main: {

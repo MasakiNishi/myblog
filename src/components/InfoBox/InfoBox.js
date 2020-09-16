@@ -46,8 +46,12 @@ const styles = theme => ({
           display: "block",
           color: "#fff",
           position: "absolute",
-          top: "5px",
-          right: "10px"
+          top: 0,
+          right: 0,
+          padding: "20px 35px 100vh calc(100vw - 320px - 35px)",
+          [`@media (max-width: 475px)`]: {
+            padding: "20px 10% 100vh"
+          }
         },
       }
     },

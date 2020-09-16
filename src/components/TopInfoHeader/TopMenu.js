@@ -14,7 +14,12 @@ const styles = theme => ({
   topMenu: {
     float: "right",
     margin: "5px 10px 0 0",
-    [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {}
+    "& ul": {
+      borderBottom: "1px solid #dedede"
+    },
+    [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
+      margin: "5px 5px 0 0"
+    }
   },
   open: {
     color: theme.bars.colors.icon
@@ -82,6 +87,15 @@ class TopMenu extends React.Component {
                         }}
                       >
                         ホーム
+                      </MenuItem>
+                    </a>
+                     <a href="/blog/" style={{ display: "block" }}>
+                      <MenuItem
+                        onClick={e => {
+                          this.handleClose();
+                        }}
+                      >
+                        ブログ
                       </MenuItem>
                     </a>
                     {pages.map(({ node }) => {

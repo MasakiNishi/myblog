@@ -9,5 +9,5 @@ module.exports = {
   superLightGray: "#dedede",
   twitter: "#55acee",
   facebook: "#305097",
-  instagram: "url(#rg)"
+  instagram: "url(#rg)",
 }
