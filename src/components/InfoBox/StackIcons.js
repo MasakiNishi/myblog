@@ -16,7 +16,7 @@ import { ReactComponent as Css3Icon } from "../../images/svg-icons/css3.svg";
 import { ReactComponent as HerokuIcon } from "../../images/svg-icons/heroku.svg";
 import { ReactComponent as Html5Icon } from "../../images/svg-icons/html5.svg";
 import { ReactComponent as JavascriptIcon } from "../../images/svg-icons/javascript.svg";
-import { ReactComponent as NodejsIcon } from "../../images/svg-icons/Nodejs.svg";
+import { ReactComponent as NodejsIcon } from "../../images/svg-icons/nodejs.svg";
 import { ReactComponent as NumpyIcon } from "../../images/svg-icons/numpy.svg";
 import { ReactComponent as PhpIcon } from "../../images/svg-icons/php.svg";
 import { ReactComponent as PythonIcon } from "../../images/svg-icons/python.svg";
