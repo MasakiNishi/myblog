@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-personal-blog",
-  "description": "A Gatsby starter for a personal blog",
-  "author": "Greg Lobinski <greglobinski@gmail.com>",
-  "repository": "https://github.com/greglobinski/gatsby-starter-personal-blog",
+  "name": "gatsby-starter-personal-blog-customized",
+  "description": "A Gatsby starter for a personal blog customized",
+  "author": "Masaki Nishi <info@masakinishi.com>",
+  "repository": "https://github.com/MasakiNishi/myblog",
   "version": "1.0.7",
   "license": "MIT",
   "scripts": {
