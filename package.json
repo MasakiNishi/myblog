@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-starter-personal-blog-customized",
-  "description": "A Gatsby starter for a personal blog customized",
+  "name": "customized-gatsby-starter-personal-blog",
+  "description": "Customized gatsby starter for a personal blog",
   "author": "Masaki Nishi <info@masakinishi.com>",
   "repository": "https://github.com/MasakiNishi/myblog",
   "version": "1.0.7",
