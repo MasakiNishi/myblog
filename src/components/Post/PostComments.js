@@ -15,7 +15,7 @@ const styles = theme => ({
 });
 
 const PostComments = props => {
-  const { classes, slug, title, facebook } = props;
+  const { classes, slug, title } = props;
 
   const disqusConfig = {
    shortname: process.env.GATSBY_DISQUS_NAME,
@@ -31,10 +31,7 @@ const PostComments = props => {
 
 PostComments.propTypes = {
   classes: PropTypes.object.isRequired,
-  post: PropTypes.object.isRequired,
-  slug: PropTypes.string.isRequired,
-  theme: PropTypes.object.isRequired,
-  facebook: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired
 };
 
 export default injectSheet(styles)(PostComments);

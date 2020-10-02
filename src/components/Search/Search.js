@@ -7,7 +7,6 @@ import Hit from "./Hit";
 
 const styles = theme => ({
   search: {
-    marginTop: "-1em",
     "& .ais-SearchBox": {
       width: "100%"
     },

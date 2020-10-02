@@ -5,29 +5,29 @@ export function featureNavigator(e) {
   e && e.preventDefault();
 
   if (this.props.navigatorPosition === "is-aside") {
-    if (this.props.isWideScreen) {
-      //this.props.setNavigatorPosition("moving-featured");
+    // if (this.props.isWideScreen) {
+    //   this.props.setNavigatorPosition("moving-featured");
 
-      setTimeout(() => {
-        //this.props.setNavigatorPosition("resizing-featured");
-        setTimeout(() => {
-          this.props.setNavigatorPosition("is-featured");
-          this.props.setNavigatorShape("open");
+    //   setTimeout(() => {
+    //     this.props.setNavigatorPosition("resizing-featured");
+    //     setTimeout(() => {
+    //       this.props.setNavigatorPosition("is-featured");
+    //       this.props.setNavigatorShape("open");
 
-          // uncomment following lines if you want to count featuring Navigator as a visit
-          // to index page ('/'), you have to also uncomment import { navigateTo }...
+    //       // uncomment following lines if you want to count featuring Navigator as a visit
+    //       // to index page ('/'), you have to also uncomment import { navigateTo }...
 
-          //setTimeout(() => {
-            //navigateTo("/blog/");
-          //}, 1000);
+    //       //setTimeout(() => {
+    //         //navigateTo("/blog/");
+    //       //}, 1000);
 
-        });
-      }, 0);
-    } else {
+    //     });
+    //   }, 0);
+    // } else {
       setTimeout(() => {
         this.props.setNavigatorPosition("is-featured");
       }, 0);
-    }
+    // }
   }
 }
 

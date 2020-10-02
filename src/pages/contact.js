@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import Obfuscate from "react-obfuscate";
 
-import Main from "../components/TopMain";
-import Article from "../components/TopMain/Article";
-import PageHeader from "../components/TopPage/PageHeader";
+import Main from "../components/Main";
+import Article from "../components/Main/Article";
+import PageHeader from "../components/Page/PageHeader";
 import Content from "../components/Main/Content";
 import Form from "../components/ContactForm";
 import config from "../../content/meta/config";
@@ -121,7 +121,7 @@ const Contact = ({classes}) => {
       <Article>
         <PageHeader title="お問い合わせ" />
         <Content>
-          下記フォームか、Eメール: <Obfuscate email={config.contactEmail} /> にお気軽にお問い合わせください。
+          下記フォームか、Eメール: <Obfuscate email={config.contactEmail} /> にお気軽にお問い合わせください。個人情報の取り扱い等は<a href="/user-terms/">利用規約</a>、<a href="/privacy-policy/">プライバシーポリシー</a>をご参照ください。
         </Content>
         <Form />
       </Article>

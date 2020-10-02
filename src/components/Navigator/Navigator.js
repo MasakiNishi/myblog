@@ -19,6 +19,8 @@ const styles = theme => ({
     height: "100vh",
     transitionTimingFunction: "ease",
     transition: "left .9s",
+    animationName: "main-entry",
+    animationDuration: ".5s",
     width: "100%",
     [`@media (max-width: ${theme.mediaQueryTresholds.L - 1}px)`]: {
       "&.is-aside": {
@@ -95,6 +97,16 @@ const styles = theme => ({
         left: `calc(-100vw + ${2 * theme.info.sizes.width + 60}px)`,
         width: `calc(100vw - ${theme.info.sizes.width}px - 60px)`
       }
+    }
+  },
+  "@keyframes main-entry": {
+    "0%": {
+      opacity: 0,
+      transform: "translateY(20px)"
+    },
+    "100%": {
+      opacity: 1,
+      transform: "translateY(0)"
     }
   }
 });

@@ -12,14 +12,13 @@ import { setFontSizeIncrease, setIsWideScreen } from "../state/store";
 import asyncComponent from "../components/common/AsyncComponent/";
 import Loading from "../components/common/Loading/";
 import Navigator from "../components/Navigator/";
-import ActionsBar from "../components/ActionsBar/";
-import TopInfoHeader from "../components/TopInfoHeader/";
-import TopFooter from "../components/TopFooter";
-import InfoBox from "../components/InfoBox/";
+import TopActionsBar from "../components/TopActionsBar/";
+import InfoBar from "../components/InfoBar/";
+import TopInfoBox from "../components/TopInfoBox/";
 
 import { isWideScreen, timeoutThrottlerHandler } from "../utils/helpers";
 
-class Layout extends React.Component {
+class indexLayout extends React.Component {
   timeouts = {};
   categories = [];
 
@@ -82,19 +81,26 @@ class Layout extends React.Component {
       <MuiThemeProvider theme={theme}>
         <div
           style={{
-            margin: "60px auto"
+            padding: "1px",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            bottom: 0,
+            right: 0,
+            overflow: "hidden"
           }}
         >
           {children()}
-          <TopInfoHeader pages={data.pages.edges} wppages={data.wppages.edges} parts={data.parts.edges} />
-          <TopFooter />
+          <TopActionsBar/>
+          <InfoBar pages={data.pages.edges} wppages={data.wppages.edges} parts={data.parts.edges} />
+          <TopInfoBox pages={data.pages.edges} wppages={data.wppages.edges} parts={data.parts.edges} />
         </div>
       </MuiThemeProvider>
     );
   }
 }
 
-Layout.propTypes = {
+indexLayout.propTypes = {
   data: PropTypes.object.isRequired,
   children: PropTypes.func.isRequired,
   setIsWideScreen: PropTypes.func.isRequired,
@@ -116,11 +122,11 @@ const mapDispatchToProps = {
   setFontSizeIncrease
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(injectSheet(globals)(Layout));
+export default connect(mapStateToProps, mapDispatchToProps)(injectSheet(globals)(indexLayout));
 
 //eslint-disable-next-line no-undef
 export const guery = graphql`
-  query LayoutQuery {
+  query indexLayoutQuery {
     wpposts: allWordpressPost(
       sort: { fields: [date], order: DESC }
     ) {

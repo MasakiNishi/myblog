@@ -5,6 +5,7 @@ require("core-js/fn/array/find");
 
 import asyncComponent from "../common/AsyncComponent/";
 import PostAuthor from "./PostAuthor";
+import PostComments from "./PostComments";
 
 const styles = theme => ({
   footer: {
@@ -39,6 +40,7 @@ const PostFooter = ({ classes, author, post, slug, facebook }) => {
       <PostShare post={post} slug={slug} />
       <PostFollow post={post} slug={slug} facebook={facebook} />
       <PostAuthor author={author} />
+      <PostComments />
     </footer>
   );
 };
@@ -47,7 +49,7 @@ PostFooter.propTypes = {
   classes: PropTypes.object.isRequired,
   author: PropTypes.object.isRequired,
   post: PropTypes.object.isRequired,
-  slug: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired
 };
 
 export default injectSheet(styles)(PostFooter);

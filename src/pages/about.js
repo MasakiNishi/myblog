@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import Obfuscate from "react-obfuscate";
 
-import Main from "../components/TopMain";
-import Article from "../components/TopMain/Article";
-import PageHeader from "../components/TopPage/PageHeader";
+import Main from "../components/Main";
+import Article from "../components/Main/Article";
+import PageHeader from "../components/Page/PageHeader";
 import Content from "../components/Main/Content";
 import config from "../../content/meta/config";
 

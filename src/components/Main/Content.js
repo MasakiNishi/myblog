@@ -41,7 +41,7 @@ const styles = theme => ({
     },
     "& .box": {
       padding: "2em 1em",
-      border: "1px dashed #ddd",
+      border: "3px double #ddd",
       marginBottom: "1.5em",
       [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
         padding: "1.5em 1em"
