@@ -35,7 +35,7 @@ exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
     createNodeField({
       node,
       name: `slug`,
-      value: `${separtorIndex ? config.pathPrefix + "/" : ""}${slug.substring(shortSlugStart)}`
+      value: `${separtorIndex ? "/" : ""}${slug.substring(shortSlugStart)}`
     });
     createNodeField({
       node,
@@ -81,7 +81,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
           createPage({
             path: slug,
-            layout: "blog",
+            layout: "index",
             component: isPost ? postTemplate : pageTemplate,
             context: {
               slug: slug
@@ -111,8 +111,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
          }
          //console.log(JSON.stringify(result, null, 4));
          result.data.allWordpressPage.edges.forEach(({ node }) => createPage({
-           path: config.pathPrefix + "/" + node.slug + "/",
-           layout: "blog",
+           path: "work" + "/" + node.slug + "/",
+           layout: "index",
            component: path.resolve(`./src/templates/WPPageTemplate.js`),
            context: { slug: node.slug }
          }));
