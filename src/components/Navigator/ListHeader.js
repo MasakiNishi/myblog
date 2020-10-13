@@ -232,12 +232,12 @@ const ListHeader = props => {
       <header>
         {navigatorShape === "closed" && (
           <div className={classes.closed}>
-            <span>記事リスト</span>
+            <span>ブログ記事</span>
             <IconButton
               aria-label="Expand the list"
               className={classes.expand}
               onClick={expandOnClick}
-              title="記事リストをひらく"
+              title="ブログ記事をひらく"
             >
               <ExpandLessIcon />
             </IconButton>

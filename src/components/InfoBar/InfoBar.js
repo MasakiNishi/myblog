@@ -29,8 +29,8 @@ const styles = theme => ({
       bottom: 0,
       borderTop: `1px solid ${theme.base.colors.lines}`,
       [`@media (max-width: 425px)`]: {
-        left: ".8rem",
-        right: ".8rem"
+        left: 0,
+        right: 0
       }
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {

@@ -75,6 +75,9 @@ const styles = theme => ({
     display: "flex",
     flexDirection: "column",
     width: "100%",
+    [`@media (max-width: 425px)`]: {
+      margin: "0 0 0 .8em"
+    },
     "& h2": {
       lineHeight: 1.3,
       fontWeight: 600,

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
-import MoreVertIcon from "material-ui-icons/MoreVert";
+import Menu from "material-ui-icons/Menu";
 import IconButton from "material-ui/IconButton";
 import ClickAwayListener from "material-ui/utils/ClickAwayListener";
 import classNames from "classnames";
@@ -32,7 +32,7 @@ class TopSideMenu extends React.Component {
           onClick={showOnClick}
           className="sideMenu"
         >
-          <MoreVertIcon />
+          <Menu />
         </IconButton>
       </div>
     );

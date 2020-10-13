@@ -101,7 +101,7 @@ const styles = theme => ({
     },
     "& .wrapperInside": {
       background: theme.info.colors.background,
-      padding: "1em 0"
+      padding: "0.2em 0 1em 0"
     },
     "& .infoBoxText": {
       fontSize: ".9em"

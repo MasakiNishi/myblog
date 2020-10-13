@@ -23,9 +23,9 @@ const styles = theme => ({
       theme.bars.sizes.actionsBar
     }px + 1.3rem) 1.3rem`,
     [`@media (max-width: 425px)`]: {
-      padding: `calc(${theme.bars.sizes.infoBar}px + 1.3rem) .8rem calc(${
+      padding: `calc(${theme.bars.sizes.infoBar}px + 1.3rem) 0 calc(${
       theme.bars.sizes.actionsBar
-    }px + 1.3rem) .8rem`
+    }px + 1.3rem) 0`
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       padding: `calc(${theme.bars.sizes.infoBar}px + 2rem) 2rem calc(${
@@ -60,18 +60,6 @@ const styles = theme => ({
     padding: 0,
     ".is-aside.closed &, .moving-featured.closed &": {
       display: "none"
-    },
-    "& .articleHeader": {
-      margin: "0 0 0.5em 0.5em",
-      fontFamily: 'Open Sans',
-      color: theme.main.colors.title,
-      [`@media (max-width: ${theme.mediaQueryTresholds.L}px)`]: {
-        fontSize: "1.6em",
-        [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
-          fontSize: "1.4em",
-          margin: "0 0 0 0.5em"
-        }
-      }
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       padding: "2rem calc(1rem + 17px) calc(2rem + 17px) 2rem"
@@ -139,7 +127,6 @@ class List extends React.Component {
                     className={ isHome && `${classes.Homelist} ${this.state.hidden ? this.state.hidden : ""}` || `${classes.list}` }
                     style={ isHome && { marginTop:0 } || { marginTop:`${this.state.hidden ? "5rem" : 0 }` } }
                   >
-                    { isHome && isAll && <h1 className='articleHeader'>Articles</h1> }
                     {posts && posts.map((post, i) => ( <ListItem key={i} post={post} linkOnClick={linkOnClick} categoryFilter={categoryFilter} />))}
                     {wpposts && wpposts.map((wppost, i) => ( <ListItem key={i} post={wppost} linkOnClick={linkOnClick} categoryFilter={categoryFilter} />))}
                   </ul>

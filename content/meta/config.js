@@ -17,7 +17,7 @@ module.exports = {
   authorTwitterAccount: "masakinishi_com",
   // info
   infoTitle: "Masaki Nishi",
-  infoTitleNote: "海外エンジニアブログ",
+  infoTitleNote: "ソフトウェアエンジニア",
   // manifest.json
   manifestName: "Masaki Nishi",
   manifestShortName: "Masaki Nishi", // max 12 characters

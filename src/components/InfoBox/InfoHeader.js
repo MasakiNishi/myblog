@@ -85,7 +85,7 @@ const styles = theme => ({
     transition: "all .5s",
     "& small": {
       display: "block",
-      fontSize: ".5em",
+      fontSize: ".45em",
       marginTop: ".3em"
     },
     ".is-aside.open &": {
@@ -143,7 +143,7 @@ const InfoHeader = props => {
         aria-label="Expand the box"
         className={classes.expand}
         onClick={expandOnClick}
-        title="記事リストを閉じる"
+        title="ブログ記事を閉じる"
       >
         <ExpandMoreIcon />
       </IconButton>
