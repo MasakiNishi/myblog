@@ -12,7 +12,9 @@ const styles = theme => ({
   topSideMenu: {
     float: "right",
     margin: "5px 10px 0 0",
-    [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {},
+    [`@media (min-width: 425px)`]: {
+      margin: "5px 20px 0 0",
+    },
     "& .sideMenu": {
       color: theme.bars.colors.icon
     }

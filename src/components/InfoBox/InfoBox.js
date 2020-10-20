@@ -4,7 +4,6 @@ import injectSheet from "react-jss";
 import { connect } from "react-redux";
 require("core-js/fn/array/find");
 
-import SocialIcons from "./SocialIcons";
 import InfoMenu from "./InfoMenu";
 import InfoHeader from "./InfoHeader";
 import InfoText from "./InfoText";
@@ -38,7 +37,7 @@ const styles = theme => ({
         "& .asideInner": {
           transition: "left 0.9s",
           left: 0,
-          [`@media (max-width: 475px)`]: {
+          [`@media (max-width: 425px)`]: {
             width: "80%",
           },
         },
@@ -49,7 +48,7 @@ const styles = theme => ({
           top: 0,
           right: 0,
           padding: "20px 35px 100vh calc(100vw - 320px - 35px)",
-          [`@media (max-width: 475px)`]: {
+          [`@media (max-width: 425px)`]: {
             padding: "20px 10% 100vh"
           }
         },
@@ -90,7 +89,7 @@ const styles = theme => ({
     transition: "bottom .5s 0s",
     opacity: 1,
     transitionTimingFunction: "ease",
-    [`@media (max-width: 375px)`]: {
+    [`@media (max-width: 425px)`]: {
       padding: "0 10% 0"
     },
     ".is-aside.closed &": {
@@ -153,7 +152,6 @@ class InfoBox extends React.Component {
                 <div className='infoBoxText'>
                   {info && <InfoText info={info} />}
                 </div>
-                <SocialIcons />
                 {pages && <InfoMenu pages={pages} wppages={wppages} linkOnClick={this.menulinkOnClick} hideOnClick={this.hideOnClick} avatarOnClick={this.avatarOnClick} />}
               </div>
                 <StackIcons />

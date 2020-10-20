@@ -4,7 +4,6 @@ import injectSheet from "react-jss";
 import { connect } from "react-redux";
 require("core-js/fn/array/find");
 
-import SocialIcons from "../InfoBox/SocialIcons";
 import InfoMenu from "../InfoBox/InfoMenu";
 import InfoHeader from "../InfoBox/InfoHeader";
 import InfoText from "../InfoBox/InfoText";
@@ -101,7 +100,7 @@ const styles = theme => ({
     },
     "& .wrapperInside": {
       background: theme.info.colors.background,
-      padding: "0 0 1em 0"
+      padding: ".2em 0 1em 0"
     },
     "& .infoBoxText": {
       fontSize: ".9em"
@@ -153,7 +152,6 @@ class InfoBox extends React.Component {
                 <div className='infoBoxText'>
                   {info && <InfoText info={info} />}
                 </div>
-                <SocialIcons />
                 {pages && <InfoMenu pages={pages} wppages={wppages} linkOnClick={this.menulinkOnClick} hideOnClick={this.hideOnClick} avatarOnClick={this.avatarOnClick} />}
               </div>
                 <StackIcons />
