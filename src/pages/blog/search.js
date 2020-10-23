@@ -106,7 +106,7 @@ const SearchPage = props => {
         }}
       >
         {/* General tags */}
-        <title>サイト内検索</title>
+        <title>ブログ内検索</title>
         <meta name="description" content="Masaki Nishi - 海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
         {/* Schema.org tags */}
         <script type="application/ld+json">
@@ -114,7 +114,7 @@ const SearchPage = props => {
         </script>
         {/* OpenGraph tags */}
         <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/search/"} />
-        <meta property="og:title" content="サイト内検索" />
+        <meta property="og:title" content="ブログ内検索" />
         <meta property="og:description" content="Masaki Nishi - 海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
         <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
         <meta property="og:type" content="article" />
@@ -127,7 +127,7 @@ const SearchPage = props => {
         />
       </Helmet>
       <Article>
-        <PageHeader title="サイト内検索" algolia={true} />
+        <PageHeader title="ブログ内検索" algolia={true} />
         <Search algolia={data.site.siteMetadata.algolia} />
       </Article>
     </Main>

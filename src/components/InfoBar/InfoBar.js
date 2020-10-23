@@ -84,7 +84,7 @@ class InfoBar extends React.Component {
 
     return (
       <aside className={`${classes.infoBar} ${showSidebar ? showSidebar : ""}`}>
-        <Link to="/blog/"　title="ブログトップへ戻る">
+        <Link to="/"　title="トップページ">
           <Avatar alt={config.infoTitle} src={avatar} className={classes.avatar} />
           <div className={classes.title}>
             {config.infoTitle}

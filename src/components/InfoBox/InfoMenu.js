@@ -36,10 +36,10 @@ const InfoMenu = props => {
           avatarOnClick();
         }}
         className={classes.link}
-        title="トップページへ戻る"
+        title="トップページ"
         data-shape="closed"
       >
-        ホーム
+        top
       </Link>
       <Link
         to="/blog/"
@@ -48,45 +48,23 @@ const InfoMenu = props => {
           avatarOnClick();
         }}
         className={classes.link}
-        title="ブログトップへ戻る"
+        title="ブログトップ"
         data-shape="closed"
       >
-        ブログ
+        blog
       </Link>
-      {pages.map(({ node }) => {
-        const { fields, frontmatter } = node;
-        return (
-          <Link
-            key={fields.slug}
-            to={fields.slug}
-            onClick={e => {
-              hideOnClick();
-              linkOnClick();
-            }}
-            className={classes.link}
-            data-shape="closed"
-          >
-            {frontmatter.menuTitle ? frontmatter.menuTitle : frontmatter.title}
-          </Link>
-        );
-      })}
-      {wppages.map(({ node }) => {
-        const { title, slug } = node;
-        return (
-          <Link 
-            key={slug}
-            to={'/blog/' + slug + '/'}
-            onClick={e => {
-              hideOnClick();
-              linkOnClick();
-            }}
-            className={classes.link}
-            data-shape="closed"
-          >
-            {title}
-          </Link>
-        );
-      })}
+      <Link
+        to="/work/"
+        onClick={e => {
+          hideOnClick();
+          avatarOnClick();
+        }}
+        className={classes.link}
+        title="ワークページ"
+        data-shape="closed"
+      >
+        work
+      </Link>
       <Link
         to="/about/"
         onClick={e => {
@@ -94,9 +72,10 @@ const InfoMenu = props => {
           linkOnClick();
         }}
         className={classes.link}
+        title="プロフィール"
         data-shape="closed"
       >
-        プロフィール
+        about
       </Link>
       <Link
         to="/contact/"
@@ -105,9 +84,10 @@ const InfoMenu = props => {
           linkOnClick();
         }}
         className={classes.link}
+        title="お問い合わせ"
         data-shape="closed"
       >
-        お問い合わせ
+        contact
       </Link>
     </nav>
   );

@@ -111,17 +111,17 @@ const styles = theme => ({
 });
 
 const InfoHeader = props => {
-  const { classes, avatarOnClick, expandOnClick, hideOnClick} = props;
+  const { classes, avatarOnClick, expandOnClick, hideOnClick } = props;
 
   return (
     <header className={classes.header}>
       <Link className={classes.avatarLink}
-        to="/blog/"
+        to="/"
         onClick={e => {
           hideOnClick();
           avatarOnClick();
         }}
-        title="トップページへ戻る">
+        title="トップページ">
         <div className={classes.avatar}>
           <img src={avatar} alt="" />
         </div>
@@ -130,7 +130,7 @@ const InfoHeader = props => {
         <small> {config.infoTitleNote}</small>
         </div>
       </Link>
-      <Link className={classes.hideLink} to="/" onClick={hideOnClick} title="トップページへ戻る">
+      <Link className={classes.hideLink} to="/" onClick={hideOnClick} title="トップページ">
         <div className={classes.avatar}>
           <img src={avatar} alt="" />
         </div>

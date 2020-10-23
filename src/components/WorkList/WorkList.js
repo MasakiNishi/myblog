@@ -4,7 +4,7 @@ import injectSheet from "react-jss";
 import Link from "gatsby-link";
 
 const styles = theme => ({
-  works: {
+  work: {
     width: "100%",
     height: "100%",
     margin: "0 auto",
@@ -31,7 +31,7 @@ const WorksList = props => {
   const { classes } = props;
 
   return (
-      <section id="works" className={classes.works}>
+      <section id="works" className={classes.work}>
         <h3>Works</h3>
           <ul>
             <li className="btrax">

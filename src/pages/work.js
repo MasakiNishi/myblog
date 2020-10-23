@@ -5,9 +5,7 @@ import PropTypes from "prop-types";
 import { setNavigatorPosition, setNavigatorShape } from "../state/store";
 import { featureNavigator } from "../utils/shared";
 import Seo from "../components/Seo";
-
-import Article from "../components/Main/Article";
-import TopPage from "../components/TopPage/";
+import WorkList from "../components/WorkList";
 
 class Index extends React.Component {
   featureNavigator = featureNavigator.bind(this);
@@ -25,7 +23,7 @@ class Index extends React.Component {
     return (
       <div>
         <Seo facebook={facebook} />
-        <TopPage />
+        <WorkList />
       </div>
     );
   }
@@ -54,7 +52,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(Index);
 
 //eslint-disable-next-line no-undef
 export const pageQuery = graphql`
-  query IndexQuery {
+  query WorkQuery {
     site {
       siteMetadata {
         facebook {

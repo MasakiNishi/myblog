@@ -145,19 +145,19 @@ class ActionsBar extends React.Component {
       <div className={classes.actionsBar}>
         <div className={classes.group}>
           <IconButton
-            aria-label="ブログトップへ戻る"
-            title="ブログトップへ戻る"
+            aria-label="ホーム"
+            title="ホーム"
             component={Link}
-            to="/blog/"
+            to="/"
             className={`${classes.button} smartPhone`}
           >
             <HomeIcon />
           </IconButton>
           <IconButton
-            aria-label="ブログトップへ戻る"
-            title="ブログトップへ戻る"
+            aria-label="ホーム"
+            title="ホーム"
             component={Link}
-            to="/blog/"
+            to="/"
             className={`${classes.button} deskTop`}
           >
             <HomeIcon />
@@ -171,7 +171,7 @@ class ActionsBar extends React.Component {
             component={Link}
             data-shape="closed"
             to="/blog/search/"
-            title="サイト内検索"
+            title="ブログ内検索"
             className={classes.button}
           >
             <SearchIcon className={classes.button} />
