@@ -27,10 +27,11 @@ const Seo = props => {
   const isHome = location.pathname === config.siteUrl;
   const isBlog = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/");
   const isPost = location.pathname === withPrefix(postSlug);
-  const isAbout = location.pathname === withPrefix(config.pathPrefix + "/about/") || location.pathname === withPrefix(config.pathPrefix + "/about");
+  const isAbout = location.pathname === withPrefix("/about/") || location.pathname === withPrefix("/about");
   const isUserTerms = location.pathname === withPrefix("/user-terms/") || location.pathname === withPrefix("/user-terms");
   const isPrivacy = location.pathname === withPrefix("/privacy-policy/") || location.pathname === withPrefix("/privacy-policy");
-  const isSuccess = location.pathname === withPrefix(config.pathPrefix + "/success/") || location.pathname === withPrefix(config.pathPrefix + "/success");
+  const isSuccess = location.pathname === withPrefix("/success/") || location.pathname === withPrefix("/success");
+  const isContact = location.pathname === withPrefix("/contact/") || location.pathname === withPrefix("/contact");
 
   const schemaOrgJSONLD = [
       {
@@ -187,7 +188,7 @@ const Seo = props => {
           "description": "Masaki Nishiのプロフィールページです。現在はサンフランシスコ・シリコンバレー地域のベイエリア周辺でソフトウェアエンジニアをしています。",
           "image": {
             "@type": "ImageObject",
-            "url": config.siteUrl + config.pathPrefix + config.siteImageOgp,
+            "url": config.siteUrl + config.siteImageOgp,
             "width": 1200,
             "height": 630
           },
@@ -250,7 +251,7 @@ const Seo = props => {
           "description": "Masaki Nishiのポートフォリオ・ブログの利用に関する規約・注意事項です。",
           "image": {
             "@type": "ImageObject",
-            "url": config.siteUrl + config.pathPrefix + config.siteImageOgp,
+            "url": config.siteUrl + config.siteImageOgp,
             "width": 1200,
             "height": 630
           },
@@ -305,7 +306,7 @@ const Seo = props => {
           "description": "Masaki Nishiのポートフォリオ・ブログのプライバシーポリシーです。",
           "image": {
             "@type": "ImageObject",
-            "url": config.siteUrl + config.pathPrefix + config.siteImageOgp,
+            "url": config.siteUrl + config.siteImageOgp,
             "width": 1200,
             "height": 630
           },
@@ -348,6 +349,61 @@ const Seo = props => {
         }
       );
     }
+    if (isContact) {
+      schemaOrgJSONLD.push(
+        {
+          "@context": "http://schema.org",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": config.siteUrl + config.pathPrefix + "/contact/",
+            "headline": "お問い合わせ"
+          },
+          "description": "Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。",
+          "image": {
+            "@type": "ImageObject",
+            "url": config.siteUrl  + config.pathPrefix + config.siteImageOgp,
+            "width": 1200,
+            "height": 630
+          },
+          "author": {
+            "@type": "Person",
+            "name": config.authorName
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": config.siteTitle,
+            "logo": {
+              "@type": "ImageObject",
+              "url": config.siteUrl  + config.pathPrefix + "/icons/apple-icon-60x60.png",
+              "width": 60,
+              "height": 60
+            }
+          }
+        },
+        {
+          "@context": "http://schema.org",
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              item: {
+                "@id": config.siteUrl + config.pathPrefix,
+                name: "ホーム",
+              }
+            },
+            {
+              "@type": "ListItem",
+              position: 2,
+              item: {
+                "@id": config.siteUrl  + config.pathPrefix + "/contact/",
+                name: "お問い合わせ",
+              }
+            }
+          ]
+        }
+      );
+    }
 
   if (isBlog) {
     return (
@@ -368,7 +424,7 @@ const Seo = props => {
         <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/"} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
+        <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content={facebook.appId} />
         {/* Twitter Card tags */}
@@ -398,7 +454,7 @@ const Seo = props => {
           <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/about/"} />
           <meta property="og:title" content={"プロフィール" + " - " + config.shortHomeTitle} />
           <meta property="og:description" content="Masaki Nishiのプロフィールページです。現在はサンフランシスコ・シリコンバレー地域のベイエリア周辺でソフトウェアエンジニアをしています。" />
-          <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
+          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
           <meta property="og:type" content="website" />
           <meta property="fb:app_id" content={facebook.appId} />
           {/* Twitter Card tags */}
@@ -428,7 +484,7 @@ const Seo = props => {
           <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/user-terms/"} />
           <meta property="og:title" content={"利用規約" + " - " + config.shortHomeTitle} />
           <meta property="og:description" content="Masaki Nishiのポートフォリオ・ブログの利用に関する規約・注意事項です。" />
-          <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
+          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
           <meta property="og:type" content="website" />
           <meta property="fb:app_id" content={facebook.appId} />
           {/* Twitter Card tags */}
@@ -458,7 +514,7 @@ const Seo = props => {
           <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/privacy-policy/"} />
           <meta property="og:title" content={"プライバシーポリシー" + " - " + config.shortHomeTitle} />
           <meta property="og:description" content="Masaki Nishiのポートフォリオ・ブログのプライバシーポリシーです。" />
-          <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
+          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
           <meta property="og:type" content="website" />
           <meta property="fb:app_id" content={facebook.appId} />
           {/* Twitter Card tags */}
@@ -473,14 +529,64 @@ const Seo = props => {
     return (
         <Helmet
           htmlAttributes={{
-            lang: config.siteLanguage
+            lang: config.siteLanguage,
+            prefix: "og: http://ogp.me/ns#"
           }}
         >
-          <meta name="robots" content="noindex" />
           {/* General tags */}
           <title>お問い合わせ完了しました。</title>
+          <meta name="description" content="Masaki Nishiへのお問い合わせ完了ページ。" />
+          {/* Schema.org tags */}
+          <script type="application/ld+json">
+            {JSON.stringify(schemaOrgJSONLD)}
+          </script>
+          {/* OpenGraph tags */}
+          <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/success/"} />
+          <meta property="og:title" content="お問い合わせ完了ページ" />
+          <meta property="og:description" content="Masaki Nishiへのお問い合わせ完了ページ。" />
+          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+          <meta property="og:type" content="article" />
+          <meta property="fb:app_id" content="0" />
+          {/* robots */}
+          <meta name="robots" content="noindex" />
+          {/* Twitter Card tags */}
+          <meta name="twitter:card" content="summarylargeimage" />
+          <meta
+            name="twitter:site"
+            content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
+          />
         </Helmet>
       );
+  } else if (isContact) {
+    return (
+        <Helmet
+          htmlAttributes={{
+            lang: config.siteLanguage,
+            prefix: "og: http://ogp.me/ns#"
+          }}
+        >
+          {/* General tags */}
+          <title>お問い合わせ</title>
+          <meta name="description" content="Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。" />
+          {/* Schema.org tags */}
+          <script type="application/ld+json">
+            {JSON.stringify(schemaOrgJSONLD)}
+          </script>
+          {/* OpenGraph tags */}
+          <meta property="og:url" content={config.siteUrl + "/contact/"} />
+          <meta property="og:title" content="お問い合わせ" />
+          <meta property="og:description" content="Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。" />
+          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+          <meta property="og:type" content="article" />
+          <meta property="fb:app_id" content="0" />
+          {/* Twitter Card tags */}
+          <meta name="twitter:card" content="summarylargeimage" />
+          <meta
+            name="twitter:site"
+            content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
+          />
+        </Helmet>
+    );
   } else if (isPost) {
     return (
         <Helmet
@@ -530,7 +636,7 @@ const Seo = props => {
         <meta property="og:url" content={config.siteUrl} />
         <meta property="og:title" content={config.siteHomeTitle} />
         <meta property="og:description" content={config.siteHomeDescription} />
-        <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
+        <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content={facebook.appId} />
         {/* Twitter Card tags */}
@@ -541,7 +647,7 @@ const Seo = props => {
         />
       </Helmet>
     );
-  }
+  };
 
 };
 

@@ -10,11 +10,10 @@ import Footer from "../components/Footer/";
 import Seo from "../components/Seo";
 
 class WPPageTemplate extends React.Component {
-  moveNavigatorAside = moveNavigatorAside.bind(this);
 
-  componentDidMount() {
-    if (this.props.navigatorPosition === "is-featured") {
-      this.moveNavigatorAside();
+  componentWillMount() {
+    if (this.props.navigatorPosition !== "none") {
+      this.props.setNavigatorPosition("none");
     }
   }
 
@@ -54,13 +53,18 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(WPPageTemplate);
 
 //eslint-disable-next-line no-undef
-export const pageQuery = graphql`
+export const query = graphql`
   query WPPage($slug: String!) {
     page: wordpressPage(slug: { eq: $slug }) {
       id
       excerpt
       content
       title
+      date(formatString: "YYYY-MM-DD")
+      modified(formatString: "YYYY-MM-DD")
+      featured_media {
+        source_url
+      }
     }
     footnote: markdownRemark(id: { regex: "/footnote/" }) {
       id

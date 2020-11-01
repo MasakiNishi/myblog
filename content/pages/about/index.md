@@ -1,6 +1,5 @@
 ---
 title: プロフィール
-menuTitle: プロフィール
 ---
 
 ![profile](./about.png)

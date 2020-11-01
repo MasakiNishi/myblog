@@ -16,7 +16,7 @@ exports.onCreatePage = async ({ page, boundActionCreators }) => {
   return new Promise((resolve, reject) => {
     if (page.path.match(/^\/blog/)) {
       // It's assumed that `landingPage.js` exists in the `/layouts/` directory
-      page.layout = "blog";
+      page.layout = "index";
 
       // Update the page.
       createPage(page);
@@ -98,7 +98,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
          //console.log(JSON.stringify(result, null, 4));
          result.data.allWordpressPost.edges.forEach(({ node }) => createPage({
            path: config.pathPrefix + "/" + node.slug + "/",
-           layout: "blog",
+           layout: "index",
            component: path.resolve(`./src/templates/WPPostTemplate.js`),
            context: { slug: node.slug }
          }));

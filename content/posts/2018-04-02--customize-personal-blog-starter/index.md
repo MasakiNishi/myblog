@@ -1,6 +1,6 @@
 ---
-title: そろそろ日本語の記事テストを始めなくてはならない件あと7文字くらい
-subTitle: サブタイトルも日本語でテストをすることでよく見せることができる。全角７半角7そしてAlphabetを入れてみる
+title: 日本語のUIテスト。サンプル記事サンプル記事サンプル記事サンプル記事
+subTitle: サブタイトルも日本語でテストサンプル記事サンプル記事サンプル記事
 description: これは主にメタディスクリプションのだから特に問題なし。
 date: "2018-07-03"
 category: "テクノロジー"
@@ -16,14 +16,14 @@ Find the `theme.js` file.
 
 ...
 
-## 見出しの長さってどのくらいだろう普段
+## 見出し
 
 To read the whole instruction article - [How to customize the personalBlog starter's appearance](https://dev.greglobinski.com/customize-personal-blog-starter/) - you have to move to [Front-end web development with Greg](https://dev.greglobinski.com) website.
 ここの周りのてんてんなんだろう
 
 ...
 
-###見出し３も結構長いと問題ありそうな気が
+###見出し３
 
 ####見出し４も一応
 
@@ -44,8 +44,6 @@ Proin ornare ligula eu tellus tempus elementum. . Vestibulum non nibh risus, a s
 ### Aenean bibendum iaculis mi, nec blandit lacus interdum vitae
 
 Nullam eros mi, mollis in sollicitudin non, tincidunt sed enim. Sed et felis metus, rhoncus ornare nibh. Ut at magna leo. Suspendisse egestas est ac dolor imperdiet pretium. Lorem ipsum dolor sit amet, consectetur adipiscing elit
-
-<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">以下記事のほとんどの人が有名なブートキャンプを出てる。<br><br>シリコンバレー付近の学校は単純なカリキュラムに沿っていくのではなくて、ペアコーディング推奨してたり、<br>学費は卒業後の転職先の年収の10%を後払いする所もあって質が高い。<a href="https://t.co/z0W9D0wWqF">https://t.co/z0W9D0wWqF</a></p>&mdash; MasakiNishi🇺🇸エンジニア (@masakinishi_com) <a href="https://twitter.com/masakinishi_com/status/1024448121609191424?ref_src=twsrc%5Etfw">2018年8月1日</a></blockquote>
 
 ### Donec hendrerit laoreet risus eget adipiscing.
 
@@ -72,3 +70,5 @@ Fusce a metus eu diam varius congue nec nec sapien. Nunc convallis accumsan just
 
 `プログラミングスクール`
 
+
+<blockquote class="twitter-tweet" data-lang="ja"><p lang="ja" dir="ltr">以下記事のほとんどの人が有名なブートキャンプを出てる。<br><br>シリコンバレー付近の学校は単純なカリキュラムに沿っていくのではなくて、ペアコーディング推奨してたり、<br>学費は卒業後の転職先の年収の10%を後払いする所もあって質が高い。<a href="https://t.co/z0W9D0wWqF">https://t.co/z0W9D0wWqF</a></p>&mdash; MasakiNishi🇺🇸エンジニア (@masakinishi_com) <a href="https://twitter.com/masakinishi_com/status/1024448121609191424?ref_src=twsrc%5Etfw">2018年8月1日</a></blockquote>

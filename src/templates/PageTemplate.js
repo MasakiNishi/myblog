@@ -10,11 +10,10 @@ import Footer from "../components/Footer/";
 import Seo from "../components/Seo";
 
 class PageTemplate extends React.Component {
-  moveNavigatorAside = moveNavigatorAside.bind(this);
 
-  componentDidMount() {
-    if (this.props.navigatorPosition === "is-featured") {
-      this.moveNavigatorAside();
+  componentWillMount() {
+    if (this.props.navigatorPosition !== "none") {
+      this.props.setNavigatorPosition("none");
     }
   }
 
@@ -54,7 +53,7 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(PageTemplate);
 
 //eslint-disable-next-line no-undef
-export const pageQuery = graphql`
+export const query = graphql`
   query PageByPath($slug: String!) {
     page: markdownRemark(fields: { slug: { eq: $slug } }) {
       id

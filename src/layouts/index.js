@@ -12,9 +12,9 @@ import { setFontSizeIncrease, setIsWideScreen } from "../state/store";
 import asyncComponent from "../components/common/AsyncComponent/";
 import Loading from "../components/common/Loading/";
 import Navigator from "../components/Navigator/";
-import TopActionsBar from "../components/TopActionsBar/";
+import ActionsBar from "../components/ActionsBar/";
 import InfoBar from "../components/InfoBar/";
-import TopInfoBox from "../components/TopInfoBox/";
+import InfoBox from "../components/InfoBox/";
 
 import { isWideScreen, timeoutThrottlerHandler } from "../utils/helpers";
 
@@ -91,9 +91,10 @@ class indexLayout extends React.Component {
           }}
         >
           {children()}
-          <TopActionsBar/>
-          <InfoBar pages={data.pages.edges} wppages={data.wppages.edges} parts={data.parts.edges} />
-          <TopInfoBox pages={data.pages.edges} wppages={data.wppages.edges} parts={data.parts.edges} />
+          <Navigator posts={data.posts.edges} wpposts={data.wpposts.edges} />
+          <ActionsBar categories={this.categories} />
+          <InfoBar parts={data.parts.edges} />
+          <InfoBox parts={data.parts.edges} />
         </div>
       </MuiThemeProvider>
     );
@@ -125,7 +126,7 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(injectSheet(globals)(indexLayout));
 
 //eslint-disable-next-line no-undef
-export const guery = graphql`
+export const query = graphql`
   query indexLayoutQuery {
     wpposts: allWordpressPost(
       sort: { fields: [date], order: DESC }
@@ -173,34 +174,6 @@ export const guery = graphql`
                 }
               }
             }
-          }
-        }
-      }
-    }
-    wppages: allWordpressPage(
-      sort: { fields: [date], order: ASC }
-    ) {
-      edges {
-        node {
-          slug
-          date
-          title
-        }
-      }
-    }
-    pages: allMarkdownRemark(
-      filter: { id: { regex: "//pages//" }, fields: { prefix: { regex: "/^\\d+$/" } } }
-      sort: { fields: [fields___prefix], order: ASC }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            prefix
-          }
-          frontmatter {
-            title
-            menuTitle
           }
         }
       }

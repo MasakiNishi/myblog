@@ -57,7 +57,7 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(WPPostTemplate);
 
 //eslint-disable-next-line no-undef
-export const postQuery = graphql`
+export const query = graphql`
   query WPPost($slug: String!) {
     post: wordpressPost(slug: { eq: $slug }) {
       id

@@ -25,7 +25,7 @@ const styles = theme => ({
 });
 
 const InfoMenu = props => {
-  const { classes, pages, wppages, avatarOnClick, linkOnClick, hideOnClick } = props;
+  const { classes, avatarOnClick, linkOnClick, hideOnClick } = props;
 
   return (
     <nav className={classes.infoMenu}>
@@ -33,7 +33,6 @@ const InfoMenu = props => {
         to="/"
         onClick={e => {
           hideOnClick();
-          avatarOnClick();
         }}
         className={classes.link}
         title="トップページ"
@@ -45,7 +44,6 @@ const InfoMenu = props => {
         to="/blog/"
         onClick={e => {
           hideOnClick();
-          avatarOnClick();
         }}
         className={classes.link}
         title="ブログトップ"
@@ -57,7 +55,6 @@ const InfoMenu = props => {
         to="/work/"
         onClick={e => {
           hideOnClick();
-          avatarOnClick();
         }}
         className={classes.link}
         title="ワークページ"
@@ -69,7 +66,6 @@ const InfoMenu = props => {
         to="/about/"
         onClick={e => {
           hideOnClick();
-          linkOnClick();
         }}
         className={classes.link}
         title="プロフィール"
@@ -81,7 +77,6 @@ const InfoMenu = props => {
         to="/contact/"
         onClick={e => {
           hideOnClick();
-          linkOnClick();
         }}
         className={classes.link}
         title="お問い合わせ"
@@ -94,7 +89,6 @@ const InfoMenu = props => {
 };
 
 InfoMenu.propTypes = {
-  pages: PropTypes.array.isRequired,
   classes: PropTypes.object.isRequired,
   avatarOnClick: PropTypes.func.isRequired,
   linkOnClick: PropTypes.func.isRequired,

@@ -57,7 +57,7 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(PostTemplate);
 
 //eslint-disable-next-line no-undef
-export const postQuery = graphql`
+export const query = graphql`
   query PostBySlug($slug: String!) {
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       id

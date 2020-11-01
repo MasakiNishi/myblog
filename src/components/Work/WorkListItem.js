@@ -5,8 +5,6 @@ import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import LazyLoad from "react-lazyload";
 
-import { setCategoryFilter } from "../../state/store";
-
 import config from "../../../content/meta/config";
 
 const styles = theme => ({
@@ -174,54 +172,25 @@ const styles = theme => ({
 });
 
 
-class ListItem extends React.Component {
+class WorkListItem extends React.Component {
   state = {
     hidden: false
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.categoryFilter !== this.props.categoryFilter) {
-      const isFrontmatter = this.props.post.node.frontmatter;
-      const category = isFrontmatter ? this.props.post.node.frontmatter.category : this.props.post.node.categories[0].name;
-      const categoryFilter = this.props.categoryFilter;
-
-      if (categoryFilter === "すべての記事") {
-        this.setState({ hidden: false });
-      } else if (category !== categoryFilter) {
-        this.setState({ hidden: true });
-      } else if (category === categoryFilter) {
-        this.setState({ hidden: false });
-      }
-    }
-  }
-
   render() {
-    const { classes, post } = this.props;
-    const isBlog = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/");
+    const { classes, wppages } = this.props;
+    const isHome = location.pathname === withPrefix("/work") || location.pathname === withPrefix("/work/");
 
-    const isFrontmatter = post.node.frontmatter;
-    const isFields      = post.node.fields;
-    const isCover       = isFrontmatter && post.node.frontmatter.cover && post.node.frontmatter.cover.children;
-    const isWPCover     = post.node.featured_media;
-    const date          = isFields ? post.node.fields.prefix : post.node.date;
-    const category      = isFrontmatter ? post.node.frontmatter.category  : post.node.categories[0].name;
-    const slug          = isFields      ? post.node.fields.slug           : config.pathPrefix + '/' + post.node.slug + "/";
-    const cover         = isCover       ? post.node.frontmatter.cover.children[0]     : null;
-    const wpcover       = isWPCover     ? post.node.featured_media.source_url         : null;
-    const title         = isFrontmatter ? post.node.frontmatter.title     : post.node.title;
-    const subTitle      = isFrontmatter ? post.node.frontmatter.subTitle  : post.node.acf.subtitle;
+    const isWPCover     = wppages.node.featured_media;
+    const date          = wppages.node.date;
+    const slug          = wppages.node.slug + "/";
+    const wpcover       = isWPCover     ? wppages.node.featured_media.source_url         : null;
+    const title         = wppages.node.title;
 
     return (
-      <li className={`${classes.listItem} ${category}`} style={{ display: `${this.state.hidden ? "none" : "block"}` }} key={slug}>
+      <li className={`${classes.listItem}`} style={{ display: `${this.state.hidden ? "none" : "block"}` }} key={slug}>
         <Link activeClassName="active" className={classes.listLink} to={slug} >
           <div className={`${classes.listItemPointer} pointer`}>
-            {cover && (<LazyLoad height={60} overflow={true} throttle={300} once={true} offset={100}>
-              <picture>
-                <source type="image/webp" srcSet={cover.resolutions.srcSetWebp} />
-                <source srcSet={cover.resolutions.srcSet} />
-                <img src={cover.resolutions.src} alt={title} />
-              </picture>
-            </LazyLoad>)}
             {wpcover && (<LazyLoad height={60} overflow={true} throttle={300} once={true} offset={100}>
               <picture>
                 <source type="image/webp" srcSet={wpcover + "&fit=crop&w=90&h=90"} />
@@ -229,20 +198,17 @@ class ListItem extends React.Component {
                 <img src={wpcover + "&fit=crop&w=90&h=90"} alt={title} />
               </picture>
             </LazyLoad>)}
-            {/*<Img sizes={post.node.frontmatter.cover.children[0].sizes} />*/}
           </div>
-          {isBlog &&
+          {isHome &&
             <div className={classes.listItemText}>
               <span className={'listItemDate'}>{date}</span>
               <h2>{title}</h2>
-              {subTitle && (<h3>{subTitle}</h3>)}
             </div>
           }
-          {isBlog ||
+          {isHome ||
             <div className={classes.listItemText}>
               <span className={'listItemDate'}>{date}</span>
               <span className={'listItemTitle'}>{title}</span>
-              {subTitle && (<span className={'listItemSubTitle'}>{subTitle}</span>)}
             </div>
           }
         </Link>
@@ -251,10 +217,9 @@ class ListItem extends React.Component {
   }
 }
 
-ListItem.propTypes = {
+WorkListItem.propTypes = {
   classes: PropTypes.object.isRequired,
-  post: PropTypes.object.isRequired,
-  categoryFilter: PropTypes.string.isRequired
+  wppages: PropTypes.object.isRequired
 };
 
-export default injectSheet(styles)(ListItem);
+export default injectSheet(styles)(WorkListItem);

@@ -30,14 +30,12 @@ class Blog extends React.Component {
 Blog.propTypes = {
   data: PropTypes.object.isRequired,
   navigatorPosition: PropTypes.string.isRequired,
-  setNavigatorPosition: PropTypes.func.isRequired,
-  isWideScreen: PropTypes.bool.isRequired
+  setNavigatorPosition: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    navigatorPosition: state.navigatorPosition,
-    isWideScreen: state.isWideScreen
+    navigatorPosition: state.navigatorPosition
   };
 };
 
@@ -49,8 +47,8 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(Blog);
 
 //eslint-disable-next-line no-undef
-export const pageQuery = graphql`
-  query BlogQuery {
+export const query = graphql`
+  query blogQuery {
     site {
       siteMetadata {
         facebook {

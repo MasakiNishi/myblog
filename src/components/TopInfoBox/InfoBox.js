@@ -123,7 +123,7 @@ class InfoBox extends React.Component {
   }
 
   render() {
-    const { classes, parts, pages, wppages, navigatorPosition, navigatorShape, showSidebar } = this.props;
+    const { classes, parts, navigatorPosition, navigatorShape, showSidebar } = this.props;
     const info = parts.find(el => el.node.frontmatter.title === "info");
 
     return (
@@ -152,7 +152,7 @@ class InfoBox extends React.Component {
                 <div className='infoBoxText'>
                   {info && <InfoText info={info} />}
                 </div>
-                {pages && <InfoMenu pages={pages} wppages={wppages} linkOnClick={this.menulinkOnClick} hideOnClick={this.hideOnClick} avatarOnClick={this.avatarOnClick} />}
+                <InfoMenu linkOnClick={this.menulinkOnClick} hideOnClick={this.hideOnClick} avatarOnClick={this.avatarOnClick} />
               </div>
                 <StackIcons />
             </div>
@@ -165,11 +165,9 @@ class InfoBox extends React.Component {
 InfoBox.propTypes = {
   classes: PropTypes.object.isRequired,
   parts: PropTypes.array.isRequired,
-  pages: PropTypes.array.isRequired,
   navigatorPosition: PropTypes.string.isRequired,
   navigatorShape: PropTypes.string.isRequired,
   showSidebar: PropTypes.string.isRequired,
-  isWideScreen: PropTypes.bool.isRequired,
   setNavigatorShape: PropTypes.func.isRequired
 };
 
@@ -177,8 +175,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     navigatorPosition: state.navigatorPosition,
     navigatorShape: state.navigatorShape,
-    showSidebar: state.showSidebar,
-    isWideScreen: state.isWideScreen
+    showSidebar: state.showSidebar
   };
 };
 

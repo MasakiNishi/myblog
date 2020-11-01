@@ -162,23 +162,25 @@ class ActionsBar extends React.Component {
           >
             <HomeIcon />
           </IconButton>
-          {((isWideScreen && navigatorShape === "open") || navigatorPosition !== "is-aside") && (
+          {((isWideScreen && navigatorShape === "open") || navigatorPosition !== "none") && (
             <CategoryFilter categories={categories} filterCategory={this.categoryFilterOnClick} />
           )}
-          <IconButton
-            aria-label="Search"
-            onClick={this.searchOnClick}
-            component={Link}
-            data-shape="closed"
-            to="/blog/search/"
-            title="ブログ内検索"
-            className={classes.button}
-          >
-            <SearchIcon className={classes.button} />
-          </IconButton>
+          {((isWideScreen && navigatorShape === "open") || navigatorPosition !== "none") && (
+            <IconButton
+              aria-label="Search"
+              onClick={this.searchOnClick}
+              component={Link}
+              data-shape="closed"
+              to="/blog/search/"
+              title="ブログ内検索"
+              className={classes.button}
+            >
+              <SearchIcon className={classes.button} />
+            </IconButton>
+          )}
         </div>
         <div className={classes.group}>
-          {navigatorPosition === "is-aside" && <FontSetter increaseFont={this.fontSetterOnClick} />}
+          {(navigatorPosition === "is-aside" || navigatorPosition === "none") && <FontSetter increaseFont={this.fontSetterOnClick} />}
           <IconButton aria-label="Back to top" onClick={this.arrowUpOnClick} title="スクロールトップ">
             <ArrowUpwardIcon className={classes.button} />
           </IconButton>

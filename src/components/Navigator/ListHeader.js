@@ -1,5 +1,4 @@
 import React from "react";
-import { withPrefix } from "gatsby-link";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import IconButton from "material-ui/IconButton";
@@ -192,26 +191,25 @@ const styles = theme => ({
 });
 
 const ListHeader = props => {
-  const { classes, expandOnClick, categoryFilter, navigatorShape, removeFilter } = props;
-  const isHome = location.pathname === withPrefix("/blog") || location.pathname === withPrefix("/blog/");
+  const { classes, expandOnClick, categoryFilter, navigatorShape, navigatorPosition, removeFilter } = props;
 
-  if (isHome) {
-    return (
-      <header>
-        {navigatorShape === "closed" && (
-          <div className={classes.closed}>
-            <span>記事リスト</span>
-            <IconButton
-              aria-label="Expand the list"
-              className={classes.expand}
-              onClick={expandOnClick}
-              title="記事リストをひらく"
-            >
-              <ExpandLessIcon />
-            </IconButton>
-          </div>
-        )}
-        {navigatorShape === "open" &&
+  return (
+    <header>
+      {navigatorShape === "closed" && (
+        <div className={classes.closed}>
+          <span>ブログ記事</span>
+          <IconButton
+            aria-label="Expand the list"
+            className={classes.expand}
+            onClick={expandOnClick}
+            title="ブログ記事をひらく"
+          >
+            <ExpandLessIcon />
+          </IconButton>
+        </div>
+      )}
+      {navigatorPosition === "is-featured" &&
+        navigatorShape === "open" &&
           categoryFilter !== "すべての記事" && (
             <div className={classes.filterHome}>
               <small>カテゴリー：</small> <strong>{categoryFilter} の記事</strong>
@@ -224,26 +222,10 @@ const ListHeader = props => {
                 <CloseIcon />
               </IconButton>
             </div>
-          )}
-      </header>
-    );
-  } else {
-    return (
-      <header>
-        {navigatorShape === "closed" && (
-          <div className={classes.closed}>
-            <span>ブログ記事</span>
-            <IconButton
-              aria-label="Expand the list"
-              className={classes.expand}
-              onClick={expandOnClick}
-              title="ブログ記事をひらく"
-            >
-              <ExpandLessIcon />
-            </IconButton>
-          </div>
-        )}
-        {navigatorShape === "open" &&
+          )
+      }
+      {navigatorPosition === "is-aside" &&
+        navigatorShape === "open" &&
           categoryFilter !== "すべての記事" && (
             <div className={classes.filter}>
               <small>カテゴリー：</small> <strong>{categoryFilter} の記事</strong>
@@ -256,10 +238,10 @@ const ListHeader = props => {
                 <CloseIcon />
               </IconButton>
             </div>
-          )}
-      </header>
-    );
-  };
+          )
+      }
+    </header>
+  );
 };
 
 ListHeader.propTypes = {
@@ -267,6 +249,7 @@ ListHeader.propTypes = {
   expandOnClick: PropTypes.func.isRequired,
   categoryFilter: PropTypes.string.isRequired,
   navigatorShape: PropTypes.string.isRequired,
+  navigatorPosition: PropTypes.string.isRequired,
   removeFilter: PropTypes.func.isRequired
 };
 

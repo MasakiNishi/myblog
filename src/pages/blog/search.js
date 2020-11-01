@@ -142,7 +142,7 @@ export default SearchPage;
 
 //eslint-disable-next-line no-undef
 export const query = graphql`
-  query AlgoliaQuery {
+  query algoliaQuery {
     site {
       siteMetadata {
         algolia {

@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import { forceCheck } from "react-lazyload";
 
-import { setNavigatorPosition, setNavigatorShape, setCategoryFilter } from "../../state/store";
-import { moveNavigatorAside } from "./../../utils/shared";
-import List from "./List";
+import { setNavigatorPosition, setNavigatorShape } from "../../state/store";
+
+import WorkList from "./WorkList";
 
 const styles = theme => ({
   navigator: {
@@ -15,16 +15,13 @@ const styles = theme => ({
     background: theme.navigator.colors.background,
     position: "absolute",
     top: 0,
-    left: 0,
+    left: `${theme.info.sizes.width}px`,
     height: "100vh",
     transitionTimingFunction: "ease",
     transition: "left .9s",
     animationName: "main-entry",
     animationDuration: ".5s",
-    width: "100%",
-    "&.none": {
-      display: "none"
-    },
+    width: `calc(100vw - ${theme.info.sizes.width}px - ${theme.bars.sizes.actionsBar}px)`,
     [`@media (max-width: ${theme.mediaQueryTresholds.L - 1}px)`]: {
       "&.is-aside": {
         left: "-100%"
@@ -114,66 +111,42 @@ const styles = theme => ({
   }
 });
 
-class Navigator extends React.Component {
-  linkOnClick = moveNavigatorAside.bind(this);
-
-  expandOnClick = e => {
-    this.props.setNavigatorShape("open");
-    setTimeout(forceCheck, 600);
-  };
-
-  removefilterOnClick = e => {
-    this.props.setCategoryFilter("すべての記事");
-  };
+class Work extends React.Component {
 
   render() {
-    const { classes, posts, wpposts, navigatorPosition, navigatorShape, categoryFilter } = this.props;
+    const { classes, wppages, navigatorPosition, navigatorShape } = this.props;
 
-      return (
-          <nav
-            className={`${classes.navigator} ${navigatorPosition ? navigatorPosition : ""} ${
-              navigatorShape ? navigatorShape : ""}
-            `}
-          >
-            {this.props.posts.length && (
-              <List
-                posts={posts} wpposts={wpposts}
-                navigatorPosition={navigatorPosition}
-                navigatorShape={navigatorShape}
-                linkOnClick={this.linkOnClick}
-                expandOnClick={this.expandOnClick}
-                categoryFilter={categoryFilter}
-                removeFilter={this.removefilterOnClick}
-              />
-            )}
-          </nav>
-      );
+    return (
+    　<nav>
+        {this.props.wppages.length && (
+          <WorkList
+            wppages={wppages}
+          />
+        )}
+      </nav>
+    );
   }
 }
 
-Navigator.propTypes = {
-  posts: PropTypes.array.isRequired,
+Work.propTypes = {
+  wppages: PropTypes.array.isRequired,
   classes: PropTypes.object.isRequired,
   navigatorPosition: PropTypes.string.isRequired,
   navigatorShape: PropTypes.string.isRequired,
   setNavigatorPosition: PropTypes.func.isRequired,
-  setNavigatorShape: PropTypes.func.isRequired,
-  categoryFilter: PropTypes.string.isRequired,
-  setCategoryFilter: PropTypes.func.isRequired
+  setNavigatorShape: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
     navigatorPosition: state.navigatorPosition,
-    navigatorShape: state.navigatorShape,
-    categoryFilter: state.categoryFilter
+    navigatorShape: state.navigatorShape
   };
 };
 
 const mapDispatchToProps = {
   setNavigatorPosition,
-  setNavigatorShape,
-  setCategoryFilter
+  setNavigatorShape
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(injectSheet(styles)(Navigator));
+export default connect(mapStateToProps, mapDispatchToProps)(injectSheet(styles)(Work));

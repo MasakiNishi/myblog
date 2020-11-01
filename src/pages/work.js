@@ -3,16 +3,14 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import { setNavigatorPosition, setNavigatorShape } from "../state/store";
-import { featureNavigator } from "../utils/shared";
 import Seo from "../components/Seo";
-import WorkList from "../components/WorkList";
+import Work from "../components/Work";
 
-class Index extends React.Component {
-  featureNavigator = featureNavigator.bind(this);
+class workPage extends React.Component {
 
   componentWillMount() {
-    if (this.props.navigatorPosition !== "is-featured") {
-      this.props.setNavigatorPosition("is-featured");
+    if (this.props.navigatorPosition !== "none") {
+      this.props.setNavigatorPosition("none");
     }
   }
 
@@ -21,38 +19,49 @@ class Index extends React.Component {
     const facebook = (((data || {}).site || {}).siteMetadata || {}).facebook;
 
     return (
-      <div>
+      <nav>
         <Seo facebook={facebook} />
-        <WorkList />
-      </div>
+        <Work wppages={data.wppages.edges} />
+      </nav>
     );
   }
 }
 
-Index.propTypes = {
-  data: PropTypes.object.isRequired,
-  navigatorPosition: PropTypes.string.isRequired,
-  setNavigatorPosition: PropTypes.func.isRequired,
-  isWideScreen: PropTypes.bool.isRequired
+workPage.propTypes = {
+  data: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    navigatorPosition: state.navigatorPosition,
-    isWideScreen: state.isWideScreen
+    pages: state.pages,
+    navigatorPosition: state.navigatorPosition
   };
 };
 
 const mapDispatchToProps = {
-  setNavigatorPosition,
-  setNavigatorShape
+  setNavigatorPosition
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Index);
+export default connect(mapStateToProps, mapDispatchToProps)(workPage);
 
 //eslint-disable-next-line no-undef
-export const pageQuery = graphql`
-  query WorkQuery {
+export const query = graphql`
+  query workQuery {
+    wppages: allWordpressPage(
+      sort: { fields: [date], order: DESC }
+    ) {
+      edges {
+        node {
+          slug
+          date(formatString: "YYYY-MM-DD")
+          modified(formatString: "YYYY-MM-DD")
+          title
+          featured_media {
+            source_url
+          }
+        }
+      }
+    }
     site {
       siteMetadata {
         facebook {
@@ -62,3 +71,4 @@ export const pageQuery = graphql`
     }
   }
 `;
+

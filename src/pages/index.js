@@ -3,18 +3,16 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 
 import { setNavigatorPosition, setNavigatorShape } from "../state/store";
-import { featureNavigator } from "../utils/shared";
 import Seo from "../components/Seo";
 
 import Article from "../components/Main/Article";
 import TopPage from "../components/TopPage/";
 
 class Index extends React.Component {
-  featureNavigator = featureNavigator.bind(this);
 
   componentWillMount() {
-    if (this.props.navigatorPosition !== "is-featured") {
-      this.props.setNavigatorPosition("is-featured");
+    if (this.props.navigatorPosition !== "none") {
+      this.props.setNavigatorPosition("none");
     }
   }
 
@@ -34,14 +32,12 @@ class Index extends React.Component {
 Index.propTypes = {
   data: PropTypes.object.isRequired,
   navigatorPosition: PropTypes.string.isRequired,
-  setNavigatorPosition: PropTypes.func.isRequired,
-  isWideScreen: PropTypes.bool.isRequired
+  setNavigatorPosition: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    navigatorPosition: state.navigatorPosition,
-    isWideScreen: state.isWideScreen
+    navigatorPosition: state.navigatorPosition
   };
 };
 
@@ -53,8 +49,8 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(Index);
 
 //eslint-disable-next-line no-undef
-export const pageQuery = graphql`
-  query IndexQuery {
+export const query = graphql`
+  query indexQuery {
     site {
       siteMetadata {
         facebook {

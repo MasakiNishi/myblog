@@ -93,8 +93,8 @@ class blogLayout extends React.Component {
           {children()}
           <Navigator posts={data.posts.edges} wpposts={data.wpposts.edges} />
           <ActionsBar categories={this.categories} />
-          <InfoBar pages={data.pages.edges} wppages={data.wppages.edges} parts={data.parts.edges} />
-          <InfoBox pages={data.pages.edges} wppages={data.wppages.edges} parts={data.parts.edges} />
+          <InfoBar parts={data.parts.edges} />
+          <InfoBox parts={data.parts.edges} />
         </div>
       </MuiThemeProvider>
     );
@@ -126,7 +126,7 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(injectSheet(globals)(blogLayout));
 
 //eslint-disable-next-line no-undef
-export const guery = graphql`
+export const query = graphql`
   query blogLayoutQuery {
     wpposts: allWordpressPost(
       sort: { fields: [date], order: DESC }
@@ -174,34 +174,6 @@ export const guery = graphql`
                 }
               }
             }
-          }
-        }
-      }
-    }
-    wppages: allWordpressPage(
-      sort: { fields: [date], order: ASC }
-    ) {
-      edges {
-        node {
-          slug
-          date
-          title
-        }
-      }
-    }
-    pages: allMarkdownRemark(
-      filter: { id: { regex: "//pages//" }, fields: { prefix: { regex: "/^\\d+$/" } } }
-      sort: { fields: [fields___prefix], order: ASC }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            prefix
-          }
-          frontmatter {
-            title
-            menuTitle
           }
         }
       }

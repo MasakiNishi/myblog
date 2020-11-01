@@ -80,7 +80,7 @@ class InfoBar extends React.Component {
   };
 
   render() {
-    const { classes, pages, showOnClick, showSidebar } = this.props;
+    const { classes, showOnClick, showSidebar } = this.props;
 
     return (
       <aside className={`${classes.infoBar} ${showSidebar ? showSidebar : ""}`}>
@@ -102,7 +102,6 @@ class InfoBar extends React.Component {
 
 InfoBar.propTypes = {
   classes: PropTypes.object.isRequired,
-  pages: PropTypes.array.isRequired,
   showSidebar: PropTypes.string.isRequired
 };
 

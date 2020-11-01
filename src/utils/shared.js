@@ -1,33 +1,35 @@
 import { forceCheck } from "react-lazyload";
-import { navigateTo } from 'gatsby-link';
+// import { navigateTo } from 'gatsby-link';
+
+import config from "../../content/meta/config";
 
 export function featureNavigator(e) {
   e && e.preventDefault();
 
   if (this.props.navigatorPosition === "is-aside") {
-    // if (this.props.isWideScreen) {
-    //   this.props.setNavigatorPosition("moving-featured");
+    if (this.props.isWideScreen) {
+      this.props.setNavigatorPosition("moving-featured");
 
-    //   setTimeout(() => {
-    //     this.props.setNavigatorPosition("resizing-featured");
-    //     setTimeout(() => {
-    //       this.props.setNavigatorPosition("is-featured");
-    //       this.props.setNavigatorShape("open");
-
-    //       // uncomment following lines if you want to count featuring Navigator as a visit
-    //       // to index page ('/'), you have to also uncomment import { navigateTo }...
-
-    //       //setTimeout(() => {
-    //         //navigateTo("/blog/");
-    //       //}, 1000);
-
-    //     });
-    //   }, 0);
-    // } else {
       setTimeout(() => {
+        this.props.setNavigatorPosition("resizing-featured");
+        setTimeout(() => {
+          this.props.setNavigatorPosition("is-featured");
+          this.props.setNavigatorShape("open");
+
+          // uncomment following lines if you want to count featuring Navigator as a visit
+          // to index page ('/'), you have to also uncomment import { navigateTo }...
+
+          //setTimeout(() => {
+            //navigateTo("/blog/");
+          //}, 1000);
+
+        });
+      }, 300);
+    } else {
+      // setTimeout(() => {
         this.props.setNavigatorPosition("is-featured");
-      }, 0);
-    // }
+      // }, 0);
+    }
   }
 }
 
@@ -42,7 +44,7 @@ export function moveNavigatorAside(e) {
 
       setTimeout(() => {
         if (typeof window !== `undefined`) {
-          if (window.location.pathname !== "/blog/"){
+          if (window.location.pathname !== config.pathPrefix) {
             this.props.setNavigatorPosition("resizing-aside");
             this.props.setNavigatorShape(navigatorShape);
             setTimeout(() => {

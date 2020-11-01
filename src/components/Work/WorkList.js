@@ -4,19 +4,29 @@ import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import { forceCheck } from "react-lazyload";
 
-import ListHeader from "./ListHeader";
 import SpringScrollbars from "../SpringScrollbars";
-import ListItem from "./ListItem";
+import WorkListItem from "./WorkListItem";
 
 import config from "../../../content/meta/config";
 
 const styles = theme => ({
-  posts: {
+  postsList: {
+    transform: "translate3d(0, 0, 0)",
+    willChange: "left, top, bottom, width",
+    background: theme.navigator.colors.background,
     position: "absolute",
-    left: 0,
     top: 0,
-    bottom: 0,
-    width: "100%"
+    left: 0,
+    height: "100vh",
+    transitionTimingFunction: "ease",
+    transition: "left .9s",
+    animationName: "main-entry",
+    animationDuration: ".5s",
+    width: "100%",
+    [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+      width: `calc(100vw - ${theme.info.sizes.width}px - ${theme.bars.sizes.actionsBar}px)`,
+      left: `${theme.info.sizes.width}px`
+    }
   },
   inner: {
     padding: `calc(${theme.bars.sizes.infoBar}px + 1.3rem) 1.3rem calc(${
@@ -78,59 +88,28 @@ const styles = theme => ({
   },
 });
 
-class List extends React.Component {
+class WorkList extends React.Component {
   state = {
       hidden: false
     };
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.categoryFilter !== this.props.categoryFilter) {
-      setTimeout(forceCheck, 300);
-
-      const categoryFilter = this.props.categoryFilter;
-
-      if (categoryFilter === "すべての記事") {
-        this.setState({ hidden: false });
-      } else if (categoryFilter !== "すべての記事") {
-        this.setState({ hidden: true });
-      } else if (categoryFilter === "すべての記事") {
-        this.setState({ hidden: false });
-      }
-    }
-  }
 
   render() {
     const {
       classes,
-      posts,
-      wpposts,
-      linkOnClick,
-      expandOnClick,
-      categoryFilter,
-      navigatorShape,
-      navigatorPosition,
-      removeFilter
+      wppages
     } = this.props;
 
-    const isBlog = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/");
-    const isAll = categoryFilter === "すべての記事";
+    const isHome = location.pathname === withPrefix("/work") || location.pathname === withPrefix("/work/");
 
       return (
-        <div className={classes.posts}>
+        <div className={classes.postsList}>
           <SpringScrollbars forceCheckOnScroll={true} isNavigator={true}>
             <div className={classes.inner}>
-              <ListHeader
-                expandOnClick={expandOnClick}
-                categoryFilter={categoryFilter}
-                navigatorShape={navigatorShape}
-                navigatorPosition={navigatorPosition}
-                removeFilter={removeFilter}
-              />
                   <ul
-                    className={ isBlog && `${classes.Homelist} ${this.state.hidden ? this.state.hidden : ""}` || `${classes.list}` }
-                    style={ isBlog && { marginTop:0 } || { marginTop:`${this.state.hidden ? "5rem" : 0 }` } }
+                    className={ isHome && `${classes.Homelist} ${this.state.hidden ? this.state.hidden : ""}` || `${classes.list}` }
+                    style={ isHome && { marginTop:0 } || { marginTop:`${this.state.hidden ? "5rem" : 0 }` } }
                   >
-                    {posts && posts.map((post, i) => ( <ListItem key={i} post={post} linkOnClick={linkOnClick} categoryFilter={categoryFilter} />))}
-                    {wpposts && wpposts.map((wppost, i) => ( <ListItem key={i} post={wppost} linkOnClick={linkOnClick} categoryFilter={categoryFilter} />))}
+                    {wppages && wppages.map((wppage, i) => ( <WorkListItem key={i} wppages={wppage}  />))}
                   </ul>
             </div>
           </SpringScrollbars>
@@ -139,15 +118,9 @@ class List extends React.Component {
   }
 }
 
-List.propTypes = {
+WorkList.propTypes = {
   classes: PropTypes.object.isRequired,
-  posts: PropTypes.array.isRequired,
-  linkOnClick: PropTypes.func.isRequired,
-  expandOnClick: PropTypes.func.isRequired,
-  navigatorPosition: PropTypes.string.isRequired,
-  navigatorShape: PropTypes.string.isRequired,
-  categoryFilter: PropTypes.string.isRequired,
-  removeFilter: PropTypes.func.isRequired
+  wppages: PropTypes.array.isRequired
 };
 
-export default injectSheet(styles)(List);
+export default injectSheet(styles)(WorkList);

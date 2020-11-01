@@ -19,7 +19,7 @@ module.exports = {
   infoTitle: "Masaki Nishi",
   infoTitleNote: "ソフトウェアエンジニア",
   // manifest.json
-  manifestName: "Masaki Nishi",
+  manifestName: "Masaki Nishi - Software Engineer",
   manifestShortName: "Masaki Nishi", // max 12 characters
   manifestStartUrl: "https://masakinishi.com/",
   manifestBackgroundColor: colors.background,

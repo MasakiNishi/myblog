@@ -10,127 +10,64 @@ import Content from "../components/Main/Content";
 import Form from "../components/ContactForm";
 import config from "../../content/meta/config";
 
-import Helmet from "react-helmet";
 
-const styles = theme => ({});
+import { connect } from "react-redux";
+import Seo from "../components/Seo";
+import { setNavigatorPosition, setNavigatorShape } from "../state/store";
 
-const Contact = ({classes}) => {
+class contactPage extends React.Component {
 
-  const schemaOrgJSONLD = [
-      {
-        "@context": "http://schema.org",
-        "@type": "Blog",
-        "name": config.siteTitle,
-        "url": config.siteUrl + config.pathPrefix,
-        "description": config.siteDescription,
-        "publisher": {
-          "@type": "Organization",
-          "name": config.siteTitle
-        },
-        "sameAs": [
-          config.twitterLink,
-          config.FacebookLink,
-          config.InstagramLink
-        ],
-      }
-    ];
+  componentWillMount() {
+    if (this.props.navigatorPosition !== "none") {
+      this.props.setNavigatorPosition("none");
+    }
+  }
 
-    schemaOrgJSONLD.push(
-      {
-        "@context": "http://schema.org",
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": config.siteUrl + config.pathPrefix + "/contact/",
-          "headline": "お問い合わせ"
-        },
-        "description": "Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。",
-        "image": {
-          "@type": "ImageObject",
-          "url": config.siteUrl  + config.pathPrefix + config.siteImageOgp,
-          "width": 1200,
-          "height": 630
-        },
-        "author": {
-          "@type": "Person",
-          "name": config.authorName
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": config.siteTitle,
-          "logo": {
-            "@type": "ImageObject",
-            "url": config.siteUrl  + config.pathPrefix + "/icons/apple-icon-60x60.png",
-            "width": 60,
-            "height": 60
-          }
-        }
-      },
-      {
-        "@context": "http://schema.org",
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            item: {
-              "@id": config.siteUrl + config.pathPrefix,
-              name: "ホーム",
-            }
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            item: {
-              "@id": config.siteUrl  + config.pathPrefix + "/contact/",
-              name: "お問い合わせ",
-            }
-          }
-        ]
-      }
+  render() {
+    const { data } = this.props;
+    const facebook = (((data || {}).site || {}).siteMetadata || {}).facebook;
+
+    return (
+      <Main>
+        <Article>
+          <Seo facebook={facebook} />
+          <PageHeader title="お問い合わせ" />
+          <Content>
+            下記フォームか、Eメール: <Obfuscate email={config.contactEmail} /> にお気軽にお問い合わせください。個人情報の取り扱い等は<a href="/user-terms/">利用規約</a>、<a href="/privacy-policy/">プライバシーポリシー</a>をご参照ください。
+          </Content>
+          <Form />
+        </Article>
+      </Main>
     );
+  }
+}
 
-  return (
-    <Main>
-      <Helmet
-        htmlAttributes={{
-          lang: config.siteLanguage,
-          prefix: "og: http://ogp.me/ns#"
-        }}
-      >
-        {/* General tags */}
-        <title>お問い合わせ</title>
-        <meta name="description" content="Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。" />
-        {/* Schema.org tags */}
-        <script type="application/ld+json">
-          {JSON.stringify(schemaOrgJSONLD)}
-        </script>
-        {/* OpenGraph tags */}
-        <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/contact/"} />
-        <meta property="og:title" content="お問い合わせ" />
-        <meta property="og:description" content="Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。" />
-        <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
-        <meta property="og:type" content="article" />
-        <meta property="fb:app_id" content="0" />
-        {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summarylargeimage" />
-        <meta
-          name="twitter:site"
-          content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
-        />
-      </Helmet>
-      <Article>
-        <PageHeader title="お問い合わせ" />
-        <Content>
-          下記フォームか、Eメール: <Obfuscate email={config.contactEmail} /> にお気軽にお問い合わせください。個人情報の取り扱い等は<a href="/user-terms/">利用規約</a>、<a href="/privacy-policy/">プライバシーポリシー</a>をご参照ください。
-        </Content>
-        <Form />
-      </Article>
-    </Main>
-  );
+contactPage.propTypes = {
+  data: PropTypes.object.isRequired
 };
 
-Contact.propTypes = {
-  classes: PropTypes.object.isRequired
+const mapStateToProps = (state, ownProps) => {
+  return {
+    pages: state.pages,
+    navigatorPosition: state.navigatorPosition
+  };
 };
 
-export default injectSheet(styles)(Contact);
+const mapDispatchToProps = {
+  setNavigatorPosition
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(contactPage);
+
+//eslint-disable-next-line no-undef
+export const query = graphql`
+  query contactQuery {
+    site {
+      siteMetadata {
+        facebook {
+          appId
+        }
+      }
+    }
+  }
+`;
