@@ -18,8 +18,8 @@ import { setNavigatorPosition, setNavigatorShape } from "../state/store";
 class contactPage extends React.Component {
 
   componentWillMount() {
-    if (this.props.navigatorPosition !== "none") {
-      this.props.setNavigatorPosition("none");
+    if (this.props.navigatorShape !== "none") {
+      this.props.setNavigatorShape("none");
     }
   }
 
@@ -54,7 +54,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = {
-  setNavigatorPosition
+  setNavigatorPosition,
+  setNavigatorShape
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(contactPage);

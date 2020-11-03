@@ -8,17 +8,6 @@ const styles = theme => ({
     [`@media (max-width: ${theme.mediaQueryTresholds.M}px)`]: {
       margin: "0 0 1.5em"
     },
-    "& .dateList": {
-      listStyle: "none",
-      margin: 0,
-      padding: 0,
-      "& li": {
-        display: "inline-block",
-        "&:first-child": {
-          margin: "0 0 .2em 0"
-        }
-      }
-    },
     "& .gatsby-resp-image-link": {
       margin: "2em -1rem",
       border: "none",
@@ -63,6 +52,17 @@ const styles = theme => ({
       fontSize: `${theme.main.fonts.subTitle.sizeL}em`
     }
   },
+  dateList: {
+    listStyle: "none",
+    margin: 0,
+    padding: 0,
+    "& li": {
+      display: "inline-block",
+      "&:first-child": {
+        margin: "0 0 .2em 0"
+      }
+    }
+  },
   date: {
     fontSize: `${theme.main.fonts.meta.size}em`,
     fontWeight: "400",
@@ -84,7 +84,7 @@ const PostHeader = props => {
     <header className={classes.header}>
       <h1 className={classes.title}>{title}</h1>
       <div className={classes.subTitle}>{subTitle}</div>
-      <ul className='dateList'>
+      <ul className={classes.dateList}>
         <li>
           <time className={classes.date} dateTime={publishDate}>
             <span>投稿日:</span> {publishDate}

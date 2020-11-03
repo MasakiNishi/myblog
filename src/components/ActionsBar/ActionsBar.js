@@ -162,10 +162,10 @@ class ActionsBar extends React.Component {
           >
             <HomeIcon />
           </IconButton>
-          {((isWideScreen && navigatorShape === "open") || navigatorPosition !== "none") && (
+          {(isWideScreen && navigatorShape === "open" || navigatorShape !== "none") && (
             <CategoryFilter categories={categories} filterCategory={this.categoryFilterOnClick} />
           )}
-          {((isWideScreen && navigatorShape === "open") || navigatorPosition !== "none") && (
+          {(isWideScreen && navigatorShape === "open" || navigatorShape !== "none") && (
             <IconButton
               aria-label="Search"
               onClick={this.searchOnClick}
@@ -180,7 +180,7 @@ class ActionsBar extends React.Component {
           )}
         </div>
         <div className={classes.group}>
-          {(navigatorPosition === "is-aside" || navigatorPosition === "none") && <FontSetter increaseFont={this.fontSetterOnClick} />}
+          {navigatorPosition === "is-aside" || navigatorShape === "none" && navigatorPosition !== "work" && <FontSetter increaseFont={this.fontSetterOnClick} />}
           <IconButton aria-label="Back to top" onClick={this.arrowUpOnClick} title="スクロールトップ">
             <ArrowUpwardIcon className={classes.button} />
           </IconButton>

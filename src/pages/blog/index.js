@@ -13,6 +13,9 @@ class Blog extends React.Component {
     if (this.props.navigatorPosition !== "is-featured") {
       this.props.setNavigatorPosition("is-featured");
     }
+    if (this.props.navigatorShape !== "open") {
+      this.props.setNavigatorShape("open");
+    }
   }
 
   render() {

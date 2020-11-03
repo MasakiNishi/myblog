@@ -9,8 +9,11 @@ import Work from "../components/Work";
 class workPage extends React.Component {
 
   componentWillMount() {
-    if (this.props.navigatorPosition !== "none") {
-      this.props.setNavigatorPosition("none");
+    if (this.props.navigatorShape !== "none") {
+      this.props.setNavigatorShape("none");
+    }
+    if (this.props.navigatorPosition !== "work") {
+      this.props.setNavigatorPosition("work");
     }
   }
 
@@ -28,7 +31,9 @@ class workPage extends React.Component {
 }
 
 workPage.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  navigatorPosition: PropTypes.string.isRequired,
+  setNavigatorPosition: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => {
@@ -39,7 +44,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = {
-  setNavigatorPosition
+  setNavigatorPosition,
+  setNavigatorShape
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(workPage);
@@ -56,6 +62,10 @@ export const query = graphql`
           date(formatString: "YYYY-MM-DD")
           modified(formatString: "YYYY-MM-DD")
           title
+          acf {
+            subtitle
+            description
+          }
           featured_media {
             source_url
           }

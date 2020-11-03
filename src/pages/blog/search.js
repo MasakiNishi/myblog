@@ -14,47 +14,18 @@ const SearchPage = props => {
   const { data, facebook } = props;
 
   const schemaOrgJSONLD = [
-      {
-        "@context": "http://schema.org",
-        "@type": "WebSite",
-        "name": config.siteHomeTitle,
-        "url": config.siteUrl,
-        "description": config.siteHomeDescription,
-        "publisher": {
-          "@type": "Organization",
-          "name": config.siteHomeTitle
-        },
-        "sameAs": [
-          config.twitterLink,
-          config.FacebookLink,
-          config.InstagramLink
-        ],
-      }
     ];
 
     schemaOrgJSONLD.push(
       {
         "@context": "http://schema.org",
-        "@type": "Blog",
-        "name": config.siteTitle,
-        "url": config.siteUrl + config.pathPrefix,
-        "description": config.siteDescription,
-        "publisher": {
-          "@type": "Organization",
-          "name": config.siteTitle
-        }
-      },
-      {
-        "@context": "http://schema.org",
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": config.siteUrl + config.pathPrefix + "/search/",
-          "headline": "サイト内検索"
-        },
-        "description": "Masaki Nishi - 海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。",
+        "@type": "WebPage",
+        "url": config.siteUrl + config.pathPrefix + "/search/",
+        "name": "ブログ内検索" + " - " + config.shortHomeTitle,
+        "description": "海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。",
         "image": {
           "@type": "ImageObject",
-          "url": config.siteUrl + config.pathPrefix + config.siteImageOgp,
+          "url": config.siteUrl + config.siteImageOgp,
           "width": 1200,
           "height": 630
         },
@@ -64,10 +35,11 @@ const SearchPage = props => {
         },
         "publisher": {
           "@type": "Organization",
-          "name": config.siteTitle,
+          "name": config.shortSiteTitle,
+          "url": config.siteUrl,
           "logo": {
             "@type": "ImageObject",
-            "url": config.siteUrl + config.pathPrefix + "/icons/apple-icon-60x60.png",
+            "url": config.siteUrl + "/icons/apple-icon-60x60.png",
             "width": 60,
             "height": 60
           }
@@ -81,13 +53,21 @@ const SearchPage = props => {
             "@type": "ListItem",
             position: 1,
             item: {
-              "@id": config.siteUrl + config.pathPrefix,
+              "@id": config.siteUrl,
               name: "ホーム",
             }
           },
           {
             "@type": "ListItem",
             position: 2,
+            item: {
+              "@id": config.siteUrl + config.pathPrefix,
+              name: "ブログ",
+            }
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
             item: {
               "@id": config.siteUrl + config.pathPrefix + "/search/",
               name: "サイト内検索",
@@ -106,17 +86,19 @@ const SearchPage = props => {
         }}
       >
         {/* General tags */}
-        <title>ブログ内検索</title>
-        <meta name="description" content="Masaki Nishi - 海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
+        <title>{"ブログ内検索" + " - " + config.shortHomeTitle}</title>
+        <meta name="description" content="海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
+        <meta name="thumbnail" content={config.siteUrl + config.siteImageOgp} />
+        <link rel="canonical" href={config.siteUrl + config.pathPrefix + "/search/"} />
         {/* Schema.org tags */}
         <script type="application/ld+json">
           {JSON.stringify(schemaOrgJSONLD)}
         </script>
         {/* OpenGraph tags */}
         <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/search/"} />
-        <meta property="og:title" content="ブログ内検索" />
-        <meta property="og:description" content="Masaki Nishi - 海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
-        <meta property="og:image" content={config.siteUrl + config.pathPrefix + config.siteImageOgp} />
+        <meta property="og:title" content={"ブログ内検索" + " - " + config.shortHomeTitle} />
+        <meta property="og:description" content="海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
+        <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
         <meta property="og:type" content="article" />
         <meta property="fb:app_id" content="0" />
         {/* Twitter Card tags */}
@@ -127,7 +109,7 @@ const SearchPage = props => {
         />
       </Helmet>
       <Article>
-        <PageHeader title="ブログ内検索" algolia={true} />
+        <PageHeader title="ブログ内検索" />
         <Search algolia={data.site.siteMetadata.algolia} />
       </Article>
     </Main>

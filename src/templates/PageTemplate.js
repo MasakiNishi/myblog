@@ -12,8 +12,8 @@ import Seo from "../components/Seo";
 class PageTemplate extends React.Component {
 
   componentWillMount() {
-    if (this.props.navigatorPosition !== "none") {
-      this.props.setNavigatorPosition("none");
+    if (this.props.navigatorShape !== "none") {
+      this.props.setNavigatorShape("none");
     }
   }
 

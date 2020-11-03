@@ -12,8 +12,8 @@ import Seo from "../components/Seo";
 class WPPageTemplate extends React.Component {
 
   componentWillMount() {
-    if (this.props.navigatorPosition !== "none") {
-      this.props.setNavigatorPosition("none");
+    if (this.props.navigatorShape !== "none") {
+      this.props.setNavigatorShape("none");
     }
   }
 
@@ -25,7 +25,7 @@ class WPPageTemplate extends React.Component {
       <Main>
         <Page page={data.page} />
         <Footer footnote={data.footnote} />
-        <Seo data={data.post} facebook={facebook} />
+        <Seo page={data.page} facebook={facebook} />
       </Main>
     );
   }
@@ -59,7 +59,12 @@ export const query = graphql`
       id
       excerpt
       content
+      slug
       title
+      acf {
+        subtitle
+        description
+      }
       date(formatString: "YYYY-MM-DD")
       modified(formatString: "YYYY-MM-DD")
       featured_media {

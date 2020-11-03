@@ -4,7 +4,7 @@ module.exports = {
   siteHomeTitle: "Masaki Nishi - Software Engineer",
   shortHomeTitle: "Masaki Nishi",
   siteHomeDescription: "サンフランシスコ・シリコンバレー在住のソフトウェアエンジニアのポートフォリオ。",
-  siteTitle: "Masaki Nishi - 海外エンジニアブログ", // <title>
+  siteTitle: "海外エンジニアブログ - Masaki Nishi", // <title>
   shortSiteTitle: "Masaki Nishi", // <title> ending for posts and pages, not using now
   siteDescription: "サンフランシスコ・シリコンバレー在住の筆者がプログラミング技術を中心に、テクノロジー情報やウェブマーケティング分野、海外情報など幅広く発信しています。",
   siteUrl: "https://masakinishi.com",
@@ -21,7 +21,7 @@ module.exports = {
   // manifest.json
   manifestName: "Masaki Nishi - Software Engineer",
   manifestShortName: "Masaki Nishi", // max 12 characters
-  manifestStartUrl: "https://masakinishi.com/",
+  manifestStartUrl: "https://masakinishi.com",
   manifestBackgroundColor: colors.background,
   manifestThemeColor: colors.background,
   manifestDisplay: "standalone",

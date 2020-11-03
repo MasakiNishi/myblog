@@ -112,7 +112,6 @@ indexLayout.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    pages: state.pages,
     isWideScreen: state.isWideScreen,
     fontSizeIncrease: state.fontSizeIncrease
   };
@@ -174,6 +173,25 @@ export const query = graphql`
                 }
               }
             }
+          }
+        }
+      }
+    }
+    wppages: allWordpressPage(
+      sort: { fields: [date], order: DESC }
+    ) {
+      edges {
+        node {
+          slug
+          date(formatString: "YYYY-MM-DD")
+          modified(formatString: "YYYY-MM-DD")
+          title
+          acf {
+            subtitle
+            description
+          }
+          featured_media {
+            source_url
           }
         }
       }

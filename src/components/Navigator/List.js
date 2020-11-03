@@ -74,7 +74,24 @@ const styles = theme => ({
       [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
         padding: "8.5rem calc(1rem + 17px) calc(2rem + 17px) 2rem"
       }
-    }
+    },
+    "& h1": {
+      lineHeight: 1.3,
+      fontWeight: 600,
+      letterSpacing: "-0.03em",
+      color: theme.navigator.colors.postsListItemLink,
+      margin: "0 0 1em 1.1em",
+      fontSize: `${theme.navigator.sizes.postsListItemH1Font}em`,
+      [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
+        fontSize: `${theme.navigator.sizes.postsListItemH1Font *
+          theme.navigator.sizes.fontIncraseForM}em`
+      },
+      [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+        fontSize: `${theme.navigator.sizes.postsListItemH1Font *
+          theme.navigator.sizes.fontIncraseForL}em`,
+          margin: "0 0 1em .7em"
+      }
+    },
   },
 });
 
@@ -129,6 +146,7 @@ class List extends React.Component {
                     className={ isBlog && `${classes.Homelist} ${this.state.hidden ? this.state.hidden : ""}` || `${classes.list}` }
                     style={ isBlog && { marginTop:0 } || { marginTop:`${this.state.hidden ? "5rem" : 0 }` } }
                   >
+                    { isBlog && <h1>Blog</h1> }
                     {posts && posts.map((post, i) => ( <ListItem key={i} post={post} linkOnClick={linkOnClick} categoryFilter={categoryFilter} />))}
                     {wpposts && wpposts.map((wppost, i) => ( <ListItem key={i} post={wppost} linkOnClick={linkOnClick} categoryFilter={categoryFilter} />))}
                   </ul>
