@@ -125,7 +125,8 @@ class List extends React.Component {
       categoryFilter,
       navigatorShape,
       navigatorPosition,
-      removeFilter
+      removeFilter,
+      location
     } = this.props;
 
     const isBlog = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/");
