@@ -178,7 +178,7 @@ class WorkListItem extends React.Component {
   };
 
   render() {
-    const { classes, wppages } = this.props;
+    const { classes, wppages, location } = this.props;
     const isHome = location.pathname === withPrefix("/work") || location.pathname === withPrefix("/work/");
 
     const isWPCover     = wppages.node.featured_media;

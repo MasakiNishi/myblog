@@ -30,7 +30,7 @@ class contactPage extends React.Component {
     return (
       <Main>
         <Article>
-          <Seo facebook={facebook} />
+          <Seo facebook={facebook} location={this.props.location} />
           <PageHeader title="お問い合わせ" />
           <Content>
             下記フォームか、Eメール: <Obfuscate email={config.contactEmail} /> にお気軽にお問い合わせください。個人情報の取り扱い等は<a href="/user-terms/">利用規約</a>、<a href="/privacy-policy/">プライバシーポリシー</a>をご参照ください。

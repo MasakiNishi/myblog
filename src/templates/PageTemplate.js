@@ -23,9 +23,9 @@ class PageTemplate extends React.Component {
 
     return (
       <Main>
-        <Page page={data.page} />
+        <Page page={data.page} location={this.props.location} />
         <Footer footnote={data.footnote} />
-        <Seo data={data.post} facebook={facebook} />
+        <Seo data={data.post} facebook={facebook} location={this.props.location} />
       </Main>
     );
   }

@@ -129,7 +129,7 @@ class List extends React.Component {
       location
     } = this.props;
 
-    const isBlog = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/");
+    const isBlog = this.props.location.pathname === withPrefix(config.pathPrefix) || this.props.location.pathname === withPrefix(config.pathPrefix + "/");
     const isAll = categoryFilter === "すべての記事";
 
       return (
@@ -148,8 +148,8 @@ class List extends React.Component {
                     style={ isBlog && { marginTop:0 } || { marginTop:`${this.state.hidden ? "5rem" : 0 }` } }
                   >
                     { isBlog && <h1>Blog</h1> }
-                    {posts && posts.map((post, i) => ( <ListItem key={i} post={post} linkOnClick={linkOnClick} categoryFilter={categoryFilter} />))}
-                    {wpposts && wpposts.map((wppost, i) => ( <ListItem key={i} post={wppost} linkOnClick={linkOnClick} categoryFilter={categoryFilter} />))}
+                    {posts && posts.map((post, i) => ( <ListItem key={i} post={post} linkOnClick={linkOnClick} categoryFilter={categoryFilter} location={this.props.location} />))}
+                    {wpposts && wpposts.map((wppost, i) => ( <ListItem key={i} post={wppost} linkOnClick={linkOnClick} categoryFilter={categoryFilter} location={this.props.location} />))}
                   </ul>
             </div>
           </SpringScrollbars>

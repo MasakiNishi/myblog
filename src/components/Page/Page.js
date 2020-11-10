@@ -7,7 +7,7 @@ import PageHeader from "./PageHeader";
 import Content from "../Main/Content";
 
 const Page = props => {
-  const { page } = props;
+  const { page, location } = props;
   const isFrontmatter = page && page.frontmatter;
   const isFields = page && page.fields;
   const isHtml        = page && page.html;

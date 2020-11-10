@@ -23,8 +23,8 @@ class workPage extends React.Component {
 
     return (
       <nav>
-        <Seo facebook={facebook} />
-        <Work wppages={data.wppages.edges} />
+        <Seo facebook={facebook} location={this.props.location} />
+        <Work wppages={data.wppages.edges} location={this.props.location} />
       </nav>
     );
   }

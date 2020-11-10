@@ -91,7 +91,7 @@ class indexLayout extends React.Component {
           }}
         >
           {children()}
-          <Navigator posts={data.posts.edges} wpposts={data.wpposts.edges} />
+          <Navigator posts={data.posts.edges} wpposts={data.wpposts.edges} location={this.props.location} />
           <ActionsBar categories={this.categories} />
           <InfoBar parts={data.parts.edges} />
           <InfoBox parts={data.parts.edges} />

@@ -151,7 +151,7 @@ class Index extends React.Component {
 
     return (
         <Main>
-          <Seo facebook={facebook} />
+          <Seo facebook={facebook} location={this.props.location} />
           <Article>
             <content className={classes.content}>
               <h1>Hi, I'm Masaki!</h1>

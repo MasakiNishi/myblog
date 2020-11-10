@@ -23,9 +23,9 @@ class WPPageTemplate extends React.Component {
 
     return (
       <Main>
-        <Page page={data.page} />
+        <Page page={data.page} location={this.props.location} />
         <Footer footnote={data.footnote} />
-        <Seo page={data.page} facebook={facebook} />
+        <Seo page={data.page} facebook={facebook} location={this.props.location} />
       </Main>
     );
   }

@@ -196,7 +196,7 @@ class ListItem extends React.Component {
   }
 
   render() {
-    const { classes, post } = this.props;
+    const { classes, post, location } = this.props;
     const isBlog = location.pathname === withPrefix(config.pathPrefix) || location.pathname === withPrefix(config.pathPrefix + "/");
 
     const isFrontmatter = post.node.frontmatter;

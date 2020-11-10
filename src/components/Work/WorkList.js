@@ -113,7 +113,8 @@ class WorkList extends React.Component {
   render() {
     const {
       classes,
-      wppages
+      wppages,
+      location
     } = this.props;
 
     const isHome = location.pathname === withPrefix("/work") || location.pathname === withPrefix("/work/");
@@ -127,7 +128,7 @@ class WorkList extends React.Component {
                     style={ isHome && { marginTop:0 } || { marginTop:`${this.state.hidden ? "5rem" : 0 }` } }
                   >
                     <h1>Works</h1>
-                    {wppages && wppages.map((wppage, i) => ( <WorkListItem key={i} wppages={wppage}  />))}
+                    {wppages && wppages.map((wppage, i) => ( <WorkListItem key={i} wppages={wppage} location={this.props.location}  />))}
                   </ul>
             </div>
           </SpringScrollbars>

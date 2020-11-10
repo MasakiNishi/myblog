@@ -24,7 +24,7 @@ class Blog extends React.Component {
 
     return (
       <div>
-        <Seo facebook={facebook} />
+        <Seo facebook={facebook} location={this.props.location} />
       </div>
     );
   }

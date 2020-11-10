@@ -5,7 +5,7 @@ import Helmet from "react-helmet";
 import config from "../../../content/meta/config";
 
 const Seo = props => {
-  const { data, page, facebook } = props;
+  const { data, page, facebook, location } = props;
 
   const isFrontmatter = data && data.frontmatter;
   const isFields = data && data.fields;
