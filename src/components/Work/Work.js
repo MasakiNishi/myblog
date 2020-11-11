@@ -114,13 +114,14 @@ const styles = theme => ({
 class Work extends React.Component {
 
   render() {
-    const { classes, wppages, navigatorPosition, navigatorShape } = this.props;
+    const { classes, wppages, navigatorPosition, navigatorShape, locaiton } = this.props;
 
     return (
     　<nav>
         {this.props.wppages.length && (
           <WorkList
             wppages={wppages}
+            location={this.props.location}
           />
         )}
       </nav>
