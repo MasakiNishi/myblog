@@ -128,7 +128,7 @@ class PostFollow extends React.Component {
             >
               <img
                 id='feedlyFollow'
-                src='http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-medium_2x.png'
+                src='https://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-medium_2x.png'
                 alt='feedlyで購読'
                 width='71'
                 height='28' />
