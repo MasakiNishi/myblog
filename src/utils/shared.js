@@ -49,7 +49,8 @@ export function moveNavigatorAside(e) {
             this.props.setNavigatorShape(navigatorShape);
             setTimeout(() => {
               this.props.setNavigatorPosition("is-aside");
-            }, 600);
+              setTimeout(forceCheck, 600);
+            });
           }
         }
       }, 1000);

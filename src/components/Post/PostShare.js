@@ -75,9 +75,6 @@ class PostShare extends React.Component {
         <div className={classes.links}>
           <TwitterShareButton url={url} title={title} via={twitterAccount} related={twitterAccount} >
             <TwitterIcon round size={iconSize} />
-            <TwitterShareCount url={url}>
-              {count => <div className="share-count">{filter(count)}</div>}
-            </TwitterShareCount>
           </TwitterShareButton>
           <FacebookShareButton
             url={url}
@@ -85,15 +82,9 @@ class PostShare extends React.Component {
             aria-label="Facebook share"
           >
             <FacebookIcon round size={iconSize} />
-            <FacebookShareCount url={url}>
-              {count => <div className="share-count">{filter(count)}</div>}
-            </FacebookShareCount>
           </FacebookShareButton>
           <HatebuShareButton url={url}>
             <HatebuIcon round size={iconSize} />
-            <HatebuShareCount url={url}>
-              {count => <div className="share-count">{filter(count)}</div>}
-            </HatebuShareCount>
           </HatebuShareButton>
           <LineShareButton url={url} title={title}>
             <LineIcon round size={iconSize} />
