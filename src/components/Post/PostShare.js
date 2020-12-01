@@ -73,7 +73,19 @@ class PostShare extends React.Component {
       <div className={classes.share}>
         <span className={classes.label}>シェア</span>
         <div className={classes.links}>
-          
+          <TwitterShareButton url={url} title={title} via={twitterAccount} related={twitterAccount} >
+            <TwitterIcon round size={iconSize} />
+          </TwitterShareButton>
+          <FacebookShareButton
+            url={url}
+            quote={`${title} - ${excerpt}`}
+            aria-label="Facebook share"
+          >
+            <FacebookIcon round size={iconSize} />
+            <FacebookShareCount url={url}>
+              {count => <div className="share-count">{filter(count)}</div>}
+            </FacebookShareCount>
+          </FacebookShareButton>
         </div>
       </div>
     );
