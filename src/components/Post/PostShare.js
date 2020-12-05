@@ -14,11 +14,19 @@ import {
   TwitterIcon,
   FacebookShareButton,
   FacebookShareCount,
-  FacebookIcon,
-  GooglePlusShareButton,
-  GooglePlusShareCount,
-  GooglePlusIcon,
+  FacebookIcon
 } from "react-share";
+
+import {
+  LineShareButton,
+  LineIcon,
+  PocketShareButton,
+  PocketIcon,
+  HatebuShareButton,
+  HatebuShareCount,
+  HatebuIcon,
+  TwitterShareCount,
+} from "../../../node_modules/react-share/lib";
 
 import config from "../../../content/meta/config";
 
@@ -75,6 +83,9 @@ class PostShare extends React.Component {
         <div className={classes.links}>
           <TwitterShareButton url={url} title={title} via={twitterAccount} related={twitterAccount} >
             <TwitterIcon round size={iconSize} />
+            <TwitterShareCount url={url}>
+              {count => <div className="share-count">{filter(count)}</div>}
+            </TwitterShareCount>
           </TwitterShareButton>
           <FacebookShareButton
             url={url}
@@ -86,6 +97,18 @@ class PostShare extends React.Component {
               {count => <div className="share-count">{filter(count)}</div>}
             </FacebookShareCount>
           </FacebookShareButton>
+          <HatebuShareButton url={url}>
+            <HatebuIcon round size={iconSize} />
+            <HatebuShareCount url={url}>
+              {count => <div className="share-count">{filter(count)}</div>}
+            </HatebuShareCount>
+          </HatebuShareButton>
+          <LineShareButton url={url} title={title}>
+            <LineIcon round size={iconSize} />
+          </LineShareButton>
+          <PocketShareButton url={url} title={title}>
+            <PocketIcon round size={iconSize} />
+          </PocketShareButton>
         </div>
       </div>
     );
