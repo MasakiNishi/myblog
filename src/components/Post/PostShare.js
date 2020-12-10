@@ -2,15 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import {
-  LineShareButton,
-  LineIcon,
-  PocketShareButton,
-  PocketIcon,
-  HatebuShareButton,
-  HatebuShareCount,
-  HatebuIcon,
   TwitterShareButton,
-  TwitterShareCount,
   TwitterIcon,
   FacebookShareButton,
   FacebookShareCount,
