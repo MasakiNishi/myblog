@@ -2,14 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import {
-  TwitterShareButton,
-  TwitterIcon,
-  FacebookShareButton,
-  FacebookShareCount,
-  FacebookIcon
-} from "react-share";
-
-import {
   LineShareButton,
   LineIcon,
   PocketShareButton,
@@ -17,8 +9,13 @@ import {
   HatebuShareButton,
   HatebuShareCount,
   HatebuIcon,
+  TwitterShareButton,
   TwitterShareCount,
-} from "../../../node_modules/react-share/lib";
+  TwitterIcon,
+  FacebookShareButton,
+  FacebookShareCount,
+  FacebookIcon
+} from "react-share";
 
 import config from "../../../content/meta/config";
 
