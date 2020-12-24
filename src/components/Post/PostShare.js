@@ -47,6 +47,9 @@ const styles = theme => ({
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       margin: "0 1em"
     }
+  },
+  ".share": {
+    textAlign: "center"
   }
 });
 
