@@ -19,18 +19,18 @@ const styles = theme => ({
     width: "100%"
   },
   inner: {
-    padding: `calc(${theme.bars.sizes.infoBar}px + 1.3rem) 1.3rem calc(${
+    padding: `calc(${theme.bars.sizes.infoBar}px + 20px) 10px calc(${
       theme.bars.sizes.actionsBar
-    }px + 1.3rem) 1.3rem`,
+    }px + 20px) 20px`,
     [`@media (max-width: 425px)`]: {
-      padding: `calc(${theme.bars.sizes.infoBar}px + 1.3rem) 0 calc(${
-      theme.bars.sizes.actionsBar
-    }px + 1.3rem) 0`
+      padding: `calc(${theme.bars.sizes.infoBar}px + 25px) 0 calc(${
+        theme.bars.sizes.actionsBar
+      }px + 25px) 0`,
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
-      padding: `calc(${theme.bars.sizes.infoBar}px + 2rem) 2rem calc(${
+      padding: `calc(${theme.bars.sizes.infoBar}px + 35px) 35px calc(${
         theme.bars.sizes.actionsBar
-      }px + 2rem) 2rem`
+      }px + 35px) 35px`
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       padding: 0,

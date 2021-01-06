@@ -56,7 +56,7 @@ class CategoryFilter extends React.Component {
   };
 
   render() {
-    const { classes, categories } = this.props;
+    const { classes, categories, wpposts } = this.props;
     const { anchorEl, open } = this.state;
 
     return (

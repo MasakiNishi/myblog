@@ -75,6 +75,12 @@ const styles = theme => ({
       }
     }
   },
+  categoryFilter: {
+    display: "none",
+    [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+      display: "block"
+    }
+  },
   group: {
     display: "flex",
     flexDirection: "row",
@@ -163,7 +169,9 @@ class ActionsBar extends React.Component {
             <HomeIcon />
           </IconButton>
           {(isWideScreen && navigatorShape === "open" || navigatorShape !== "none") && (
-            <CategoryFilter categories={categories} filterCategory={this.categoryFilterOnClick} />
+            <div className={navigatorPosition !== "is-featured" && classes.categoryFilter}>
+              <CategoryFilter categories={categories} filterCategory={this.categoryFilterOnClick} />
+            </div>
           )}
           {(isWideScreen && navigatorShape === "open" || navigatorShape !== "none") && (
             <IconButton

@@ -71,8 +71,7 @@ const styles = theme => ({
       height: "100%",
       background: theme.info.colors.background,
       padding: "20px 40px",
-      position: "absolute",
-      overflow: "scroll"
+      position: "absolute"
     },
     "& .closeMenu": {
       display: "none"

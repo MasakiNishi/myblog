@@ -113,12 +113,14 @@ const styles = theme => ({
       theme.base.sizes.linesMargin
     })`,
     position: "fixed",
+    top: "60px",
+    left: 0,
     zIndex: "1",
     width: "100%",
     background: "#fff",
     color: theme.base.colors.accent,
     margin: 0,
-    padding: "0 1em 1em",
+    padding: "1em 0",
     borderBottom: "none",
     fontSize: "1.2em",
     lineHeight: 1,
@@ -126,62 +128,71 @@ const styles = theme => ({
     "&::before": {
       content: `""`,
       position: "absolute",
-      left: "32px",
-      right: "32px",
+      left: "15px",
+      right: "15px",
       height: 0,
       bottom: 0,
       borderTop: `1px solid ${theme.base.colors.lines}`,
     },
     "& strong": {
+      fontSize: "16px",
       fontWeight: 600,
-      display: "block"
+      display: "block",
+      margin: "0 0 0 1.5em"
     },
     "& small": {
       display: "block",
-      margin: "0 0 .3em 0"
+      margin: "0 0 .3em 1.5em"
     },
-    [`@media (max-width: 1023px)`]: {
-      top: "60px",
-      left: 0,
-      padding: "1em 0",
+    [`@media (min-width: 426px)`]: {
+      "&::before": {
+        left: "32px",
+        right: "32px"
+      },
       "& strong": {
         marginLeft: "2.35em",
-        fontSize: "16px"
       },
       "& small": {
         margin: "0 0 .3em 2.5em"
+      }
+    },
+    [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
+      padding: "2.1em 0 1em",
+      "&::before": {
+        left: "44px",
+        right: "44px"
       },
-      [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
-        padding: "2.1em 0 1em",
-        "&::before": {
-          left: "44px",
-          right: "44px"
-        },
-        "& strong": {
-          marginLeft: "3.3em",
-          fontSize: "1em"
-        },
-        "& small": {
-          margin: "0 0 .3em 4.2em"
-        },
+      "& strong": {
+        marginLeft: "3.3em",
+        fontSize: "1em"
+      },
+      "& small": {
+        margin: "0 0 .3em 4.2em"
       },
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
+      top: 0,
       margin: "0 0 1em 0",
-      padding: "2rem 3.2rem 1.5em"
+      padding: "2rem 3.2rem 1.5em",
+      "&::before": {
+        left: "32px",
+        right: "32px"
+      },
+      "& small": {
+        margin: "0 0 .3em 0"
+      },
+      "& strong": {
+        margin: 0
+      }
     }
   },
   clearHome: {
     position: "absolute",
-    top: 0,
-    right: 0,
-    [`@media (max-width: 1023px)`]: {
-      top: "20%",
-      right: "32px",
-      [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
-        top: "40%",
-        right: "44px"
-      }
+    top: "20%",
+    right: "15px",
+    [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
+      top: "40%",
+      right: "44px"
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       top: "33%",
