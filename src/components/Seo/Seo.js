@@ -29,6 +29,7 @@ const Seo = props => {
 
   const isCover = postCover && postCover.childImageSharp;
   const title         = postTitle       ? `${postTitle} - ${config.shortSiteTitle}` : config.siteTitle;
+  const pTitle = postTitle ? `${postTitle}` : config.siteTitle;
   const description   = postDescription ? postDescription                           : config.siteDescription;
   const image         = isCover         ? postCover.childImageSharp.resize.src      : postCover === '' ? config.siteImage : postCover;
   const url           = config.siteUrl + postSlug;
@@ -150,7 +151,7 @@ const Seo = props => {
           "@type": "BlogPosting",
           "datePublished": publishDate,
           "dateModified": modifiedDate,
-          "headline": title,
+          "headline": pTitle,
           "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": url
@@ -585,7 +586,7 @@ const Seo = props => {
         }}
       >
         {/* General tags */}
-        <title>{title}</title>
+        <title>{pTitle}</title>
         <meta name="description" content={description} />
         <meta name="thumbnail" content={image} />
         <link rel="canonical" href={url} />
@@ -595,7 +596,7 @@ const Seo = props => {
         </script>
         {/* OpenGraph tags */}
         <meta property="og:url" content={url} />
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={pTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={image} />
         <meta property="og:type" content="article" />
