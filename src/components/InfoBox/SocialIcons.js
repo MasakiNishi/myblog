@@ -14,39 +14,18 @@ const styles = theme => ({
     justifyContent: "center",
     flexWrap: "wrap",
     "& .Twitter": {
-      [`@media (max-width: ${theme.mediaQueryTresholds.L - 1}px)`]: {
-        "& svg": {
-          fill: theme.info.colors.twitterIconsHover
-        }
-      },
-      "&:hover": {
-        "& svg": {
-          fill: theme.info.colors.twitterIconsHover
-        }
+      "& svg": {
+        fill: theme.info.colors.twitterIconsHover
       }
     },
     "& .Facebook": {
-      [`@media (max-width: ${theme.mediaQueryTresholds.L - 1}px)`]: {
-        "& svg": {
-          fill: theme.info.colors.facebookIconsHover
-        }
-      },
-      "&:hover": {
-        "& svg": {
-          fill: theme.info.colors.facebookIconsHover
-        }
+      "& svg": {
+        fill: theme.info.colors.facebookIconsHover
       }
     },
     "& .Instagram": {
-      [`@media (max-width: ${theme.mediaQueryTresholds.L - 1}px)`]: {
-        "& svg": {
-          fill: theme.info.colors.instaIconsHover
-        }
-      },
-      "&:hover": {
-        "& svg": {
-          fill: theme.info.colors.instaIconsHover
-        }
+      "& svg": {
+        fill: "url(#rg)"
       }
     }
   },
