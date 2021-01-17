@@ -25,7 +25,7 @@ const styles = theme => ({
     },
     "& .Instagram": {
       "& svg": {
-        fill: "url(#rg)"
+        fill: theme.info.colors.instaIconsHover
       }
     }
   },
@@ -52,6 +52,15 @@ const Socialcons = props => {
 
   return (
     <div className={classes.social}>
+      <svg width="0" height="0">
+        <radialGradient id="rg" r="150%" cx="30%" cy="107%">
+          <stop stopColor="#fdf497" offset="0" />
+          <stop stopColor="#fdf497" offset="0.05" />
+          <stop stopColor="#fd5949" offset="0.45" />
+          <stop stopColor="#d6249f" offset="0.6" />
+          <stop stopColor="#285AEB" offset="0.9" />
+        </radialGradient>
+      </svg>
       {items.map(item => {
         const Icon = icons[item.name];
         return (
@@ -67,15 +76,6 @@ const Socialcons = props => {
           </a>
         );
       })}
-      <svg width="0" height="0">
-        <radialGradient id="rg" r="150%" cx="30%" cy="107%">
-          <stop stopColor="#fdf497" offset="0" />
-          <stop stopColor="#fdf497" offset="0.05" />
-          <stop stopColor="#fd5949" offset="0.45" />
-          <stop stopColor="#d6249f" offset="0.6" />
-          <stop stopColor="#285AEB" offset="0.9" />
-        </radialGradient>
-      </svg>
     </div>
   );
 };

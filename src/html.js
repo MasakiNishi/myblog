@@ -21,7 +21,7 @@ module.exports = class HTML extends React.Component {
         <head>
           <meta charSet="utf-8" />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" viewportFit="cover" />
           {this.props.headComponents}
           {css}
           <meta name="apple-mobile-web-app-capable" content="yes" />

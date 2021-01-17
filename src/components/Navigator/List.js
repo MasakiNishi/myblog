@@ -21,7 +21,7 @@ const styles = theme => ({
   inner: {
     padding: `calc(${theme.bars.sizes.infoBar}px + 20px) 10px calc(${
       theme.bars.sizes.actionsBar
-    }px + 20px) 20px`,
+    }px + 20px + env(safe-area-inset-bottom)) 20px`,
     [`@media (max-width: 425px)`]: {
       padding: `calc(${theme.bars.sizes.infoBar}px + 25px) 0 calc(${
         theme.bars.sizes.actionsBar
