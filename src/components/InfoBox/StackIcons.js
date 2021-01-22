@@ -10,16 +10,15 @@ import { ReactComponent as InstaIcon } from "../../images/svg-icons/instagram.sv
 
 const styles = theme => ({
   stack: {
+    display: "block",
     margin: "1em 0 1em 0",
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
-      display: "block",
       position: "absolute",
       left: 0,
       bottom: 0,
       width: "100%",
       padding: "1em 2em",
-      margin: 0,
-      zIndex: "-1"
+      margin: 0
     },
     "& .Twitter": {
       "& svg": {
@@ -73,6 +72,15 @@ const StackIcons = props => {
     <div className={classes.stack}>
       <div className={classes.header}>Follow Me:</div>
       <div className={classes.box}>
+        <svg width="0" height="0">
+          <radialGradient id="rg" r="150%" cx="30%" cy="107%">
+            <stop stopColor="#fdf497" offset="0" />
+            <stop stopColor="#fdf497" offset="0.05" />
+            <stop stopColor="#fd5949" offset="0.45" />
+            <stop stopColor="#d6249f" offset="0.6" />
+            <stop stopColor="#285AEB" offset="0.9" />
+          </radialGradient>
+        </svg>
         {items.map(item => {
           const Icon = icons[item.name];
           return (
@@ -88,15 +96,6 @@ const StackIcons = props => {
             </a>
           );
         })}
-        <svg width="0" height="0">
-          <radialGradient id="rg" r="150%" cx="30%" cy="107%">
-            <stop stopColor="#fdf497" offset="0" />
-            <stop stopColor="#fdf497" offset="0.05" />
-            <stop stopColor="#fd5949" offset="0.45" />
-            <stop stopColor="#d6249f" offset="0.6" />
-            <stop stopColor="#285AEB" offset="0.9" />
-          </radialGradient>
-        </svg>
       </div>
     </div>
   );
