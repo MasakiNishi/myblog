@@ -113,6 +113,7 @@ const styles = theme => ({
       theme.base.sizes.linesMargin
     })`,
     position: "fixed",
+    transform: "translate3d(0, 0, 0)",
     top: "60px",
     left: 0,
     zIndex: "1",
