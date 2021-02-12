@@ -158,7 +158,7 @@ const styles = theme => ({
       }
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
-      padding: "2.1em 0 1em",
+      padding: "1em 0 1em",
       "&::before": {
         left: "44px",
         right: "44px"
@@ -192,7 +192,6 @@ const styles = theme => ({
     top: "20%",
     right: "15px",
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
-      top: "40%",
       right: "44px"
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
