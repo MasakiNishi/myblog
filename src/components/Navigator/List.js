@@ -21,16 +21,16 @@ const styles = theme => ({
   inner: {
     padding: `calc(${theme.bars.sizes.infoBar}px + 20px) 10px calc(${
       theme.bars.sizes.actionsBar
-    }px + 20px + env(safe-area-inset-bottom)) 20px`,
+    }px + 20px + env(safe-area-inset-bottom, 50px)) 20px`,
     [`@media (max-width: 425px)`]: {
       padding: `calc(${theme.bars.sizes.infoBar}px + 25px) 0 calc(${
         theme.bars.sizes.actionsBar
-      }px + 25px + env(safe-area-inset-bottom)) 0`,
+      }px + 25px + env(safe-area-inset-bottom, 50px)) 0`,
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       padding: `calc(${theme.bars.sizes.infoBar}px + 35px) 35px calc(${
         theme.bars.sizes.actionsBar
-      }px + 35px + env(safe-area-inset-bottom)) 35px`
+      }px + 35px + env(safe-area-inset-bottom, 50px)) 35px`
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       padding: 0,
