@@ -5,7 +5,7 @@ import FacebookProvider, { Like } from 'react-facebook';
 import { Follow } from 'react-twitter-widgets';
 import config from "../../../content/meta/config";
 
-import { ReactComponent as InstaIcon } from "../../images/svg-icons/instagram.svg";
+import { ReactComponent as InstaIcon } from "../../images/svg-icons/instagram-follow.svg";
 
 const styles = theme => ({
   share: {
