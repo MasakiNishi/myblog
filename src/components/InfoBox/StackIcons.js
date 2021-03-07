@@ -51,6 +51,35 @@ const styles = theme => ({
     width: "100%",
     margin: "0 0 .5em 0",
     fontWeight: 300
+  },
+  InstaButton: {
+    color: "#fff",
+    borderRadius: "5px",
+    position: "relative",
+    display: "inline-block",
+    height: "23px",
+    width: "23px",
+    margin: "12px",
+    textAlign: "center",
+    fontSize: "14px",
+    background: "-webkit-linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat",
+    background: "linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat",
+    overflow: "hidden",
+    "&:before": {
+      content: "''",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "120%",
+      height: "120%",
+      background: "-webkit-linear-gradient(15deg, #ffdb2c, rgb(249, 118, 76) 25%, rgba(255, 77, 64, 0) 50%) no-repeat",
+      background: "linear-gradient(15deg, #ffdb2c, rgb(249, 118, 76) 25%, rgba(255, 77, 64, 0) 50%) no-repeat"
+    },
+    "& svg": {
+      fill: "#fff",
+      width: "23px",
+      position: "relative"
+    }
   }
 });
 
@@ -59,9 +88,9 @@ const StackIcons = props => {
   const items = config.authorSocialLinks;
   const icons = {
     Twitter: TwitterIcon,
-    Facebook: FacebookIcon,
-    Instagram: InstaIcon
+    Facebook: FacebookIcon
   };
+  const instaUrl = 'https://www.instagram.com/masakinishi_com/';
 
   return (
     <div className={classes.stack}>
@@ -82,6 +111,15 @@ const StackIcons = props => {
             </a>
           );
         })}
+        <a
+          href={instaUrl}
+          className={classes.InstaButton}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Instagram"
+        >
+          <InstaIcon/ >
+        </a>
       </div>
     </div>
   );

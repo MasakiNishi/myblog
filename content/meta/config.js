@@ -31,9 +31,9 @@ module.exports = {
   authorSocialLinks: [
     { name: "Twitter", url: "https://twitter.com/masakinishi_com" },
     { name: "Facebook", url: "https://www.facebook.com/masakinishicom/" },
-    { name: "Instagram", url: "https://www.instagram.com/masakinishi_com/" }
+    // { name: "Instagram", url: "https://www.instagram.com/masakinishi_com/" }
   ],
   twitterLink: "https://twitter.com/masakinishi_com",
   FacebookLink: "https://www.facebook.com/masakinishicom/",
-  InstagramLink: "https://www.instagram.com/masakinishi_com/",
+  // InstagramLink: "https://www.instagram.com/masakinishi_com/",
 };

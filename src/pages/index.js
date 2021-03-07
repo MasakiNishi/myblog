@@ -104,22 +104,51 @@ const styles = theme => ({
         display: "inline-block",
         padding: "8px"
       },
-      "& svg": {
-        width: "60px",
-        height: "40px"
-      },
       "& .Twitter": {
         "& svg": {
+          width: "60px",
+          height: "40px",
           fill: theme.info.colors.twitterIconsHover
         }
       },
       "& .Facebook": {
         "& svg": {
+          width: "60px",
+          height: "40px",
           fill: theme.info.colors.facebookIconsHover
         }
       }
     }
-  }
+  },
+  InstaButton: {
+      color: "#fff",
+      borderRadius: "5px",
+      position: "relative",
+      display: "inline-block",
+      height: "28px",
+      width: "28px",
+      margin: "5px 15px",
+      textAlign: "center",
+      fontSize: "14px",
+      background: "-webkit-linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat",
+      background: "linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat",
+      overflow: "hidden",
+      "&:before": {
+        content: "''",
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "120%",
+        height: "120%",
+        background: "-webkit-linear-gradient(15deg, #ffdb2c, rgb(249, 118, 76) 25%, rgba(255, 77, 64, 0) 50%) no-repeat",
+        background: "linear-gradient(15deg, #ffdb2c, rgb(249, 118, 76) 25%, rgba(255, 77, 64, 0) 50%) no-repeat"
+      },
+      "& svg": {
+        fill: "#fff",
+        width: "28px",
+        position: "relative"
+      }
+    }
 });
 
 class Index extends React.Component {
@@ -140,9 +169,9 @@ class Index extends React.Component {
     const items = config.authorSocialLinks;
     const icons = {
       Twitter: TwitterIcon,
-      Facebook: FacebookIcon,
-      Instagram: InstaIcon
+      Facebook: FacebookIcon
     };
+    const instaUrl = 'https://www.instagram.com/masakinishi_com/';
 
     return (
         <Main>
@@ -176,6 +205,15 @@ class Index extends React.Component {
                       </a>
                     );
                   })}
+                  <a
+                    href={instaUrl}
+                    className={classes.InstaButton}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Instagram"
+                  >
+                    <InstaIcon/ >
+                  </a>
                 </div>
             </content>
           </Article>
