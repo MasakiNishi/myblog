@@ -14,7 +14,7 @@ const styles = theme => ({
     willChange: "left, top, bottom, width",
     background: theme.navigator.colors.background,
     position: "absolute",
-    top: "env(safe-area-inset-top)",
+    top: 0,
     left: 0,
     height: "100vh",
     transitionTimingFunction: "ease",
