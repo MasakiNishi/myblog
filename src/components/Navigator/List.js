@@ -21,19 +21,25 @@ const styles = theme => ({
   inner: {
     padding: `calc(${theme.bars.sizes.infoBar}px + 20px) 10px calc(${
       theme.bars.sizes.actionsBar
-    }px + 20px) 20px`,
-    marginBottom: `env(safe-area-inset-bottom, 50px)`,
+    }px + 140px) 20px`,
+    padding: `calc(${theme.bars.sizes.infoBar}px + 20px) 10px calc(${
+      theme.bars.sizes.actionsBar
+    }px + 140px) 20px`,
     [`@media (max-width: 425px)`]: {
       padding: `calc(${theme.bars.sizes.infoBar}px + 25px) 0 calc(${
         theme.bars.sizes.actionsBar
-      }px + 25px) 0`,
-      marginBottom: `env(safe-area-inset-bottom, 50px)`,
+      }px + 140px) 0`,
+      padding: `calc(${theme.bars.sizes.infoBar}px + 25px) 0 calc(${
+        theme.bars.sizes.actionsBar
+      }px + 140px) 0`,
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       padding: `calc(${theme.bars.sizes.infoBar}px + 35px) 35px calc(${
         theme.bars.sizes.actionsBar
-      }px + 35px) 35px`,
-      marginBottom: `env(safe-area-inset-bottom, 50px)`,
+      }px + 140px) 35px`,
+      padding: `calc(${theme.bars.sizes.infoBar}px + 35px) 35px calc(${
+        theme.bars.sizes.actionsBar
+      }px + 140px) 35px`
     },
     [`@media (min-width: ${theme.mediaQueryTresholds.L}px)`]: {
       padding: 0,
