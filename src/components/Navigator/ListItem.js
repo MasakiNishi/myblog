@@ -202,12 +202,12 @@ class ListItem extends React.Component {
     const isFrontmatter = post.node.frontmatter;
     const isFields      = post.node.fields;
     const isCover       = isFrontmatter && post.node.frontmatter.cover && post.node.frontmatter.cover.children;
-    const isWPCover     = post.node.featured_media;
+    const isWPCover     = post.node.featured_media_size_src;
     const date          = isFields ? post.node.fields.prefix : post.node.date;
     const category      = isFrontmatter ? post.node.frontmatter.category  : post.node.categories[0].name;
     const slug          = isFields      ? post.node.fields.slug           : config.pathPrefix + '/' + post.node.slug + "/";
     const cover         = isCover       ? post.node.frontmatter.cover.children[0]     : null;
-    const wpcover       = isWPCover     ? post.node.featured_media.source_url         : null;
+    const wpcover       = isWPCover     ? post.node.featured_media_size_src.thumbnail       : null;
     const title         = isFrontmatter ? post.node.frontmatter.title     : post.node.title;
     const subTitle      = isFrontmatter ? post.node.frontmatter.subTitle  : post.node.acf.subtitle;
 
@@ -224,9 +224,9 @@ class ListItem extends React.Component {
             </LazyLoad>)}
             {wpcover && (<LazyLoad height={60} overflow={true} throttle={300} once={true} offset={100}>
               <picture>
-                <source type="image/webp" srcSet={wpcover + "&fit=crop&w=90&h=90"} />
-                <source srcSet={wpcover + "&fit=crop&w=90&h=90"} />
-                <img src={wpcover + "&fit=crop&w=90&h=90"} alt={title} />
+                <source type="image/webp" srcSet={wpcover + ".webp"} />
+                <source srcSet={wpcover} />
+                <img src={wpcover} alt={title} />
               </picture>
             </LazyLoad>)}
             {/*<Img sizes={post.node.frontmatter.cover.children[0].sizes} />*/}

@@ -27,7 +27,7 @@ const Post = props => {
 
   return (
     <Article>
-      <PostHeader title={title} subTitle={subTitle} publishDate={publishDate} modifiedDate={modifiedDate} wpCover={wpCover} />
+      <PostHeader title={title} subTitle={subTitle} publishDate={publishDate} modifiedDate={modifiedDate} post={post} />
       <Content html={html} />
       <PostFooter author={author} post={post} slug={slug} facebook={facebook} />
     </Article>

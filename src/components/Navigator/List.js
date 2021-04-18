@@ -170,6 +170,7 @@ class List extends React.Component {
 List.propTypes = {
   classes: PropTypes.object.isRequired,
   posts: PropTypes.array.isRequired,
+  wpposts: PropTypes.array.isRequired,
   linkOnClick: PropTypes.func.isRequired,
   expandOnClick: PropTypes.func.isRequired,
   navigatorPosition: PropTypes.string.isRequired,

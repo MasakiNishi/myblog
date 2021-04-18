@@ -69,6 +69,11 @@ export const query = graphql`
           featured_media {
             source_url
           }
+          featured_media_size_src {
+            thumbnail
+            medium
+            large
+          }
         }
       }
     }

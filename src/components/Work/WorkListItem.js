@@ -181,10 +181,10 @@ class WorkListItem extends React.Component {
     const { classes, wppages, location } = this.props;
     const isHome = location.pathname === withPrefix("/work") || location.pathname === withPrefix("/work/");
 
-    const isWPCover     = wppages.node.featured_media;
+    const isWPCover     = wppages.node.featured_media_size_src;
     const date          = wppages.node.date;
     const slug          = wppages.node.slug + "/";
-    const wpcover       = isWPCover     ? wppages.node.featured_media.source_url         : null;
+    const wpcover       = isWPCover     ? wppages.node.featured_media_size_src.thumbnail        : null;
     const title         = wppages.node.title;
 
     return (
@@ -193,9 +193,9 @@ class WorkListItem extends React.Component {
           <div className={`${classes.listItemPointer} pointer`}>
             {wpcover && (<LazyLoad height={60} overflow={true} throttle={300} once={true} offset={100}>
               <picture>
-                <source type="image/webp" srcSet={wpcover + "&fit=crop&w=90&h=90"} />
-                <source srcSet={wpcover + "&fit=crop&w=90&h=90"} />
-                <img src={wpcover + "&fit=crop&w=90&h=90"} alt={title} />
+                <source type="image/webp" srcSet={wpcover + ".webp"} />
+                <source srcSet={wpcover} />
+                <img src={wpcover} alt={title} />
               </picture>
             </LazyLoad>)}
           </div>

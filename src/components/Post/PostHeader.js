@@ -74,9 +74,16 @@ const styles = theme => ({
 });
 
 const PostHeader = props => {
-  const { classes, title, subTitle, publishDate, modifiedDate, wpCover } = props;
+  const { classes, title, subTitle, publishDate, modifiedDate, post } = props;
 
   const isEmptyDate = modifiedDate === null;
+
+  const isFrontmatter = post && post.frontmatter;
+  const isPost = post;
+
+  const wpCover = isFrontmatter ? '' : isPost ? post.featured_media.source_url : '';
+  const wpCoverMedium = isFrontmatter ? '' : isPost ? post.featured_media_size_src.medium : '';
+  const wpCoverLarge = isFrontmatter ? '' : isPost ? post.featured_media_size_src.large: '';
 
   const isEmptyWpCover = wpCover === '';
 
@@ -101,18 +108,29 @@ const PostHeader = props => {
       </ul>
       { isEmptyWpCover ||
         <a className="gatsby-resp-image-link" href={wpCover} target="_blank">
+          <source
+            className="alignnone size-full"
+            type="image/webp"
+            alt={title}
+            srcSet={`
+            ${wpCoverMedium  + ".webp"} 425w,
+            ${wpCoverLarge + ".webp"} 768w,
+            ${wpCover + ".webp"} 1024w
+            `}
+            sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"
+          />
           <img
-            className="alignnone size-full wp-image"
+            className="alignnone size-full"
             src={wpCover}
             width="1200"
             height="630"
             alt={title}
             srcSet={`
-            ${wpCover + "&w=300"} 300w,
-            ${wpCover + "&w=768"} 768w,
-            ${wpCover + "&w=1024"} 1024w
+            ${wpCoverMedium} 425w,
+            ${wpCoverLarge} 768w,
+            ${wpCover} 1024w
             `}
-            sizes="(max-width: 1200px) 100vw, 1200px"
+            sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"
           />
         </a>
       }

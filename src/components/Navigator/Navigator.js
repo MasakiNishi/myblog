@@ -154,6 +154,7 @@ class Navigator extends React.Component {
 
 Navigator.propTypes = {
   posts: PropTypes.array.isRequired,
+  wpposts: PropTypes.array.isRequired,
   classes: PropTypes.object.isRequired,
   navigatorPosition: PropTypes.string.isRequired,
   navigatorShape: PropTypes.string.isRequired,

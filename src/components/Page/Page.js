@@ -25,7 +25,7 @@ const Page = props => {
 
   return (
     <Article>
-      <PageHeader publishDate={publishDate} modifiedDate={modifiedDate} wpCover={wpCover} isWorkPage={isWorkPage} {...frontmatter} />
+      <PageHeader publishDate={publishDate} modifiedDate={modifiedDate} wpCover={wpCover} isWorkPage={isWorkPage} page={page} {...frontmatter} />
       <Content html={html} />
     </Article>
   );

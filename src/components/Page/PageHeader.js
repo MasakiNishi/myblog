@@ -78,10 +78,15 @@ const styles = theme => ({
 });
 
 const Header = props => {
-  const { classes, title, algolia, publishDate, modifiedDate, wpCover, isWorkPage } = props;
+  const { classes, title, algolia, publishDate, modifiedDate, wpCover, isWorkPage, page } = props;
+
+  const isFrontmatter = page && page.frontmatter;
+  const isPage = page;
+
+  const wpCoverMedium = isFrontmatter ? '' : isPage ? page.featured_media_size_src.medium : null;
+  const wpCoverLarge = isFrontmatter ? '' : isPage ? page.featured_media_size_src.large: null;
 
   const isEmptyDate = modifiedDate === null;
-
   const isEmptyWpCover = wpCover === '';
 
   return (
@@ -106,18 +111,29 @@ const Header = props => {
       )}
       { isWorkPage &&
           <a className="gatsby-resp-image-link" href={wpCover} target="_blank">
+            <source
+              className="alignnone size-full"
+              type="image/webp"
+              alt={title}
+              srcSet={`
+              ${wpCoverMedium  + ".webp"} 425w,
+              ${wpCoverLarge + ".webp"} 768w,
+              ${wpCover + ".webp"} 1024w
+              `}
+              sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"
+            />
             <img
-              className="alignnone size-full wp-image"
+              className="alignnone size-full"
               src={wpCover}
               width="1200"
               height="630"
               alt={title}
               srcSet={`
-              ${wpCover + "&w=300"} 300w,
-              ${wpCover + "&w=768"} 768w,
-              ${wpCover + "&w=1024"} 1024w
+              ${wpCoverMedium} 425w,
+              ${wpCoverLarge} 768w,
+              ${wpCover} 1024w
               `}
-              sizes="(max-width: 1200px) 100vw, 1200px"
+              sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"
             />
           </a>
       }
