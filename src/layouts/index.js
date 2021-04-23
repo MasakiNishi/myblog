@@ -46,10 +46,10 @@ class indexLayout extends React.Component {
   getCategories = () => {
     const { data } = this.props;
     const { posts, wpposts } = data;
-    const categories = posts.edges.reduce((list, edge, i) => {
-      const category = edge.node.frontmatter.category;
+    const categories = wpposts.edges.reduce((list, edge, i) => {
+      const category = edge.node.categories[0].name;
       if (category && !~list.indexOf(category)) {
-        return list.concat(edge.node.frontmatter.category);
+        return list.concat(edge.node.categories[0].name);
       } else {
         return list;
       }
@@ -91,7 +91,7 @@ class indexLayout extends React.Component {
           }}
         >
           {children()}
-          <Navigator posts={data.posts.edges} wpposts={data.wpposts.edges} location={this.props.location} />
+          <Navigator wpposts={data.wpposts.edges} location={this.props.location} />
           <ActionsBar categories={this.categories} />
           <InfoBar parts={data.parts.edges} />
           <InfoBox parts={data.parts.edges} />
@@ -150,34 +150,6 @@ export const query = graphql`
             thumbnail
             medium
             large
-          }
-        }
-      }
-    }
-    posts: allMarkdownRemark(
-      filter: { id: { regex: "//posts//" } }
-      sort: { fields: [fields___prefix], order: DESC }
-    ) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-            prefix
-          }
-          frontmatter {
-            category
-            title
-            subTitle
-            cover {
-              children {
-                ... on ImageSharp {
-                  resolutions(width: 90, height: 90) {
-                    ...GatsbyImageSharpResolutions_withWebp_noBase64
-                  }
-                }
-              }
-            }
           }
         }
       }

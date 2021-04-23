@@ -1,0 +1,2 @@
+webpackJsonp([0x81b8806e4260],{987:function(a,o){a.exports={data:{site:{siteMetadata:{facebook:{appId:"..."}}},footnote:{id:"/Users/MacbookAir/Desktop/myblog/content/parts/footnote.md absPath of file >>> MarkdownRemark",html:'<ul>\n<li>© 2018 <a href="/">MasakiNishi.com</a></li>\n<li><a href="/user-terms/">利用規約</a> | <a href="/privacy-policy/">プライバシーポリシー</a></li>\n</ul>'}},pathContext:{}}}});
+//# sourceMappingURL=path---index-3887ee5f18036613f49e.js.map

@@ -91,7 +91,7 @@ class PostFollow extends React.Component {
   render() {
     const { post, classes, slug, facebook } = this.props;
     const { excerpt, frontmatter } = post;
-    const url = config.siteUrl + config.pathPrefix + slug;
+    const url = config.siteUrl + config.pathPrefix + "/rss.xml";
     const twitterAccount = config.authorTwitterAccount;
     const instaUrl = 'https://www.instagram.com/masakinishi_com/';
     const facebookUrl = 'https://www.facebook.com/masakinishicom/';

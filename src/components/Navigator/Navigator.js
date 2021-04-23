@@ -135,7 +135,7 @@ class Navigator extends React.Component {
               navigatorShape ? navigatorShape : ""}
             `}
           >
-            {this.props.posts.length && (
+            {this.props.wpposts.length && (
               <List
                 posts={posts} wpposts={wpposts}
                 navigatorPosition={navigatorPosition}

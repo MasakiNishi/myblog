@@ -2,19 +2,49 @@ require("dotenv").config();
 const config = require("./content/meta/config");
 
 const query = `{
-  allMarkdownRemark(filter: { id: { regex: "//posts|pages//" } }) {
+  allWordpressPost(sort: { fields: [date], order: DESC }) {
     edges {
       node {
-        objectID: id
-        fields {
-          slug
+        excerpt
+        slug
+        date(formatString: "YYYY-MM-DD")
+        modified(formatString: "YYYY-MM-DD")
+        title
+        acf {
+          subtitle
+          description
         }
-        internal {
-          content
+        tags { name }
+        categories { name }
+        featured_media {
+          source_url
         }
-        frontmatter {
-          title
-          subTitle
+        featured_media_size_src {
+          thumbnail
+          medium
+          large
+        }
+      }
+    }
+  }
+  allWordpressPage( sort: { fields: [date], order: DESC } ) {
+    edges {
+      node {
+        slug
+        date(formatString: "YYYY-MM-DD")
+        modified(formatString: "YYYY-MM-DD")
+        title
+        acf {
+          subtitle
+          description
+        }
+        featured_media {
+          source_url
+        }
+        featured_media_size_src {
+          thumbnail
+          medium
+          large
         }
       }
     }
@@ -24,7 +54,11 @@ const query = `{
 const queries = [
   {
     query,
-    transformer: ({ data }) => data.allMarkdownRemark.edges.map(({ node }) => node)
+    transformer: ({ data }) => data.allWordpressPost.edges.map(({ node }) => node)
+  },
+  {
+    query,
+    transformer: ({ data }) => data.allWordpressPage.edges.map(({ node }) => node)
   }
 ];
 
@@ -35,6 +69,7 @@ module.exports = {
     description: config.siteDescription,
     siteUrl: config.siteUrl,
     pathPrefix: config.pathPrefix,
+    siteBlogUrl: config.siteUrl + config.pathPrefix + "/",
     algolia: {
       appId: process.env.ALGOLIA_APP_ID ? process.env.ALGOLIA_APP_ID : "",
       searchOnlyApiKey: process.env.ALGOLIA_SEARCH_ONLY_API_KEY
@@ -213,48 +248,55 @@ module.exports = {
               siteMetadata {
                 title
                 description
+                pathPrefix
                 siteUrl
-                site_url: siteUrl
+                siteBlogUrl
+                site_url: siteBlogUrl
               }
             }
           }
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
+            serialize: ({ query: { site, allWordpressPost } }) => {
+              return allWordpressPost.edges.map(edge => {
+                return Object.assign({}, edge.node, {
                   description: edge.node.excerpt,
-                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }]
+                  url: site.siteMetadata.siteUrl + site.siteMetadata.pathPrefix + "/" + edge.node.slug + "/",
+                  guid: site.siteMetadata.siteUrl + site.siteMetadata.pathPrefix + "/" + edge.node.slug + "/",
+                  custom_elements: [{ "content:encoded": edge.node.content }]
                 });
               });
             },
             query: `
               {
-                allMarkdownRemark(
-                  limit: 1000,
-                  sort: { order: DESC, fields: [fields___prefix] },
-                  filter: { id: { regex: "//posts//" } }
-                ) {
+                allWordpressPost(sort: { fields: [date], order: DESC }) {
                   edges {
                     node {
+                      content
                       excerpt
-                      html
-                      fields { 
-                        slug
-                        prefix 
+                      slug
+                      date(formatString: "ddd, DD MMM YYYY, h:mm:ss +0900")
+                      modified(formatString: "ddd, DD MMM YYYY, h:mm:ss +0900")
+                      title
+                      acf {
+                        subtitle
+                        description
                       }
-                      frontmatter {
-                        title
+                      featured_media {
+                        source_url
+                      }
+                      featured_media_size_src {
+                        thumbnail
+                        medium
+                        large
                       }
                     }
                   }
                 }
               }
             `,
-            output: "/rss.xml"
+            output: "/blog/rss.xml"
           }
         ]
       }

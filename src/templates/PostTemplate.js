@@ -66,19 +66,6 @@ export const query = graphql`
         slug
         prefix
       }
-      frontmatter {
-        date
-        title
-        subTitle
-        description
-        cover {
-          childImageSharp {
-            resize(width: 1200) {
-              src
-            }
-          }
-        }
-      }
     }
     author: markdownRemark(id: { regex: "/author/" }) {
       id
