@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /success
-Disallow: /404.html
-Sitemap: https://masakinishi.com/sitemap.xml
