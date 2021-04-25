@@ -109,8 +109,16 @@ const styles = theme => ({
       margin: "2.5em 0",
       padding: "1em 1.1em 1em 1.3em",
       position: "relative",
+      "& li": {
+        "& p": {
+          margin: 0
+        }
+      },
       "& p": {
-        margin: 0
+        margin: "0 0 1.5em 0",
+        "&:last-child": {
+          margin: 0
+        }
       },
       "&::before, &::after": {
         background: theme.main.colors.background,
