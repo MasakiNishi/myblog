@@ -62,7 +62,6 @@ export const query = graphql`
       slug
       title
       acf {
-        subtitle
         description
       }
       date(formatString: "YYYY-MM-DD")

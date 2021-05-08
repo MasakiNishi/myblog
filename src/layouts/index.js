@@ -164,7 +164,6 @@ export const query = graphql`
           modified(formatString: "YYYY-MM-DD")
           title
           acf {
-            subtitle
             description
           }
           featured_media {
