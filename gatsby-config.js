@@ -35,7 +35,6 @@ const query = `{
         modified(formatString: "YYYY-MM-DD")
         title
         acf {
-          subtitle
           description
         }
         featured_media {
