@@ -178,7 +178,7 @@ class Index extends React.Component {
           <Seo facebook={facebook} location={this.props.location} />
           <Article>
             <content className={classes.content}>
-              <h1>Hi, I'm Masaki!</h1>
+              <h1>Who am i?</h1>
               <p>大学を2年間休学し、サンフランシスコ・シリコンバレーを含めたベイエリアでソフトウェアエンジニアとして働いていました。
               現在は帰国、復学しており経済を学びつつ、サンフランシスコの会社と東証一部上場の大手企業さんとフリーランスのリモートソフトウェアエンジニア、ウェブマーケターとして働かせていただいております。2020年4月からは新卒外資ITとなります。</p>
               <p>個人ワークではSEO特化のメディア構築してライターさんを雇って運営しています。最近はJAMStackの概念にはまっており、このブログ兼ポートフォリオを作りました。</p>
