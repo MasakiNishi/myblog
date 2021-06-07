@@ -84,7 +84,7 @@ class CategoryFilter extends React.Component {
                 <Paper>
                   <MenuList role="menu">
                     <MenuItem key="all" onClick={this.handleFiltering}>
-                      すべての記事
+                      ALL
                     </MenuItem>
                     {categories.map(category => (
                       <MenuItem key={category} onClick={this.handleFiltering}>
