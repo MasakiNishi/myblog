@@ -123,7 +123,7 @@ class Navigator extends React.Component {
   };
 
   removefilterOnClick = e => {
-    this.props.setCategoryFilter("すべての記事");
+    this.props.setCategoryFilter("ALL");
   };
 
   render() {

@@ -114,11 +114,11 @@ class List extends React.Component {
 
       const categoryFilter = this.props.categoryFilter;
 
-      if (categoryFilter === "すべての記事") {
+      if (categoryFilter === "ALL") {
         this.setState({ hidden: false });
-      } else if (categoryFilter !== "すべての記事") {
+      } else if (categoryFilter !== "ALL") {
         this.setState({ hidden: true });
-      } else if (categoryFilter === "すべての記事") {
+      } else if (categoryFilter === "ALL") {
         this.setState({ hidden: false });
       }
     }
@@ -139,7 +139,7 @@ class List extends React.Component {
     } = this.props;
 
     const isBlog = this.props.location.pathname === withPrefix(config.pathPrefix) || this.props.location.pathname === withPrefix(config.pathPrefix + "/");
-    const isAll = categoryFilter === "すべての記事";
+    const isAll = categoryFilter === "ALL";
 
       return (
         <div className={classes.posts}>

@@ -185,7 +185,7 @@ class ListItem extends React.Component {
       const category = isFrontmatter ? this.props.post.node.frontmatter.category : this.props.post.node.categories[0].name;
       const categoryFilter = this.props.categoryFilter;
 
-      if (categoryFilter === "すべての記事") {
+      if (categoryFilter === "ALL") {
         this.setState({ hidden: false });
       } else if (category !== categoryFilter) {
         this.setState({ hidden: true });

@@ -221,7 +221,7 @@ const ListHeader = props => {
       )}
       {navigatorPosition === "is-featured" &&
         navigatorShape === "open" &&
-          categoryFilter !== "すべての記事" && (
+          categoryFilter !== "ALL" && (
             <div className={classes.filterHome}>
               <small>カテゴリー：</small> <strong>{categoryFilter} の記事</strong>
               <IconButton
@@ -237,7 +237,7 @@ const ListHeader = props => {
       }
       {navigatorPosition === "is-aside" &&
         navigatorShape === "open" &&
-          categoryFilter !== "すべての記事" && (
+          categoryFilter !== "ALL" && (
             <div className={classes.filter}>
               <small>カテゴリー：</small> <strong>{categoryFilter} の記事</strong>
               <IconButton

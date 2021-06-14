@@ -115,7 +115,7 @@ const initialState = {
   isWideScreen: false,
   scrollToTop: false,
   fontSizeIncrease: 1,
-  categoryFilter: "すべての記事",
+  categoryFilter: "ALL",
   showSidebar: "hide"
 };
 
