@@ -25,7 +25,7 @@ const SearchPage = props => {
         "description": "海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。",
         "image": {
           "@type": "ImageObject",
-          "url": config.siteUrl + config.siteImageOgp,
+          "url": config.siteImageOgp,
           "width": 1200,
           "height": 630
         },
@@ -88,7 +88,7 @@ const SearchPage = props => {
         {/* General tags */}
         <title>{"ブログ内検索" + " - " + config.shortHomeTitle}</title>
         <meta name="description" content="海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
-        <meta name="thumbnail" content={config.siteUrl + config.siteImageOgp} />
+        <meta name="thumbnail" content={config.siteImageOgp} />
         <link rel="canonical" href={config.siteUrl + config.pathPrefix + "/search/"} />
         {/* Schema.org tags */}
         <script type="application/ld+json">
@@ -98,7 +98,7 @@ const SearchPage = props => {
         <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/search/"} />
         <meta property="og:title" content={"ブログ内検索" + " - " + config.shortHomeTitle} />
         <meta property="og:description" content="海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
-        <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+        <meta property="og:image" content={config.siteImageOgp} />
         <meta property="og:type" content="article" />
         <meta property="fb:app_id" content="0" />
         {/* Twitter Card tags */}

@@ -63,7 +63,7 @@ const Seo = props => {
           "description": config.siteHomeDescription,
           "image": {
             "@type": "ImageObject",
-            "url": config.siteUrl + config.siteImageOgp,
+            "url": config.siteImageOgp,
             "width": 1200,
             "height": 630
           },
@@ -100,7 +100,7 @@ const Seo = props => {
           "description": config.siteDescription,
           "image": {
             "@type": "ImageObject",
-            "url": config.siteUrl + config.siteImageOgp,
+            "url": config.siteImageOgp,
             "width": 1200,
             "height": 630
           },
@@ -221,7 +221,7 @@ const Seo = props => {
           "description": "サンフランシスコ・シリコンバレー在住のソフトウェアエンジニア、Masaki Nishiの過去のお仕事です。",
           "image": {
             "@type": "ImageObject",
-            "url": config.siteUrl + config.siteImageOgp,
+            "url": config.siteImageOgp,
             "width": 1200,
             "height": 630
           },
@@ -338,7 +338,7 @@ const Seo = props => {
           "description": "Masaki Nishiのプロフィールページです。現在はサンフランシスコ・シリコンバレー地域のベイエリア周辺でソフトウェアエンジニアをしています。",
           "image": {
             "@type": "ImageObject",
-            "url": config.siteUrl + config.siteImageOgp,
+            "url": config.siteImageOgp,
             "width": 1200,
             "height": 630
           },
@@ -392,7 +392,7 @@ const Seo = props => {
           "description": "Masaki Nishiのポートフォリオ・ブログの利用に関する規約・注意事項です。",
           "image": {
             "@type": "ImageObject",
-            "url": config.siteUrl + config.siteImageOgp,
+            "url": config.siteImageOgp,
             "width": 1200,
             "height": 630
           },
@@ -446,7 +446,7 @@ const Seo = props => {
           "description": "Masaki Nishiのポートフォリオ・ブログのプライバシーポリシーです。",
           "image": {
             "@type": "ImageObject",
-            "url": config.siteUrl + config.siteImageOgp,
+            "url": config.siteImageOgp,
             "width": 1200,
             "height": 630
           },
@@ -500,7 +500,7 @@ const Seo = props => {
           "description": "Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。",
           "image": {
             "@type": "ImageObject",
-            "url": config.siteUrl + config.siteImageOgp,
+            "url": config.siteImageOgp,
             "width": 1200,
             "height": 630
           },
@@ -556,7 +556,7 @@ const Seo = props => {
         {/* General tags */}
         <title>{title}</title>
         <meta name="description" content={description} />
-        <meta name="thumbnail" content={config.siteUrl + config.siteImageOgp} />
+        <meta name="thumbnail" content={config.siteImageOgp} />
         <link rel="canonical" href={config.siteUrl + config.pathPrefix + "/"} />
         {/* Schema.org tags */}
         <script type="application/ld+json">
@@ -566,7 +566,7 @@ const Seo = props => {
         <meta property="og:url" content={config.siteUrl + config.pathPrefix + "/"} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+        <meta property="og:image" content={config.siteImageOgp} />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content={facebook.appId} />
         {/* Twitter Card tags */}
@@ -620,7 +620,7 @@ const Seo = props => {
         {/* General tags */}
         <title>{"過去のお仕事" + " - " + config.shortHomeTitle}</title>
         <meta name="description" content="サンフランシスコ・シリコンバレー在住のソフトウェアエンジニア、Masaki Nishiの過去のお仕事です。" />
-        <meta name="thumbnail" content={config.siteUrl + config.siteImageOgp} />
+        <meta name="thumbnail" content={config.siteImageOgp} />
         <link rel="canonical" href={config.siteUrl + "/work/"} />
         {/* Schema.org tags */}
         <script type="application/ld+json">
@@ -630,7 +630,7 @@ const Seo = props => {
         <meta property="og:url" content={config.siteUrl + "/work/"} />
         <meta property="og:title" content={"過去のお仕事" + " - " + config.shortHomeTitle} />
         <meta property="og:description" content="サンフランシスコ・シリコンバレー在住のソフトウェアエンジニア、Masaki Nishiの過去のお仕事です。" />
-        <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+        <meta property="og:image" content={config.siteImageOgp} />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content={facebook.appId} />
         {/* Twitter Card tags */}
@@ -684,7 +684,7 @@ const Seo = props => {
           {/* General tags */}
           <title>{"プロフィール" + " - " + config.shortHomeTitle}</title>
           <meta name="description" content="Masaki Nishiのプロフィールページです。現在はサンフランシスコ・シリコンバレー地域のベイエリア周辺でソフトウェアエンジニアをしています。" />
-          <meta name="thumbnail" content={config.siteUrl + config.siteImageOgp} />
+          <meta name="thumbnail" content={config.siteImageOgp} />
           <link rel="canonical" href={config.siteUrl + "/about/"} />
           {/* Schema.org tags */}
           <script type="application/ld+json">
@@ -694,7 +694,7 @@ const Seo = props => {
           <meta property="og:url" content={config.siteUrl + "/about/"} />
           <meta property="og:title" content={"プロフィール" + " - " + config.shortHomeTitle} />
           <meta property="og:description" content="Masaki Nishiのプロフィールページです。現在はサンフランシスコ・シリコンバレー地域のベイエリア周辺でソフトウェアエンジニアをしています。" />
-          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+          <meta property="og:image" content={config.siteImageOgp} />
           <meta property="og:type" content="website" />
           <meta property="fb:app_id" content={facebook.appId} />
           {/* Twitter Card tags */}
@@ -716,7 +716,7 @@ const Seo = props => {
           {/* General tags */}
           <title>{"利用規約" + " - " + config.shortHomeTitle}</title>
           <meta name="description" content="Masaki Nishiのポートフォリオ・ブログの利用に関する規約・注意事項です。" />
-          <meta name="thumbnail" content={config.siteUrl + config.siteImageOgp} />
+          <meta name="thumbnail" content={config.siteImageOgp} />
           <link rel="canonical" href={config.siteUrl + "/user-terms/"} />
           {/* Schema.org tags */}
           <script type="application/ld+json">
@@ -726,7 +726,7 @@ const Seo = props => {
           <meta property="og:url" content={config.siteUrl + "/user-terms/"} />
           <meta property="og:title" content={"利用規約" + " - " + config.shortHomeTitle} />
           <meta property="og:description" content="Masaki Nishiのポートフォリオ・ブログの利用に関する規約・注意事項です。" />
-          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+          <meta property="og:image" content={config.siteImageOgp} />
           <meta property="og:type" content="website" />
           <meta property="fb:app_id" content={facebook.appId} />
           {/* Twitter Card tags */}
@@ -748,7 +748,7 @@ const Seo = props => {
           {/* General tags */}
           <title>{"プライバシーポリシー" + " - " + config.shortHomeTitle}</title>
           <meta name="description" content="Masaki Nishiのポートフォリオ・ブログのプライバシーポリシーです。" />
-          <meta name="thumbnail" content={config.siteUrl + config.siteImageOgp} />
+          <meta name="thumbnail" content={config.siteImageOgp} />
           <link rel="canonical" href={config.siteUrl + "/privacy-policy/"} />
           {/* Schema.org tags */}
           <script type="application/ld+json">
@@ -758,7 +758,7 @@ const Seo = props => {
           <meta property="og:url" content={config.siteUrl + "/privacy-policy/"} />
           <meta property="og:title" content={"プライバシーポリシー" + " - " + config.shortHomeTitle} />
           <meta property="og:description" content="Masaki Nishiのポートフォリオ・ブログのプライバシーポリシーです。" />
-          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+          <meta property="og:image" content={config.siteImageOgp} />
           <meta property="og:type" content="website" />
           <meta property="fb:app_id" content={facebook.appId} />
           {/* Twitter Card tags */}
@@ -780,7 +780,7 @@ const Seo = props => {
           {/* General tags */}
           <title>お問い合わせ完了しました。</title>
           <meta name="description" content="Masaki Nishiへのお問い合わせ完了ページ。" />
-          <meta name="thumbnail" content={config.siteUrl + config.siteImageOgp} />
+          <meta name="thumbnail" content={config.siteImageOgp} />
           <link rel="canonical" href={config.siteUrl + "/success/"} />
           {/* Schema.org tags */}
           <script type="application/ld+json">
@@ -790,7 +790,7 @@ const Seo = props => {
           <meta property="og:url" content={config.siteUrl + "/success/"} />
           <meta property="og:title" content="お問い合わせ完了ページ" />
           <meta property="og:description" content="Masaki Nishiへのお問い合わせ完了ページ。" />
-          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+          <meta property="og:image" content={config.siteImageOgp} />
           <meta property="og:type" content="article" />
           <meta property="fb:app_id" content="0" />
           {/* robots */}
@@ -814,7 +814,7 @@ const Seo = props => {
           {/* General tags */}
           <title>お問い合わせ</title>
           <meta name="description" content="Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。" />
-          <meta name="thumbnail" content={config.siteUrl + config.siteImageOgp} />
+          <meta name="thumbnail" content={config.siteImageOgp} />
           <link rel="canonical" href={config.siteUrl + "/contact/"} />
           {/* Schema.org tags */}
           <script type="application/ld+json">
@@ -824,7 +824,7 @@ const Seo = props => {
           <meta property="og:url" content={config.siteUrl + "/contact/"} />
           <meta property="og:title" content="お問い合わせ" />
           <meta property="og:description" content="Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。" />
-          <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+          <meta property="og:image" content={config.siteImageOgp} />
           <meta property="og:type" content="article" />
           <meta property="fb:app_id" content="0" />
           {/* Twitter Card tags */}
@@ -846,7 +846,7 @@ const Seo = props => {
         {/* General tags */}
         <title>{config.siteHomeTitle}</title>
         <meta name="description" content={config.siteHomeDescription} />
-        <meta name="thumbnail" content={config.siteUrl + config.siteImageOgp} />
+        <meta name="thumbnail" content={config.siteImageOgp} />
         <link rel="canonical" href={config.siteUrl} />
         {/* Schema.org tags */}
         <script type="application/ld+json">
@@ -856,7 +856,7 @@ const Seo = props => {
         <meta property="og:url" content={config.siteUrl} />
         <meta property="og:title" content={config.siteHomeTitle} />
         <meta property="og:description" content={config.siteHomeDescription} />
-        <meta property="og:image" content={config.siteUrl + config.siteImageOgp} />
+        <meta property="og:image" content={config.siteImageOgp} />
         <meta property="og:type" content="website" />
         <meta property="fb:app_id" content={facebook.appId} />
         {/* Twitter Card tags */}

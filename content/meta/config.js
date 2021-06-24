@@ -9,8 +9,8 @@ module.exports = {
   siteDescription: "サンフランシスコ・シリコンバレー在住の筆者がプログラミング技術を中心に、テクノロジー情報やウェブマーケティング分野、海外情報など幅広く発信しています。",
   siteUrl: "https://masakinishi.com",
   pathPrefix: "/blog",
-  siteImage: "/ogp/profile.png",
-  siteImageOgp: "/ogp/profile.png",
+  siteImage: "https://img.masakinishi.com/uploads/20200215011545/profile.jpg",
+  siteImageOgp: "https://img.masakinishi.com/uploads/20200215011545/profile.jpg",
   siteLanguage: "ja",
   // author
   authorName: "Masaki Nishi",
