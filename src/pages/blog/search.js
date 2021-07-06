@@ -102,7 +102,7 @@ const SearchPage = props => {
         <meta property="og:type" content="article" />
         <meta property="fb:app_id" content="0" />
         {/* Twitter Card tags */}
-        <meta name="twitter:card" content="summarylargeimage" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:site"
           content={config.authorTwitterAccount ? config.authorTwitterAccount : ""}
