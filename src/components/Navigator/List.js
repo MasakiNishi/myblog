@@ -127,7 +127,6 @@ class List extends React.Component {
   render() {
     const {
       classes,
-      posts,
       wpposts,
       linkOnClick,
       expandOnClick,
@@ -157,7 +156,6 @@ class List extends React.Component {
                     style={ isBlog && { marginTop:0 } || { marginTop:`${this.state.hidden ? "5rem" : 0 }` } }
                   >
                     { isBlog && <h1>Blog</h1> }
-                    {posts && posts.map((post, i) => ( <ListItem key={i} post={post} linkOnClick={linkOnClick} categoryFilter={categoryFilter} location={this.props.location} />))}
                     {wpposts && wpposts.map((wppost, i) => ( <ListItem key={i} post={wppost} linkOnClick={linkOnClick} categoryFilter={categoryFilter} location={this.props.location} />))}
                   </ul>
             </div>
@@ -169,7 +167,6 @@ class List extends React.Component {
 
 List.propTypes = {
   classes: PropTypes.object.isRequired,
-  posts: PropTypes.array.isRequired,
   wpposts: PropTypes.array.isRequired,
   linkOnClick: PropTypes.func.isRequired,
   expandOnClick: PropTypes.func.isRequired,

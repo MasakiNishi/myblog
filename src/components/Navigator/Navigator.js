@@ -127,7 +127,7 @@ class Navigator extends React.Component {
   };
 
   render() {
-    const { classes, posts, wpposts, navigatorPosition, navigatorShape, categoryFilter, location } = this.props;
+    const { classes, wpposts, navigatorPosition, navigatorShape, categoryFilter, location } = this.props;
 
       return (
           <nav
@@ -137,7 +137,7 @@ class Navigator extends React.Component {
           >
             {this.props.wpposts.length && (
               <List
-                posts={posts} wpposts={wpposts}
+                wpposts={wpposts}
                 navigatorPosition={navigatorPosition}
                 navigatorShape={navigatorShape}
                 linkOnClick={this.linkOnClick}
@@ -153,7 +153,6 @@ class Navigator extends React.Component {
 }
 
 Navigator.propTypes = {
-  posts: PropTypes.array.isRequired,
   wpposts: PropTypes.array.isRequired,
   classes: PropTypes.object.isRequired,
   navigatorPosition: PropTypes.string.isRequired,

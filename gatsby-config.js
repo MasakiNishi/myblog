@@ -53,11 +53,7 @@ const query = `{
 const queries = [
   {
     query,
-    transformer: ({ data }) => data.allWordpressPost.edges.map(({ node }) => node)
-  },
-  {
-    query,
-    transformer: ({ data }) => data.allWordpressPage.edges.map(({ node }) => node)
+    transformer: ({ data }) => data.allWordpressPost.edges.map(({ node }) => node),
   }
 ];
 
