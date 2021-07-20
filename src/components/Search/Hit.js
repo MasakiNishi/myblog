@@ -3,6 +3,9 @@ import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 import Link from "gatsby-link";
 
+
+import config from "../../../content/meta/config";
+
 const styles = theme => ({
   link: {
     padding: ".5em 0 1em 1em",
@@ -30,8 +33,10 @@ const styles = theme => ({
 const Hit = props => {
   const { classes, hit } = props;
 
+  const hitSlug = config.pathPrefix + "/" + hit.slug + "/";
+
   return (
-    <Link to={hit.slug} className={classes.link}>
+    <Link to={hitSlug} className={classes.link}>
       {hit.title}
       {hit.acf.subtitle && <span>{hit.acf.subtitle}</span>}
     </Link>

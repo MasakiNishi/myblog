@@ -27,33 +27,14 @@ const query = `{
       }
     }
   }
-  allWordpressPage( sort: { fields: [date], order: DESC } ) {
-    edges {
-      node {
-        slug
-        date(formatString: "YYYY-MM-DD")
-        modified(formatString: "YYYY-MM-DD")
-        title
-        acf {
-          description
-        }
-        featured_media {
-          source_url
-        }
-        featured_media_size_src {
-          thumbnail
-          medium
-          large
-        }
-      }
-    }
-  }
 }`;
 
+const settings = { attributesToSnippet: [`excerpt:10`] }
 const queries = [
   {
     query,
     transformer: ({ data }) => data.allWordpressPost.edges.map(({ node }) => node),
+    settings,
   }
 ];
 
