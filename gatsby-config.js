@@ -7,6 +7,7 @@ const query = `{
       node {
         excerpt
         slug
+        objectID: id
         date(formatString: "YYYY-MM-DD")
         modified(formatString: "YYYY-MM-DD")
         title
