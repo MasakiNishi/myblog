@@ -86,7 +86,7 @@ const SearchPage = props => {
         }}
       >
         {/* General tags */}
-        <title>{"ブログ内検索" + " - " + config.shortHomeTitle}</title>
+        <title>{"ブログ内検索" + " - " + config.siteTitle}</title>
         <meta name="description" content="海外エンジニアブログのサイト内検索ページです。Masaki Nishiの過去の執筆記事を検索できます。" />
         <meta name="thumbnail" content={config.siteImageOgp} />
         <link rel="canonical" href={config.siteUrl + config.pathPrefix + "/search/"} />
