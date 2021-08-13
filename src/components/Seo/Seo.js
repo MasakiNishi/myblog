@@ -84,8 +84,9 @@ const Seo = props => {
           },
           "sameAs": [
             config.twitterLink,
-            config.FacebookLink,
-            config.InstagramLink
+            config.facebookLink,
+            config.instagramLink,
+            config.youtubeLink
           ]
         }
       );

@@ -31,9 +31,11 @@ module.exports = {
   authorSocialLinks: [
     { name: "Twitter", url: "https://twitter.com/masakinishi_com" },
     { name: "Facebook", url: "https://www.facebook.com/masakinishicom/" },
+    { name: "Youtube", url: "https://www.youtube.com/channel/UCWoNNfvgSMWG93nYFfGH4EA" },
     // { name: "Instagram", url: "https://www.instagram.com/masakinishi_com/" }
   ],
   twitterLink: "https://twitter.com/masakinishi_com",
-  FacebookLink: "https://www.facebook.com/masakinishicom/",
-  // InstagramLink: "https://www.instagram.com/masakinishi_com/",
+  facebookLink: "https://www.facebook.com/masakinishicom/",
+  instagramLink: "https://www.instagram.com/masakinishi_com/",
+  youtubeLink: "https://www.youtube.com/channel/UCWoNNfvgSMWG93nYFfGH4EA",
 };

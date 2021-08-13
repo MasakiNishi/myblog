@@ -6,6 +6,7 @@ import config from "../../../content/meta/config";
 
 import { ReactComponent as FacebookIcon } from "../../images/svg-icons/facebook.svg";
 import { ReactComponent as TwitterIcon } from "../../images/svg-icons/twitter.svg";
+import { ReactComponent as YoutubeIcon } from "../../images/svg-icons/youtube.svg";
 import { ReactComponent as InstaIcon } from "../../images/svg-icons/instagram.svg";
 
 const styles = theme => ({
@@ -88,9 +89,9 @@ const StackIcons = props => {
   const items = config.authorSocialLinks;
   const icons = {
     Twitter: TwitterIcon,
-    Facebook: FacebookIcon
+    Facebook: FacebookIcon,
+    Youtube: YoutubeIcon
   };
-  const instaUrl = 'https://www.instagram.com/masakinishi_com/';
 
   return (
     <div className={classes.stack}>
@@ -112,7 +113,7 @@ const StackIcons = props => {
           );
         })}
         <a
-          href={instaUrl}
+          href={config.instagramLink}
           className={classes.InstaButton}
           target="_blank"
           rel="noopener noreferrer"

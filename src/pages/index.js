@@ -17,6 +17,7 @@ import Footer from "../components/Footer/";
 import config from "../../content/meta/config";
 import { ReactComponent as FacebookIcon } from "../images/svg-icons/facebook.svg";
 import { ReactComponent as TwitterIcon } from "../images/svg-icons/twitter.svg";
+import { ReactComponent as YoutubeIcon } from "../images/svg-icons/youtube.svg";
 import { ReactComponent as InstaIcon } from "../images/svg-icons/instagram.svg";
 
 const styles = theme => ({
@@ -117,6 +118,13 @@ const styles = theme => ({
           height: "40px",
           fill: theme.info.colors.facebookIconsHover
         }
+      },
+      "& .Youtube": {
+        "& svg": {
+          width: "40px",
+          height: "40px",
+          margin: "0 10px"
+        }
       }
     }
   },
@@ -169,9 +177,9 @@ class Index extends React.Component {
     const items = config.authorSocialLinks;
     const icons = {
       Twitter: TwitterIcon,
-      Facebook: FacebookIcon
+      Facebook: FacebookIcon,
+      Youtube: YoutubeIcon
     };
-    const instaUrl = 'https://www.instagram.com/masakinishi_com/';
 
     return (
         <Main>
@@ -206,7 +214,7 @@ class Index extends React.Component {
                     );
                   })}
                   <a
-                    href={instaUrl}
+                    href={config.instagramLink}
                     className={classes.InstaButton}
                     target="_blank"
                     rel="noopener noreferrer"
