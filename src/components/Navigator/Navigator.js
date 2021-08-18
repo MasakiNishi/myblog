@@ -23,7 +23,8 @@ const styles = theme => ({
     animationDuration: ".5s",
     width: "100%",
     "&.none": {
-      display: "none"
+      visibility: "hidden",
+      zIndex: "-1",
     },
     [`@media (max-width: ${theme.mediaQueryTresholds.L - 1}px)`]: {
       "&.is-aside": {

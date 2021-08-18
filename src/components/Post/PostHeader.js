@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
 
+import LazyLoad from "react-lazyload";
+
 const styles = theme => ({
   header: {
     margin: "0 0 3em",
@@ -107,32 +109,36 @@ const PostHeader = props => {
         }
       </ul>
       { isEmptyWpCover ||
-        <a className="gatsby-resp-image-link" href={wpCover} target="_blank">
-          <source
-            className="alignnone size-full"
-            type="image/webp"
-            alt={title}
-            srcSet={`
-            ${wpCoverMedium  + ".webp"} 425w,
-            ${wpCoverLarge + ".webp"} 768w,
-            ${wpCover + ".webp"} 1024w
-            `}
-            sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"
-          />
-          <img
-            className="alignnone size-full"
-            src={wpCover}
-            width="1200"
-            height="630"
-            alt={title}
-            srcSet={`
-            ${wpCoverMedium} 425w,
-            ${wpCoverLarge} 768w,
-            ${wpCover} 1024w
-            `}
-            sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"
-          />
-        </a>
+        <LazyLoad height={60} overflow={true} throttle={300} once={true} offset={100}>
+          <a className="gatsby-resp-image-link" href={wpCover} target="_blank">
+            <picture>
+              <source
+                className="alignnone size-full"
+                type="image/webp"
+                alt={title}
+                srcSet={`
+                ${wpCoverMedium  + ".webp"} 425w,
+                ${wpCoverLarge + ".webp"} 768w,
+                ${wpCover + ".webp"} 1024w
+                `}
+                sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"
+              />
+              <img
+                className="alignnone size-full"
+                src={wpCover}
+                width="1200"
+                height="630"
+                alt={title}
+                srcSet={`
+                ${wpCoverMedium} 425w,
+                ${wpCoverLarge} 768w,
+                ${wpCover} 1024w
+                `}
+                sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px"
+              />
+            </picture>
+          </a>
+        </LazyLoad>
       }
     </header>
   );
