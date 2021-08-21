@@ -25,6 +25,8 @@ const styles = theme => ({
     "&.none": {
       visibility: "hidden",
       zIndex: "-1",
+      transform: "none",
+      opacity: "0"
     },
     [`@media (max-width: ${theme.mediaQueryTresholds.L - 1}px)`]: {
       "&.is-aside": {
