@@ -188,7 +188,7 @@ class ActionsBar extends React.Component {
           )}
         </div>
         <div className={classes.group}>
-          {navigatorPosition === "is-aside" || navigatorShape === "none" && navigatorPosition !== "work" && <FontSetter increaseFont={this.fontSetterOnClick} />}
+          <FontSetter increaseFont={this.fontSetterOnClick} />
           <IconButton aria-label="Back to top" onClick={this.arrowUpOnClick} title="スクロールトップ">
             <ArrowUpwardIcon className={classes.button} />
           </IconButton>
