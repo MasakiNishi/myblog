@@ -3,7 +3,7 @@ const colors = require("../../src/styles/colors");
 module.exports = {
   siteHomeTitle: "Masaki Nishi - Software Engineer",
   shortHomeTitle: "Masaki Nishi",
-  siteHomeDescription: "サンフランシスコ・シリコンバレー在住のソフトウェアエンジニアのポートフォリオ。",
+  siteHomeDescription: "サンフランシスコ・シリコンバレー在住のソフトウェアエンジニアのMasaki Nishiのポートフォリオ。",
   siteTitle: "海外エンジニアブログ - Masaki Nishi", // <title>
   shortSiteTitle: "Masaki Nishi", // <title> ending for posts and pages, not using now
   siteDescription: "サンフランシスコ・シリコンバレー在住の筆者がプログラミング技術を中心に、テクノロジー情報やウェブマーケティング分野、海外情報など幅広く発信しています。",
