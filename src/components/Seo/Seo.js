@@ -813,7 +813,7 @@ const Seo = props => {
           }}
         >
           {/* General tags */}
-          <title>{"" + " - " + config.shortHomeTitle}</title>
+          <title>{"お問い合わせ" + " - " + config.shortHomeTitle}</title>
           <meta name="description" content="Masaki Nishiへのお問い合わせページ。仕事のご依頼やご質問等はこちらのフォームからお願いいたします。" />
           <meta name="thumbnail" content={config.siteImageOgp} />
           <link rel="canonical" href={config.siteUrl + "/contact/"} />
