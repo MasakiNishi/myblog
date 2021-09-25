@@ -34,6 +34,8 @@ title: プロフィール
 
 * [Instagram](https://www.instagram.com/masakinishi_com/)
 
+* [YouTube](https://www.youtube.com/channel/UCWoNNfvgSMWG93nYFfGH4EA)
+
 </div>
 
 ###過去のbtraxブログでの代表執筆記事
