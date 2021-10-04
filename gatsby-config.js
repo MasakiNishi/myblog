@@ -8,22 +8,9 @@ const query = `{
         excerpt
         slug
         objectID: id
-        date(formatString: "YYYY-MM-DD")
-        modified(formatString: "YYYY-MM-DD")
         title
         acf {
           subtitle
-          description
-        }
-        tags { name }
-        categories { name }
-        featured_media {
-          source_url
-        }
-        featured_media_size_src {
-          thumbnail
-          medium
-          large
         }
       }
     }
