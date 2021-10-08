@@ -7,6 +7,9 @@ import asyncComponent from "../common/AsyncComponent/";
 import PostAuthor from "./PostAuthor";
 import PostComments from "./PostComments";
 
+import youtubeBanner from "../../images/jpg/youtube-blog-banner.png";
+import Link from "gatsby-link";
+
 const styles = theme => ({
   footer: {
     color: theme.main.colors.footer,
@@ -15,6 +18,10 @@ const styles = theme => ({
     "& p": {
       margin: 0
     }
+  },
+  youtubeBanner: {
+    width: "100%",
+    marginBottom: "20px"
   }
 });
 
@@ -37,6 +44,9 @@ const PostFollow = asyncComponent(() =>
 const PostFooter = ({ classes, author, post, slug, facebook }) => {
   return (
     <footer className={classes.footer}>
+      <a href="https://www.youtube.com/channel/UCWoNNfvgSMWG93nYFfGH4EA"　target="_blank" rel="noopener" title="Youtubeチャンネル">
+          <img alt="Youtubeチャンネル" src={youtubeBanner} className={classes.youtubeBanner} />
+      </a>
       <PostShare post={post} slug={slug} />
       <PostFollow post={post} slug={slug} facebook={facebook} />
       <PostAuthor author={author} />
