@@ -7,7 +7,7 @@ import asyncComponent from "../common/AsyncComponent/";
 import PostAuthor from "./PostAuthor";
 import PostComments from "./PostComments";
 
-import youtubeBanner from "../../images/jpg/youtube-blog-banner.png";
+import youtubeBanner from "../../images/jpg/youtube-banner.png";
 import Link from "gatsby-link";
 
 const styles = theme => ({
