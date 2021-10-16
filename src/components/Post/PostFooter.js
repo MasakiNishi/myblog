@@ -7,7 +7,7 @@ import asyncComponent from "../common/AsyncComponent/";
 import PostAuthor from "./PostAuthor";
 import PostComments from "./PostComments";
 
-import youtubeBanner from "../../images/jpg/youtubebanner.png";
+import youtubeBanner from "../../images/jpg/youtubeblogbanner.png";
 import Link from "gatsby-link";
 
 const styles = theme => ({
@@ -19,10 +19,20 @@ const styles = theme => ({
       margin: 0
     }
   },
+  gatsbyRespImageLink: {
+    margin: "2em -1rem",
+    border: "none",
+    display: "block",
+    [`@media (min-width: 426px)`]: {
+      margin: "2em -1.5rem",
+    },
+    [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
+      margin: "2.5em -3.5rem"
+    }
+  },
   youtubeBanner: {
-    width: "100%",
-    marginBottom: "20px"
-  }
+    width: "100%"
+  },
 });
 
 const PostShare = asyncComponent(() =>
@@ -44,7 +54,7 @@ const PostFollow = asyncComponent(() =>
 const PostFooter = ({ classes, author, post, slug, facebook }) => {
   return (
     <footer className={classes.footer}>
-      <a href="https://www.youtube.com/channel/UCWoNNfvgSMWG93nYFfGH4EA"　target="_blank" rel="noopener" title="Youtubeチャンネル">
+      <a href="https://www.youtube.com/channel/UCWoNNfvgSMWG93nYFfGH4EA"　target="_blank" rel="noopener" className={classes.gatsbyRespImageLink} title="Youtubeチャンネル">
           <img alt="Youtubeチャンネル" src={youtubeBanner} className={classes.youtubeBanner} />
       </a>
       <PostShare post={post} slug={slug} />
