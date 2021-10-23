@@ -5,7 +5,7 @@ require("core-js/fn/array/find");
 
 import asyncComponent from "../common/AsyncComponent/";
 import PostAuthor from "./PostAuthor";
-import PostComments from "./PostComments";
+// import PostComments from "./PostComments";
 
 import youtubeBanner from "../../images/jpg/youtubeblogbanner.png";
 import Link from "gatsby-link";
@@ -60,7 +60,7 @@ const PostFooter = ({ classes, author, post, slug, facebook }) => {
       <PostShare post={post} slug={slug} />
       <PostFollow post={post} slug={slug} facebook={facebook} />
       <PostAuthor author={author} />
-      <PostComments />
+      {/* <PostComments /> */}
     </footer>
   );
 };

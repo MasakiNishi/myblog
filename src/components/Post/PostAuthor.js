@@ -9,8 +9,9 @@ import avatar from "../../images/jpg/avatar.jpg";
 const styles = theme => ({
   author: {
     margin: "3em 0 0",
-    padding: "3em 0 0",
+    padding: "3em 0 3em",
     borderTop: "1px solid #ddd",
+    borderBottom: "1px solid #ddd",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",

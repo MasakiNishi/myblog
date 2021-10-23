@@ -3,10 +3,10 @@ const colors = require("../../src/styles/colors");
 module.exports = {
   siteHomeTitle: "Masaki Nishi - Software Engineer",
   shortHomeTitle: "Masaki Nishi",
-  siteHomeDescription: "サンフランシスコ・シリコンバレー在住のソフトウェアエンジニアのMasaki Nishiのポートフォリオ。",
+  siteHomeDescription: "大学を2年間休学してサンフランシスコ・シリコンバレーでソフトウェアエンジニアとして働いていたMasaki Nishiのポートフォリオ。現在は帰国後、新卒で外資ITに入社。その後半年でメガベンチャーに転職し、Railsエンジニアをしています。",
   siteTitle: "海外エンジニアブログ - Masaki Nishi", // <title>
   shortSiteTitle: "Masaki Nishi", // <title> ending for posts and pages, not using now
-  siteDescription: "サンフランシスコ・シリコンバレー在住の筆者がプログラミング技術を中心に、テクノロジー情報やウェブマーケティング分野、海外情報など幅広く発信しています。",
+  siteDescription: "元サンフランシスコ・シリコンバレー在住の筆者がプログラミング技術を中心に、テクノロジー情報やウェブマーケティング分野、海外情報など幅広く発信しています。",
   siteUrl: "https://masakinishi.com",
   pathPrefix: "/blog",
   siteImage: "https://img.masakinishi.com/uploads/20200215011545/profile.jpg",
@@ -30,7 +30,7 @@ module.exports = {
   // social
   authorSocialLinks: [
     { name: "Twitter", url: "https://twitter.com/masakinishi_com" },
-    { name: "Facebook", url: "https://www.facebook.com/masakinishicom/" },
+    // { name: "Facebook", url: "https://www.facebook.com/masakinishicom/" },
     { name: "Youtube", url: "https://www.youtube.com/channel/UCWoNNfvgSMWG93nYFfGH4EA" },
     // { name: "Instagram", url: "https://www.instagram.com/masakinishi_com/" }
   ],

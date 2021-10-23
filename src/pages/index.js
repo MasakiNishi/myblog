@@ -177,7 +177,7 @@ class Index extends React.Component {
     const items = config.authorSocialLinks;
     const icons = {
       Twitter: TwitterIcon,
-      Facebook: FacebookIcon,
+      // Facebook: FacebookIcon,
       Youtube: YoutubeIcon
     };
 
@@ -188,7 +188,7 @@ class Index extends React.Component {
             <content className={classes.content}>
               <h1>Who am i?</h1>
               <p>大学を2年間休学し、サンフランシスコ・シリコンバレーを含めたベイエリアでソフトウェアエンジニアとして働いていました。
-              現在は帰国、復学しており経済を学びつつ、サンフランシスコの会社でリモートソフトウェアエンジニア、東証一部上場の大手企業さんのSEOコンサルティングをやらせていただいております。2020年4月からは新卒外資ITとなります。</p>
+              帰国後、外資IT企業に新卒入社するも、わずか半年で転職し、メガベンチャーでエンジニアをしています。</p>
               <p>個人ワークではSEO特化のメディア構築してライターさんを雇って運営しています。最近はJAMStackの概念にはまっており、このブログ兼ポートフォリオを作りました。</p>
               <h2>Know me more?</h2>
               <ul>

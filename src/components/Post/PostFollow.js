@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import injectSheet from "react-jss";
-import FacebookProvider, { Like } from 'react-facebook';
+// import FacebookProvider, { Like } from 'react-facebook';
 import { Follow } from 'react-twitter-widgets';
 import config from "../../../content/meta/config";
 
@@ -101,11 +101,11 @@ class PostFollow extends React.Component {
       <div className={classes.share}>
         <span className={classes.label}>フォロー</span>
         <div className={classes.links}>
-          <div className={classes.followbutton}>
+          {/* <div className={classes.followbutton}>
             <FacebookProvider appId={facebook}>
               <Like href={config.facebookLink} colorScheme="dark" layout="button_count" size="large"/>
             </FacebookProvider>
-          </div>
+          </div> */}
           <div className={classes.followbutton}>
             <a
               href={config.instagramLink}
