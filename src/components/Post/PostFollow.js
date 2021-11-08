@@ -101,11 +101,6 @@ class PostFollow extends React.Component {
       <div className={classes.share}>
         <span className={classes.label}>フォロー</span>
         <div className={classes.links}>
-          {/* <div className={classes.followbutton}>
-            <FacebookProvider appId={facebook}>
-              <Like href={config.facebookLink} colorScheme="dark" layout="button_count" size="large"/>
-            </FacebookProvider>
-          </div> */}
           <div className={classes.followbutton}>
             <a
               href={config.instagramLink}
