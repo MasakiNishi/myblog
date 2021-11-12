@@ -35,6 +35,7 @@
     "webpack-bundle-analyzer": "^2.12.0"
   },
   "dependencies": {
+    "@babel/runtime": "^7.12.5",
     "color": "^3.0.0",
     "disqus-react": "^1.0.5",
     "gatsby": "^1.9.269",
