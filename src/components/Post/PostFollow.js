@@ -101,6 +101,12 @@ class PostFollow extends React.Component {
       <div className={classes.share}>
         <span className={classes.label}>フォロー</span>
         <div className={classes.links}>
+          <div className={classes.followbutton}>
+            <Follow
+              username={twitterAccount}
+              options={{size:"large"}}
+            />
+          </div>
           {/* <div className={classes.followbutton}>
             <FacebookProvider appId={facebook}>
               <Like href={config.facebookLink} colorScheme="dark" layout="button_count" size="large"/>
@@ -131,12 +137,6 @@ class PostFollow extends React.Component {
                 width='71'
                 height='28' />
             </a>
-          </div>
-          <div className={classes.followbutton}>
-            <Follow
-              username={twitterAccount}
-              options={{size:"large"}}
-            />
           </div>
         </div>
       </div>
