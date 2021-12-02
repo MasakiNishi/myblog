@@ -144,6 +144,9 @@ const styles = theme => ({
     "& .size-large, & .size-full": {
       width: '100%',
       height: '100%'
+    },
+    "& iframe": {
+      width: '100%'
     }
   }
 });
