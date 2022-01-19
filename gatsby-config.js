@@ -79,8 +79,8 @@ module.exports = {
         useACF: true,
         acfOptionPageIds: [],
         auth: {
-          htaccess_user: `n24mfs`,
-          htaccess_pass: `24masaki`,
+          htaccess_user: process.env.WP_HTACCESS_USER,
+          htaccess_pass: process.env.WP_HTACCESS_PASS,
           htaccess_sendImmediately: false
         },
         verboseOutput: false,
