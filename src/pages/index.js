@@ -187,8 +187,8 @@ class Index extends React.Component {
           <Article>
             <content className={classes.content}>
               <h1>Who am i?</h1>
-              <p>大学を2年間休学してサンフランシスコ・シリコンバレーを拠点にソフトウェアエンジアインターンの後、外資IT企業に新卒入社するも半年で転職。
-                メガベンチャーでSREに従事後、現在はAmazon Web Servicesで働いています。</p>
+              <p>大学を2年休学し、サンフランシスコ・シリコンバレーを拠点にエンジニアインターンの後、外資ITに新卒入社するも半年で転職。
+                その後、メガベンチャーに転職しSREに従事。現在はAmazon Web Servicesで働いています。</p>
               <h2>Know me more?</h2>
               <ul>
                 <li><a href="/about/">詳細プロフィール</a></li>
