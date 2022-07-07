@@ -10,7 +10,7 @@ title: プロフィール
 
 2年後、インターンを終えて帰国し、大学4年次として復学。経済を学びつつ、btraxでリモートソフトウェアエンジニア、[株式会社オカムラ](https://www.okamura.co.jp/)が運営する「[WORK MILL](https://workmill.jp/)」というメディアのSEOコンサルティングをやらせていただきました。
 
-その後、2020年4月から新卒で外資IT企業に入社するも半年で退職し、メガベンチャーに転職。RailsエンジニアとしてSite Reliability Engineeringを行っています。
+その後、2020年4月から新卒でIBMグループに入社するも半年で退職し、楽天グループに転職し、Site Reliability Engineeringに従事。現在はAmazon Web Servicesで働いています。
 
 マーケティング50%（主にSEO）、デベロップメント50%くらいの仕事が得意です。詳しいお仕事に関しては[Works](/work/)をご確認ください。
 
@@ -64,6 +64,6 @@ NewsPicsからの記事に対する嬉しいコメント。
 
 ##近い将来の予定
 
-これからの予定ですが、アメリカの大学院へ進学する計画を立てています。そのための勉強を現在進行形で行っているので、詳しくは[YouTube](https://www.youtube.com/channel/UCWoNNfvgSMWG93nYFfGH4EA)まで。
+現在オレゴン州立大学にてコンピュータサイエンスを学んでいるので、近いうちに第2学士号を取得予定です、詳しくは「[オレゴン州立大学のコンピュータサイエンス第2学士号オンラインプログラムに合格するまで](https://masakinishi.com/blog/got-accepted-into-osu-cs-post-bacc-online-program/)」の記事をご覧ください。
 
 お仕事の依頼や質問は[お問い合わせ](/contact/)からお願いいたします。
