@@ -14,7 +14,7 @@ module.exports = {
   siteLanguage: "ja",
   // author
   authorName: "Masaki Nishi",
-  authorTwitterAccount: "masakinishi_com",
+  authorTwitterAccount: "ni_5h1",
   // info
   infoTitle: "Masaki Nishi",
   infoTitleNote: "ソフトウェアエンジニア",
@@ -29,13 +29,13 @@ module.exports = {
   contactEmail: "info@masakinishi.com",
   // social
   authorSocialLinks: [
-    { name: "Twitter", url: "https://twitter.com/masakinishi_com" },
+    { name: "Twitter", url: "https://twitter.com/ni_5h1" },
     // { name: "Facebook", url: "https://www.facebook.com/masakinishicom/" },
     { name: "Youtube", url: "https://www.youtube.com/channel/UCWoNNfvgSMWG93nYFfGH4EA" },
-    // { name: "Instagram", url: "https://www.instagram.com/masakinishi_com/" }
+    // { name: "Instagram", url: "https://www.instagram.com/ni_5h1/" }
   ],
-  twitterLink: "https://twitter.com/masakinishi_com",
+  twitterLink: "https://twitter.com/ni_5h1",
   facebookLink: "https://www.facebook.com/masakinishicom/",
-  instagramLink: "https://www.instagram.com/masakinishi_com/",
+  instagramLink: "https://www.instagram.com/ni_5h1/",
   youtubeLink: "https://www.youtube.com/channel/UCWoNNfvgSMWG93nYFfGH4EA",
 };

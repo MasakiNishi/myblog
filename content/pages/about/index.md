@@ -24,9 +24,9 @@ title: プロフィール
 
 <div class="box">
 
-* [Masaki Nishi＠エンジニア (@masakinishi_com) | Twitter](https://twitter.com/masakinishi_com/)
+* [Masaki Nishi＠エンジニア (@ni_5h1) | Twitter](https://twitter.com/ni_5h1/)
 
-* [Instagram](https://www.instagram.com/masakinishi_com/)
+* [Instagram](https://www.instagram.com/ni_5h1/)
 
 * [YouTube](https://www.youtube.com/channel/UCWoNNfvgSMWG93nYFfGH4EA)
 

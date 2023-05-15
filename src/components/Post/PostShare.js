@@ -67,7 +67,7 @@ class PostShare extends React.Component {
     const iconSize = 36;
     const filter = count => (count > 0 ? count : "");
 
-    const twitterAccount = "masakinishi_com";
+    const twitterAccount = "ni_5h1";
 
     return (
       <div className={classes.share}>
