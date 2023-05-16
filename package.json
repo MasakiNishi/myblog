@@ -5,6 +5,8 @@
   "repository": "https://github.com/MasakiNishi/myblog",
   "version": "1.0.7",
   "license": "MIT",
+  "packageManager": "npm@6.4.1",
+  "//": "node@10.13.0",
   "scripts": {
     "develop": "gatsby develop",
     "develop-host": "gatsby develop --host 192.168.0.112",
