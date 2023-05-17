@@ -104,7 +104,7 @@ class PostFollow extends React.Component {
           <div className={classes.followbutton}>
             <Follow
               username={twitterAccount}
-              options={{size:"large"}}
+              options={{showScreenName: true, showCount: true, size:"large"}}
             />
           </div>
           {/* <div className={classes.followbutton}>

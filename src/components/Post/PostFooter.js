@@ -54,9 +54,9 @@ const PostFollow = asyncComponent(() =>
 const PostFooter = ({ classes, author, post, slug, facebook }) => {
   return (
     <footer className={classes.footer}>
-      <a href="https://www.youtube.com/channel/UCWoNNfvgSMWG93nYFfGH4EA"　target="_blank" rel="noopener" className={classes.gatsbyRespImageLink} title="Youtubeチャンネル">
+      {/* <a href="https://www.youtube.com/@ni_5h1"　target="_blank" rel="noopener" className={classes.gatsbyRespImageLink} title="Youtubeチャンネル">
           <img alt="Youtubeチャンネル" src={youtubeBanner} className={classes.youtubeBanner} />
-      </a>
+      </a> */}
       <PostShare post={post} slug={slug} />
       <PostFollow post={post} slug={slug} facebook={facebook} />
       <PostAuthor author={author} />
