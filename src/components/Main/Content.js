@@ -47,7 +47,10 @@ const styles = theme => ({
         padding: "1.5em 1em"
       },
       "& p": {
+          margin: "0 0 1.5em 0",
+        "&:last-child": {
           margin: "0 0 0 0"
+        }
       },
       "& ul": {
         margin: "0 0 0 0",
