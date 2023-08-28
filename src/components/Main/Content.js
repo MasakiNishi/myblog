@@ -138,6 +138,21 @@ const styles = theme => ({
         bottom: "-5px"
       }
     },
+    "& table": {
+      width: "100%",
+      height: "auto",
+      textAlign: "center",
+      border: "1px solid #dedede",
+      margin: "0 0 1.5em 0",
+      borderSpacing: "0",
+      borderCollapse: "collapse",
+      "& thead": {
+        backgroundColor: "#f9fafb"
+      },
+      "& th, & td": {
+        border: "1px solid #dedede"
+      }
+    },
     [`@media (min-width: ${theme.mediaQueryTresholds.M}px)`]: {
       fontSize: `${theme.main.fonts.content.sizeM}em`
     },
