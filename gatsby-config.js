@@ -17,12 +17,12 @@ const query = `{
   }
 }`;
 
-const settings = { attributesToSnippet: [`excerpt:10`] }
+const settings = { attributesToSnippet: [`excerpt:10`] };
 const queries = [
   {
     query,
     transformer: ({ data }) => data.allWordpressPost.edges.map(({ node }) => node),
-    settings,
+    settings
   }
 ];
 
@@ -85,10 +85,6 @@ module.exports = {
         },
         verboseOutput: false,
         perPage: 100,
-        searchAndReplaceContentUrls: {
-          sourceUrl: `https://wp.masakinishi.com`,
-          replacementUrl: `http://localhost:8000`
-        },
         concurrentRequests: 10,
         includedRoutes: [
           `/*/*/categories`,
@@ -102,7 +98,7 @@ module.exports = {
         excludedRoutes: [],
         normalizer: function({ entities }) {
           return entities;
-        },
+        }
       }
     },
     {
@@ -219,8 +215,18 @@ module.exports = {
               return allWordpressPost.edges.map(edge => {
                 return Object.assign({}, edge.node, {
                   description: edge.node.excerpt,
-                  url: site.siteMetadata.siteUrl + site.siteMetadata.pathPrefix + "/" + edge.node.slug + "/",
-                  guid: site.siteMetadata.siteUrl + site.siteMetadata.pathPrefix + "/" + edge.node.slug + "/",
+                  url:
+                    site.siteMetadata.siteUrl +
+                    site.siteMetadata.pathPrefix +
+                    "/" +
+                    edge.node.slug +
+                    "/",
+                  guid:
+                    site.siteMetadata.siteUrl +
+                    site.siteMetadata.pathPrefix +
+                    "/" +
+                    edge.node.slug +
+                    "/",
                   custom_elements: [{ "content:encoded": edge.node.content }]
                 });
               });
@@ -261,7 +267,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        output: '/sitemap.xml',
+        output: "/sitemap.xml",
         exclude: ["/success/"]
       }
     },
